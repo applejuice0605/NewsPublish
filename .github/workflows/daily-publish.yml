@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     steps:
       - uses: actions/checkout@v4
 
@@ -46,15 +47,15 @@ jobs:
           python -c "import yaml,pathlib; p=pathlib.Path('TrendRadar/config/config.yaml'); d=yaml.safe_load(p.read_text(encoding='utf-8')) or {}; d.setdefault('notification',{}).setdefault('push_window',{}); d.setdefault('report',{})['mode']='current'; d['notification']['feishu_message_type']='post'; d['notification']['feishu_section_separator']='━━━━━━━━━━━━━━━━━━━'; d['notification']['feishu_item_bullet']='📌'; d['notification']['feishu_new_icon']='🆕'; d['notification']['push_window']['enabled']=False; d['notification']['push_window']['once_per_day']=True; p.write_text(yaml.dump(d,allow_unicode=True),encoding='utf-8')"
 
       - name: Run TrendRadar and push Feishu
+        working-directory: TrendRadar
         env:
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
           ENABLE_NOTIFICATION: 'true'
           PUSH_WINDOW_ENABLED: 'false'
           PUSH_WINDOW_ONCE_PER_DAY: 'true'
           PUBLIC_REPORT_URL: ${{ secrets.PUBLIC_REPORT_URL }}
-          CONFIG_PATH: 'TrendRadar/config/config.yaml'
         run: |
-          python TrendRadar/main.py
+          python main.py
 
       - name: Publish report to docs/reports
         run: |
