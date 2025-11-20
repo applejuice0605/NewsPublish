@@ -2,7 +2,7 @@ name: Daily Publish And Feishu Push
 
 on:
   schedule:
-    - cron: '30 9 * * *'   # UTC 09:30 = 北京时间 17:30
+    - cron: '30 9 * * *'
   workflow_dispatch:
 
 env:
@@ -30,13 +30,12 @@ jobs:
           if [ -z "$REPO" ]; then REPO="sansan0/TrendRadar"; fi
           git clone --depth 1 https://github.com/$REPO TrendRadar
           if [ -n "$REF" ]; then
-            cd TrendRadar && git fetch --depth 1 origin $REF && git checkout $REF && cd ..
+            cd TrendRadar && git fetch --depth 1 origin "$REF" && git checkout "$REF" && cd ..
           fi
 
       - name: Ensure config and frequency words exist
         run: |
           mkdir -p TrendRadar/config
-          # 下载默认配置（若不可用则写入最小配置）
           if [ ! -f TrendRadar/config/config.yaml ]; then
             curl -fsSL https://raw.githubusercontent.com/sansan0/TrendRadar/master/TrendRadar/config/config.yaml -o TrendRadar/config/config.yaml || true
           fi
@@ -62,11 +61,9 @@ notification:
 platforms: []
 YAML
           fi
-          # 下载频率词
           if [ ! -f TrendRadar/config/frequency_words.txt ]; then
             curl -fsSL https://raw.githubusercontent.com/sansan0/TrendRadar/master/TrendRadar/config/frequency_words.txt -o TrendRadar/config/frequency_words.txt || true
           fi
-          # 若下载失败则写入基础关键词
           if [ ! -s TrendRadar/config/frequency_words.txt ]; then
             printf "AI\n人工智能\nAIGC\n大模型\nLLM\n" > TrendRadar/config/frequency_words.txt
           fi
@@ -83,7 +80,6 @@ YAML
           p = pathlib.Path('TrendRadar/config/config.yaml')
           data = yaml.safe_load(p.read_text(encoding='utf-8'))
           data.setdefault('notification', {}).setdefault('push_window', {})
-          # 使用 current + incremental 合并推送（有增量双段，无增量仅当前榜单）
           data['report']['mode'] = 'current'
           data['notification']['feishu_message_type'] = 'post'
           data['notification']['feishu_section_separator'] = '━━━━━━━━━━━━━━━━━━━'
@@ -136,6 +132,6 @@ YAML
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/index.html docs/reports/*.html .github/workflows/daily-publish.yml
-          git commit -m "Publish report & run Feishu push at $(date +'%Y-%m-%d %H:%M:%S %Z')" || echo "No changes to commit"
+          git add docs/index.html docs/reports/*.html
+          git commit -m "Publish report at $(date +'%Y-%m-%d %H:%M:%S %Z')" || echo "No changes"
           git push
