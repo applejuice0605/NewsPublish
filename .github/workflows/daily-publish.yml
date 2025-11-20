@@ -1,1 +1,101 @@
-﻿
+﻿name: Daily Publish And Feishu Push
+on:
+  schedule:
+    - cron: '30 9 * * *'   # UTC 09:30 = 北京时间 17:30
+  workflow_dispatch:
+
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Pages repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Clone TrendRadar
+        run: |
+          REPO="${{ secrets.TRENDRADAR_REPO }}"
+          REF="${{ secrets.TRENDRADAR_REF }}"
+          if [ -z "$REPO" ]; then REPO="sansan0/TrendRadar"; fi
+          git clone --depth 1 https://github.com/$REPO TrendRadar
+          if [ -n "$REF" ]; then
+            cd TrendRadar && git fetch --depth 1 origin $REF && git checkout $REF && cd ..
+          fi
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r TrendRadar/requirements.txt
+
+      - name: Prepare config overrides
+        run: |
+          python - <<'PY'
+          import yaml, pathlib
+          p = pathlib.Path('TrendRadar/config/config.yaml')
+          data = yaml.safe_load(p.read_text(encoding='utf-8'))
+          data.setdefault('notification', {}).setdefault('push_window', {})
+          data['report']['mode'] = 'current'
+          data['notification']['combine_current_incremental'] = True
+          data['notification']['feishu_message_type'] = 'post'
+          data['notification']['feishu_section_separator'] = '━━━━━━━━━━━━━━━━━━━'
+          data['notification']['feishu_item_bullet'] = '📌'
+          data['notification']['feishu_new_icon'] = '🆕'
+          data['notification']['push_window']['enabled'] = False
+          data['notification']['push_window']['once_per_day'] = True
+          p.write_text(yaml.dump(data, allow_unicode=True), encoding='utf-8')
+          PY
+
+      - name: Run TrendRadar and push Feishu
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          ENABLE_NOTIFICATION: 'true'
+          PUSH_WINDOW_ENABLED: 'false'
+          PUSH_WINDOW_ONCE_PER_DAY: 'true'
+          PUBLIC_REPORT_URL: ${{ secrets.PUBLIC_REPORT_URL }}
+        run: |
+          python TrendRadar/main.py
+
+      - name: Publish report to docs/reports
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          mkdir -p docs/reports
+          REPORT=$(find TrendRadar/output -type f -name '当日汇总.html' | sort | tail -n 1 || true)
+          if [ -z "$REPORT" ]; then
+            REPORT=$(find TrendRadar/output -type f -name '*.html' | sort | tail -n 1 || true)
+          fi
+          if [ -z "$REPORT" ]; then
+            echo "No report generated"; exit 0
+          fi
+          cp "$REPORT" "docs/reports/${DATE}.html"
+          python - <<'PY'
+          import pathlib
+          base = pathlib.Path('docs')
+          reports = sorted((base / 'reports').glob('*.html'), reverse=True)
+          items = [f"<li><a href='reports/{p.name}'>{p.stem}</a></li>" for p in reports]
+          html = ("<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'/>"
+                  "<title>TrendRadar 历史报告</title><meta name='viewport' content='width=device-width, initial-scale=1'/>"
+                  "<style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto;max-width:960px;margin:40px auto;padding:0 16px}"
+                  "h1{font-size:22px;margin-bottom:10px}ul{line-height:1.9}a{color:#0366d6;text-decoration:none}</style>"
+                  "</head><body><h1>TrendRadar 历史报告</h1><ul>"
+                  + "".join(items) +
+                  "</ul></body></html>")
+          (base / 'index.html').write_text(html, encoding='utf-8')
+          PY
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/index.html docs/reports/*.html
+          git commit -m "Publish report at $(date +'%Y-%m-%d %H:%M:%S %Z')" || echo "No changes"
+          git push
