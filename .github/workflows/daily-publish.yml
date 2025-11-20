@@ -1,10 +1,8 @@
 name: Daily Publish And Feishu Push
-
 on:
   schedule:
     - cron: '30 9 * * *'
   workflow_dispatch:
-
 env:
   TZ: Asia/Shanghai
 
@@ -13,13 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
-      - name: Checkout Pages repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
@@ -33,40 +28,13 @@ jobs:
             cd TrendRadar && git fetch --depth 1 origin "$REF" && git checkout "$REF" && cd ..
           fi
 
-      - name: Ensure config and frequency words exist
+      - name: Ensure config and frequency words
         run: |
           mkdir -p TrendRadar/config
-          if [ ! -f TrendRadar/config/config.yaml ]; then
-            curl -fsSL https://raw.githubusercontent.com/sansan0/TrendRadar/master/TrendRadar/config/config.yaml -o TrendRadar/config/config.yaml || true
-          fi
-          if [ ! -s TrendRadar/config/config.yaml ]; then
-            cat > TrendRadar/config/config.yaml <<'YAML'
-app:
-  public_report_url: ""
-  show_version_update: false
-report:
-  mode: "current"
-  rank_threshold: 5
-notification:
-  enable_notification: true
-  message_batch_size: 4000
-  dingtalk_batch_size: 20000
-  feishu_batch_size: 29000
-  batch_send_interval: 3
-  feishu_message_separator: "━━━━━━━━━━━━━━━━━━━"
-  feishu_message_type: "post"
-  push_window:
-    enabled: false
-    once_per_day: true
-platforms: []
-YAML
-          fi
-          if [ ! -f TrendRadar/config/frequency_words.txt ]; then
-            curl -fsSL https://raw.githubusercontent.com/sansan0/TrendRadar/master/TrendRadar/config/frequency_words.txt -o TrendRadar/config/frequency_words.txt || true
-          fi
-          if [ ! -s TrendRadar/config/frequency_words.txt ]; then
-            printf "AI\n人工智能\nAIGC\n大模型\nLLM\n" > TrendRadar/config/frequency_words.txt
-          fi
+          [ -f TrendRadar/config/config.yaml ] || curl -fsSL https://raw.githubusercontent.com/sansan0/TrendRadar/master/TrendRadar/config/config.yaml -o TrendRadar/config/config.yaml || true
+          [ -f TrendRadar/config/frequency_words.txt ] || curl -fsSL https://raw.githubusercontent.com/sansan0/TrendRadar/master/TrendRadar/config/frequency_words.txt -o TrendRadar/config/frequency_words.txt || true
+          [ -s TrendRadar/config/frequency_words.txt ] || printf "AI\n人工智能\nAIGC\n大模型\nLLM\n" > TrendRadar/config/frequency_words.txt
+          [ -s TrendRadar/config/config.yaml ] || printf "app:\n  public_report_url: \"\"\nreport:\n  mode: \"current\"\nnotification:\n  feishu_message_type: \"post\"\n  push_window:\n    enabled: false\n    once_per_day: true\nplatforms: []\n" > TrendRadar/config/config.yaml
 
       - name: Install dependencies
         run: |
@@ -75,20 +43,7 @@ YAML
 
       - name: Prepare overrides
         run: |
-          python - <<'PY'
-          import yaml, pathlib
-          p = pathlib.Path('TrendRadar/config/config.yaml')
-          data = yaml.safe_load(p.read_text(encoding='utf-8'))
-          data.setdefault('notification', {}).setdefault('push_window', {})
-          data['report']['mode'] = 'current'
-          data['notification']['feishu_message_type'] = 'post'
-          data['notification']['feishu_section_separator'] = '━━━━━━━━━━━━━━━━━━━'
-          data['notification']['feishu_item_bullet'] = '📌'
-          data['notification']['feishu_new_icon'] = '🆕'
-          data['notification']['push_window']['enabled'] = False
-          data['notification']['push_window']['once_per_day'] = True
-          p.write_text(yaml.dump(data, allow_unicode=True), encoding='utf-8')
-          PY
+          python -c "import yaml,pathlib; p=pathlib.Path('TrendRadar/config/config.yaml'); d=yaml.safe_load(p.read_text(encoding='utf-8')) or {}; d.setdefault('notification',{}).setdefault('push_window',{}); d.setdefault('report',{})['mode']='current'; d['notification']['feishu_message_type']='post'; d['notification']['feishu_section_separator']='━━━━━━━━━━━━━━━━━━━'; d['notification']['feishu_item_bullet']='📌'; d['notification']['feishu_new_icon']='🆕'; d['notification']['push_window']['enabled']=False; d['notification']['push_window']['once_per_day']=True; p.write_text(yaml.dump(d,allow_unicode=True),encoding='utf-8')"
 
       - name: Run TrendRadar and push Feishu
         env:
@@ -106,27 +61,13 @@ YAML
           DATE=$(date +%Y-%m-%d)
           mkdir -p docs/reports
           REPORT=$(find TrendRadar/output -type f -name '当日汇总.html' | sort | tail -n 1 || true)
-          if [ -z "$REPORT" ]; then
-            REPORT=$(find TrendRadar/output -type f -name '*.html' | sort | tail -n 1 || true)
-          fi
-          if [ -z "$REPORT" ]; then
+          [ -n "$REPORT" ] || REPORT=$(find TrendRadar/output -type f -name '*.html' | sort | tail -n 1 || true)
+          if [ -n "$REPORT" ]; then
+            cp "$REPORT" "docs/reports/${DATE}.html"
+            python -c "import pathlib; b=pathlib.Path('docs'); rs=sorted((b/'reports').glob('*.html'),reverse=True); items=''.join([f\"<li><a href='reports/{p.name}'>{p.stem}</a></li>\" for p in rs]); html=(\"<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'/><title>TrendRadar 历史报告</title><meta name='viewport' content='width=device-width, initial-scale=1'/><style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto;max-width:960px;margin:40px auto;padding:0 16px}h1{font-size:22px;margin-bottom:10px}ul{line-height:1.9}a{color:#0366d6;text-decoration:none}</style></head><body><h1>TrendRadar 历史报告</h1><ul>\"+items+\"</ul></body></html>\"); (b/'index.html').write_text(html,encoding='utf-8')"
+          else
             echo "No report generated"; exit 0
           fi
-          cp "$REPORT" "docs/reports/${DATE}.html"
-          python - <<'PY'
-          import pathlib
-          base = pathlib.Path('docs')
-          reports = sorted((base / 'reports').glob('*.html'), reverse=True)
-          items = [f"<li><a href='reports/{p.name}'>{p.stem}</a></li>" for p in reports]
-          html = ("<!DOCTYPE html><html lang='zh-CN'><head><meta charset='utf-8'/>"
-                  "<title>TrendRadar 历史报告</title><meta name='viewport' content='width=device-width, initial-scale=1'/>"
-                  "<style>body{font-family:system-ui,-apple-system,Segoe UI,Roboto;max-width:960px;margin:40px auto;padding:0 16px}"
-                  "h1{font-size:22px;margin-bottom:10px}ul{line-height:1.9}a{color:#0366d6;text-decoration:none}</style>"
-                  "</head><body><h1>TrendRadar 历史报告</h1><ul>"
-                  + "".join(items) +
-                  "</ul></body></html>")
-          (base / 'index.html').write_text(html, encoding='utf-8')
-          PY
 
       - name: Commit and push
         run: |
