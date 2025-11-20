@@ -1,4 +1,5 @@
-﻿name: Daily Publish And Feishu Push
+name: Daily Publish And Feishu Push
+
 on:
   schedule:
     - cron: '30 9 * * *'   # UTC 09:30 = 北京时间 17:30
@@ -32,20 +33,58 @@ jobs:
             cd TrendRadar && git fetch --depth 1 origin $REF && git checkout $REF && cd ..
           fi
 
+      - name: Ensure config and frequency words exist
+        run: |
+          mkdir -p TrendRadar/config
+          # 下载默认配置（若不可用则写入最小配置）
+          if [ ! -f TrendRadar/config/config.yaml ]; then
+            curl -fsSL https://raw.githubusercontent.com/sansan0/TrendRadar/master/TrendRadar/config/config.yaml -o TrendRadar/config/config.yaml || true
+          fi
+          if [ ! -s TrendRadar/config/config.yaml ]; then
+            cat > TrendRadar/config/config.yaml <<'YAML'
+app:
+  public_report_url: ""
+  show_version_update: false
+report:
+  mode: "current"
+  rank_threshold: 5
+notification:
+  enable_notification: true
+  message_batch_size: 4000
+  dingtalk_batch_size: 20000
+  feishu_batch_size: 29000
+  batch_send_interval: 3
+  feishu_message_separator: "━━━━━━━━━━━━━━━━━━━"
+  feishu_message_type: "post"
+  push_window:
+    enabled: false
+    once_per_day: true
+platforms: []
+YAML
+          fi
+          # 下载频率词
+          if [ ! -f TrendRadar/config/frequency_words.txt ]; then
+            curl -fsSL https://raw.githubusercontent.com/sansan0/TrendRadar/master/TrendRadar/config/frequency_words.txt -o TrendRadar/config/frequency_words.txt || true
+          fi
+          # 若下载失败则写入基础关键词
+          if [ ! -s TrendRadar/config/frequency_words.txt ]; then
+            printf "AI\n人工智能\nAIGC\n大模型\nLLM\n" > TrendRadar/config/frequency_words.txt
+          fi
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r TrendRadar/requirements.txt
 
-      - name: Prepare config overrides
+      - name: Prepare overrides
         run: |
           python - <<'PY'
           import yaml, pathlib
           p = pathlib.Path('TrendRadar/config/config.yaml')
           data = yaml.safe_load(p.read_text(encoding='utf-8'))
           data.setdefault('notification', {}).setdefault('push_window', {})
+          # 使用 current + incremental 合并推送（有增量双段，无增量仅当前榜单）
           data['report']['mode'] = 'current'
-          data['notification']['combine_current_incremental'] = True
           data['notification']['feishu_message_type'] = 'post'
           data['notification']['feishu_section_separator'] = '━━━━━━━━━━━━━━━━━━━'
           data['notification']['feishu_item_bullet'] = '📌'
@@ -62,6 +101,7 @@ jobs:
           PUSH_WINDOW_ENABLED: 'false'
           PUSH_WINDOW_ONCE_PER_DAY: 'true'
           PUBLIC_REPORT_URL: ${{ secrets.PUBLIC_REPORT_URL }}
+          CONFIG_PATH: 'TrendRadar/config/config.yaml'
         run: |
           python TrendRadar/main.py
 
@@ -96,6 +136,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/index.html docs/reports/*.html
-          git commit -m "Publish report at $(date +'%Y-%m-%d %H:%M:%S %Z')" || echo "No changes"
+          git add docs/index.html docs/reports/*.html .github/workflows/daily-publish.yml
+          git commit -m "Publish report & run Feishu push at $(date +'%Y-%m-%d %H:%M:%S %Z')" || echo "No changes to commit"
           git push
