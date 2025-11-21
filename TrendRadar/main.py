@@ -12,11 +12,10 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from email.header import Header
 from email.utils import formataddr, formatdate, make_msgid
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional, Union
 
-import pytz
 import requests
 import yaml
 
@@ -55,9 +54,16 @@ SMTP_CONFIGS = {
 # === 配置管理 ===
 def load_config():
     """加载配置文件"""
-    config_path = os.environ.get("CONFIG_PATH", "config/config.yaml")
+    env_path = os.environ.get("CONFIG_PATH", "").strip()
+    script_dir = Path(__file__).resolve().parent
 
-    if not Path(config_path).exists():
+    if env_path:
+        p = Path(env_path)
+        config_path = p if p.is_absolute() else script_dir / p
+    else:
+        config_path = script_dir / "config" / "config.yaml"
+
+    if not config_path.exists():
         raise FileNotFoundError(f"配置文件 {config_path} 不存在")
 
     with open(config_path, "r", encoding="utf-8") as f:
@@ -109,6 +115,12 @@ def load_config():
         ),
         "FEISHU_TOP_N_PER_GROUP": int(
             config_data["notification"].get("feishu_top_n_per_group", 5)
+        ),
+        "FEISHU_TOP_N_INCREMENTAL": int(
+            config_data["notification"].get("feishu_top_n_incremental", 10)
+        ),
+        "FEISHU_TOP_N_DAILY": int(
+            config_data["notification"].get("feishu_top_n_daily", 15)
         ),
         "FEISHU_SECTION_SEPARATOR": config_data["notification"].get(
             "feishu_section_separator", "━━━━━━━━━━━━━━━━━━━"
@@ -249,7 +261,7 @@ print(f"监控平台数量: {len(CONFIG['PLATFORMS'])}")
 # === 工具函数 ===
 def get_beijing_time():
     """获取北京时间"""
-    return datetime.now(pytz.timezone("Asia/Shanghai"))
+    return datetime.now(timezone(timedelta(hours=8)))
 
 
 def format_date_folder():
@@ -401,7 +413,7 @@ class PushRecordManager:
             try:
                 date_str = record_file.stem.replace("push_record_", "")
                 file_date = datetime.strptime(date_str, "%Y%m%d")
-                file_date = pytz.timezone("Asia/Shanghai").localize(file_date)
+                file_date = file_date.replace(tzinfo=timezone(timedelta(hours=8)))
 
                 if (current_time - file_date).days > retention_days:
                     record_file.unlink()
@@ -654,14 +666,17 @@ def load_frequency_words(
     frequency_file: Optional[str] = None,
 ) -> Tuple[List[Dict], List[str]]:
     """加载频率词配置"""
+    script_dir = Path(__file__).resolve().parent
     if frequency_file is None:
         frequency_file = os.environ.get(
             "FREQUENCY_WORDS_PATH", "config/frequency_words.txt"
         )
 
-    frequency_path = Path(frequency_file)
+    p = Path(frequency_file)
+    frequency_path = p if p.is_absolute() else script_dir / p
     if not frequency_path.exists():
-        raise FileNotFoundError(f"频率词文件 {frequency_file} 不存在")
+        print(f"频率词文件未找到，使用全部新闻模式: {frequency_path}")
+        return [], []
 
     with open(frequency_path, "r", encoding="utf-8") as f:
         content = f.read()
@@ -1401,8 +1416,8 @@ def prepare_report_data(
     """准备报告数据"""
     processed_new_titles = []
 
-    # 在增量模式下隐藏新增新闻区域
-    hide_new_section = mode == "incremental"
+    # 在增量模式和当前榜单模式下隐藏新增新闻区域
+    hide_new_section = mode in ("incremental", "current")
 
     # 只有在非隐藏模式下才处理新增新闻部分
     if not hide_new_section:
@@ -2991,6 +3006,7 @@ def split_content_into_batches(
             word = stat["word"]
             count = stat["count"]
             sequence_display = f"[{i + 1}/{total_count}]"
+            display_count = len(stat.get("titles", []))
 
             # 构建词组标题
             word_header = ""
@@ -3025,11 +3041,11 @@ def split_content_into_batches(
                     word_header = f"📌 {sequence_display} **{word}** : {count} 条\n\n"
             elif format_type == "feishu":
                 if count >= 10:
-                    word_header = f"🔥 <font color='grey'>{sequence_display}</font> **{word}** : <font color='red'>{count}</font> 条\n\n"
+                    word_header = f"🔥 <font color='grey'>{sequence_display}</font> **{word}** : <font color='red'>{count}</font> 条（展示前 {display_count} 条）\n\n"
                 elif count >= 5:
-                    word_header = f"📈 <font color='grey'>{sequence_display}</font> **{word}** : <font color='orange'>{count}</font> 条\n\n"
+                    word_header = f"📈 <font color='grey'>{sequence_display}</font> **{word}** : <font color='orange'>{count}</font> 条（展示前 {display_count} 条）\n\n"
                 else:
-                    word_header = f"📌 <font color='grey'>{sequence_display}</font> **{word}** : {count} 条\n\n"
+                    word_header = f"📌 <font color='grey'>{sequence_display}</font> **{word}** : {count} 条（展示前 {display_count} 条）\n\n"
             elif format_type == "dingtalk":
                 if count >= 10:
                     word_header = (
@@ -3480,21 +3496,40 @@ def send_to_feishu(
     is_combined = bool(update_info and update_info.get("combined_sections"))
     if is_combined:
         sections = update_info.get("combined_sections")
-        top_n = CONFIG.get("FEISHU_TOP_N_PER_GROUP", 5)
+        top_n_default = CONFIG.get("FEISHU_TOP_N_PER_GROUP", 5)
+        top_n_inc = CONFIG.get("FEISHU_TOP_N_INCREMENTAL", 10)
+        top_n_daily = CONFIG.get("FEISHU_TOP_N_DAILY", top_n_default)
+        def _section_limit(title: str) -> int:
+            if title == "本次新增热点新闻":
+                return top_n_inc
+            if title == "当日汇总":
+                return top_n_daily
+            return top_n_default
         sep = CONFIG.get("FEISHU_SECTION_SEPARATOR", "")
         bullet = CONFIG.get("FEISHU_ITEM_BULLET", "•")
         lines = []
         seen_keys = set()
+        current_keys = set()
+        show_link_needed = False
         for sec in sections:
             icon = sec.get("icon", "")
             title = sec.get("title", "")
             stats = sec.get("stats", [])
             valid_stats = [s for s in stats if s.get("count", 0) > 0]
+            sec_limit = _section_limit(title)
+            if sec_limit > 0 and any(s.get("count", 0) > sec_limit for s in valid_stats):
+                show_link_needed = True
             lines.append(f"{icon} {title}")
             total_groups = len(valid_stats)
             for idx, s in enumerate(valid_stats, 1):
                 # 展示数量说明（展示前 top_n 条，去重后计数）
                 titles = s.get("titles", [])
+                # 当前榜单的全部标题记录为去重集合
+                if title == "实时当前榜单":
+                    for t in titles:
+                        key = normalize_text(t.get("title", "")) or (t.get("mobile_url") or t.get("url") or "")
+                        if key:
+                            current_keys.add(key)
                 if title == "当日汇总":
                     filtered = []
                     for t in titles:
@@ -3503,10 +3538,19 @@ def send_to_feishu(
                             continue
                         filtered.append(t)
                     titles = filtered
-                display_count = min(top_n, len(titles))
+                elif title == "本次新增热点新闻" and current_keys:
+                    filtered = []
+                    for t in titles:
+                        key = normalize_text(t.get("title", "")) or (t.get("mobile_url") or t.get("url") or "")
+                        if key and key in current_keys:
+                            continue
+                        filtered.append(t)
+                    titles = filtered
+                limit = _section_limit(title)
+                display_count = (len(titles) if limit <= 0 else min(limit, len(titles)))
                 lines.append(f"[{idx}/{total_groups}] {s.get('word','')}：{s.get('count',0)} 条（展示前 {display_count} 条）")
                 if idx == 1:
-                    chosen = titles[:top_n]
+                    chosen = (titles if limit <= 0 else titles[:limit])
                     for i, t in enumerate(chosen, 1):
                         src = t.get("source_name", "")
                         title_txt = clean_title(t.get("title", ""))
@@ -3515,7 +3559,7 @@ def send_to_feishu(
                         ranks = t.get("ranks", [])
                         rank_disp = format_rank_display(ranks, t.get("rank_threshold", CONFIG.get("RANK_THRESHOLD", 5)), "feishu")
                         url = t.get("mobile_url") or t.get("url") or ""
-                        item = f"{bullet} {i}. [{src}] {title_txt}"
+                        item = f"{i}. [{src}] {title_txt}"
                         trail = ""
                         if time_info:
                             trail += f" {time_info}"
@@ -3526,6 +3570,7 @@ def send_to_feishu(
                             item += f" ({url})"
                         item += trail
                         lines.append(item)
+                        lines.append("")
                         # 记录去重键
                         key = normalize_text(title_txt) or url
                         if key:
@@ -3535,13 +3580,38 @@ def send_to_feishu(
         combined_text = "\n".join(lines)
         batches = [combined_text]
     else:
-        batches = split_content_into_batches(
-            report_data,
-            "feishu",
-            update_info,
-            max_bytes=CONFIG.get("FEISHU_BATCH_SIZE", 29000),
-            mode=mode,
-        )
+        if mode == "current":
+            rd = {
+                "stats": [],
+                "new_titles": [],
+                "failed_ids": report_data.get("failed_ids", []),
+                "total_new_count": 0,
+            }
+            top_n = CONFIG.get("FEISHU_TOP_N_PER_GROUP", 5)
+            for stat in report_data.get("stats", []):
+                titles = stat.get("titles", [])
+                limited = titles if top_n <= 0 else titles[:top_n]
+                rd["stats"].append({
+                    "word": stat.get("word", ""),
+                    "count": stat.get("count", 0),
+                    "percentage": stat.get("percentage", 0),
+                    "titles": limited,
+                })
+            batches = split_content_into_batches(
+                rd,
+                "feishu",
+                update_info,
+                max_bytes=CONFIG.get("FEISHU_BATCH_SIZE", 29000),
+                mode=mode,
+            )
+        else:
+            batches = split_content_into_batches(
+                report_data,
+                "feishu",
+                update_info,
+                max_bytes=CONFIG.get("FEISHU_BATCH_SIZE", 29000),
+                mode=mode,
+            )
 
     print(f"飞书消息分为 {len(batches)} 批次发送 [{report_type}]")
 
@@ -3580,15 +3650,63 @@ def send_to_feishu(
 
         clean_batch = strip_html_for_feishu(batch_content)
 
-        payload = {
-            "msg_type": "text",
-            "content": {
-                "total_titles": total_titles,
-                "timestamp": now.strftime("%Y-%m-%d %H:%M:%S"),
-                "report_type": report_type,
-                "text": clean_batch,
-            },
-        }
+        msg_type = CONFIG.get("FEISHU_MESSAGE_TYPE", "text")
+        if msg_type == "card":
+            base = CONFIG.get("PUBLIC_REPORT_URL", "").strip()
+            date_str = get_beijing_time().strftime("%Y-%m-%d")
+            top_n_default = CONFIG.get("FEISHU_TOP_N_PER_GROUP", 5)
+            top_n_inc = CONFIG.get("FEISHU_TOP_N_INCREMENTAL", 10)
+            top_n_daily = CONFIG.get("FEISHU_TOP_N_DAILY", top_n_default)
+            def _section_limit(title: str) -> int:
+                if title == "本次新增热点新闻":
+                    return top_n_inc
+                if title == "当日汇总":
+                    return top_n_daily
+                    
+                return top_n_default
+            # 是否展示“打开完整报告”按钮：当任一词组匹配数量大于对应展示上限
+            if is_combined:
+                sections = update_info.get("combined_sections") if update_info else []
+                show_link = any(
+                    any(s.get("count", 0) > _section_limit(sec.get("title", "")) for s in (sec.get("stats", []) or []))
+                    for sec in sections
+                )
+            else:
+                stats_list = report_data.get("stats", [])
+                if mode == "current":
+                    total_items = sum(len(s.get("titles", [])) for s in stats_list)
+                    show_link = total_items > top_n_default
+                else:
+                    show_link = any(s.get("count", 0) > top_n_default for s in stats_list)
+            link = (base.rstrip("/") + "/reports/" + date_str + ".html") if (base and show_link) else ""
+            import re
+            clean_batch_no_update = re.sub(r"(^|\n)\s*更新时间：.*", "", clean_batch).strip()
+            footer_md = f"更新时间：{now.strftime('%Y-%m-%d %H:%M:%S')}"
+            if link:
+                footer_md += f" | [打开完整报告]({link})"
+            card = {
+                "config": {"wide_screen_mode": True, "enable_forward": True},
+                "header": {
+                    "title": {"tag": "plain_text", "content": f"TrendRadar 热点分析报告 - {report_type}"},
+                    "template": "blue",
+                },
+                "elements": [
+                    {"tag": "div", "text": {"tag": "lark_md", "content": clean_batch_no_update}},
+                    {"tag": "hr"},
+                    {"tag": "markdown", "content": footer_md},
+                ],
+            }
+            payload = {"msg_type": "interactive", "card": card}
+        else:
+            payload = {
+                "msg_type": "text",
+                "content": {
+                    "total_titles": total_titles,
+                    "timestamp": now.strftime("%Y-%m-%d %H:%M:%S"),
+                    "report_type": report_type,
+                    "text": clean_batch,
+                },
+            }
 
         if CONFIG.get("FEISHU_MESSAGE_TYPE", "text") == "post":
             base = CONFIG.get("PUBLIC_REPORT_URL", "").strip()
@@ -3604,6 +3722,11 @@ def send_to_feishu(
                 paragraphs = []
                 bullet = CONFIG.get("FEISHU_ITEM_BULLET", "•")
                 seen_keys = set()
+                current_keys = set()
+                top_n_default = CONFIG.get("FEISHU_TOP_N_PER_GROUP", 5)
+                top_n_inc = CONFIG.get("FEISHU_TOP_N_INCREMENTAL", 10)
+                def _section_limit(title: str) -> int:
+                    return top_n_inc if title == "本次新增热点新闻" else top_n_default
                 for sec in sections:
                     icon = sec.get("icon", "")
                     title = sec.get("title", "")
@@ -3620,6 +3743,11 @@ def send_to_feishu(
                     seen_keys = set()
                     for idx, s in enumerate(stats_list, 1):
                         titles = s.get("titles", [])
+                        if title == "实时当前榜单":
+                            for t in titles:
+                                key = normalize_text(t.get("title", "")) or (t.get("mobile_url") or t.get("url") or "")
+                                if key:
+                                    current_keys.add(key)
                         if title == "当日汇总":
                             filtered = []
                             for t in titles:
@@ -3628,10 +3756,19 @@ def send_to_feishu(
                                     continue
                                 filtered.append(t)
                             titles = filtered
-                        display_count = len(titles) if top_n <= 0 else min(top_n, len(titles))
+                        elif title == "本次新增热点新闻" and current_keys:
+                            filtered = []
+                            for t in titles:
+                                key = normalize_text(t.get("title", "")) or (t.get("mobile_url") or t.get("url") or "")
+                                if key and key in current_keys:
+                                    continue
+                                filtered.append(t)
+                            titles = filtered
+                        limit = _section_limit(title)
+                        display_count = len(titles) if limit <= 0 else min(limit, len(titles))
                         paragraphs.append([{"tag": "text", "text": f"{bullet} [{idx}/{total_groups}] {s.get('word','')}：{s.get('count',0)} 条（展示前 {display_count} 条）"}])
                         if idx == 1:
-                            slice_titles = titles if top_n <= 0 else titles[:top_n]
+                            slice_titles = titles if limit <= 0 else titles[:limit]
                             for i, t in enumerate(slice_titles, 1):
                                 src = t.get("source_name", "")
                                 title_txt = clean_title(t.get("title", ""))
@@ -4824,7 +4961,7 @@ class NewsAnalyzer:
                             update_info={
                                 "combined_sections": [
                                     {
-                                        "icon": "📈",
+                                        "icon": "🔥",
                                         "title": "实时当前榜单",
                                         "stats": self.current_stats or [],
                                     },
@@ -4877,7 +5014,7 @@ class NewsAnalyzer:
                                 update_info={
                                     "combined_sections": [
                                         {
-                                            "icon": "📈",
+                                            "icon": "🔥",
                                             "title": "实时当前榜单",
                                             "stats": self.current_stats or [],
                                         },

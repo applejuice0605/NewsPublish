@@ -1,14 +1,37 @@
 AI
 人工智能
+Langchain
+LangFuse
+LangSmith
 AIGC
+!网购
+!债务
+!骗术
+!送码
+!被ban
+!TM
+!专利
+!芯片
+
+Gemini
+ChatGPT
+Deepseek
 大模型
 LLM
-!广告
+!黑话
 
-测试
-自动化测试
-接口测试
-QA
+
+AI测试
+AI testing
+UI自动化测试
+UI Automation testing
+接口自动化测试
+API Automation testing
+安全测试
+security testing
+
+软件测试
 质量保障
-用例
+测试用例
+test case
 !美股

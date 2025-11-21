@@ -41,11 +41,15 @@ notification:
   feishu_message_type: "post"
   combine_current_daily: false
   combine_daily_incremental: false
-  combine_current_incremental: true
-  feishu_top_n_per_group: 0
+  combine_current_incremental: false
+  feishu_top_n_per_group: 15
+  feishu_top_n_incremental: 10
+  feishu_top_n_daily: 15
   feishu_section_separator: "━━━━━━━━━━━━━━━━━━━"
   feishu_item_bullet: "📌"
   feishu_new_icon: "🆕"
+
+  feishu_message_type: "card"
 
   # 🕐 推送时间窗口控制（可选功能）
   # 用途：限制推送的时间范围，避免非工作时间打扰
@@ -58,15 +62,18 @@ notification:
     # 如果想要精准的定时推送，建议使用 Docker 部署在个人服务器上
     time_range:
       start: "10:00"  # 推送时间窗口开始（北京时间）
-      end: "12:00"    # 推送时间窗口结束（北京时间）
-    once_per_day: true  # 每天在时间窗口内只推送一次，如果 false，则窗口内每次执行都推送
+      end: "20:00"    # 推送时间窗口结束（北京时间）
+    once_per_day: false  # 每天在时间窗口内只推送一次，如果 false，则窗口内每次执行都推送
     push_record_retention_days: 7  # 推送记录保留天数
 
   # 请务必妥善保管好 webhooks，不要公开
   # 如果你以 fork 的方式将本项目部署在 GitHub 上，请勿在此填写任何 webhooks，而是将 webhooks 填入 GitHub Secret
   # 不然轻则手机上收到奇怪的广告推送，重则存在更严重的安全隐患
   webhooks:
+    # 测试推送测试
     feishu_url: "https://open.larksuite.com/open-apis/bot/v2/hook/addf0fe2-d59a-4797-beff-ea836606e398" # 飞书机器人的 webhook URL
+    # 中国QA群
+    #feishu_url: "https://open.larksuite.com/open-apis/bot/v2/hook/a57cdae3-db6d-4698-92db-5ed0f6306223" 
     dingtalk_url: "" # 钉钉机器人的 webhook URL
     wework_url: "" # 企业微信机器人的 webhook URL
     telegram_bot_token: "" # Telegram Bot Token
@@ -82,8 +89,8 @@ notification:
 
 # 用于让关注度更高的新闻在更前面显示，即用算法重新组合不同平台的热搜排序形成你侧重的热搜，合起来是 1 就行
 weight:
-  rank_weight: 0.6 # 排名权重
-  frequency_weight: 0.3 # 频次权重
+  rank_weight: 0.7 # 排名权重
+  frequency_weight: 0.2 # 频次权重
   hotness_weight: 0.1 # 热度权重
 
 # name 可以定义任意名称，只具有显示作用，即使项目运行了几天后，忽然改掉 name 也不会影响代码的正常运行
@@ -98,15 +105,35 @@ platforms:
     name: "澎湃新闻"
   - id: "bilibili-hot-search"
     name: "bilibili 热搜"
-  - id: "cls-hot"
-    name: "财联社热门"
-  - id: "ifeng"
-    name: "凤凰网"
-  - id: "tieba"
-    name: "贴吧"
-  - id: "weibo"
-    name: "微博"
-  - id: "douyin"
-    name: "抖音"
+  #- id: "cls-hot"
+  #  name: "财联社热门"
+ # - id: "ifeng"
+ #   name: "凤凰网"
+ # - id: "tieba"
+ #   name: "贴吧"
+ # - id: "weibo"
+ #   name: "微博"
+ # - id: "douyin"
+ #   name: "抖音"
   - id: "zhihu"
     name: "知乎"
+  - id: "ithome"
+    name: "IT之家"
+  - id: "juejin"
+    name: "掘金"
+  - id: "github"
+    name: "GitHub"
+  - id: "hackernews"
+    name: "Hacker News"
+  - id: "solidot"
+    name: "Solidot"
+  - id: "v2ex"
+    name: "V2EX"
+  - id: "nowcoder"
+    name: "牛客网"
+  - id: "pcbeta"
+    name: "远景论坛"
+  #- id: "sspai"
+  #  name: "少数派"
+  #- id: "producthunt"
+   # name: "ProductHunt"
