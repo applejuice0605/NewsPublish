@@ -25,7 +25,7 @@ jobs:
 
       - name: Run TrendRadar
         env:
-          CONFIG_PATH: TrendRadar/config/config.yaml
+          CONFIG_PATH: config/config.yaml
           REPORT_MODE: current
           PUSH_WINDOW_ENABLED: "true"
           PUSH_WINDOW_START: "10:00"
@@ -35,4 +35,3 @@ jobs:
           WEWORK_WEBHOOK_URL: ${{ secrets.WEWORK_WEBHOOK_URL }}
         run: |
           python TrendRadar/main.py
-
