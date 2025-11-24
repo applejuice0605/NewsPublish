@@ -45,6 +45,7 @@ notification:
   feishu_top_n_per_group: 15
   feishu_top_n_incremental: 10
   feishu_top_n_daily: 15
+  feishu_current_link_threshold: 20
   feishu_section_separator: "━━━━━━━━━━━━━━━━━━━"
   feishu_item_bullet: "📌"
   feishu_new_icon: "🆕"
@@ -71,9 +72,9 @@ notification:
   # 不然轻则手机上收到奇怪的广告推送，重则存在更严重的安全隐患
   webhooks:
     # 测试推送测试
-    feishu_url: "https://open.larksuite.com/open-apis/bot/v2/hook/addf0fe2-d59a-4797-beff-ea836606e398" # 飞书机器人的 webhook URL
+    # feishu_url: "https://open.larksuite.com/open-apis/bot/v2/hook/addf0fe2-d59a-4797-beff-ea836606e398" # 飞书机器人的 webhook URL
     # 中国QA群
-    #feishu_url: "https://open.larksuite.com/open-apis/bot/v2/hook/a57cdae3-db6d-4698-92db-5ed0f6306223" 
+    feishu_url: "https://open.larksuite.com/open-apis/bot/v2/hook/a57cdae3-db6d-4698-92db-5ed0f6306223" 
     dingtalk_url: "" # 钉钉机器人的 webhook URL
     wework_url: "" # 企业微信机器人的 webhook URL
     telegram_bot_token: "" # Telegram Bot Token
@@ -123,8 +124,8 @@ platforms:
     name: "掘金"
   - id: "github"
     name: "GitHub"
-  - id: "hackernews"
-    name: "Hacker News"
+  # - id: "hackernews"
+  #   name: "Hacker News"
   - id: "solidot"
     name: "Solidot"
   - id: "v2ex"

@@ -122,6 +122,9 @@ def load_config():
         "FEISHU_TOP_N_DAILY": int(
             config_data["notification"].get("feishu_top_n_daily", 15)
         ),
+        "FEISHU_CURRENT_LINK_THRESHOLD": int(
+            config_data["notification"].get("feishu_current_link_threshold", 20)
+        ),
         "FEISHU_SECTION_SEPARATOR": config_data["notification"].get(
             "feishu_section_separator", "━━━━━━━━━━━━━━━━━━━"
         ),
@@ -3675,7 +3678,8 @@ def send_to_feishu(
                 stats_list = report_data.get("stats", [])
                 if mode == "current":
                     total_items = sum(len(s.get("titles", [])) for s in stats_list)
-                    show_link = total_items > top_n_default
+                    threshold = CONFIG.get("FEISHU_CURRENT_LINK_THRESHOLD", top_n_default)
+                    show_link = total_items > threshold
                 else:
                     show_link = any(s.get("count", 0) > top_n_default for s in stats_list)
             link = (base.rstrip("/") + "/reports/" + date_str + ".html") if (base and show_link) else ""
