@@ -23,6 +23,7 @@ AIGC
 !求Win
 !Git
 !美股
+!广告
 
 Gemini
 ChatGPT
@@ -30,7 +31,7 @@ Deepseek
 大模型
 LLM
 !黑话
-
+!广告
 
 AI测试
 AI testing
