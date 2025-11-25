@@ -21,6 +21,8 @@ AIGC
 !处罚
 !违规
 !求Win
+!Git
+!美股
 
 Gemini
 ChatGPT
@@ -43,4 +45,3 @@ security testing
 质量保障
 测试用例
 test case
-!美股
