@@ -1,0 +1,18 @@
+# Ignore local generated reports and artifacts
+
+# TrendRadar generated outputs
+TrendRadar/output/
+
+# Project-level output folder (if used)
+output/
+
+# Locally generated site files (keep CI/Pages commits separate)
+docs/reports/*.html
+docs/index.html
+index.html
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
+*.log
+
