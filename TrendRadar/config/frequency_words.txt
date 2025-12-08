@@ -28,6 +28,8 @@ AIGC
 !网警
 !白银
 !持仓
+!武器
+!求建议
 
 Gemini
 ChatGPT
@@ -36,6 +38,7 @@ Deepseek
 LLM
 !黑话
 !广告
+!求问
 
 
 
