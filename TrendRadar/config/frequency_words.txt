@@ -30,6 +30,11 @@ AIGC
 !持仓
 !武器
 !求建议
+!给建议
+!股市
+!AMD
+!裸辞
+!aimgr
 
 Gemini
 ChatGPT
