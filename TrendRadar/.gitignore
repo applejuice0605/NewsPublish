@@ -1,0 +1,29 @@
+# Git Ignore Rules
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables
+.env
+.env.local
+.venv
+env/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project output
+output/
+*.log
+*.db
+*.sqlite
+
+# User config protection (防止误提交真实配置)
+# config/config.yaml 可以被提交，但包含敏感信息的版本不应提交
+# 建议: 提交 config.yaml.example，实际使用 config.yaml
+# 如果你已经有了 config.yaml 且不想跟踪它的后续变化：
+# git update-index --assume-unchanged TrendRadar/config/config.yaml

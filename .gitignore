@@ -15,4 +15,8 @@ index.html
 .DS_Store
 Thumbs.db
 *.log
+.env
+test_ai.py
 
+# Backups
+*.bak
