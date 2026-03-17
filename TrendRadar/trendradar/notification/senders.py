@@ -168,6 +168,57 @@ def send_to_feishu(
 
         # 构建飞书富文本卡片 (Interactive Message)
         # 飞书卡片支持 markdown 和更丰富的 UI 元素
+        
+        # 动态构建卡片元素
+        card_elements = []
+        
+        # 长度阈值：超过此长度则折叠（可根据实际体验调整，默认 1000 字符）
+        FOLD_THRESHOLD = 1000
+        
+        if len(batch_content) > FOLD_THRESHOLD:
+            # 使用折叠面板
+            # 先显示一个简短提示
+            card_elements.append({
+                "tag": "div",
+                "text": {
+                    "tag": "lark_md",
+                    "content": "⚠️ **内容较长，已自动折叠**"
+                }
+            })
+            # 添加折叠面板
+            card_elements.append({
+                "tag": "collapsible_panel",
+                "header": {
+                    "tag": "plain_text",
+                    "content": f"📄 点击展开查看完整内容 ({len(batch_content)} 字符)"
+                },
+                "elements": [
+                    {
+                        "tag": "markdown",
+                        "content": batch_content
+                    }
+                ],
+                "expanded": False
+            })
+        else:
+            # 直接显示
+            card_elements.append({
+                "tag": "markdown",
+                "content": batch_content
+            })
+
+        # 添加分割线和底部备注
+        card_elements.append({"tag": "hr"})
+        card_elements.append({
+            "tag": "note",
+            "elements": [
+                {
+                    "tag": "plain_text",
+                    "content": f"🤖 Powered by TrendRadar | 批次: {i}/{len(batches)}"
+                }
+            ]
+        })
+
         payload = {
             "msg_type": "interactive",
             "card": {
@@ -182,24 +233,7 @@ def send_to_feishu(
                     },
                     "template": "blue" # 可选颜色: blue, wathet, turquoise, green, yellow, orange, red, carmine, violet, purple, indigo, grey
                 },
-                "elements": [
-                    {
-                        "tag": "markdown",
-                        "content": batch_content
-                    },
-                    {
-                        "tag": "hr"
-                    },
-                    {
-                        "tag": "note",
-                        "elements": [
-                            {
-                                "tag": "plain_text",
-                                "content": f"🤖 Powered by TrendRadar | 批次: {i}/{len(batches)}"
-                            }
-                        ]
-                    }
-                ]
+                "elements": card_elements
             }
         }
 
