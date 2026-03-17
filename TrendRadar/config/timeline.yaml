@@ -136,7 +136,7 @@ presets:
       daytime_push:
         name: "白天增量"
         start: "08:00"
-        end: "20:00"
+        end: "19:59"
         analyze: false             # 不做 AI 分析
         ai_mode: "incremental"
         push: true                 # ✅ 允许推送
@@ -147,7 +147,7 @@ presets:
       evening_summary:
         name: "晚报"
         start: "20:00"
-        end: "22:00"
+        end: "21:59"
         filter_method: "ai"        # 晚间使用 AI 兴趣筛选
         analyze: true              # ✅ 晚间开启 AI 分析
         ai_mode: "daily"           # ✅ AI 分析全天内容
