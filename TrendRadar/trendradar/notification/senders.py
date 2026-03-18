@@ -176,32 +176,80 @@ def send_to_feishu(
         FOLD_THRESHOLD = 1000
         
         if len(batch_content) > FOLD_THRESHOLD:
-            # 使用折叠面板
-            # 先显示一个简短提示
-            card_elements.append({
-                "tag": "div",
-                "text": {
-                    "tag": "lark_md",
-                    "content": "⚠️ **内容较长，已自动折叠**"
-                }
-            })
-            # 添加折叠面板
-            card_elements.append({
-                "tag": "collapsible_panel",
-                "header": {
-                    "title": {
-                        "tag": "plain_text",
-                        "content": f"📄 点击展开查看完整内容 ({len(batch_content)} 字符)"
-                    }
-                },
-                "elements": [
-                    {
-                        "tag": "markdown",
-                        "content": batch_content
-                    }
-                ],
-                "expanded": False
-            })
+            # === 飞书风格优化方案 ===
+            # 策略：展示前 8 行或 1000 字符作为预览，剩余内容放入折叠面板
+            # 视觉：默认展示内容 -> 渐隐/截断 -> "展开全文" 按钮
+            
+            # 1. 提取预览内容（Preview）
+            lines = batch_content.split('\n')
+            preview_lines = []
+            char_count = 0
+            MAX_PREVIEW_LINES = 8
+            
+            for line in lines:
+                if len(preview_lines) >= MAX_PREVIEW_LINES:
+                    break
+                if char_count + len(line) > FOLD_THRESHOLD:
+                    break
+                preview_lines.append(line)
+                char_count += len(line)
+            
+            preview_content = '\n'.join(preview_lines)
+            # 如果预览内容和原始内容一样长，那就不需要折叠了
+            if len(preview_content.strip()) >= len(batch_content.strip()):
+                card_elements.append({
+                    "tag": "markdown",
+                    "content": batch_content
+                })
+            else:
+                # 2. 构建“预览+展开”组合
+                # 飞书没有原生的“渐隐遮罩”组件，但我们可以利用 collapsible_panel 模拟
+                # 结构：[预览文本] + [折叠面板(Header=展开全文, Content=剩余内容)]
+                
+                # 计算剩余内容
+                # 为了阅读连贯性，折叠面板里最好包含全文（或者至少包含剩余部分）
+                # 飞书的交互是：点击 Header 展开。
+                # 方案 A：预览显示前段，折叠面板显示后段。缺点：收起时，后段消失，体验割裂。
+                # 方案 B（推荐）：预览显示前段。折叠面板 Header 设为 "展开全文"，内容为 **全文**。
+                # 但这样展开后会有两份前段内容。
+                # 方案 C（飞书原生感）：
+                # 上方放预览内容。
+                # 下方放一个 collapsible_panel。
+                # Header: "⬇️ 展开剩余内容" (或者简约的 "展开全文")
+                # Content: 剩余的内容 (remaining_content)
+                
+                remaining_content = batch_content[len(preview_content):]
+                
+                # 部分 1: 预览内容 (直接展示)
+                card_elements.append({
+                    "tag": "markdown",
+                    "content": preview_content
+                })
+                
+                # 部分 2: 折叠面板 (承载剩余内容)
+                card_elements.append({
+                    "tag": "collapsible_panel",
+                    "header": {
+                        "title": {
+                            "tag": "plain_text",
+                            "content": "展开全文" 
+                        }
+                    },
+                    "elements": [
+                        {
+                            "tag": "markdown",
+                            "content": remaining_content
+                        },
+                        {
+                            "tag": "div",
+                            "text": {
+                                "tag": "lark_md",
+                                "content": "<font color='grey'>收起</font>"
+                            }
+                        }
+                    ],
+                    "expanded": False
+                })
         else:
             # 直接显示
             card_elements.append({
