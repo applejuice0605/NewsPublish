@@ -161,7 +161,7 @@ presets:
       deep_quiet:
         name: "深夜静默"
         start: "22:00"
-        end: "08:00"               # 跨日时间段
+        end: "07:59"               # 跨日时间段
         collect: true              # 夜间继续采集
         analyze: false             # 不做分析
         push: false                # 🛑 深夜绝不推送
