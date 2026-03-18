@@ -229,7 +229,7 @@ def send_to_feishu(
                 "header": {
                     "title": {
                         "tag": "plain_text",
-                        "content": f"🎯 TrendRadar 热点分析 - {report_type}"
+                        "content": f"🎯 TrendRadar 热点分析 - {report_type}" if report_type else "🎯 TrendRadar 热点分析"
                     },
                     "template": "blue" # 可选颜色: blue, wathet, turquoise, green, yellow, orange, red, carmine, violet, purple, indigo, grey
                 },
