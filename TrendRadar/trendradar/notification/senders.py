@@ -189,8 +189,10 @@ def send_to_feishu(
             card_elements.append({
                 "tag": "collapsible_panel",
                 "header": {
-                    "tag": "plain_text",
-                    "content": f"📄 点击展开查看完整内容 ({len(batch_content)} 字符)"
+                    "title": {
+                        "tag": "plain_text",
+                        "content": f"📄 点击展开查看完整内容 ({len(batch_content)} 字符)"
+                    }
                 },
                 "elements": [
                     {
