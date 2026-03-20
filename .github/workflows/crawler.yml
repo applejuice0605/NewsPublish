@@ -3,7 +3,7 @@ name: TrendRadar Crawler (v6.0.0)
 on:
   schedule:
     # 建议每小时运行一次，具体推送时间由 config/timeline.yaml 控制
-    - cron: "30 * * * *"
+    - cron: "30 */4 * * *"
   workflow_dispatch:
 
 concurrency:

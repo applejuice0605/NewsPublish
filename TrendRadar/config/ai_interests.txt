@@ -12,12 +12,13 @@
 # 不要标题党/震惊体（如"震惊！"、"太可怕了！"、"竟然..."、"刚刚！"）
 
 1.实时 AI 动态与大模型产品：实时 AI 动态与大模型产品:关注 OpenAI (o1/o3/Sora)、Anthropic (Claude 3.7/4)、Google (Gemini) 以及国内 DeepSeek (R1/V3)、Qwen、MiniMax 的能力更新及行业首发新闻
-2.MCP (Model Context Protocol) 与 Agent 基础设施：MCP 协议的最新进展、各类 MCP Server 的实现（如连接数据库、GitHub、本地文件）、Cursor/Claude Desktop 的 MCP 集成，以及如何利用 MCP 增强 Agent 的工具调用（Tool Use）与环境感知能力。
-3.AI 测试、评估与 Agent 质量保障：Agent Skills 的评估方法、AI 自动化测试框架（如 Giskard、DeepEval）、LLM 单元测试。关注如何处理 Agent 的不确定性、幻觉检测、回归测试以及针对复杂任务流（Workflow）的端到端评测。
-4.可观测性与 LLMOps 工具链 (LangChain/LangFuse):实时捕捉 LangChain 的架构演进；LangFuse 和 LangSmith 的链路追踪（Tracing）、Prompt 管理、成本监控、人工反馈收集（Human-in-the-loop）以及自动化数据集构建
-5.AI 编程与开发效率工具:关注 Cursor、Windsurf、GitHub Copilot 的新功能，尤其是它们在代码生成、自动修复测试用例、理解大规模工程代码库方面的突破
-6.AI 基础设施与云算力：关注英伟达、华为昇腾、各云大厂的算力供给及推理加速技术（如 vLLM, TensorRT-LLM）
-7.大厂战略与跨行业动态：华为（鸿蒙/AI 战略）、腾讯、字节、特斯拉 FSD、机器人及地缘政治对科技供应链的影响（作为辅助背景）
+2.计算机控制与 Claw 协议生态：高度关注“小龙虾”、“OpenClaw”、各大厂的“xxClaw”（如 AutoClaw、QClaw、飞书 OpenClaw 等）相关的技术突破、产品发布及行业应用。
+3.MCP (Model Context Protocol) 与 Agent 基础设施：MCP 协议的最新进展、各类 MCP Server 的实现（如连接数据库、GitHub、本地文件）、Cursor/Claude Desktop 的 MCP 集成，以及如何利用 MCP 增强 Agent 的工具调用（Tool Use）与环境感知能力。
+4.AI 测试、评估与 Agent 质量保障：Agent Skills 的评估方法、AI 自动化测试框架（如 Giskard、DeepEval）、LLM 单元测试。关注如何处理 Agent 的不确定性、幻觉检测、回归测试以及针对复杂任务流（Workflow）的端到端评测。
+5.可观测性与 LLMOps 工具链 (LangChain/LangFuse):实时捕捉 LangChain 的架构演进；LangFuse 和 LangSmith 的链路追踪（Tracing）、Prompt 管理、成本监控、人工反馈收集（Human-in-the-loop）以及自动化数据集构建
+6.AI 编程与开发效率工具:关注 Cursor、Windsurf、GitHub Copilot 的新功能，尤其是它们在代码生成、自动修复测试用例、理解大规模工程代码库方面的突破
+7.AI 基础设施与云算力：关注英伟达、华为昇腾、各云大厂的算力供给及推理加速技术（如 vLLM, TensorRT-LLM）
+8.大厂战略与跨行业动态：华为（鸿蒙/AI 战略）、腾讯、字节、特斯拉 FSD、机器人及地缘政治对科技供应链的影响（作为辅助背景）
 
 
 # 标题质量要求（即使匹配了上面的标签，符合以下特征的标题也请跳过）
