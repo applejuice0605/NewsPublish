@@ -11,3 +11,8 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - config(ai_analysis): 默认关闭 RSS 和独立展示区的 AI 分析，节省 Token 并精简报告内容
+
+### Fixed
+- ci(actions): GitHub Actions 安装依赖失败（找不到满足 `litellm>=1.57.0,<2.0.0` 的发行版）
+  - 将运行环境 Python 版本从 3.10 提升至 3.11，以匹配上游 litellm 的 `Requires-Python` 要求
+  - 保持 `TrendRadar/requirements.txt` 约束不变，避免破坏既有 API 行为
