@@ -147,7 +147,7 @@ presets:
       evening_summary:
         name: "晚报"
         start: "20:00"
-        end: "21:59"
+        end: "23:59"               # 延长到 23:59 以应对 GitHub Actions 的延迟
         filter_method: "ai"        # 晚间使用 AI 兴趣筛选
         analyze: true              # ✅ 晚间开启 AI 分析
         ai_mode: "daily"           # ✅ AI 分析全天内容
@@ -160,7 +160,7 @@ presets:
       # 3. 深夜静默时段
       deep_quiet:
         name: "深夜静默"
-        start: "22:00"
+        start: "00:00"             # 配合晚报时间修改
         end: "07:59"               # 跨日时间段
         collect: true              # 夜间继续采集
         analyze: false             # 不做分析

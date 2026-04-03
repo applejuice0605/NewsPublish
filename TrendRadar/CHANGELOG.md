@@ -16,3 +16,6 @@ All notable changes to this project will be documented in this file.
 - ci(actions): GitHub Actions 安装依赖失败（找不到满足 `litellm>=1.57.0,<2.0.0` 的发行版）
   - 将运行环境 Python 版本从 3.10 提升至 3.11，以匹配上游 litellm 的 `Requires-Python` 要求
   - 保持 `TrendRadar/requirements.txt` 约束不变，避免破坏既有 API 行为
+- schedule(timeline): 修复晚间汇总（晚报）因 GitHub Actions 延迟导致无法触发的问题
+  - 延长 `evening_summary` 推送窗口至 23:59
+  - 同步调整 `deep_quiet` 开始时间至 00:00，避免时间段冲突
