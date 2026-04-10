@@ -344,13 +344,10 @@ notification:
       webhook_url: ""                 # Slack Incoming Webhook URL
 
     generic_webhook:
-      webhook_url: "http://47.77.177.11:9000/listen/trend?token=white_night_secure_token"                 # 通用 Webhook URL（支持 Discord、Matrix、IFTTT 等）
-      structured: true                    # 结构化 JSON 模式（推荐用于飞书多维表格等数据库场景）
-                                          # true: 发送结构化 JSON（每条新闻独立字段，不分批，一次性推送）
-                                          # false: 发送 Markdown 文本（支持 payload_template 模板，按 batch_size 分批）
-      payload_template: ""                # JSON 模板，支持 {title} 和 {content} 占位符（仅 structured=false 时生效）
-                                          # 示例：{"content": "{content}"}
-                                          # 留空则使用默认格式：{"title": "{title}", "content": "{content}"}
+      webhook_url: ""                 # 通用 Webhook URL（支持 Discord、Matrix、IFTTT 等）
+      payload_template: ""            # JSON 模板，支持 {title} 和 {content} 占位符
+                                      # 示例：{"content": "{content}"}
+                                      # 留空则使用默认格式：{"title": "{title}", "content": "{content}"}
 
 
 # ===============================================================

@@ -166,57 +166,126 @@ def send_to_feishu(
             f"发送{log_prefix}第 {i}/{len(batches)} 批次，大小：{content_size} 字节 [{report_type}]"
         )
 
-        # 根据 webhook 域名选择 payload 格式
-        # www.feishu.cn 使用纯文本格式，其他域名（open.feishu.cn/open.larksuite.com）使用卡片 2.0
-        if "www.feishu.cn" in webhook_url:
-            # payload = {
-            #     "msg_type": "text",
-            #     "content": {
-            #         "text": batch_content,
-            #     },
-            # }
-            is_flow_webhook = false
-            if is_flow_webhook:
-            # 兼容飞书捷径/自动化流程的 Webhook
-                payload = {
-                    "msg_type": "text",
-                    "content": {"text": batch_content},
-                }
+        # 构建飞书富文本卡片 (Interactive Message)
+        # 飞书卡片支持 markdown 和更丰富的 UI 元素
+        
+        # 动态构建卡片元素
+        card_elements = []
+        
+        # 长度阈值：超过此长度则折叠（可根据实际体验调整，默认 1000 字符）
+        FOLD_THRESHOLD = 1000
+        
+        if len(batch_content) > FOLD_THRESHOLD:
+            # === 飞书风格优化方案 ===
+            # 策略：展示前 8 行或 1000 字符作为预览，剩余内容放入折叠面板
+            # 视觉：默认展示内容 -> 渐隐/截断 -> "展开全文" 按钮
+            
+            # 1. 提取预览内容（Preview）
+            lines = batch_content.split('\n')
+            preview_lines = []
+            char_count = 0
+            MAX_PREVIEW_LINES = 8
+            
+            for line in lines:
+                if len(preview_lines) >= MAX_PREVIEW_LINES:
+                    break
+                if char_count + len(line) > FOLD_THRESHOLD:
+                    break
+                preview_lines.append(line)
+                char_count += len(line)
+            
+            preview_content = '\n'.join(preview_lines)
+            # 如果预览内容和原始内容一样长，那就不需要折叠了
+            if len(preview_content.strip()) >= len(batch_content.strip()):
+                card_elements.append({
+                    "tag": "markdown",
+                    "content": batch_content
+                })
             else:
-                # 标准飞书机器人 Webhook，使用卡片渲染 Markdown
-                payload = {
-                    "msg_type": "interactive",
-                    "card": {
-                        "header": {
-                            "title": {
-                                "tag": "plain_text",
-                                "content": "AI热点推送"
-                            },
-                            "template": "blue"
-                        },
-                        "elements": [
-                            {
-                                "tag": "div",
-                                "text": {
-                                    "tag": "lark_md",  # 关键标签
-                                    "content": batch_content
-                                }
-                            }
-                        ]
-                    }
-                }
-        else:
-            payload = {
-                "msg_type": "interactive",
-                "card": {
-                    "schema": "2.0",
-                    "body": {
-                        "elements": [
-                            {"tag": "markdown", "content": batch_content}
-                        ]
+                # 2. 构建“预览+展开”组合
+                # 飞书没有原生的“渐隐遮罩”组件，但我们可以利用 collapsible_panel 模拟
+                # 结构：[预览文本] + [折叠面板(Header=展开全文, Content=剩余内容)]
+                
+                # 计算剩余内容
+                # 为了阅读连贯性，折叠面板里最好包含全文（或者至少包含剩余部分）
+                # 飞书的交互是：点击 Header 展开。
+                # 方案 A：预览显示前段，折叠面板显示后段。缺点：收起时，后段消失，体验割裂。
+                # 方案 B（推荐）：预览显示前段。折叠面板 Header 设为 "展开全文"，内容为 **全文**。
+                # 但这样展开后会有两份前段内容。
+                # 方案 C（飞书原生感）：
+                # 上方放预览内容。
+                # 下方放一个 collapsible_panel。
+                # Header: "⬇️ 展开剩余内容" (或者简约的 "展开全文")
+                # Content: 剩余的内容 (remaining_content)
+                
+                remaining_content = batch_content[len(preview_content):]
+                
+                # 部分 1: 预览内容 (直接展示)
+                card_elements.append({
+                    "tag": "markdown",
+                    "content": preview_content
+                })
+                
+                # 部分 2: 折叠面板 (承载剩余内容)
+                card_elements.append({
+                    "tag": "collapsible_panel",
+                    "header": {
+                        "title": {
+                            "tag": "plain_text",
+                            "content": "展开全文" 
+                        }
                     },
+                    "elements": [
+                        {
+                            "tag": "markdown",
+                            "content": remaining_content
+                        },
+                        {
+                            "tag": "div",
+                            "text": {
+                                "tag": "lark_md",
+                                "content": "<font color='grey'>收起</font>"
+                            }
+                        }
+                    ],
+                    "expanded": False
+                })
+        else:
+            # 直接显示
+            card_elements.append({
+                "tag": "markdown",
+                "content": batch_content
+            })
+
+        # 添加分割线和底部备注
+        card_elements.append({"tag": "hr"})
+        card_elements.append({
+            "tag": "note",
+            "elements": [
+                {
+                    "tag": "plain_text",
+                    "content": f"🤖 Powered by TrendRadar | 批次: {i}/{len(batches)}"
+                }
+            ]
+        })
+
+        payload = {
+            "msg_type": "interactive",
+            "card": {
+                "config": {
+                    "wide_screen_mode": True,
+                    "enable_forward": True
                 },
+                "header": {
+                    "title": {
+                        "tag": "plain_text",
+                        "content": f"🎯 TrendRadar 热点分析 - {report_type}" if report_type else "🎯 TrendRadar 热点分析"
+                    },
+                    "template": "blue" # 可选颜色: blue, wathet, turquoise, green, yellow, orange, red, carmine, violet, purple, indigo, grey
+                },
+                "elements": card_elements
             }
+        }
 
         try:
             response = requests.post(
@@ -1298,196 +1367,6 @@ def send_to_slack(
     return True
 
 
-def _build_structured_payload(
-    report_data: Dict,
-    report_type: str,
-    mode: str,
-    rss_items: Optional[list] = None,
-    rss_new_items: Optional[list] = None,
-    ai_analysis: Any = None,
-    standalone_data: Optional[Dict] = None,
-) -> Dict:
-    """
-    将原始报告数据构建为结构化 JSON payload（用于飞书多维表格等场景）
-
-    不做 Markdown 渲染，直接将每条新闻序列化为独立字段，
-    便于接收端按字段映射到数据库/表格。
-
-    Returns:
-        结构化的 payload 字典
-    """
-    now = datetime.now()
-    payload = {
-        "report_type": report_type,
-        "mode": mode,
-        "timestamp": now.strftime("%Y-%m-%dT%H:%M:%S"),
-    }
-
-    # ── 热榜数据 ──
-    hotlist = []
-    for stat in report_data.get("stats", []):
-        keyword_group = {
-            "keyword": stat.get("word", ""),
-            "news_count": stat.get("count", 0),
-            "items": [],
-        }
-        for t in stat.get("titles", []):
-            item = {
-                "title": t.get("title", ""),
-                "source": t.get("source_name", ""),
-                "url": t.get("url", ""),
-                "mobile_url": t.get("mobile_url", ""),
-                "is_new": t.get("is_new", False),
-            }
-            ranks = t.get("ranks", [])
-            if ranks:
-                item["rank"] = min(ranks)
-                item["ranks"] = ranks
-            keyword_group["items"].append(item)
-        hotlist.append(keyword_group)
-
-    payload["hotlist"] = hotlist
-    payload["total_news"] = sum(g["news_count"] for g in hotlist)
-
-    # ── RSS 统计数据 ──
-    if rss_items:
-        rss_list = []
-        for stat in rss_items:
-            rss_group = {
-                "keyword": stat.get("word", ""),
-                "news_count": stat.get("count", 0),
-                "items": [],
-            }
-            for t in stat.get("titles", []):
-                item = {
-                    "title": t.get("title", ""),
-                    "source": t.get("source_name", t.get("feed_name", "")),
-                    "url": t.get("url", ""),
-                    "published_at": t.get("time_display", ""),
-                    "is_new": t.get("is_new", False),
-                }
-                rss_group["items"].append(item)
-            rss_list.append(rss_group)
-        payload["rss"] = rss_list
-        payload["total_news"] += sum(g["news_count"] for g in rss_list)
-
-    # ── RSS 新增数据 ──
-    if rss_new_items:
-        rss_new_list = []
-        for stat in rss_new_items:
-            rss_new_group = {
-                "source": stat.get("word", ""),
-                "news_count": stat.get("count", 0),
-                "items": [],
-            }
-            for t in stat.get("titles", []):
-                item = {
-                    "title": t.get("title", ""),
-                    "source": t.get("source_name", t.get("feed_name", "")),
-                    "url": t.get("url", ""),
-                    "published_at": t.get("time_display", ""),
-                }
-                rss_new_group["items"].append(item)
-            rss_new_list.append(rss_new_group)
-        payload["rss_new_items"] = rss_new_list
-
-    # ── 热榜新增数据 ──
-    new_items_list = []
-    for source_data in report_data.get("new_titles", []):
-        source_group = {
-            "source": source_data.get("source_name", ""),
-            "source_id": source_data.get("source_id", ""),
-            "items": [],
-        }
-        for t in source_data.get("titles", []):
-            item = {
-                "title": t.get("title", ""),
-                "url": t.get("url", ""),
-                "mobile_url": t.get("mobile_url", ""),
-            }
-            ranks = t.get("ranks", [])
-            if ranks:
-                item["rank"] = min(ranks)
-            source_group["items"].append(item)
-        new_items_list.append(source_group)
-    if new_items_list:
-        payload["new_items"] = new_items_list
-
-    # ── AI 分析数据 ──
-    if ai_analysis and getattr(ai_analysis, "success", False):
-        ai_data = {
-            "core_trends": getattr(ai_analysis, "core_trends", ""),
-            "sentiment_controversy": getattr(ai_analysis, "sentiment_controversy", ""),
-            "signals": getattr(ai_analysis, "signals", ""),
-            "rss_insights": getattr(ai_analysis, "rss_insights", ""),
-            "outlook_strategy": getattr(ai_analysis, "outlook_strategy", ""),
-        }
-        # 移除空字段
-        ai_data = {k: v for k, v in ai_data.items() if v}
-
-        standalone_summaries = getattr(ai_analysis, "standalone_summaries", {})
-        if standalone_summaries:
-            ai_data["standalone_summaries"] = standalone_summaries
-
-        # AI 统计元数据
-        ai_data["stats"] = {
-            "total_news": getattr(ai_analysis, "total_news", 0),
-            "analyzed_news": getattr(ai_analysis, "analyzed_news", 0),
-            "max_news_limit": getattr(ai_analysis, "max_news_limit", 0),
-            "hotlist_count": getattr(ai_analysis, "hotlist_count", 0),
-            "rss_count": getattr(ai_analysis, "rss_count", 0),
-        }
-
-        payload["ai_analysis"] = ai_data
-
-    # ── 独立展示区数据 ──
-    if standalone_data:
-        standalone = {}
-        platforms = standalone_data.get("platforms", [])
-        if platforms:
-            standalone["platforms"] = []
-            for p in platforms:
-                platform = {
-                    "id": p.get("id", ""),
-                    "name": p.get("name", ""),
-                    "items": [],
-                }
-                for item in p.get("items", []):
-                    entry = {
-                        "title": item.get("title", ""),
-                        "url": item.get("url", ""),
-                    }
-                    ranks = item.get("ranks", [])
-                    if ranks:
-                        entry["rank"] = min(ranks)
-                        entry["ranks"] = ranks
-                    platform["items"].append(entry)
-                standalone["platforms"].append(platform)
-
-        rss_feeds = standalone_data.get("rss_feeds", [])
-        if rss_feeds:
-            standalone["rss_feeds"] = []
-            for f in rss_feeds:
-                feed = {
-                    "id": f.get("id", ""),
-                    "name": f.get("name", ""),
-                    "items": [],
-                }
-                for item in f.get("items", []):
-                    entry = {
-                        "title": item.get("title", ""),
-                        "url": item.get("url", ""),
-                        "published_at": item.get("published_at", ""),
-                    }
-                    feed["items"].append(entry)
-                standalone["rss_feeds"].append(feed)
-
-        if standalone:
-            payload["standalone"] = standalone
-
-    return payload
-
-
 def send_to_generic_webhook(
     webhook_url: str,
     payload_template: Optional[str],
@@ -1506,7 +1385,6 @@ def send_to_generic_webhook(
     ai_analysis: Any = None,
     display_regions: Optional[Dict] = None,
     standalone_data: Optional[Dict] = None,
-    structured: bool = False,
 ) -> bool:
     """
     发送到通用 Webhook（支持分批发送，支持自定义 JSON 模板，支持热榜+RSS合并+独立展示区）
@@ -1525,11 +1403,13 @@ def send_to_generic_webhook(
         split_content_func: 内容分批函数
         rss_items: RSS 统计条目列表（可选，用于合并推送）
         rss_new_items: RSS 新增条目列表（可选，用于新增区块）
-        structured: 结构化 JSON 模式（跳过 Markdown 渲染和分批，直接发送结构化数据）
 
     Returns:
         bool: 发送是否成功
     """
+    if split_content_func is None:
+        raise ValueError("split_content_func is required")
+
     headers = {"Content-Type": "application/json"}
     proxies = None
     if proxy_url:
@@ -1537,49 +1417,6 @@ def send_to_generic_webhook(
 
     # 日志前缀
     log_prefix = f"通用Webhook{account_label}" if account_label else "通用Webhook"
-
-    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    # 结构化 JSON 模式：跳过 Markdown 渲染，直接发送原始结构化数据
-    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    if structured:
-        print(f"{log_prefix}使用结构化 JSON 模式发送 [{report_type}]")
-
-        payload = _build_structured_payload(
-            report_data=report_data,
-            report_type=report_type,
-            mode=mode,
-            rss_items=rss_items,
-            rss_new_items=rss_new_items,
-            ai_analysis=ai_analysis,
-            standalone_data=standalone_data,
-        )
-
-        content_size = len(json.dumps(payload, ensure_ascii=False).encode("utf-8"))
-        print(f"{log_prefix}结构化数据大小：{content_size} 字节 [{report_type}]")
-
-        try:
-            response = requests.post(
-                webhook_url, headers=headers, json=payload, proxies=proxies, timeout=30
-            )
-
-            if 200 <= response.status_code < 300:
-                print(f"{log_prefix}结构化数据发送成功 [{report_type}]")
-                return True
-            else:
-                print(
-                    f"{log_prefix}结构化数据发送失败 [{report_type}]，"
-                    f"状态码：{response.status_code}, 响应: {response.text}"
-                )
-                return False
-        except Exception as e:
-            print(f"{log_prefix}结构化数据发送出错 [{report_type}]：{e}")
-            return False
-
-    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    # 传统模式：Markdown 渲染 + 分批发送
-    # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-    if split_content_func is None:
-        raise ValueError("split_content_func is required")
 
     # 渲染 AI 分析内容（如果有）
     ai_content = None
