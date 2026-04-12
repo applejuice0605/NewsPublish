@@ -19,3 +19,7 @@ All notable changes to this project will be documented in this file.
 - schedule(timeline): 修复晚间汇总（晚报）因 GitHub Actions 延迟导致无法触发的问题
   - 延长 `evening_summary` 推送窗口至 23:59
   - 同步调整 `deep_quiet` 开始时间至 00:00，避免时间段冲突
+- fix(notification): 修复飞书推送卡片“展开全文”功能失效及语法错误
+  - 恢复 `collapsible_panel` 折叠面板逻辑，支持超长内容自动折叠
+  - 修复 `is_flow_webhook = false` 导致的 Python 语法错误
+  - 统一并优化飞书卡片 1.0 与 2.0 格式的标题显示

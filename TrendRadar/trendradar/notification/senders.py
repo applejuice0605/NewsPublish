@@ -167,53 +167,89 @@ def send_to_feishu(
         )
 
         # 根据 webhook 域名选择 payload 格式
-        # www.feishu.cn 使用纯文本格式，其他域名（open.feishu.cn/open.larksuite.com）使用卡片 2.0
+        # www.feishu.cn 使用标准卡片格式，其他域名（open.feishu.cn/open.larksuite.com）使用卡片 2.0
+        
+        # 长度阈值：超过此长度则折叠（默认 1000 字符）
+        FOLD_THRESHOLD = 1000
+        card_elements = []
+        
+        if len(batch_content) > FOLD_THRESHOLD:
+            # 策略：展示前 8 行或 1000 字符作为预览，剩余内容放入折叠面板
+            lines = batch_content.split('\n')
+            preview_lines = []
+            char_count = 0
+            MAX_PREVIEW_LINES = 8
+            
+            for line in lines:
+                if len(preview_lines) >= MAX_PREVIEW_LINES:
+                    break
+                if char_count + len(line) > FOLD_THRESHOLD:
+                    break
+                preview_lines.append(line)
+                char_count += len(line)
+            
+            preview_content = '\n'.join(preview_lines)
+            
+            if len(preview_content.strip()) >= len(batch_content.strip()):
+                card_elements.append({"tag": "markdown", "content": batch_content})
+            else:
+                remaining_content = batch_content[len(preview_content):]
+                card_elements.append({"tag": "markdown", "content": preview_content})
+                card_elements.append({
+                    "tag": "collapsible_panel",
+                    "header": {
+                        "title": {
+                            "tag": "plain_text",
+                            "content": "展开全文" 
+                        }
+                    },
+                    "elements": [
+                        {"tag": "markdown", "content": remaining_content},
+                        {"tag": "div", "text": {"tag": "lark_md", "content": "<font color='grey'>收起</font>"}}
+                    ],
+                    "expanded": False
+                })
+        else:
+            card_elements.append({"tag": "markdown", "content": batch_content})
+
         if "www.feishu.cn" in webhook_url:
-            # payload = {
-            #     "msg_type": "text",
-            #     "content": {
-            #         "text": batch_content,
-            #     },
-            # }
-            is_flow_webhook = false
+            is_flow_webhook = False # 修复 syntax error
             if is_flow_webhook:
-            # 兼容飞书捷径/自动化流程的 Webhook
+                # 兼容飞书捷径/自动化流程的 Webhook
                 payload = {
                     "msg_type": "text",
                     "content": {"text": batch_content},
                 }
             else:
-                # 标准飞书机器人 Webhook，使用卡片渲染 Markdown
+                # 标准飞书机器人 Webhook
                 payload = {
                     "msg_type": "interactive",
                     "card": {
                         "header": {
                             "title": {
                                 "tag": "plain_text",
-                                "content": "AI热点推送"
+                                "content": f"🎯 AI热点分析 - {report_type}" if report_type else "🎯 AI热点分析"
                             },
                             "template": "blue"
                         },
-                        "elements": [
-                            {
-                                "tag": "div",
-                                "text": {
-                                    "tag": "lark_md",  # 关键标签
-                                    "content": batch_content
-                                }
-                            }
-                        ]
+                        "elements": card_elements
                     }
                 }
         else:
+            # 飞书卡片 2.0 格式
             payload = {
                 "msg_type": "interactive",
                 "card": {
                     "schema": "2.0",
+                    "header": {
+                        "title": {
+                            "tag": "plain_text",
+                            "content": f"🎯 AI热点分析 - {report_type}" if report_type else "🎯 AI热点分析"
+                        },
+                        "template": "blue"
+                    },
                     "body": {
-                        "elements": [
-                            {"tag": "markdown", "content": batch_content}
-                        ]
+                        "elements": card_elements
                     },
                 },
             }
