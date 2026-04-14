@@ -23,3 +23,7 @@ All notable changes to this project will be documented in this file.
   - 恢复 `collapsible_panel` 折叠面板逻辑，支持超长内容自动折叠
   - 修复 `is_flow_webhook = false` 导致的 Python 语法错误
   - 统一并优化飞书卡片 1.0 与 2.0 格式的标题显示
+- feat(rss): 新增微信 RSS 订阅源
+  - 开启全局 RSS 抓取功能
+  - 添加 `WeChat RSS` 订阅配置
+  - 开启推送通知中的 RSS 区域显示
