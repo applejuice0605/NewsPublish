@@ -149,9 +149,9 @@ notification:
     slack:
       webhook_url: ''
     generic_webhook:
-      webhook_url: http://47.77.177.11:9000/listen/trend?token=white_night_secure_token
+      webhook_url: ''
       payload_template: ''
-      structured: true
+      structured: false
 storage:
   backend: auto
   formats:
