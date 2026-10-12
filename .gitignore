@@ -16,7 +16,23 @@ index.html
 Thumbs.db
 *.log
 .env
+.env.local
 test_ai.py
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Local environments
+.venv/
+env/
+venv/
+
+# Local databases
+*.db
+*.sqlite
 
 # Backups
 *.bak

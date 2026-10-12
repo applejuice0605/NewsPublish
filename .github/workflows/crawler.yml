@@ -1,8 +1,8 @@
-name: TrendRadar Crawler (v6.0.0)
+name: TrendRadar Crawler (v6.10.0)
 
 on:
   schedule:
-    # 建议每小时运行一次，具体推送时间由 config/timeline.yaml 控制
+    # 建议每 4 小时运行一次，具体推送时间由 config/timeline.yaml 控制
     - cron: "30 */4 * * *"
   workflow_dispatch:
 
@@ -13,53 +13,71 @@ concurrency:
 jobs:
   run-tracker:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     defaults:
       run:
         working-directory: ./TrendRadar
-    
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-        env:
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
+          clean: true
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
-        env:
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      - name: Set up Python
+        if: success()
+        uses: actions/setup-python@v6
         with:
-          python-version: "3.11"
-          cache: "pip"
-          cache-dependency-path: TrendRadar/requirements.txt
+          python-version: "3.12"
 
-      - name: Install Dependencies
+      - name: Install uv
+        if: success()
+        uses: astral-sh/setup-uv@v7
+
+      - name: Install dependencies
+        if: success()
+        run: uv sync --frozen --no-dev
+
+      - name: Verify required files
+        if: success()
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          if [ ! -f config/config.yaml ]; then
+            echo "Error: Config missing"
+            exit 1
+          fi
 
       - name: Run TrendRadar
+        if: success()
         env:
-          # --- 核心配置 ---
           TZ: "Asia/Shanghai"
-          # --- 通知渠道 Secrets (保持原样) ---
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
-          DINGTALK_WEBHOOK_URL: ${{ secrets.DINGTALK_WEBHOOK_URL }}
-          WEWORK_WEBHOOK_URL: ${{ secrets.WEWORK_WEBHOOK_URL }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DINGTALK_WEBHOOK_URL: ${{ secrets.DINGTALK_WEBHOOK_URL }}
+          WEWORK_WEBHOOK_URL: ${{ secrets.WEWORK_WEBHOOK_URL }}
+          WEWORK_MSG_TYPE: ${{ secrets.WEWORK_MSG_TYPE }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
           EMAIL_SMTP_SERVER: ${{ secrets.EMAIL_SMTP_SERVER }}
           EMAIL_SMTP_PORT: ${{ secrets.EMAIL_SMTP_PORT }}
-          # --- AI 配置 (新增) ---
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          NTFY_SERVER_URL: ${{ secrets.NTFY_SERVER_URL }}
+          NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
+          BARK_URL: ${{ secrets.BARK_URL }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          GENERIC_WEBHOOK_URL: ${{ secrets.GENERIC_WEBHOOK_URL }}
+          GENERIC_WEBHOOK_TEMPLATE: ${{ secrets.GENERIC_WEBHOOK_TEMPLATE }}
+          WECHAT_RSS_URL: ${{ secrets.WECHAT_RSS_URL }}
+          AI_ANALYSIS_ENABLED: ${{ secrets.AI_ANALYSIS_ENABLED }}
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
           AI_MODEL: ${{ secrets.AI_MODEL }}
           AI_API_BASE: ${{ secrets.AI_API_BASE }}
-        run: |
-          # 验证版本并运行
-          python -c "from trendradar import __version__; print(f'TrendRadar Version: {__version__}')"
-          python -m trendradar
+          S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
+          S3_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY_ID }}
+          S3_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_ACCESS_KEY }}
+          S3_ENDPOINT_URL: ${{ secrets.S3_ENDPOINT_URL }}
+          S3_REGION: ${{ secrets.S3_REGION }}
+          GITHUB_ACTIONS: true
+        run: uv run python -m trendradar

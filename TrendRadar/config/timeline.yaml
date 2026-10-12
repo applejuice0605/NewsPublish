@@ -1,207 +1,251 @@
 # ═══════════════════════════════════════════════════════════════
 #                   TrendRadar 时间线配置
 #                      Version: 1.2.0
-# ═══════════════════════════════════════════════════════════════
 #
-# 这个文件控制「什么时间做什么事」。
-#
-# 大多数人不需要编辑这个文件。
-# 只需在 config.yaml 中选择一个预设模板即可：
-#
-#   schedule:
-#     preset: "morning_evening"    ← 改这里就行
-#
-#
-# 可视化配置编辑器地址: https://sansan0.github.io/TrendRadar/
-#
-#
-# ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
-# 📖 基本概念（帮助你理解后面的配置）
-# ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
-#
-#
-# 🔁 程序是怎么运行的？
-#
-#   TrendRadar 不是一直在后台运行的，而是被「定时闹钟」周期性唤醒：
-#
-#     GitHub Actions 用户 → 由 .github/workflows/crawler.yml 中的 cron 定时触发
-#                           默认每小时运行一次（如每小时第 33 分钟）
-#
-#     Docker 用户         → 由 docker/.env 中的 CRON_SCHEDULE 定时触发
-#                           默认每 30 分钟运行一次
-#
-#   每次被唤醒后，程序按以下三个阶段依次执行：
-#
-#     1️⃣ 采集（collect）
-#        爬取各热榜平台 + RSS 订阅源的最新数据，存入数据库
-#
-#                  ⬇
-#
-#     2️⃣ 分析（analyze）
-#        调用 AI 大模型对采集到的新闻进行深度分析（可选，需配置 API Key）
-#
-#                  ⬇
-#
-#     3️⃣ 推送（push）
-#        将整理好的热点新闻 + AI 分析结果发送到你的通知渠道
-#        （飞书、钉钉、Telegram、邮件等）
-#
-#   这三个阶段都可以独立开关。本文件的作用就是控制：
-#   「在什么时间段，开启/关闭哪些阶段」。
-#
-#
-# 🔌 config.yaml 总开关 与 timeline 时间段开关 的关系
-#
-#   config.yaml 里有几个「总开关」，它们的优先级高于本文件：
-#
-#     platforms.enabled: false   → 永远不爬热榜（无论 timeline 怎么设置）
-#     rss.enabled: false         → 永远不爬 RSS（同上）
-#     notification.enabled: false → 永远不推送（同上）
-#     ai_analysis.enabled: false  → 永远不分析（同上）
-#
-#   只有当总开关为 true 时，timeline 的时间段开关才会生效。
-#   换句话说：总开关决定「能不能做」，timeline 决定「什么时候做」。
-#
-#
-# ⏰ 什么是「时间段」和「静默期」？
-#
-#   你可以把一天想象成一条时间线，上面划分了若干个「时间段」。
-#   每个时间段有自己的行为开关（是否采集、是否分析、是否推送）。
-#
-#   而不在任何时间段内的时间，就叫「静默期」（走 default 默认配置）。
-#   静默期通常必须要采集，这样数据一直在积累，
-#   等到推送时，就能汇总出完整的报告。
-#
-#
-#   💡 静默期越长，积累的数据越丰富（排名变化轨迹、上榜/下榜时间等），
-#   最终提交给 AI 分析的上下文也越完整，分析质量更高。
-#   相比 MCP Server，该方案的全天数据能呈现更完整的热度趋势和变化脉络。
-#
-#
-# ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
-# 📋 预设模板一览（选一个就行）
-# ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─
-#
-#   1️⃣ always_on        全天候，有新增就推（默认）
-#   2️⃣ morning_evening  全天推送 + 晚间汇总（推荐大多数人）
-#   3️⃣ office_hours     工作日三段式：到岗速览→午间热点→收工汇总
-#   4️⃣ night_owl        午后速览 + 深夜全天汇总
-#   5️⃣ custom           完全自定义（需要编辑本文件底部的 custom 段）
-#
-# 想自定义？两种方式：
-#   1. 直接翻到本文件底部的「自定义模式」部分
-#   2. 在下方 presets 里新增你自己的预设模板
-#      （只要 key 不重复，然后在 config.yaml 里填你的模板名即可）
-#
-# ⚠️ 关于时间段设计的建议：
-#   GitHub Actions： 建议定时任务间隔 ≥ 2 小时。由于系统触发存在随机延迟，间隔过短可能导致任务漏运行。
-#   Docker 用户：cron 定时是准时的，无此限制，按需设置即可。
-#
-#
+# 由升级迁移生成：保留官方 6.10 预设集合，并保留本地 morning_evening 行为。
 # ═══════════════════════════════════════════════════════════════
 
-
-# ───────────────────────────────────────────────────────────────
-# 预设模板
-# ───────────────────────────────────────────────────────────────
 presets:
-
-  # ───────────────────────────────────────────────────────────
-  # 1️⃣ always_on - 全天候监控
-  #
-  # 最简单的模式：全天候采集 + 推送，有新增就通知你。
-  # 不划分时间段，全天使用同一套配置。
-  # 适合：重度用户、实时舆情监控
-  #
-  # 全天：推送 ✓ | AI分析 ✗ | 不限推送次数
-  # ───────────────────────────────────────────────────────────
-  morning_evening:
-    name: "白天增量+晚间汇总"
-    description: "白天有新消息就推（无AI），晚间深度汇总（含AI），深夜静默不打扰。"
-
-    # 默认配置 ── 兜底安全网，默认全关，防止意外打扰
+  always_on:
+    name: 全天监控
+    description: 全天候监控，有新增立即推送。适合重度用户。
     default:
       collect: true
       analyze: false
-      ai_mode: "current"
-      push: false                  # 🛑 默认绝对不推送
-      report_mode: "current"
+      ai_mode: current
+      push: true
+      report_mode: incremental
       once:
         analyze: false
         push: false
-
-    # 时间段定义 ── 把一天清晰地切成三块
-    periods:
-      # 1. 白天增量时段
-      daytime_push:
-        name: "白天增量"
-        start: "08:00"
-        end: "19:59"
-        analyze: false             # 不做 AI 分析
-        ai_mode: "incremental"
-        push: true                 # ✅ 允许推送
-        report_mode: "incremental" # ✅ 只推新增内容
-        # once 继承 default，白天有新消息就会一直推
-
-      # 2. 晚间汇总时段
-      evening_summary:
-        name: "晚报"
-        start: "20:00"
-        end: "23:59"               # 延长到 23:59 以应对 GitHub Actions 的延迟
-        filter_method: "ai"        # 晚间使用 AI 兴趣筛选
-        analyze: true              # ✅ 晚间开启 AI 分析
-        ai_mode: "daily"           # ✅ AI 分析全天内容
-        push: true                 # ✅ 晚间推送
-        report_mode: "daily"       # ✅ 发送全天汇总报告
-        once:
-          analyze: true            # 窗口内只分析一次
-          push: true               # 窗口内只推送一次
-
-      # 3. 深夜静默时段
-      deep_quiet:
-        name: "深夜静默"
-        start: "00:00"             # 配合晚报时间修改
-        end: "07:59"               # 跨日时间段
-        collect: true              # 夜间继续采集
-        analyze: false             # 不做分析
-        push: false                # 🛑 深夜绝不推送
-
-    # 日计划
+    periods: {}
     day_plans:
       all_day:
-        # 将三个时间段拼成完整的一天
-        periods: ["daytime_push", "evening_summary", "deep_quiet"]
-
-    # 周映射
+        periods: []
     week_map:
-      1: "all_day"
-      2: "all_day"
-      3: "all_day"
-      4: "all_day"
-      5: "all_day"
-      6: "all_day"
-      7: "all_day"
-
-
-  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  # 冲突策略（一般不用改）
-  #
-  # 什么是「冲突」？
-  #   如果你的两个时间段有重叠（比如 A 是 08:00-12:00，B 是 10:00-14:00），
-  #   那么 10:00-12:00 这段时间就同时属于 A 和 B，产生了冲突。
-  #   此时程序需要知道：到底听谁的？
-  #
-  # 两种处理方式：
-  #
-  #   error_on_overlap（推荐）
-  #     直接报错，提醒你去修改配置。
-  #     适合大多数人 —— 时间段重叠通常是写错了，报错能及时发现。
-  #
-  #   last_wins
-  #     day_plans 的 periods 列表中，写在后面的优先。
-  #     比如 periods: ["A", "B"]，重叠时 B 生效。
-  #     适合场景：你想用一个大范围时间段打底，再用后面的小范围覆盖。
-  #
-  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+      1: all_day
+      2: all_day
+      3: all_day
+      4: all_day
+      5: all_day
+      6: all_day
+      7: all_day
+  morning_evening:
+    name: 白天增量+晚间汇总
+    description: 白天有新消息就推（无AI），晚间深度汇总（含AI），深夜静默不打扰。
+    default:
+      collect: true
+      analyze: false
+      ai_mode: current
+      push: false
+      report_mode: current
+      once:
+        analyze: false
+        push: false
+    periods:
+      daytime_push:
+        name: 白天增量
+        start: 08:00
+        end: '19:59'
+        analyze: false
+        ai_mode: incremental
+        push: true
+        report_mode: incremental
+      evening_summary:
+        name: 晚报
+        start: '20:00'
+        end: '23:59'
+        filter_method: ai
+        analyze: true
+        ai_mode: daily
+        push: true
+        report_mode: daily
+        once:
+          analyze: true
+          push: true
+      deep_quiet:
+        name: 深夜静默
+        start: 00:00
+        end: 07:59
+        collect: true
+        analyze: false
+        push: false
+    day_plans:
+      all_day:
+        periods:
+        - daytime_push
+        - evening_summary
+        - deep_quiet
+    week_map:
+      1: all_day
+      2: all_day
+      3: all_day
+      4: all_day
+      5: all_day
+      6: all_day
+      7: all_day
+  office_hours:
+    name: 办公时间
+    description: 工作日三段式推送（到岗→午间→收工），周末增量自由推送。
+    default:
+      collect: true
+      analyze: false
+      ai_mode: current
+      push: false
+      report_mode: current
+      once:
+        analyze: true
+        push: true
+    periods:
+      morning_briefing:
+        name: 到岗速览
+        start: 09:00
+        end: '11:00'
+        analyze: true
+        ai_mode: current
+        push: true
+        report_mode: current
+      noon_update:
+        name: 午间热点
+        start: '13:00'
+        end: '15:00'
+        push: true
+        report_mode: current
+      closing_summary:
+        name: 收工汇总
+        start: '17:00'
+        end: '19:00'
+        analyze: true
+        ai_mode: daily
+        push: true
+        report_mode: daily
+      weekend_free:
+        name: 周末自由
+        start: 08:00
+        end: '23:00'
+        ai_mode: current
+        push: true
+        report_mode: incremental
+        once:
+          analyze: false
+          push: false
+    day_plans:
+      workday:
+        periods:
+        - morning_briefing
+        - noon_update
+        - closing_summary
+      weekend:
+        periods:
+        - weekend_free
+    week_map:
+      1: workday
+      2: workday
+      3: workday
+      4: workday
+      5: workday
+      6: weekend
+      7: weekend
+  night_owl:
+    name: 夜猫子模式
+    description: 午后速览 + 深夜全天汇总。适合夜间工作者、海外时差用户。
+    default:
+      collect: true
+      analyze: false
+      ai_mode: current
+      push: false
+      report_mode: current
+      once:
+        analyze: true
+        push: true
+    periods:
+      afternoon_peek:
+        name: 午后速览
+        start: '15:00'
+        end: '17:00'
+        analyze: true
+        ai_mode: current
+        push: true
+        report_mode: current
+      late_night:
+        name: 深夜汇总
+        start: '22:00'
+        end: 01:00
+        analyze: true
+        ai_mode: daily
+        push: true
+        report_mode: daily
+    day_plans:
+      all_day:
+        periods:
+        - afternoon_peek
+        - late_night
+    week_map:
+      1: all_day
+      2: all_day
+      3: all_day
+      4: all_day
+      5: all_day
+      6: all_day
+      7: all_day
+custom:
+  name: 自定义
+  description: 完全自由定义时间段、日计划和周映射。
+  default:
+    collect: true
+    analyze: false
+    ai_mode: current
+    push: false
+    report_mode: current
+    once:
+      analyze: true
+      push: true
+  periods:
+    deep_quiet:
+      name: 深夜静默
+      start: '23:00'
+      end: 06:00
+      collect: true
+      analyze: true
+      push: false
+    weekday_morning:
+      name: 工作日早间
+      start: 08:00
+      end: '10:00'
+      push: true
+      report_mode: incremental
+    weekend_morning:
+      name: 周末早间
+      start: '10:00'
+      end: '12:00'
+      push: true
+      report_mode: daily
+    evening_summary:
+      name: 晚间汇总
+      start: '19:00'
+      end: '21:00'
+      analyze: true
+      ai_mode: daily
+      push: true
+      report_mode: daily
+  day_plans:
+    workday:
+      periods:
+      - deep_quiet
+      - weekday_morning
+      - evening_summary
+    weekend:
+      periods:
+      - deep_quiet
+      - weekend_morning
+      - evening_summary
+  week_map:
+    1: workday
+    2: workday
+    3: workday
+    4: workday
+    5: workday
+    6: weekend
+    7: weekend
   overlap:
-    policy: "error_on_overlap"
+    policy: error_on_overlap
