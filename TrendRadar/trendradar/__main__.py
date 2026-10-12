@@ -121,6 +121,8 @@ class NewsAnalyzer:
 
     def _should_open_browser(self) -> bool:
         """判断是否应该打开浏览器"""
+        if os.environ.get("TRENDRADAR_NO_BROWSER", "").strip().lower() in ("1", "true", "yes"):
+            return False
         return not self.is_github_actions and not self.is_docker_container
 
     def _setup_proxy(self) -> None:

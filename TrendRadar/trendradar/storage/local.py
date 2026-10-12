@@ -9,12 +9,14 @@ import sqlite3
 import shutil
 import pytz
 import re
+import hashlib
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional
 
 from trendradar.storage.base import StorageBackend, NewsData, RSSItem, RSSData
 from trendradar.storage.sqlite_mixin import SQLiteStorageMixin
+from trendradar.utils.url import normalize_url
 from trendradar.utils.time import (
     DEFAULT_TIMEZONE,
     get_configured_time,
@@ -54,6 +56,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
         self.enable_html = enable_html
         self.timezone = timezone
         self._db_connections: Dict[str, sqlite3.Connection] = {}
+        self._seen_connection: Optional[sqlite3.Connection] = None
 
     @property
     def backend_name(self) -> str:
@@ -120,6 +123,131 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
 
         return self._db_connections[db_path]
 
+    def _get_seen_connection(self) -> sqlite3.Connection:
+        """获取跨天去重库连接。"""
+        if self._seen_connection is None:
+            self.data_dir.mkdir(parents=True, exist_ok=True)
+            db_path = self.data_dir / "seen_items.db"
+            conn = sqlite3.connect(db_path)
+            conn.row_factory = sqlite3.Row
+            conn.execute("""
+                CREATE TABLE IF NOT EXISTS seen_items (
+                    item_type TEXT NOT NULL,
+                    scope_id TEXT NOT NULL,
+                    fingerprint TEXT NOT NULL,
+                    title TEXT DEFAULT '',
+                    url TEXT DEFAULT '',
+                    guid TEXT DEFAULT '',
+                    first_seen_date TEXT NOT NULL,
+                    first_seen_time TEXT NOT NULL,
+                    last_seen_date TEXT NOT NULL,
+                    last_seen_time TEXT NOT NULL,
+                    seen_count INTEGER DEFAULT 1,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    PRIMARY KEY (item_type, scope_id, fingerprint)
+                )
+            """)
+            conn.execute("""
+                CREATE INDEX IF NOT EXISTS idx_seen_lookup
+                ON seen_items(item_type, scope_id, first_seen_date, first_seen_time)
+            """)
+            conn.commit()
+            self._seen_connection = conn
+        return self._seen_connection
+
+    @staticmethod
+    def _normalize_seen_title(title: str) -> str:
+        """归一化标题用于跨天去重。"""
+        return re.sub(r"\s+", " ", (title or "").strip()).lower()
+
+    @staticmethod
+    def _hash_seen_key(value: str) -> str:
+        return hashlib.sha256(value.encode("utf-8")).hexdigest()
+
+    def _news_seen_fingerprints(self, item: object, source_id: str) -> List[tuple[str, str]]:
+        fingerprints: List[tuple[str, str]] = []
+        url = normalize_url(getattr(item, "url", "") or "", source_id)
+        if url:
+            fingerprints.append(("hotlist_url", self._hash_seen_key(f"url:{url}")))
+        title_key = self._normalize_seen_title(getattr(item, "title", "") or "")
+        if title_key:
+            fingerprints.append(("hotlist_title", self._hash_seen_key(f"title:{title_key}")))
+        return fingerprints
+
+    def _rss_seen_fingerprint(self, item: RSSItem) -> str:
+        guid = (getattr(item, "guid", "") or "").strip()
+        if guid:
+            return self._hash_seen_key(f"guid:{guid}")
+        url = (getattr(item, "url", "") or "").strip()
+        if url:
+            return self._hash_seen_key(f"url:{url}")
+        return self._hash_seen_key(f"title:{self._normalize_seen_title(getattr(item, 'title', '') or '')}")
+
+    def _record_seen_news(self, data: NewsData) -> None:
+        conn = self._get_seen_connection()
+        now_str = self._get_configured_time().strftime("%Y-%m-%d %H:%M:%S")
+        for source_id, news_list in data.items.items():
+            for item in news_list:
+                normalized_url = normalize_url(getattr(item, "url", "") or "", source_id)
+                for item_type, fingerprint in self._news_seen_fingerprints(item, source_id):
+                    conn.execute("""
+                        INSERT INTO seen_items
+                        (item_type, scope_id, fingerprint, title, url, first_seen_date, first_seen_time,
+                         last_seen_date, last_seen_time, seen_count, created_at, updated_at)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?)
+                        ON CONFLICT(item_type, scope_id, fingerprint) DO UPDATE SET
+                            title = excluded.title,
+                            url = CASE WHEN excluded.url != '' THEN excluded.url ELSE seen_items.url END,
+                            last_seen_date = excluded.last_seen_date,
+                            last_seen_time = excluded.last_seen_time,
+                            seen_count = seen_count + 1,
+                            updated_at = excluded.updated_at
+                    """, (item_type, source_id, fingerprint, item.title, normalized_url,
+                          data.date, data.crawl_time, data.date, data.crawl_time, now_str, now_str))
+        conn.commit()
+
+    def _record_seen_rss(self, data: RSSData) -> None:
+        conn = self._get_seen_connection()
+        now_str = self._get_configured_time().strftime("%Y-%m-%d %H:%M:%S")
+        for feed_id, rss_list in data.items.items():
+            for item in rss_list:
+                fingerprint = self._rss_seen_fingerprint(item)
+                conn.execute("""
+                    INSERT INTO seen_items
+                    (item_type, scope_id, fingerprint, title, url, guid, first_seen_date, first_seen_time,
+                     last_seen_date, last_seen_time, seen_count, created_at, updated_at)
+                    VALUES ('rss', ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, ?)
+                    ON CONFLICT(item_type, scope_id, fingerprint) DO UPDATE SET
+                        title = excluded.title,
+                        url = CASE WHEN excluded.url != '' THEN excluded.url ELSE seen_items.url END,
+                        guid = CASE WHEN excluded.guid != '' THEN excluded.guid ELSE seen_items.guid END,
+                        last_seen_date = excluded.last_seen_date,
+                        last_seen_time = excluded.last_seen_time,
+                        seen_count = seen_count + 1,
+                        updated_at = excluded.updated_at
+                """, (feed_id, fingerprint, item.title, item.url, item.guid,
+                      data.date, data.crawl_time, data.date, data.crawl_time, now_str, now_str))
+        conn.commit()
+
+    def _seen_before_current_batch(
+        self,
+        item_type: str,
+        scope_id: str,
+        fingerprint: str,
+        current_date: str,
+        current_time: str,
+    ) -> bool:
+        conn = self._get_seen_connection()
+        row = conn.execute("""
+            SELECT first_seen_date, first_seen_time FROM seen_items
+            WHERE item_type = ? AND scope_id = ? AND fingerprint = ?
+        """, (item_type, scope_id, fingerprint)).fetchone()
+        if not row:
+            return False
+        first_seen = (row["first_seen_date"] or "", row["first_seen_time"] or "")
+        return first_seen < (current_date, current_time)
+
     # ========================================
     # StorageBackend 接口实现（委托给 mixin）
     # ========================================
@@ -144,6 +272,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
             if off_list_count > 0:
                 log_parts.append(f"脱榜 {off_list_count} 条")
             print("，".join(log_parts))
+            self._record_seen_news(data)
 
         return success
 
@@ -163,7 +292,26 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
 
     def detect_new_titles(self, current_data: NewsData) -> Dict[str, Dict]:
         """检测新增的标题"""
-        return self._detect_new_titles_impl(current_data)
+        new_titles = self._detect_new_titles_impl(current_data)
+        if not new_titles:
+            return new_titles
+
+        filtered: Dict[str, Dict] = {}
+        suppressed_count = 0
+        for source_id, titles in new_titles.items():
+            for title, item in titles.items():
+                seen_before = any(
+                    self._seen_before_current_batch(item_type, source_id, fingerprint, current_data.date, current_data.crawl_time)
+                    for item_type, fingerprint in self._news_seen_fingerprints(item, source_id)
+                )
+                if seen_before:
+                    suppressed_count += 1
+                    continue
+                filtered.setdefault(source_id, {})[title] = item
+
+        if suppressed_count:
+            print(f"[本地存储] 跨天去重：过滤热榜重复 {suppressed_count} 条")
+        return filtered
 
     def is_first_crawl_today(self, date: Optional[str] = None) -> bool:
         """检查是否是当天第一次抓取"""
@@ -209,6 +357,7 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
             if updated_count > 0:
                 log_parts.append(f"更新 {updated_count} 条")
             print("，".join(log_parts))
+            self._record_seen_rss(data)
 
         return success
 
@@ -218,7 +367,23 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
 
     def detect_new_rss_items(self, current_data: RSSData) -> Dict[str, List[RSSItem]]:
         """检测新增的 RSS 条目"""
-        return self._detect_new_rss_items_impl(current_data)
+        new_items = self._detect_new_rss_items_impl(current_data)
+        if not new_items:
+            return new_items
+
+        filtered: Dict[str, List[RSSItem]] = {}
+        suppressed_count = 0
+        for feed_id, rss_list in new_items.items():
+            for item in rss_list:
+                fingerprint = self._rss_seen_fingerprint(item)
+                if self._seen_before_current_batch("rss", feed_id, fingerprint, current_data.date, current_data.crawl_time):
+                    suppressed_count += 1
+                    continue
+                filtered.setdefault(feed_id, []).append(item)
+
+        if suppressed_count:
+            print(f"[本地存储] 跨天去重：过滤 RSS 重复 {suppressed_count} 条")
+        return filtered
 
     def get_latest_rss_data(self, date: Optional[str] = None) -> Optional[RSSData]:
         """获取最新一次抓取的 RSS 数据"""
@@ -391,6 +556,13 @@ class LocalStorageBackend(SQLiteStorageMixin, StorageBackend):
                 print(f"[本地存储] 关闭连接失败 {db_path}: {e}")
 
         self._db_connections.clear()
+        if self._seen_connection is not None:
+            try:
+                self._seen_connection.close()
+                print(f"[本地存储] 关闭数据库连接: {self.data_dir / 'seen_items.db'}")
+            except Exception as e:
+                print(f"[本地存储] 关闭连接失败 {self.data_dir / 'seen_items.db'}: {e}")
+            self._seen_connection = None
 
     def cleanup_old_data(self, retention_days: int) -> int:
         """

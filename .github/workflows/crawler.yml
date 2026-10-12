@@ -1,9 +1,8 @@
 name: TrendRadar Crawler (v6.10.0)
 
 on:
-  schedule:
-    # 建议每 4 小时运行一次，具体推送时间由 config/timeline.yaml 控制
-    - cron: "30 */4 * * *"
+  # Mac mini is now the primary hourly runner. Keep GitHub Actions as a
+  # manual fallback only, so it does not duplicate local collection/pushes.
   workflow_dispatch:
 
 concurrency:
