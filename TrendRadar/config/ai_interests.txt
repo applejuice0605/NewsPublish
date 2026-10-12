@@ -1,27 +1,61 @@
-# ═══════════════════════════════════════════════════════════════
-#                    TrendRadar AI 兴趣描述文件
-#                         Version: 1.1.0
-# ═══════════════════════════════════════════════════════════════
-# 用自然语言描述你关注的话题，AI 会自动提取标签并对新闻进行分类
-# 修改此文件后，下次运行时自动生效（旧分类会被标记废弃，重新分类）
-
+# TrendRadar AI 兴趣描述文件
+# Version: 1.2.0
+#
+# 用自然语言描述你关注的话题，AI 会自动提取标签并对新闻进行分类。
+# 修改此文件后，下次运行时自动生效。
 
 下面是我要关注的内容：
-# 重要性排序说明：从上到下优先级递减，越靠前越重要。
-# 如果一条新闻同时可能匹配多个方向，请优先归入更靠前的方向。
-# 不要标题党/震惊体（如"震惊！"、"太可怕了！"、"竟然..."、"刚刚！"）
 
-1.实时 AI 动态与大模型产品：实时 AI 动态与大模型产品:关注 OpenAI (o1/o3/Sora)、Anthropic (Claude 3.7/4)、Google (Gemini) 以及国内 DeepSeek (R1/V3)、Qwen、MiniMax 的能力更新及行业首发新闻
-2.计算机控制与 Claw 协议生态：高度关注“小龙虾”、“OpenClaw”、各大厂的“xxClaw”（如 AutoClaw、QClaw、飞书 OpenClaw 等）相关的技术突破、产品发布及行业应用。
-3.MCP (Model Context Protocol) 与 Agent 基础设施：MCP 协议的最新进展、各类 MCP Server 的实现（如连接数据库、GitHub、本地文件）、Cursor/Claude Desktop 的 MCP 集成，以及如何利用 MCP 增强 Agent 的工具调用（Tool Use）与环境感知能力。
-4.AI 测试、评估与 Agent 质量保障：Agent Skills 的评估方法、AI 自动化测试框架（如 Giskard、DeepEval）、LLM 单元测试。关注如何处理 Agent 的不确定性、幻觉检测、回归测试以及针对复杂任务流（Workflow）的端到端评测。
-5.可观测性与 LLMOps 工具链 (LangChain/LangFuse):实时捕捉 LangChain 的架构演进；LangFuse 和 LangSmith 的链路追踪（Tracing）、Prompt 管理、成本监控、人工反馈收集（Human-in-the-loop）以及自动化数据集构建
-6.AI 编程与开发效率工具:关注 Cursor、Windsurf、GitHub Copilot 的新功能，尤其是它们在代码生成、自动修复测试用例、理解大规模工程代码库方面的突破
-7.AI 基础设施与云算力：关注英伟达、华为昇腾、各云大厂的算力供给及推理加速技术（如 vLLM, TensorRT-LLM）
-8.大厂战略与跨行业动态：华为（鸿蒙/AI 战略）、腾讯、字节、特斯拉 FSD、机器人及地缘政治对科技供应链的影响（作为辅助背景）
+总体目标：
+优先捕捉“对 AI 产品、Agent 应用、软件测试/质量保障、开发效率、基础设施和产业趋势有判断价值”的新闻。希望 AI 不只是匹配关键词，而是判断这条消息是否能帮助我理解下一阶段的技术方向、工具变化、工程落地机会或风险。
 
+重要性排序说明：
+从上到下优先级递减；如果一条新闻同时匹配多个方向，请优先归入更靠前的方向。不要因为标题里有“AI、智能、大模型”就直接收录，必须判断内容是否有实质信息量。
 
-# 标题质量要求（即使匹配了上面的标签，符合以下特征的标题也请跳过）
-# 可自由增删改，按你的偏好来
-- 不要标题党/震惊体（如"震惊！"、"太可怕了！"、"竟然..."、"刚刚！"）
-- 不要营销软文、广告推广类标题
+1. AI 趋势与大模型产品进展
+重点关注 OpenAI、Anthropic、Google DeepMind、Meta、xAI、DeepSeek、Qwen、MiniMax、智谱、月之暗面等模型和产品的新能力、新架构、新价格策略、新 API、新多模态能力、新推理能力、新 Agent 能力，以及这些变化对开发者、企业应用和个人效率工具的影响。
+优先收录：模型能力突破、重要版本发布、API/定价/上下文/多模态/实时语音/视频生成变化、可验证 benchmark、产业采用趋势。
+降权处理：泛泛而谈的 AI 概念文章、营销软文、没有新增事实的转述。
+
+2. Agent、计算机控制与 OpenClaw/Claw 生态
+高度关注“小龙虾”、“OpenClaw”、各大厂的“xxClaw”（如 AutoClaw、QClaw、飞书 OpenClaw 等）、Computer Use、Browser Use、Desktop Agent、AI 自动操作系统、Agent 工具调用和环境感知能力。
+优先收录：协议更新、开源项目发布、真实产品集成、复杂任务执行能力、企业级 Agent 工作流、权限/安全/沙箱机制、跨应用自动化能力。
+降权处理：只把普通聊天机器人包装成 Agent、没有真实工具调用或执行闭环的内容。
+
+3. MCP 与 Agent 基础设施
+重点关注 Model Context Protocol、MCP Server、工具调用、权限模型、上下文注入、本地文件/数据库/GitHub/浏览器/企业系统连接、Claude Desktop/Cursor/Codex/IDE 集成，以及能提升 Agent 可用性的协议和工程实践。
+优先收录：MCP 生态新增关键连接器、企业落地案例、安全实践、配置迁移、Agent memory/context/credential 管理。
+降权处理：重复的“如何安装第一个 MCP Server”入门文章，除非包含新的工具或最佳实践。
+
+4. AI 测试、评估与质量保障
+这是高优先级方向。关注 AI 自动化测试、LLM/Agent 评测、E2E 测试、回归测试、幻觉检测、鲁棒性测试、数据集构建、RAG 评估、prompt regression、LLMOps 质量门禁、CI/CD 中的 AI 质量控制，以及 QA 团队如何使用 AI 提效。
+优先收录：DeepEval、Giskard、Ragas、LangSmith eval、LangFuse eval、OpenAI/Anthropic/Google eval 工具、Agent benchmark、真实测试案例、AI 生成测试用例、自动修复测试失败、测试覆盖率分析、质量监控和线上回放。
+特别关注：AI 对传统软件测试岗位、测试平台、测试流程、质量工程方法论的影响。
+降权处理：纯概念“AI 会取代测试”的情绪化标题、没有方法或工具细节的讨论。
+
+5. AI 编程工具与开发效率
+关注 Cursor、Windsurf、GitHub Copilot、Codex、Claude Code、Devin、Cline、Roo Code、JetBrains AI、Trae 等工具在真实工程中的能力变化。
+优先收录：多文件重构、自动修复 CI、理解大型代码库、生成测试、代码审查、任务规划、仓库级上下文、IDE/终端/浏览器协同、团队协作和权限控制。
+降权处理：普通提示词技巧合集、没有新能力或实测结论的工具推广。
+
+6. 可观测性、LLMOps 与 AI 工程化
+关注 LangChain、LangGraph、LangSmith、LangFuse、Helicone、Braintrust、Arize Phoenix、Weights & Biases、OpenTelemetry for LLM 等工具链。
+优先收录：Tracing、prompt/version 管理、成本监控、数据集构建、人工反馈、线上评估、A/B 测试、agent trajectory 追踪、失败样本回放、模型路由和降级策略。
+降权处理：仅介绍工具 UI、没有工程闭环或实践价值的文章。
+
+7. AI 基础设施、推理加速与云算力
+关注 NVIDIA、AMD、华为昇腾、云厂商、vLLM、TensorRT-LLM、SGLang、llama.cpp、MLX、边缘推理、模型压缩、KV cache、GPU 供给、推理成本和部署架构。
+优先收录：推理性能突破、成本显著下降、开发者可用的新部署方案、国产算力生态、端侧/本地模型实践。
+降权处理：纯股价和财报解读，除非直接影响 AI 供应链或产品能力。
+
+8. 大厂战略、机器人与跨行业影响
+关注华为、腾讯、字节、阿里、百度、Apple、Microsoft、Tesla、Figure、宇树等在 AI、机器人、自动驾驶、办公协同、操作系统和企业服务中的关键动作。
+优先收录：战略转向、重大产品发布、生态合作、监管和供应链变化对 AI 产品/工程实践的影响。
+降权处理：娱乐化商业八卦、泛科技热点但与 AI/工程/测试无关的内容。
+
+标题质量与过滤要求：
+- 不要标题党、震惊体、过度情绪化标题，例如“震惊！、太可怕了！、竟然、刚刚、炸裂、王炸”。
+- 不要营销软文、广告推广、培训课引流、无信息增量的转载。
+- 不要只因为包含“AI、智能、机器人、自动化”就收录；需要有明确技术、产品、工程、测试、产业判断价值。
+- 对同一事件的重复报道，只保留信息量更高、来源更可靠、标题更清晰的一条。
+- 对测试、评估、Agent 工程化、MCP/OpenClaw、AI 编程工具这几类内容可以适度放宽热度门槛，因为它们比泛 AI 新闻更贴近我的长期关注方向。
