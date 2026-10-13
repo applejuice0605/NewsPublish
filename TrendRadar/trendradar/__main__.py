@@ -9,6 +9,7 @@ TrendRadar 主程序
 import argparse
 import os
 import webbrowser
+from dataclasses import replace
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -924,6 +925,72 @@ class NewsAnalyzer:
 
         return False
 
+    def _generate_daily_site_report(
+        self,
+        schedule: ResolvedSchedule,
+        failed_ids: Optional[List],
+        word_groups: List,
+        filter_words: List,
+        global_filters: List,
+        rss_items: Optional[List[Dict]] = None,
+        rss_new_items: Optional[List[Dict]] = None,
+        raw_rss_items: Optional[List[Dict]] = None,
+        rss_new_urls: Optional[set] = None,
+    ) -> Optional[str]:
+        """生成站点首页使用的当天累计报告，不影响当前推送模式。"""
+        if not self.ctx.config["STORAGE"]["FORMATS"]["HTML"]:
+            return None
+        if self.report_mode == "daily":
+            return None
+
+        analysis_data = self._load_analysis_data(quiet=True)
+        if not analysis_data:
+            return None
+
+        (
+            all_results,
+            historical_id_to_name,
+            historical_title_info,
+            historical_new_titles,
+            _,
+            _,
+            _,
+        ) = analysis_data
+
+        site_schedule = replace(
+            schedule,
+            report_mode="daily",
+            push=False,
+            once_push=False,
+        )
+
+        standalone_data = self._prepare_standalone_data(
+            all_results, historical_id_to_name, historical_title_info, raw_rss_items
+        )
+
+        stats, html_file, _, _, _, _ = self._run_analysis_pipeline(
+            all_results,
+            "daily",
+            historical_title_info,
+            historical_new_titles,
+            word_groups,
+            filter_words,
+            historical_id_to_name,
+            failed_ids=failed_ids,
+            global_filters=global_filters,
+            rss_items=rss_items,
+            rss_new_items=rss_new_items,
+            standalone_data=standalone_data,
+            schedule=site_schedule,
+            rss_new_urls=rss_new_urls,
+        )
+
+        if html_file:
+            matched_count = sum(stat.get("count", 0) for stat in stats)
+            print(f"[站点] 当天累计报告已更新: {html_file}（命中 {matched_count} 条）")
+            print("[站点] 首页已更新为当天累计报告: output/index.html")
+        return html_file
+
     def _initialize_and_check_config(self) -> bool:
         """通用初始化和配置检查。返回 True 表示可以继续执行。"""
         now = self.ctx.get_time()
@@ -1577,6 +1644,20 @@ class NewsAnalyzer:
         if html_file:
             print(f"HTML报告已生成: {html_file}")
             print(f"最新报告已更新: output/html/latest/{self.report_mode}.html")
+
+        site_daily_html = self._generate_daily_site_report(
+            schedule=schedule,
+            failed_ids=failed_ids,
+            word_groups=word_groups,
+            filter_words=filter_words,
+            global_filters=global_filters,
+            rss_items=rss_items,
+            rss_new_items=rss_new_items,
+            raw_rss_items=raw_rss_items,
+            rss_new_urls=rss_new_urls,
+        )
+        if site_daily_html:
+            print(f"站点首页报告已生成: {site_daily_html}")
 
         # 发送通知
         if mode_strategy["should_send_notification"]:

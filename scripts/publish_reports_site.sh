@@ -21,6 +21,7 @@ cp "$INDEX_FILE" "$SITE_DIR/index.html"
 rsync -a --exclude='*/notification_test_*.html' "$HTML_DIR/" "$SITE_DIR/reports/"
 printf "%s\n" "$DOMAIN" > "$SITE_DIR/CNAME"
 touch "$SITE_DIR/.nojekyll"
+python3 "$REPO_DIR/scripts/generate_reports_archive.py"
 
 echo "[site] reports synced to $SITE_DIR"
 echo "[site] custom domain: $DOMAIN"

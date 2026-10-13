@@ -1758,6 +1758,7 @@ def render_html_content(
             }
 
             .tab-btn,
+            .site-archive-link,
             .save-btn,
             .save-dropdown-trigger,
             .save-dropdown-item,
@@ -1775,6 +1776,7 @@ def render_html_content(
             }
 
             .tab-btn:hover,
+            .site-archive-link:hover,
             .save-btn:hover,
             .save-dropdown-trigger:hover,
             .save-dropdown-item:hover,
@@ -1788,6 +1790,7 @@ def render_html_content(
             }
 
             .tab-btn:active,
+            .site-archive-link:active,
             .save-btn:active,
             .save-dropdown-trigger:active,
             .save-dropdown-item:active,
@@ -1801,6 +1804,16 @@ def render_html_content(
             .tab-btn.active {
                 background: var(--comic-blue);
                 color: white;
+            }
+
+            .site-archive-link {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 38px;
+                padding: 8px 12px;
+                text-decoration: none;
+                white-space: nowrap;
             }
 
             .tab-count {
@@ -1936,6 +1949,7 @@ def render_html_content(
             <div class="header">
                 <div class="header-watermark">TrendRadar</div>
                 <div class="save-buttons">
+                    <a class="site-archive-link" href="/archive.html" title="查看历史报告">历史</a>
                     <button class="toggle-wide-btn" onclick="toggleWideMode()" title="切换宽屏/窄屏">⛶</button>
                     <button class="toggle-dark-btn" onclick="toggleDarkMode()" title="切换暗色/亮色">☽</button>
                     <div class="save-btn-group">

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TrendRadar 历史报告</title>
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --paper: #fffef0;
+      --red: #ff3333;
+      --yellow: #ffcc00;
+      --blue: #3366ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px;
+      background: var(--paper);
+      background-image: radial-gradient(circle, rgba(26,26,26,.18) 1px, transparent 1px);
+      background-size: 4px 4px;
+      color: var(--ink);
+      font-family: "Arial Black", Impact, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 900;
+    }
+    .shell { max-width: 960px; margin: 0 auto; }
+    header {
+      background: var(--red);
+      border: 4px solid var(--ink);
+      box-shadow: 10px 10px 0 var(--ink);
+      padding: 22px;
+      margin-bottom: 24px;
+    }
+    h1 { margin: 0 0 12px; font-size: clamp(28px, 7vw, 58px); text-transform: uppercase; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    select, input, a.button, .primary-link {
+      background: white;
+      color: var(--ink);
+      border: 4px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 10px 12px;
+      font: inherit;
+      text-decoration: none;
+      min-height: 44px;
+    }
+    a.button:hover, .primary-link:hover {
+      background: var(--yellow);
+      transform: scale(1.04) rotate(-2deg);
+    }
+    .archive-card {
+      background: white;
+      border: 4px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+      padding: 18px;
+      margin-bottom: 18px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: start;
+    }
+    h2 { margin: 0; font-size: 24px; }
+    p { margin: 8px 0 0; color: #4a4a4a; }
+    details { grid-column: 1 / -1; }
+    summary { cursor: pointer; }
+    ul { margin: 12px 0 0; padding-left: 22px; line-height: 1.9; }
+    li a { color: var(--blue); text-decoration-thickness: 3px; }
+    .empty { background: white; border: 4px solid var(--ink); padding: 18px; }
+    @media (max-width: 640px) {
+      body { padding: 14px; }
+      .archive-card { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <h1>TrendRadar Archive</h1>
+      <div class="toolbar">
+        <a class="button" href="/">返回首页</a>
+        <label>
+          选择日期
+          <select id="dateSelect">
+            <option value="">全部日期</option>
+            <option value="2026-10-13">2026-10-13</option>
+<option value="2026-10-12">2026-10-12</option>
+<option value="2025-11-24">2025-11-24</option>
+<option value="2025-11-23">2025-11-23</option>
+<option value="2025-11-21">2025-11-21</option>
+<option value="2025-11-20">2025-11-20</option>
+<option value="2025-11-19">2025-11-19</option>
+<option value="2025-11-14">2025-11-14</option>
+          </select>
+        </label>
+      </div>
+    </header>
+    <div id="archiveList">
+            <section class="archive-card" data-date="2026-10-13">
+                <div>
+                    <h2>2026-10-13</h2>
+                    <p>17 份报告</p>
+                </div>
+                <a class="primary-link" href="/reports/2026-10-13/16-36.html">查看当天最新</a>
+                <details>
+                    <summary>展开当天所有快照</summary>
+                    <ul><li><a href="/reports/2026-10-13/16-36.html">16-36</a></li>
+<li><a href="/reports/2026-10-13/15-35.html">15-35</a></li>
+<li><a href="/reports/2026-10-13/14-33.html">14-33</a></li>
+<li><a href="/reports/2026-10-13/13-32.html">13-32</a></li>
+<li><a href="/reports/2026-10-13/12-29.html">12-29</a></li>
+<li><a href="/reports/2026-10-13/11-28.html">11-28</a></li>
+<li><a href="/reports/2026-10-13/10-27.html">10-27</a></li>
+<li><a href="/reports/2026-10-13/09-26.html">09-26</a></li>
+<li><a href="/reports/2026-10-13/08-25.html">08-25</a></li>
+<li><a href="/reports/2026-10-13/07-24.html">07-24</a></li>
+<li><a href="/reports/2026-10-13/06-23.html">06-23</a></li>
+<li><a href="/reports/2026-10-13/05-23.html">05-23</a></li></ul>
+                </details>
+            </section>
+            
+
+            <section class="archive-card" data-date="2026-10-12">
+                <div>
+                    <h2>2026-10-12</h2>
+                    <p>4 份报告</p>
+                </div>
+                <a class="primary-link" href="/reports/2026-10-12/23-17.html">查看当天最新</a>
+                <details>
+                    <summary>展开当天所有快照</summary>
+                    <ul><li><a href="/reports/2026-10-12/23-17.html">23-17</a></li>
+<li><a href="/reports/2026-10-12/22-15.html">22-15</a></li>
+<li><a href="/reports/2026-10-12/21-14.html">21-14</a></li>
+<li><a href="/reports/2026-10-12/17-49.html">17-49</a></li></ul>
+                </details>
+            </section>
+            
+
+            <section class="archive-card" data-date="2025-11-24">
+                <div>
+                    <h2>2025-11-24</h2>
+                    <p>1 份报告</p>
+                </div>
+                <a class="primary-link" href="/reports/2025-11-24.html">查看当天最新</a>
+                <details>
+                    <summary>展开当天所有快照</summary>
+                    <ul><li><a href="/reports/2025-11-24.html">2025-11-24</a></li></ul>
+                </details>
+            </section>
+            
+
+            <section class="archive-card" data-date="2025-11-23">
+                <div>
+                    <h2>2025-11-23</h2>
+                    <p>1 份报告</p>
+                </div>
+                <a class="primary-link" href="/reports/2025-11-23.html">查看当天最新</a>
+                <details>
+                    <summary>展开当天所有快照</summary>
+                    <ul><li><a href="/reports/2025-11-23.html">2025-11-23</a></li></ul>
+                </details>
+            </section>
+            
+
+            <section class="archive-card" data-date="2025-11-21">
+                <div>
+                    <h2>2025-11-21</h2>
+                    <p>1 份报告</p>
+                </div>
+                <a class="primary-link" href="/reports/2025-11-21.html">查看当天最新</a>
+                <details>
+                    <summary>展开当天所有快照</summary>
+                    <ul><li><a href="/reports/2025-11-21.html">2025-11-21</a></li></ul>
+                </details>
+            </section>
+            
+
+            <section class="archive-card" data-date="2025-11-20">
+                <div>
+                    <h2>2025-11-20</h2>
+                    <p>1 份报告</p>
+                </div>
+                <a class="primary-link" href="/reports/2025-11-20.html">查看当天最新</a>
+                <details>
+                    <summary>展开当天所有快照</summary>
+                    <ul><li><a href="/reports/2025-11-20.html">2025-11-20</a></li></ul>
+                </details>
+            </section>
+            
+
+            <section class="archive-card" data-date="2025-11-19">
+                <div>
+                    <h2>2025-11-19</h2>
+                    <p>1 份报告</p>
+                </div>
+                <a class="primary-link" href="/reports/2025-11-19.html">查看当天最新</a>
+                <details>
+                    <summary>展开当天所有快照</summary>
+                    <ul><li><a href="/reports/2025-11-19.html">2025-11-19</a></li></ul>
+                </details>
+            </section>
+            
+
+            <section class="archive-card" data-date="2025-11-14">
+                <div>
+                    <h2>2025-11-14</h2>
+                    <p>1 份报告</p>
+                </div>
+                <a class="primary-link" href="/reports/2025-11-14.html">查看当天最新</a>
+                <details>
+                    <summary>展开当天所有快照</summary>
+                    <ul><li><a href="/reports/2025-11-14.html">2025-11-14</a></li></ul>
+                </details>
+            </section>
+            </div>
+  </main>
+  <script>
+    const select = document.getElementById('dateSelect');
+    const cards = Array.from(document.querySelectorAll('.archive-card'));
+    select.addEventListener('change', () => {
+      const value = select.value;
+      cards.forEach(card => {
+        card.style.display = !value || card.dataset.date === value ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
