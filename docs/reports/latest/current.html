@@ -29,10 +29,14 @@
             .header {
                 background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
                 color: white;
-                padding: 32px 24px;
+                padding: 52px 24px 48px;
                 text-align: center;
                 position: relative;
                 overflow: visible;
+                min-height: 320px;
+                --spotlight-x: 50%;
+                --spotlight-y: 50%;
+                --spotlight-size: 0px;
             }
 
             .header-watermark {
@@ -40,31 +44,41 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                font-size: clamp(40px, 8vw, 80px);
+                width: 100%;
+                padding: 0 12px;
+                font-size: clamp(34px, 9vw, 76px);
                 font-weight: 900;
                 letter-spacing: 0.05em;
-                color: rgba(255, 255, 255, 0.15);
+                color: rgba(255, 255, 255, 0.34);
                 pointer-events: none;
                 z-index: 1;
                 white-space: nowrap;
-                -webkit-mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-                mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-                transition: -webkit-mask-image 0.3s ease, mask-image 0.3s ease;
+                text-align: center;
+                opacity: 0;
+                -webkit-mask-image: radial-gradient(circle var(--spotlight-size) at var(--spotlight-x) var(--spotlight-y), #000 0%, rgba(0,0,0,0.92) 36%, rgba(0,0,0,0.28) 64%, transparent 100%);
+                mask-image: radial-gradient(circle var(--spotlight-size) at var(--spotlight-x) var(--spotlight-y), #000 0%, rgba(0,0,0,0.92) 36%, rgba(0,0,0,0.28) 64%, transparent 100%);
+                transition: color 100ms linear, opacity 100ms linear, -webkit-mask-image 100ms linear, mask-image 100ms linear;
                 user-select: none;
             }
 
+            .header:hover .header-watermark {
+                color: rgba(255, 255, 255, 0.42);
+                opacity: 1;
+            }
+
             .save-buttons {
-                position: absolute;
-                top: 16px;
-                right: 16px;
+                position: relative;
                 display: flex;
+                justify-content: flex-end;
+                flex-wrap: wrap;
                 gap: 8px;
+                margin-bottom: 24px;
                 z-index: 10;
             }
 
-            .save-btn-group {
+            .export-menu {
                 position: relative;
-                display: flex;
+                display: inline-flex;
             }
 
             .save-btn {
@@ -72,7 +86,7 @@
                 border: 1px solid rgba(255, 255, 255, 0.3);
                 color: white;
                 padding: 10px 18px;
-                border-radius: 6px 0 0 6px;
+                border-radius: 6px;
                 cursor: pointer;
                 font-size: 13px;
                 font-weight: 500;
@@ -80,7 +94,6 @@
                 backdrop-filter: blur(10px);
                 white-space: nowrap;
                 min-height: 38px;
-                border-right: none;
             }
 
             .save-btn:hover {
@@ -96,82 +109,58 @@
                 cursor: not-allowed;
             }
 
-            .save-dropdown-trigger {
-                background: rgba(255, 255, 255, 0.2);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-                color: white;
-                padding: 10px 10px;
-                border-radius: 0 6px 6px 0;
-                cursor: pointer;
-                font-size: 11px;
-                transition: all 0.2s ease;
-                backdrop-filter: blur(10px);
-                min-height: 38px;
-                display: flex;
-                align-items: center;
-            }
-
-            .save-dropdown-trigger:hover {
-                background: rgba(255, 255, 255, 0.35);
-            }
-
-            .save-dropdown-menu {
+            .export-menu-list {
                 position: absolute;
                 top: 100%;
                 right: 0;
-                margin-top: 4px;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(16px);
+                margin-top: 6px;
+                min-width: 150px;
+                padding: 6px;
+                background: rgba(255, 255, 255, 0.96);
                 border: 1px solid rgba(0, 0, 0, 0.08);
                 border-radius: 10px;
-                padding: 4px;
-                min-width: 140px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+                backdrop-filter: blur(16px);
                 opacity: 0;
                 visibility: hidden;
                 transform: translateY(-4px);
-                transition: all 0.2s ease;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+                transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+                z-index: 20;
             }
 
-            .save-btn-group:hover .save-dropdown-menu,
-            .save-dropdown-menu:hover {
+            .export-menu:hover .export-menu-list,
+            .export-menu:focus-within .export-menu-list {
                 opacity: 1;
                 visibility: visible;
                 transform: translateY(0);
             }
 
-            .save-dropdown-item {
+            .export-menu-item {
                 display: block;
                 width: 100%;
-                padding: 9px 14px;
+                padding: 9px 12px;
                 background: none;
                 border: none;
-                color: #374151;
-                font-size: 13px;
-                cursor: pointer;
                 border-radius: 6px;
+                color: #374151;
+                cursor: pointer;
+                font-size: 13px;
+                line-height: 1.2;
                 text-align: left;
-                transition: background 0.15s;
                 white-space: nowrap;
             }
 
-            .save-dropdown-item:hover {
+            .export-menu-item:hover,
+            .export-menu-item:focus {
                 background: #f3f4f6;
                 color: #4f46e5;
-            }
-
-            .dropdown-icon {
-                width: 14px;
-                height: 14px;
-                margin-right: 8px;
-                vertical-align: -2px;
-                flex-shrink: 0;
+                outline: none;
             }
 
             .header-title {
                 font-size: 22px;
                 font-weight: 700;
-                margin: 0 0 20px 0;
+                margin: 40px 0 44px 0;
                 position: relative;
                 z-index: 2;
             }
@@ -569,19 +558,12 @@
                 .new-item { gap: 8px; }
                 .news-number { width: 20px; height: 20px; font-size: 12px; }
                 .save-buttons {
-                    position: static;
                     margin-bottom: 16px;
-                    display: flex;
-                    gap: 8px;
                     justify-content: center;
                     width: 100%;
                 }
-                .save-btn-group {
-                    flex: 1;
-                }
                 .save-btn {
                     width: 100%;
-                    border-radius: 6px 0 0 6px;
                 }
             }
 
@@ -1285,20 +1267,6 @@
             body.dark-mode .fab-btn { background: #6d28d9; }
             body.dark-mode .fab-btn:hover { background: #7c3aed; }
 
-            /* 下拉菜单 */
-            body.dark-mode .save-dropdown-menu {
-                background: rgba(30,41,59,0.95);
-                border-color: #475569;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-            }
-            body.dark-mode .save-dropdown-item {
-                color: #e2e8f0;
-            }
-            body.dark-mode .save-dropdown-item:hover {
-                background: #334155;
-                color: #c4b5fd;
-            }
-
             /* 暗色模式切换按钮 */
             .toggle-dark-btn {
                 background: rgba(255, 255, 255, 0.2);
@@ -1396,7 +1364,8 @@
                 color: var(--comic-ink);
                 border-bottom: 4px solid var(--comic-ink);
                 text-transform: uppercase;
-                padding: 36px 24px 30px;
+                padding: 56px 24px 52px;
+                min-height: 360px;
             }
 
             .header-watermark {
@@ -1415,6 +1384,8 @@
                 font-size: 24px;
                 font-weight: 900;
                 letter-spacing: 0;
+                margin-top: 44px;
+                margin-bottom: 52px;
                 padding: 8px 16px;
                 transform: rotate(-2deg);
                 text-shadow: 3px 3px 0 var(--comic-red), -3px -3px 0 var(--comic-blue);
@@ -1704,9 +1675,9 @@
             }
 
             .tab-btn,
+            .site-archive-link,
             .save-btn,
-            .save-dropdown-trigger,
-            .save-dropdown-item,
+            .export-menu-item,
             .toggle-wide-btn,
             .toggle-dark-btn,
             .fab-btn {
@@ -1721,9 +1692,10 @@
             }
 
             .tab-btn:hover,
+            .site-archive-link:hover,
             .save-btn:hover,
-            .save-dropdown-trigger:hover,
-            .save-dropdown-item:hover,
+            .export-menu-item:hover,
+            .export-menu-item:focus,
             .toggle-wide-btn:hover,
             .toggle-dark-btn:hover,
             .fab-btn:hover {
@@ -1734,9 +1706,9 @@
             }
 
             .tab-btn:active,
+            .site-archive-link:active,
             .save-btn:active,
-            .save-dropdown-trigger:active,
-            .save-dropdown-item:active,
+            .export-menu-item:active,
             .toggle-wide-btn:active,
             .toggle-dark-btn:active,
             .fab-btn:active {
@@ -1747,6 +1719,16 @@
             .tab-btn.active {
                 background: var(--comic-blue);
                 color: white;
+            }
+
+            .site-archive-link {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-height: 38px;
+                padding: 8px 12px;
+                text-decoration: none;
+                white-space: nowrap;
             }
 
             .tab-count {
@@ -1772,7 +1754,7 @@
                 outline: 3px solid var(--comic-yellow);
             }
 
-            .save-dropdown-menu,
+            .export-menu-list,
             .fab-tooltip {
                 background: var(--comic-panel);
                 border: 4px solid var(--comic-ink);
@@ -1825,7 +1807,7 @@
             body.dark-mode .ai-section,
             body.dark-mode .ai-block,
             body.dark-mode .tab-btn,
-            body.dark-mode .save-dropdown-menu,
+            body.dark-mode .export-menu-list,
             body.dark-mode .search-input {
                 background: #fffef0;
                 color: var(--comic-ink);
@@ -1863,6 +1845,8 @@
                 body { padding: 10px; }
                 .container { box-shadow: 6px 6px 0 var(--comic-ink); }
                 .content { padding: 16px; }
+                .header { padding: 42px 14px 38px; min-height: 320px; }
+                .header-watermark { font-size: clamp(28px, 10vw, 42px); }
                 .header-title { font-size: 19px; }
                 .word-group,
                 .feed-group,
@@ -1882,15 +1866,15 @@
             <div class="header">
                 <div class="header-watermark">TrendRadar</div>
                 <div class="save-buttons">
+                    <a class="site-archive-link" href="/archive.html" title="查看历史报告">历史</a>
                     <button class="toggle-wide-btn" onclick="toggleWideMode()" title="切换宽屏/窄屏">⛶</button>
                     <button class="toggle-dark-btn" onclick="toggleDarkMode()" title="切换暗色/亮色">☽</button>
-                    <div class="save-btn-group">
-                        <button class="save-btn" onclick="saveAsImage(event)">导出</button>
-                        <button class="save-dropdown-trigger">▾</button>
-                        <div class="save-dropdown-menu">
-                            <button class="save-dropdown-item" onclick="saveAsImage(event)"><svg class="dropdown-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"/><circle cx="8" cy="7.5" r="2.5"/><path d="M12 4h.01"/></svg>整页截图</button>
-                            <button class="save-dropdown-item" onclick="saveAsMultipleImages(event)"><svg class="dropdown-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="10" height="10" rx="1.5"/><path d="M5 4V2.5A1.5 1.5 0 016.5 1h7A1.5 1.5 0 0115 2.5v7a1.5 1.5 0 01-1.5 1.5H12"/></svg>分段截图</button>
-                            <button class="save-dropdown-item" onclick="saveAsMarkdown()"><svg class="dropdown-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 2h11A1.5 1.5 0 0115 3.5v9a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 011 12.5v-9A1.5 1.5 0 012.5 2z"/><path d="M4 11V5l2.5 3L9 5v6"/><path d="M11.5 8v3m0 0l-1.5-2m1.5 2l1.5-2"/></svg>Markdown</button>
+                    <div class="export-menu">
+                        <button class="save-btn" onclick="saveAsImage(event)" aria-haspopup="true">导出</button>
+                        <div class="export-menu-list" role="menu" aria-label="导出选项">
+                            <button class="export-menu-item" type="button" onclick="saveAsImage(event)" role="menuitem">整页截图</button>
+                            <button class="export-menu-item" type="button" onclick="saveAsMultipleImages(event)" role="menuitem">分段截图</button>
+                            <button class="export-menu-item" type="button" onclick="saveAsMarkdown()" role="menuitem">Markdown</button>
                         </div>
                     </div>
                 </div>
@@ -1902,11 +1886,11 @@
                     </div>
                     <div class="info-item">
                         <span class="info-label">生成时间</span>
-                        <span class="info-value">10-13 07:24</span>
+                        <span class="info-value">10-14 00:48</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">热榜命中</span>
-                        <span class="info-value">10 / 332</span>
+                        <span class="info-value">10 / 256</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">RSS 命中</span>
@@ -1922,7 +1906,7 @@
                     </div>
                     <div class="info-item">
                         <span class="info-label">新增热点</span>
-                        <span class="info-value">0</span>
+                        <span class="info-value">10 + 0</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">AI 分析</span>
@@ -1935,39 +1919,39 @@
                 <div class="search-bar">
                     <input type="text" class="search-input" placeholder="搜索新闻标题..." oninput="handleSearch(this.value)">
                 </div>
-                <div class="hotlist-section"><div class="tab-bar-wrapper"><div class="tab-bar"><button class="tab-btn" data-tab-index="all">全部<span class="tab-count">10</span></button><button class="tab-btn" data-tab-index="0">AI Agent<span class="tab-count">3</span></button><button class="tab-btn" data-tab-index="1">AI测试评估<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="2">推理加速<span class="tab-count">3</span></button><button class="tab-btn" data-tab-index="3">AI产业战略<span class="tab-count">2</span></button><button class="tab-btn" data-tab-index="4">AI工程实践<span class="tab-count">1</span></button></div></div>
+                <div class="hotlist-section"><div class="tab-bar-wrapper"><div class="tab-bar"><button class="tab-btn" data-tab-index="all">全部<span class="tab-count">10</span></button><button class="tab-btn" data-tab-index="0">大模型进展<span class="tab-count">3</span></button><button class="tab-btn" data-tab-index="1">Agent与自动化<span class="tab-count">3</span></button><button class="tab-btn" data-tab-index="2">AI编程工具<span class="tab-count">2</span></button><button class="tab-btn" data-tab-index="3">开发者工具链<span class="tab-count">2</span></button></div></div>
                 <div class="word-group" data-tab-index="0">
                     <div class="word-header">
                         <div class="word-info">
-                            <div class="word-name">AI Agent</div>
+                            <div class="word-name">大模型进展</div>
                             <div class="word-count ">3 条</div>
                         </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>1/5</div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>1/4</div>
                     </div>
-                    <div class="news-item ">
+                    <div class="news-item new">
                         <div class="news-number">1</div>
                         <div class="news-content">
-                            <div class="news-header"><span class="source-name">掘金</span><span class="rank-num ">23-24</span><span class="trend-down">DOWN</span><span class="time-info">00:18~07:24</span><span class="count-info">8次</span>
+                            <div class="news-header"><span class="source-name">华尔街见闻</span><span class="rank-num ">8</span><span class="time-info">00:46</span>
                             </div>
-                            <div class="news-title"><a href="https://juejin.cn/post/7694559519641632811" target="_blank" class="news-link">AI Agent 驾驭指南</a>
+                            <div class="news-title"><a href="https://wallstreetcn.com/articles/3783495" target="_blank" class="news-link">半个月，500亿变1000亿！DeepSeek将完成新一轮融资，梁文峰盯上具身智能</a>
                             </div>
                         </div>
                     </div>
-                    <div class="news-item ">
+                    <div class="news-item new">
                         <div class="news-number">2</div>
                         <div class="news-content">
-                            <div class="news-header"><span class="source-name">掘金</span><span class="rank-num ">22-25</span><span class="trend-down">DOWN</span><span class="time-info">00:18~07:24</span><span class="count-info">8次</span>
+                            <div class="news-header"><span class="source-name">V2EX</span><span class="rank-num top">3</span><span class="time-info">00:46</span>
                             </div>
-                            <div class="news-title"><a href="https://juejin.cn/post/7694576718062026803" target="_blank" class="news-link">Agent 的记忆系统怎么设计？面试官想听的是这个</a>
+                            <div class="news-title"><a href="https://www.v2ex.com/t/1248538" target="_blank" class="news-link">Meta 新出的 AI 助手 Muse，我拿它当了半个月&quot;家庭运维总监&quot;</a>
                             </div>
                         </div>
                     </div>
-                    <div class="news-item ">
+                    <div class="news-item new">
                         <div class="news-number">3</div>
                         <div class="news-content">
-                            <div class="news-header"><span class="source-name">IT之家</span><span class="rank-num ">12-18</span><span class="trend-down">DOWN</span><span class="time-info">00:18~07:24</span><span class="count-info">8次</span>
+                            <div class="news-header"><span class="source-name">bilibili 热搜</span><span class="rank-num high">4</span><span class="time-info">00:46</span>
                             </div>
-                            <div class="news-title"><a href="https://www.ithome.com/1/012/103.htm" target="_blank" class="news-link">AMD 发布智能体 AI 计算机架 Helion，纯 CPU 版本可扩展至 32,768 核心</a>
+                            <div class="news-title"><a href="https://search.bilibili.com/all?keyword=Gemini+4+Argon%E6%88%96%E5%B0%86%E5%BC%80%E6%94%BE" target="_blank" class="news-link">Gemini 4 Argon或将开放</a>
                             </div>
                         </div>
                     </div>
@@ -1975,17 +1959,35 @@
                 <div class="word-group" data-tab-index="1">
                     <div class="word-header">
                         <div class="word-info">
-                            <div class="word-name">AI测试评估</div>
-                            <div class="word-count ">1 条</div>
+                            <div class="word-name">Agent与自动化</div>
+                            <div class="word-count ">3 条</div>
                         </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>2/5</div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>2/4</div>
                     </div>
-                    <div class="news-item ">
+                    <div class="news-item new">
                         <div class="news-number">1</div>
                         <div class="news-content">
-                            <div class="news-header"><span class="source-name">掘金</span><span class="rank-num ">15-19</span><span class="trend-down">DOWN</span><span class="time-info">00:18~07:24</span><span class="count-info">8次</span>
+                            <div class="news-header"><span class="source-name">V2EX</span><span class="rank-num ">15</span><span class="time-info">00:46</span>
                             </div>
-                            <div class="news-title"><a href="https://juejin.cn/post/7694614473173352467" target="_blank" class="news-link">国庆7天AI圈3次大翻车：你还没被割韭菜，代码已先崩盘</a>
+                            <div class="news-title"><a href="https://www.v2ex.com/t/1248511" target="_blank" class="news-link">做了个 AI 用浏览器上网的 cli 工具，装个插件可以让 AI 控制日常已登录账号的浏览器</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number">2</div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">V2EX</span><span class="rank-num high">4</span><span class="time-info">00:46</span>
+                            </div>
+                            <div class="news-title"><a href="https://www.v2ex.com/t/1248537" target="_blank" class="news-link">做了个英文恐怖故事站 LiveLore： AI 辅助写作，读者投票决定剧情走向</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news-item new">
+                        <div class="news-number">3</div>
+                        <div class="news-content">
+                            <div class="news-header"><span class="source-name">V2EX</span><span class="rank-num ">19</span><span class="time-info">00:46</span>
+                            </div>
+                            <div class="news-title"><a href="https://www.v2ex.com/t/1248494" target="_blank" class="news-link">神念的新用法：把客服 AI 链接交给自己的 AI，让它代问并带回答案</a>
                             </div>
                         </div>
                     </div>
@@ -1993,35 +1995,26 @@
                 <div class="word-group" data-tab-index="2">
                     <div class="word-header">
                         <div class="word-info">
-                            <div class="word-name">推理加速</div>
-                            <div class="word-count ">3 条</div>
+                            <div class="word-name">AI编程工具</div>
+                            <div class="word-count ">2 条</div>
                         </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>3/5</div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>3/4</div>
                     </div>
-                    <div class="news-item ">
+                    <div class="news-item new">
                         <div class="news-number">1</div>
                         <div class="news-content">
-                            <div class="news-header"><span class="source-name">IT之家</span><span class="rank-num ">8-14</span><span class="trend-down">DOWN</span><span class="time-info">00:18~07:24</span><span class="count-info">8次</span>
+                            <div class="news-header"><span class="source-name">V2EX</span><span class="rank-num ">27</span><span class="time-info">00:46</span>
                             </div>
-                            <div class="news-title"><a href="https://www.ithome.com/1/012/115.htm" target="_blank" class="news-link">微软 Maia 300 AI 芯片发布：台积电 N2P 工艺，288GB HBM4 内存、带宽 18TB/s</a>
+                            <div class="news-title"><a href="https://www.v2ex.com/t/1248470" target="_blank" class="news-link">请教下利用 codex 进行 UX 设计的技巧</a>
                             </div>
                         </div>
                     </div>
-                    <div class="news-item ">
+                    <div class="news-item new">
                         <div class="news-number">2</div>
                         <div class="news-content">
-                            <div class="news-header"><span class="source-name">IT之家</span><span class="rank-num ">11-17</span><span class="trend-down">DOWN</span><span class="time-info">00:18~07:24</span><span class="count-info">8次</span>
+                            <div class="news-header"><span class="source-name">V2EX</span><span class="rank-num ">16</span><span class="time-info">00:46</span>
                             </div>
-                            <div class="news-title"><a href="https://www.ithome.com/1/012/104.htm" target="_blank" class="news-link">AMD 发布新一代锐龙 AI Halo 开发者平台，升级 Max+ PRO 495 与至高 192GB 内存</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="news-item ">
-                        <div class="news-number">3</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">华尔街见闻</span><span class="rank-num ">8-9</span><span class="trend-up">UP</span><span class="time-info">01:20~07:24</span><span class="count-info">7次</span>
-                            </div>
-                            <div class="news-title"><a href="https://wallstreetcn.com/articles/3783452" target="_blank" class="news-link">AI算力需求爆发，联讯仪器前三季度净利润同比预增1866%至2073% ｜财报见闻</a>
+                            <div class="news-title"><a href="https://www.v2ex.com/t/1248508" target="_blank" class="news-link">请问你们是怎么找到 vibe coding 的需求的</a>
                             </div>
                         </div>
                     </div>
@@ -2029,44 +2022,26 @@
                 <div class="word-group" data-tab-index="3">
                     <div class="word-header">
                         <div class="word-info">
-                            <div class="word-name">AI产业战略</div>
+                            <div class="word-name">开发者工具链</div>
                             <div class="word-count ">2 条</div>
                         </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>4/5</div>
+                        <div class="word-index"><span class="collapse-icon">▼</span>4/4</div>
                     </div>
-                    <div class="news-item ">
+                    <div class="news-item new">
                         <div class="news-number">1</div>
                         <div class="news-content">
-                            <div class="news-header"><span class="source-name">IT之家</span><span class="rank-num ">19-25</span><span class="trend-down">DOWN</span><span class="time-info">00:18~07:24</span><span class="count-info">8次</span>
+                            <div class="news-header"><span class="source-name">掘金</span><span class="rank-num high">4</span><span class="time-info">00:46</span>
                             </div>
-                            <div class="news-title"><a href="https://www.ithome.com/1/012/094.htm" target="_blank" class="news-link">小鹏今年底实现人形机器人量产，2027 年上半年开启交付</a>
+                            <div class="news-title"><a href="https://juejin.cn/post/7695604296682930186" target="_blank" class="news-link">三天11万星的逆天开源REA，逆向分析一切，软件开发的门槛被打到了零，最该慌的为什么不是大厂？</a>
                             </div>
                         </div>
                     </div>
-                    <div class="news-item ">
+                    <div class="news-item new">
                         <div class="news-number">2</div>
                         <div class="news-content">
-                            <div class="news-header"><span class="source-name">华尔街见闻</span><span class="rank-num ">7-10</span><span class="trend-up">UP</span><span class="time-info">01:20~07:24</span><span class="count-info">7次</span>
+                            <div class="news-header"><span class="source-name">V2EX</span><span class="rank-num ">25</span><span class="time-info">00:46</span>
                             </div>
-                            <div class="news-title"><a href="https://wallstreetcn.com/articles/3783458" target="_blank" class="news-link">博通CEO：许多AI投资者如同赌场赌徒，AI发展最大制约因素是资本</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="word-group" data-tab-index="4">
-                    <div class="word-header">
-                        <div class="word-info">
-                            <div class="word-name">AI工程实践</div>
-                            <div class="word-count ">1 条</div>
-                        </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>5/5</div>
-                    </div>
-                    <div class="news-item ">
-                        <div class="news-number">1</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">掘金</span><span class="rank-num ">11-12</span><span class="trend-down">DOWN</span><span class="time-info">00:18~07:24</span><span class="count-info">8次</span>
-                            </div>
-                            <div class="news-title"><a href="https://juejin.cn/post/7694564397683867688" target="_blank" class="news-link">Genkit Dart 1.0 发布，Flutter 原生的 AI Agent 终于完整了</a>
+                            <div class="news-title"><a href="https://www.v2ex.com/t/1248475" target="_blank" class="news-link">分享一个自用的 AI 知识视频工作台，主要做科普视频，也可以做讲题视频和音乐 MV</a>
                             </div>
                         </div>
                     </div>
@@ -2102,22 +2077,60 @@
         <script>
             // ===== 浏览器增强功能 =====
 
+            function getViewportAnchor() {
+                var candidates = Array.from(document.querySelectorAll('.news-item, .new-item, .rss-item, .word-group, .ai-section, .content'));
+                var best = null;
+                var bestDistance = Infinity;
+                candidates.forEach(function(el) {
+                    var rect = el.getBoundingClientRect();
+                    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+                    var distance = Math.abs(rect.top - 96);
+                    if (distance < bestDistance) {
+                        best = el;
+                        bestDistance = distance;
+                    }
+                });
+                if (!best) return { element: null, top: window.scrollY };
+                return { element: best, offset: best.getBoundingClientRect().top };
+            }
+
+            function restoreViewportAnchor(anchor) {
+                if (!anchor || !anchor.element) {
+                    if (anchor && typeof anchor.top === 'number') window.scrollTo(0, anchor.top);
+                    return;
+                }
+                var nextTop = anchor.element.getBoundingClientRect().top;
+                window.scrollBy(0, nextTop - anchor.offset);
+            }
+
+            function withStableViewport(callback) {
+                var anchor = getViewportAnchor();
+                callback();
+                requestAnimationFrame(function() {
+                    restoreViewportAnchor(anchor);
+                });
+            }
+
             function toggleWideMode() {
-                document.body.classList.toggle('wide-mode');
-                var isWide = document.body.classList.contains('wide-mode');
-                try { localStorage.setItem('trendradar-wide-mode', isWide ? '1' : '0'); } catch(e) {}
-                var btn = document.querySelector('.toggle-wide-btn');
-                if (btn) btn.textContent = isWide ? '⊡' : '⛶';
-                initTabVisibility();
-                initCollapseVisibility();
-                initStandaloneTabVisibility();
+                withStableViewport(function() {
+                    document.body.classList.toggle('wide-mode');
+                    var isWide = document.body.classList.contains('wide-mode');
+                    try { localStorage.setItem('trendradar-wide-mode', isWide ? '1' : '0'); } catch(e) {}
+                    var btn = document.querySelector('.toggle-wide-btn');
+                    if (btn) btn.textContent = isWide ? '⊡' : '⛶';
+                    initTabVisibility();
+                    initCollapseVisibility();
+                    initStandaloneTabVisibility();
+                });
             }
 
             function toggleDarkMode() {
-                var isDark = document.body.classList.toggle('dark-mode');
-                try { localStorage.setItem('trendradar-dark-mode', isDark ? '1' : '0'); } catch(e) {}
-                var btn = document.querySelector('.toggle-dark-btn');
-                if (btn) btn.textContent = isDark ? '☀' : '☽';
+                withStableViewport(function() {
+                    var isDark = document.body.classList.toggle('dark-mode');
+                    try { localStorage.setItem('trendradar-dark-mode', isDark ? '1' : '0'); } catch(e) {}
+                    var btn = document.querySelector('.toggle-dark-btn');
+                    if (btn) btn.textContent = isDark ? '☀' : '☽';
+                });
             }
 
             function initTabScroll(tabBar) {
@@ -2424,7 +2437,7 @@
             // ===== 截图功能 =====
 
             async function saveAsImage(e) {
-                const button = e.target.closest('.save-dropdown-item') || e.target;
+                const button = e.target.closest('button') || e.target;
                 const originalHTML = button.innerHTML;
                 var screenshotState = null;
 
@@ -2501,7 +2514,7 @@
             }
 
             async function saveAsMultipleImages(e) {
-                const button = e.target.closest('.save-dropdown-item') || e.target;
+                const button = e.target.closest('button') || e.target;
                 const originalHTML = button.innerHTML;
                 const container = document.querySelector('.container');
                 const scale = 1.5;
@@ -3067,28 +3080,31 @@
 
 
 
-                // Header watermark 鼠标跟随揭示
+                // Header watermark spotlight: keep the full word visible, then brighten the area under the cursor.
                 (function() {
                     var header = document.querySelector('.header');
-                    var watermark = document.querySelector('.header-watermark');
-                    if (!header || !watermark) return;
+                    if (!header || !document.querySelector('.header-watermark')) return;
 
-                    var radius = 100;
+                    function updateSpotlight(event) {
+                        var rect = header.getBoundingClientRect();
+                        header.style.setProperty('--spotlight-x', (event.clientX - rect.left) + 'px');
+                        header.style.setProperty('--spotlight-y', (event.clientY - rect.top) + 'px');
+                        header.style.setProperty('--spotlight-size', '240px');
+                    }
 
-                    header.addEventListener('mousemove', function(e) {
-                        var rect = watermark.getBoundingClientRect();
-                        var x = e.clientX - rect.left;
-                        var y = e.clientY - rect.top;
-                        var maskVal = 'radial-gradient(circle ' + radius + 'px at ' + x + 'px ' + y + 'px, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)';
-                        watermark.style.webkitMaskImage = maskVal;
-                        watermark.style.maskImage = maskVal;
-                        watermark.style.color = 'rgba(255, 255, 255, 0.25)';
+                    header.addEventListener('mouseenter', updateSpotlight);
+                    header.addEventListener('mousemove', updateSpotlight);
+
+                    header.addEventListener('touchstart', function(event) {
+                        if (event.touches && event.touches[0]) {
+                            updateSpotlight(event.touches[0]);
+                        }
                     });
 
                     header.addEventListener('mouseleave', function() {
-                        watermark.style.webkitMaskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
-                        watermark.style.maskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
-                        watermark.style.color = 'rgba(255, 255, 255, 0.15)';
+                        header.style.setProperty('--spotlight-x', '50%');
+                        header.style.setProperty('--spotlight-y', '50%');
+                        header.style.setProperty('--spotlight-size', '0px');
                     });
                 })();
             });
