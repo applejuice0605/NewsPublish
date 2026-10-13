@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "newsradar",
+  "compatibility_date": "2026-10-13",
+  "assets": {
+    "directory": "./docs",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+  "env": {
+    "preview": {
+      "name": "newsradar-preview",
+      "assets": {
+        "directory": "./docs",
+        "not_found_handling": "404-page",
+        "html_handling": "auto-trailing-slash"
+      }
+    }
+  }
+}
