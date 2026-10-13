@@ -33,17 +33,18 @@
     }
     h1 { margin: 0 0 12px; font-size: clamp(28px, 7vw, 58px); text-transform: uppercase; }
     .toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-    select, input, a.button, .primary-link {
+    select, input, a.button, button.button, .primary-link {
       background: white;
       color: var(--ink);
       border: 4px solid var(--ink);
       box-shadow: 4px 4px 0 var(--ink);
       padding: 10px 12px;
       font: inherit;
+      cursor: pointer;
       text-decoration: none;
       min-height: 44px;
     }
-    a.button:hover, .primary-link:hover {
+    a.button:hover, button.button:hover, .primary-link:hover {
       background: var(--yellow);
       transform: scale(1.04) rotate(-2deg);
     }
@@ -65,9 +66,74 @@
     ul { margin: 12px 0 0; padding-left: 22px; line-height: 1.9; }
     li a { color: var(--blue); text-decoration-thickness: 3px; }
     .empty { background: white; border: 4px solid var(--ink); padding: 18px; }
+    .calendar {
+      background: white;
+      border: 4px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    .calendar-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .calendar-head button {
+      background: var(--yellow);
+      border: 4px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      min-width: 44px;
+      min-height: 44px;
+      font: inherit;
+      cursor: pointer;
+    }
+    .calendar-title { font-size: 20px; text-align: center; }
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .weekday {
+      text-align: center;
+      font-size: 12px;
+      color: #4a4a4a;
+    }
+    .day {
+      min-height: 44px;
+      background: #f6f6f6;
+      border: 3px solid var(--ink);
+      color: #6b6b6b;
+      font: inherit;
+      cursor: default;
+    }
+    .day.has-data {
+      background: var(--yellow);
+      color: var(--ink);
+      cursor: pointer;
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+    .day.selected {
+      background: var(--blue);
+      color: white;
+    }
+    .day.blank {
+      visibility: hidden;
+    }
+    .no-result {
+      display: none;
+      background: white;
+      border: 4px solid var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 16px;
+      margin-bottom: 18px;
+    }
     @media (max-width: 640px) {
       body { padding: 14px; }
       .archive-card { grid-template-columns: 1fr; }
+      .toolbar label { width: 100%; }
+      input[type="date"] { width: 100%; }
     }
   </style>
 </head>
@@ -77,32 +143,35 @@
       <h1>TrendRadar Archive</h1>
       <div class="toolbar">
         <a class="button" href="/">返回首页</a>
+        <button class="button" type="button" id="showAll">全部日期</button>
+        <button class="button" type="button" id="showLatest">最新日期</button>
         <label>
           选择日期
-          <select id="dateSelect">
-            <option value="">全部日期</option>
-            <option value="2026-10-13">2026-10-13</option>
-<option value="2026-10-12">2026-10-12</option>
-<option value="2025-11-24">2025-11-24</option>
-<option value="2025-11-23">2025-11-23</option>
-<option value="2025-11-21">2025-11-21</option>
-<option value="2025-11-20">2025-11-20</option>
-<option value="2025-11-19">2025-11-19</option>
-<option value="2025-11-14">2025-11-14</option>
-          </select>
+          <input type="date" id="dateInput" min="2025-11-14" max="2026-10-13">
         </label>
       </div>
     </header>
+    <section class="calendar" aria-label="报告日期日历">
+      <div class="calendar-head">
+        <button type="button" id="prevMonth" aria-label="上个月">&lt;</button>
+        <div class="calendar-title" id="calendarTitle"></div>
+        <button type="button" id="nextMonth" aria-label="下个月">&gt;</button>
+      </div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+    </section>
+    <div class="no-result" id="noResult">这一天暂无报告。黄色日期代表有历史数据。</div>
     <div id="archiveList">
             <section class="archive-card" data-date="2026-10-13">
                 <div>
                     <h2>2026-10-13</h2>
-                    <p>18 份报告</p>
+                    <p>20 份报告</p>
                 </div>
-                <a class="primary-link" href="/reports/2026-10-13/17-23.html">查看当天最新</a>
+                <a class="primary-link" href="/reports/2026-10-13/17-42.html">查看当天最新</a>
                 <details>
                     <summary>展开当天所有快照</summary>
-                    <ul><li><a href="/reports/2026-10-13/17-23.html">17-23</a></li>
+                    <ul><li><a href="/reports/2026-10-13/17-42.html">17-42</a></li>
+<li><a href="/reports/2026-10-13/17-37.html">17-37</a></li>
+<li><a href="/reports/2026-10-13/17-23.html">17-23</a></li>
 <li><a href="/reports/2026-10-13/16-36.html">16-36</a></li>
 <li><a href="/reports/2026-10-13/15-35.html">15-35</a></li>
 <li><a href="/reports/2026-10-13/14-33.html">14-33</a></li>
@@ -111,9 +180,7 @@
 <li><a href="/reports/2026-10-13/11-28.html">11-28</a></li>
 <li><a href="/reports/2026-10-13/10-27.html">10-27</a></li>
 <li><a href="/reports/2026-10-13/09-26.html">09-26</a></li>
-<li><a href="/reports/2026-10-13/08-25.html">08-25</a></li>
-<li><a href="/reports/2026-10-13/07-24.html">07-24</a></li>
-<li><a href="/reports/2026-10-13/06-23.html">06-23</a></li></ul>
+<li><a href="/reports/2026-10-13/08-25.html">08-25</a></li></ul>
                 </details>
             </section>
             
@@ -213,14 +280,96 @@
             </div>
   </main>
   <script>
-    const select = document.getElementById('dateSelect');
+    const availableDates = new Set(["2026-10-13", "2026-10-12", "2025-11-24", "2025-11-23", "2025-11-21", "2025-11-20", "2025-11-19", "2025-11-14"]);
+    const sortedDates = Array.from(availableDates).sort();
+    const input = document.getElementById('dateInput');
     const cards = Array.from(document.querySelectorAll('.archive-card'));
-    select.addEventListener('change', () => {
-      const value = select.value;
+    const noResult = document.getElementById('noResult');
+    const calendarTitle = document.getElementById('calendarTitle');
+    const calendarGrid = document.getElementById('calendarGrid');
+    const labels = ['一', '二', '三', '四', '五', '六', '日'];
+    let selectedDate = '';
+    let visibleMonth = sortedDates.length ? new Date(sortedDates[sortedDates.length - 1] + 'T00:00:00') : new Date();
+
+    function filterByDate(value) {
+      selectedDate = value || '';
+      if (input.value !== selectedDate) input.value = selectedDate;
+      let visibleCount = 0;
       cards.forEach(card => {
-        card.style.display = !value || card.dataset.date === value ? '' : 'none';
+        const show = !selectedDate || card.dataset.date === selectedDate;
+        card.style.display = show ? '' : 'none';
+        if (show) visibleCount++;
       });
+      noResult.style.display = selectedDate && visibleCount === 0 ? 'block' : 'none';
+      renderCalendar();
+    }
+
+    function renderCalendar() {
+      calendarGrid.innerHTML = '';
+      labels.forEach(label => {
+        const node = document.createElement('div');
+        node.className = 'weekday';
+        node.textContent = label;
+        calendarGrid.appendChild(node);
+      });
+
+      const year = visibleMonth.getFullYear();
+      const month = visibleMonth.getMonth();
+      calendarTitle.textContent = `${year}-${String(month + 1).padStart(2, '0')}`;
+
+      const first = new Date(year, month, 1);
+      const firstOffset = (first.getDay() + 6) % 7;
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+      for (let i = 0; i < firstOffset; i++) {
+        const blank = document.createElement('div');
+        blank.className = 'day blank';
+        calendarGrid.appendChild(blank);
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const date = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'day';
+        button.textContent = String(day);
+        if (availableDates.has(date)) {
+          button.classList.add('has-data');
+          button.title = `${date} 有报告`;
+          button.addEventListener('click', () => filterByDate(date));
+        } else {
+          button.disabled = true;
+          button.title = `${date} 暂无报告`;
+        }
+        if (date === selectedDate) {
+          button.classList.add('selected');
+        }
+        calendarGrid.appendChild(button);
+      }
+    }
+
+    document.getElementById('prevMonth').addEventListener('click', () => {
+      visibleMonth = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth() - 1, 1);
+      renderCalendar();
     });
+    document.getElementById('nextMonth').addEventListener('click', () => {
+      visibleMonth = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth() + 1, 1);
+      renderCalendar();
+    });
+    document.getElementById('showAll').addEventListener('click', () => {
+      filterByDate('');
+    });
+    document.getElementById('showLatest').addEventListener('click', () => {
+      if (sortedDates.length) {
+        visibleMonth = new Date(sortedDates[sortedDates.length - 1] + 'T00:00:00');
+        filterByDate(sortedDates[sortedDates.length - 1]);
+      }
+    });
+    input.addEventListener('change', () => {
+      if (input.value) visibleMonth = new Date(input.value + 'T00:00:00');
+      filterByDate(input.value);
+    });
+    renderCalendar();
   </script>
 </body>
 </html>

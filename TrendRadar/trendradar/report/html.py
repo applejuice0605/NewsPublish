@@ -116,17 +116,12 @@ def render_html_content(
                 z-index: 10;
             }
 
-            .save-btn-group {
-                position: relative;
-                display: flex;
-            }
-
             .save-btn {
                 background: rgba(255, 255, 255, 0.2);
                 border: 1px solid rgba(255, 255, 255, 0.3);
                 color: white;
                 padding: 10px 18px;
-                border-radius: 6px 0 0 6px;
+                border-radius: 6px;
                 cursor: pointer;
                 font-size: 13px;
                 font-weight: 500;
@@ -134,7 +129,6 @@ def render_html_content(
                 backdrop-filter: blur(10px);
                 white-space: nowrap;
                 min-height: 38px;
-                border-right: none;
             }
 
             .save-btn:hover {
@@ -148,78 +142,6 @@ def render_html_content(
             .save-btn:disabled {
                 opacity: 0.6;
                 cursor: not-allowed;
-            }
-
-            .save-dropdown-trigger {
-                background: rgba(255, 255, 255, 0.2);
-                border: 1px solid rgba(255, 255, 255, 0.3);
-                color: white;
-                padding: 10px 10px;
-                border-radius: 0 6px 6px 0;
-                cursor: pointer;
-                font-size: 11px;
-                transition: all 0.2s ease;
-                backdrop-filter: blur(10px);
-                min-height: 38px;
-                display: flex;
-                align-items: center;
-            }
-
-            .save-dropdown-trigger:hover {
-                background: rgba(255, 255, 255, 0.35);
-            }
-
-            .save-dropdown-menu {
-                position: absolute;
-                top: 100%;
-                right: 0;
-                margin-top: 4px;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(16px);
-                border: 1px solid rgba(0, 0, 0, 0.08);
-                border-radius: 10px;
-                padding: 4px;
-                min-width: 140px;
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-4px);
-                transition: all 0.2s ease;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-            }
-
-            .save-btn-group:hover .save-dropdown-menu,
-            .save-dropdown-menu:hover {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
-
-            .save-dropdown-item {
-                display: block;
-                width: 100%;
-                padding: 9px 14px;
-                background: none;
-                border: none;
-                color: #374151;
-                font-size: 13px;
-                cursor: pointer;
-                border-radius: 6px;
-                text-align: left;
-                transition: background 0.15s;
-                white-space: nowrap;
-            }
-
-            .save-dropdown-item:hover {
-                background: #f3f4f6;
-                color: #4f46e5;
-            }
-
-            .dropdown-icon {
-                width: 14px;
-                height: 14px;
-                margin-right: 8px;
-                vertical-align: -2px;
-                flex-shrink: 0;
             }
 
             .header-title {
@@ -630,12 +552,8 @@ def render_html_content(
                     justify-content: center;
                     width: 100%;
                 }
-                .save-btn-group {
-                    flex: 1;
-                }
                 .save-btn {
                     width: 100%;
-                    border-radius: 6px 0 0 6px;
                 }
             }
 
@@ -1339,20 +1257,6 @@ def render_html_content(
             body.dark-mode .fab-btn { background: #6d28d9; }
             body.dark-mode .fab-btn:hover { background: #7c3aed; }
 
-            /* 下拉菜单 */
-            body.dark-mode .save-dropdown-menu {
-                background: rgba(30,41,59,0.95);
-                border-color: #475569;
-                box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-            }
-            body.dark-mode .save-dropdown-item {
-                color: #e2e8f0;
-            }
-            body.dark-mode .save-dropdown-item:hover {
-                background: #334155;
-                color: #c4b5fd;
-            }
-
             /* 暗色模式切换按钮 */
             .toggle-dark-btn {
                 background: rgba(255, 255, 255, 0.2);
@@ -1760,8 +1664,6 @@ def render_html_content(
             .tab-btn,
             .site-archive-link,
             .save-btn,
-            .save-dropdown-trigger,
-            .save-dropdown-item,
             .toggle-wide-btn,
             .toggle-dark-btn,
             .fab-btn {
@@ -1778,8 +1680,6 @@ def render_html_content(
             .tab-btn:hover,
             .site-archive-link:hover,
             .save-btn:hover,
-            .save-dropdown-trigger:hover,
-            .save-dropdown-item:hover,
             .toggle-wide-btn:hover,
             .toggle-dark-btn:hover,
             .fab-btn:hover {
@@ -1792,8 +1692,6 @@ def render_html_content(
             .tab-btn:active,
             .site-archive-link:active,
             .save-btn:active,
-            .save-dropdown-trigger:active,
-            .save-dropdown-item:active,
             .toggle-wide-btn:active,
             .toggle-dark-btn:active,
             .fab-btn:active {
@@ -1839,7 +1737,6 @@ def render_html_content(
                 outline: 3px solid var(--comic-yellow);
             }
 
-            .save-dropdown-menu,
             .fab-tooltip {
                 background: var(--comic-panel);
                 border: 4px solid var(--comic-ink);
@@ -1892,7 +1789,6 @@ def render_html_content(
             body.dark-mode .ai-section,
             body.dark-mode .ai-block,
             body.dark-mode .tab-btn,
-            body.dark-mode .save-dropdown-menu,
             body.dark-mode .search-input {
                 background: #fffef0;
                 color: var(--comic-ink);
@@ -1952,15 +1848,7 @@ def render_html_content(
                     <a class="site-archive-link" href="/archive.html" title="查看历史报告">历史</a>
                     <button class="toggle-wide-btn" onclick="toggleWideMode()" title="切换宽屏/窄屏">⛶</button>
                     <button class="toggle-dark-btn" onclick="toggleDarkMode()" title="切换暗色/亮色">☽</button>
-                    <div class="save-btn-group">
-                        <button class="save-btn" onclick="saveAsImage(event)">导出</button>
-                        <button class="save-dropdown-trigger">▾</button>
-                        <div class="save-dropdown-menu">
-                            <button class="save-dropdown-item" onclick="saveAsImage(event)"><svg class="dropdown-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"/><circle cx="8" cy="7.5" r="2.5"/><path d="M12 4h.01"/></svg>整页截图</button>
-                            <button class="save-dropdown-item" onclick="saveAsMultipleImages(event)"><svg class="dropdown-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="10" height="10" rx="1.5"/><path d="M5 4V2.5A1.5 1.5 0 016.5 1h7A1.5 1.5 0 0115 2.5v7a1.5 1.5 0 01-1.5 1.5H12"/></svg>分段截图</button>
-                            <button class="save-dropdown-item" onclick="saveAsMarkdown()"><svg class="dropdown-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 2h11A1.5 1.5 0 0115 3.5v9a1.5 1.5 0 01-1.5 1.5h-11A1.5 1.5 0 011 12.5v-9A1.5 1.5 0 012.5 2z"/><path d="M4 11V5l2.5 3L9 5v6"/><path d="M11.5 8v3m0 0l-1.5-2m1.5 2l1.5-2"/></svg>Markdown</button>
-                        </div>
-                    </div>
+                    <button class="save-btn" onclick="saveAsImage(event)">导出</button>
                 </div>
                 <div class="header-title">热点新闻分析</div>
                 <div class="header-info">"""
