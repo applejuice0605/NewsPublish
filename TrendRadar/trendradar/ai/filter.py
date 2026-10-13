@@ -36,6 +36,20 @@ class AIFilterResult:
 class AIFilter:
     """AI 智能筛选器"""
 
+    AI_EVIDENCE_TERMS = (
+        "ai", "大模型", "模型", "llm", "agent", "智能体", "mcp", "openclaw",
+        "推理", "训练", "算力", "gpu", "npu", "cuda", "昇腾", "vllm",
+        "tensorrt", "sglang", "llama.cpp", "kv cache", "端侧模型",
+        "多模态", "benchmark", "api", "copilot", "codex", "cursor",
+    )
+    HARDWARE_AMBIGUOUS_TERMS = (
+        "芯片", "处理器", "半导体", "逻辑折叠", "封装", "终端", "手机",
+        "pc", "出货", "供应链", "gpu 性能", "isp",
+    )
+    STRICT_TAG_TERMS = (
+        "大模型", "模型", "推理", "算力", "基础设施", "大厂", "战略",
+    )
+
     def __init__(
         self,
         ai_config: Dict[str, Any],
@@ -479,6 +493,16 @@ class AIFilter:
                     best_tag_id = tag_id
 
             if best_tag_id is not None:
+                title_text = title_map.get(news_id, "")
+                tag_text = tag_name_map.get(best_tag_id, "")
+                if self._should_reject_ambiguous_ai_match(title_text, tag_text):
+                    if self.debug:
+                        print(
+                            f"[AI筛选][DEBUG] 跳过缺少 AI 直接证据的泛科技标题: "
+                            f"[{news_id}] {title_text[:60]} -> {tag_text}"
+                        )
+                    continue
+
                 # 如果同一条新闻被多次返回，只保留分数更高的
                 existing = best_per_news.get(news_id)
                 if existing is None or best_score > existing["relevance_score"]:
@@ -518,6 +542,16 @@ class AIFilter:
                     print(line)
 
         return results
+
+    def _should_reject_ambiguous_ai_match(self, title: str, tag_name: str) -> bool:
+        """标题只有泛硬件/产业信息时，不接受 AI 相关标签的过度联想匹配。"""
+        title_lower = (title or "").lower()
+        tag_lower = (tag_name or "").lower()
+        if not any(term in tag_lower for term in self.STRICT_TAG_TERMS):
+            return False
+        if not any(term in title_lower for term in self.HARDWARE_AMBIGUOUS_TERMS):
+            return False
+        return not any(term in title_lower for term in self.AI_EVIDENCE_TERMS)
 
     def _extract_json(self, response: str) -> Optional[str]:
         """从 AI 响应中提取 JSON 字符串"""

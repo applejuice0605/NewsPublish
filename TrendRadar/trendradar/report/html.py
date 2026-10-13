@@ -94,17 +94,24 @@ def render_html_content(
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                font-size: clamp(40px, 8vw, 80px);
+                width: 100%;
+                padding: 0 12px;
+                font-size: clamp(34px, 9vw, 76px);
                 font-weight: 900;
                 letter-spacing: 0.05em;
-                color: rgba(255, 255, 255, 0.15);
+                color: rgba(255, 255, 255, 0.16);
                 pointer-events: none;
                 z-index: 1;
                 white-space: nowrap;
-                -webkit-mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-                mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-                transition: -webkit-mask-image 0.3s ease, mask-image 0.3s ease;
+                text-align: center;
+                opacity: 0.92;
+                transition: color 100ms linear, opacity 100ms linear;
                 user-select: none;
+            }
+
+            .header:hover .header-watermark {
+                color: rgba(255, 255, 255, 0.24);
+                opacity: 1;
             }
 
             .save-buttons {
@@ -2708,22 +2715,60 @@ def render_html_content(
         <script>
             // ===== 浏览器增强功能 =====
 
+            function getViewportAnchor() {
+                var candidates = Array.from(document.querySelectorAll('.news-item, .new-item, .rss-item, .word-group, .ai-section, .content'));
+                var best = null;
+                var bestDistance = Infinity;
+                candidates.forEach(function(el) {
+                    var rect = el.getBoundingClientRect();
+                    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+                    var distance = Math.abs(rect.top - 96);
+                    if (distance < bestDistance) {
+                        best = el;
+                        bestDistance = distance;
+                    }
+                });
+                if (!best) return { element: null, top: window.scrollY };
+                return { element: best, offset: best.getBoundingClientRect().top };
+            }
+
+            function restoreViewportAnchor(anchor) {
+                if (!anchor || !anchor.element) {
+                    if (anchor && typeof anchor.top === 'number') window.scrollTo(0, anchor.top);
+                    return;
+                }
+                var nextTop = anchor.element.getBoundingClientRect().top;
+                window.scrollBy(0, nextTop - anchor.offset);
+            }
+
+            function withStableViewport(callback) {
+                var anchor = getViewportAnchor();
+                callback();
+                requestAnimationFrame(function() {
+                    restoreViewportAnchor(anchor);
+                });
+            }
+
             function toggleWideMode() {
-                document.body.classList.toggle('wide-mode');
-                var isWide = document.body.classList.contains('wide-mode');
-                try { localStorage.setItem('trendradar-wide-mode', isWide ? '1' : '0'); } catch(e) {}
-                var btn = document.querySelector('.toggle-wide-btn');
-                if (btn) btn.textContent = isWide ? '⊡' : '⛶';
-                initTabVisibility();
-                initCollapseVisibility();
-                initStandaloneTabVisibility();
+                withStableViewport(function() {
+                    document.body.classList.toggle('wide-mode');
+                    var isWide = document.body.classList.contains('wide-mode');
+                    try { localStorage.setItem('trendradar-wide-mode', isWide ? '1' : '0'); } catch(e) {}
+                    var btn = document.querySelector('.toggle-wide-btn');
+                    if (btn) btn.textContent = isWide ? '⊡' : '⛶';
+                    initTabVisibility();
+                    initCollapseVisibility();
+                    initStandaloneTabVisibility();
+                });
             }
 
             function toggleDarkMode() {
-                var isDark = document.body.classList.toggle('dark-mode');
-                try { localStorage.setItem('trendradar-dark-mode', isDark ? '1' : '0'); } catch(e) {}
-                var btn = document.querySelector('.toggle-dark-btn');
-                if (btn) btn.textContent = isDark ? '☀' : '☽';
+                withStableViewport(function() {
+                    var isDark = document.body.classList.toggle('dark-mode');
+                    try { localStorage.setItem('trendradar-dark-mode', isDark ? '1' : '0'); } catch(e) {}
+                    var btn = document.querySelector('.toggle-dark-btn');
+                    if (btn) btn.textContent = isDark ? '☀' : '☽';
+                });
             }
 
             function initTabScroll(tabBar) {
@@ -3673,28 +3718,20 @@ def render_html_content(
 
 
 
-                // Header watermark 鼠标跟随揭示
+                // Header watermark 轻微响应，保持品牌字完整可见
                 (function() {
                     var header = document.querySelector('.header');
                     var watermark = document.querySelector('.header-watermark');
                     if (!header || !watermark) return;
 
-                    var radius = 100;
-
-                    header.addEventListener('mousemove', function(e) {
-                        var rect = watermark.getBoundingClientRect();
-                        var x = e.clientX - rect.left;
-                        var y = e.clientY - rect.top;
-                        var maskVal = 'radial-gradient(circle ' + radius + 'px at ' + x + 'px ' + y + 'px, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)';
-                        watermark.style.webkitMaskImage = maskVal;
-                        watermark.style.maskImage = maskVal;
-                        watermark.style.color = 'rgba(255, 255, 255, 0.25)';
+                    header.addEventListener('mouseenter', function() {
+                        watermark.style.color = 'rgba(255, 255, 255, 0.24)';
+                        watermark.style.opacity = '1';
                     });
 
                     header.addEventListener('mouseleave', function() {
-                        watermark.style.webkitMaskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
-                        watermark.style.maskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
-                        watermark.style.color = 'rgba(255, 255, 255, 0.15)';
+                        watermark.style.color = 'rgba(255, 255, 255, 0.16)';
+                        watermark.style.opacity = '0.92';
                     });
                 })();
             });

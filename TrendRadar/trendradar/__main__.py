@@ -942,6 +942,9 @@ class NewsAnalyzer:
             return None
         if self.report_mode == "daily":
             return None
+        if not schedule.analyze and self._has_today_daily_report_with_ai():
+            print("[站点] 当前时段不执行 AI 分析，且当天已有带 AI 分析的 daily 报告，跳过无 AI 首页覆盖")
+            return None
 
         analysis_data = self._load_analysis_data(quiet=True)
         if not analysis_data:
@@ -990,6 +993,23 @@ class NewsAnalyzer:
             print(f"[站点] 当天累计报告已更新: {html_file}（命中 {matched_count} 条）")
             print("[站点] 首页已更新为当天累计报告: output/index.html")
         return html_file
+
+    def _has_today_daily_report_with_ai(self) -> bool:
+        """判断当天是否已经生成过带 AI 分析区块的 daily 站点报告。"""
+        today_dir = Path("output") / "html" / self.ctx.format_date()
+        if not today_dir.exists():
+            return False
+
+        for html_file in sorted(today_dir.glob("*.html"), reverse=True):
+            try:
+                content = html_file.read_text(encoding="utf-8")
+            except OSError:
+                continue
+            if "报告类型</span>" not in content or "全天汇总" not in content:
+                continue
+            if 'class="ai-section"' in content and "AI 热点分析" in content:
+                return True
+        return False
 
     def _initialize_and_check_config(self) -> bool:
         """通用初始化和配置检查。返回 True 表示可以继续执行。"""
