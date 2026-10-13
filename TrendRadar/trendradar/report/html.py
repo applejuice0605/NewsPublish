@@ -83,10 +83,14 @@ def render_html_content(
             .header {
                 background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
                 color: white;
-                padding: 32px 24px;
+                padding: 40px 24px 36px;
                 text-align: center;
                 position: relative;
                 overflow: visible;
+                min-height: 220px;
+                --spotlight-x: 50%;
+                --spotlight-y: 50%;
+                --spotlight-size: 0px;
             }
 
             .header-watermark {
@@ -105,7 +109,9 @@ def render_html_content(
                 white-space: nowrap;
                 text-align: center;
                 opacity: 0.92;
-                transition: color 100ms linear, opacity 100ms linear;
+                -webkit-mask-image: radial-gradient(circle var(--spotlight-size) at var(--spotlight-x) var(--spotlight-y), #000 0%, rgba(0,0,0,0.9) 42%, rgba(0,0,0,0.58) 100%);
+                mask-image: radial-gradient(circle var(--spotlight-size) at var(--spotlight-x) var(--spotlight-y), #000 0%, rgba(0,0,0,0.9) 42%, rgba(0,0,0,0.58) 100%);
+                transition: color 100ms linear, opacity 100ms linear, -webkit-mask-image 100ms linear, mask-image 100ms linear;
                 user-select: none;
             }
 
@@ -208,7 +214,7 @@ def render_html_content(
             .header-title {
                 font-size: 22px;
                 font-weight: 700;
-                margin: 0 0 20px 0;
+                margin: 12px 0 24px 0;
                 position: relative;
                 z-index: 2;
             }
@@ -1412,7 +1418,8 @@ def render_html_content(
                 color: var(--comic-ink);
                 border-bottom: 4px solid var(--comic-ink);
                 text-transform: uppercase;
-                padding: 36px 24px 30px;
+                padding: 44px 24px 38px;
+                min-height: 250px;
             }
 
             .header-watermark {
@@ -1431,6 +1438,8 @@ def render_html_content(
                 font-size: 24px;
                 font-weight: 900;
                 letter-spacing: 0;
+                margin-top: 22px;
+                margin-bottom: 28px;
                 padding: 8px 16px;
                 transform: rotate(-2deg);
                 text-shadow: 3px 3px 0 var(--comic-red), -3px -3px 0 var(--comic-blue);
@@ -1890,6 +1899,8 @@ def render_html_content(
                 body { padding: 10px; }
                 .container { box-shadow: 6px 6px 0 var(--comic-ink); }
                 .content { padding: 16px; }
+                .header { padding: 34px 14px 30px; min-height: 230px; }
+                .header-watermark { font-size: clamp(28px, 15vw, 54px); }
                 .header-title { font-size: 19px; }
                 .word-group,
                 .feed-group,
@@ -3718,20 +3729,22 @@ def render_html_content(
 
 
 
-                // Header watermark 轻微响应，保持品牌字完整可见
+                // Header watermark spotlight: keep the full word visible, then brighten the area under the cursor.
                 (function() {
                     var header = document.querySelector('.header');
-                    var watermark = document.querySelector('.header-watermark');
-                    if (!header || !watermark) return;
+                    if (!header || !document.querySelector('.header-watermark')) return;
 
-                    header.addEventListener('mouseenter', function() {
-                        watermark.style.color = 'rgba(255, 255, 255, 0.24)';
-                        watermark.style.opacity = '1';
+                    header.addEventListener('mousemove', function(event) {
+                        var rect = header.getBoundingClientRect();
+                        header.style.setProperty('--spotlight-x', (event.clientX - rect.left) + 'px');
+                        header.style.setProperty('--spotlight-y', (event.clientY - rect.top) + 'px');
+                        header.style.setProperty('--spotlight-size', '160px');
                     });
 
                     header.addEventListener('mouseleave', function() {
-                        watermark.style.color = 'rgba(255, 255, 255, 0.16)';
-                        watermark.style.opacity = '0.92';
+                        header.style.setProperty('--spotlight-x', '50%');
+                        header.style.setProperty('--spotlight-y', '50%');
+                        header.style.setProperty('--spotlight-size', '0px');
                     });
                 })();
             });

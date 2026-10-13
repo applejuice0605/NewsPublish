@@ -5,6 +5,7 @@ from __future__ import annotations
 
 from collections import defaultdict
 from datetime import datetime
+from functools import lru_cache
 from pathlib import Path
 from html import escape
 
@@ -13,6 +14,25 @@ REPO_DIR = Path(__file__).resolve().parents[1]
 SITE_DIR = REPO_DIR / "docs"
 REPORTS_DIR = SITE_DIR / "reports"
 ARCHIVE_FILE = SITE_DIR / "archive.html"
+
+
+@lru_cache(maxsize=None)
+def _report_profile(rel_path_text: str) -> tuple[bool, bool, bool]:
+    """Return (has_ai_daily, is_daily, has_ai) for a generated report."""
+    path = SITE_DIR / rel_path_text
+    try:
+        content = path.read_text(encoding="utf-8")
+    except OSError:
+        return (False, False, False)
+
+    is_daily = "全天汇总" in content
+    has_ai = '<div class="ai-section-title"' in content and "AI 热点分析" in content
+    return (is_daily and has_ai, is_daily, has_ai)
+
+
+def _report_sort_key(path: Path) -> tuple[bool, bool, bool, str]:
+    has_ai_daily, is_daily, has_ai = _report_profile(str(path))
+    return (has_ai_daily, is_daily, has_ai, str(path))
 
 
 def _report_dates() -> dict[str, list[Path]]:
@@ -50,7 +70,10 @@ def _page_html(grouped: dict[str, list[Path]]) -> str:
     dates_js = ", ".join(f'"{escape(date)}"' for date in dates)
     cards = []
     for date, paths in grouped.items():
-        latest = paths[0] if paths else ""
+        preferred = max(paths, key=_report_sort_key) if paths else ""
+        has_ai_daily, is_daily, _has_ai = _report_profile(str(preferred)) if preferred else (False, False, False)
+        report_label = "AI 汇总" if has_ai_daily else "当天汇总" if is_daily else "当天快照"
+        badge = '<span class="ai-badge">AI 分析</span>' if has_ai_daily else ""
         links = "\n".join(
             f'<li><a href="/{escape(str(path))}">{escape(path.stem)}</a></li>'
             for path in paths[:12]
@@ -59,10 +82,10 @@ def _page_html(grouped: dict[str, list[Path]]) -> str:
             f"""
             <section class="archive-card" data-date="{escape(date)}">
                 <div>
-                    <h2>{escape(date)}</h2>
+                    <h2>{escape(date)}{badge}</h2>
                     <p>{len(paths)} 份报告</p>
                 </div>
-                <a class="primary-link" href="/{escape(str(latest))}">查看当天最新</a>
+                <a class="primary-link" href="/{escape(str(preferred))}">查看 {report_label}</a>
                 <details>
                     <summary>展开当天所有快照</summary>
                     <ul>{links}</ul>
@@ -135,6 +158,17 @@ def _page_html(grouped: dict[str, list[Path]]) -> str:
       align-items: start;
     }}
     h2 {{ margin: 0; font-size: 24px; }}
+    .ai-badge {{
+      display: inline-block;
+      margin-left: 10px;
+      padding: 4px 7px;
+      background: var(--blue);
+      color: white;
+      border: 3px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      font-size: 12px;
+      vertical-align: middle;
+    }}
     p {{ margin: 8px 0 0; color: #4a4a4a; }}
     details {{ grid-column: 1 / -1; }}
     summary {{ cursor: pointer; }}

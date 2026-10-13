@@ -1007,7 +1007,7 @@ class NewsAnalyzer:
                 continue
             if "报告类型</span>" not in content or "全天汇总" not in content:
                 continue
-            if 'class="ai-section"' in content and "AI 热点分析" in content:
+            if '<div class="ai-section-title"' in content and "AI 热点分析" in content:
                 return True
         return False
 
