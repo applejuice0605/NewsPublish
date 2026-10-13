@@ -108,12 +108,18 @@ def render_html_content(
             }
 
             .save-buttons {
-                position: absolute;
-                top: 16px;
-                right: 16px;
+                position: relative;
                 display: flex;
+                justify-content: flex-end;
+                flex-wrap: wrap;
                 gap: 8px;
+                margin-bottom: 24px;
                 z-index: 10;
+            }
+
+            .export-menu {
+                position: relative;
+                display: inline-flex;
             }
 
             .save-btn {
@@ -142,6 +148,54 @@ def render_html_content(
             .save-btn:disabled {
                 opacity: 0.6;
                 cursor: not-allowed;
+            }
+
+            .export-menu-list {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                margin-top: 6px;
+                min-width: 150px;
+                padding: 6px;
+                background: rgba(255, 255, 255, 0.96);
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                border-radius: 10px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+                backdrop-filter: blur(16px);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-4px);
+                transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+                z-index: 20;
+            }
+
+            .export-menu:hover .export-menu-list,
+            .export-menu:focus-within .export-menu-list {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .export-menu-item {
+                display: block;
+                width: 100%;
+                padding: 9px 12px;
+                background: none;
+                border: none;
+                border-radius: 6px;
+                color: #374151;
+                cursor: pointer;
+                font-size: 13px;
+                line-height: 1.2;
+                text-align: left;
+                white-space: nowrap;
+            }
+
+            .export-menu-item:hover,
+            .export-menu-item:focus {
+                background: #f3f4f6;
+                color: #4f46e5;
+                outline: none;
             }
 
             .header-title {
@@ -545,10 +599,7 @@ def render_html_content(
                 .new-item { gap: 8px; }
                 .news-number { width: 20px; height: 20px; font-size: 12px; }
                 .save-buttons {
-                    position: static;
                     margin-bottom: 16px;
-                    display: flex;
-                    gap: 8px;
                     justify-content: center;
                     width: 100%;
                 }
@@ -1664,6 +1715,7 @@ def render_html_content(
             .tab-btn,
             .site-archive-link,
             .save-btn,
+            .export-menu-item,
             .toggle-wide-btn,
             .toggle-dark-btn,
             .fab-btn {
@@ -1680,6 +1732,8 @@ def render_html_content(
             .tab-btn:hover,
             .site-archive-link:hover,
             .save-btn:hover,
+            .export-menu-item:hover,
+            .export-menu-item:focus,
             .toggle-wide-btn:hover,
             .toggle-dark-btn:hover,
             .fab-btn:hover {
@@ -1692,6 +1746,7 @@ def render_html_content(
             .tab-btn:active,
             .site-archive-link:active,
             .save-btn:active,
+            .export-menu-item:active,
             .toggle-wide-btn:active,
             .toggle-dark-btn:active,
             .fab-btn:active {
@@ -1737,6 +1792,7 @@ def render_html_content(
                 outline: 3px solid var(--comic-yellow);
             }
 
+            .export-menu-list,
             .fab-tooltip {
                 background: var(--comic-panel);
                 border: 4px solid var(--comic-ink);
@@ -1789,6 +1845,7 @@ def render_html_content(
             body.dark-mode .ai-section,
             body.dark-mode .ai-block,
             body.dark-mode .tab-btn,
+            body.dark-mode .export-menu-list,
             body.dark-mode .search-input {
                 background: #fffef0;
                 color: var(--comic-ink);
@@ -1848,7 +1905,14 @@ def render_html_content(
                     <a class="site-archive-link" href="/archive.html" title="查看历史报告">历史</a>
                     <button class="toggle-wide-btn" onclick="toggleWideMode()" title="切换宽屏/窄屏">⛶</button>
                     <button class="toggle-dark-btn" onclick="toggleDarkMode()" title="切换暗色/亮色">☽</button>
-                    <button class="save-btn" onclick="saveAsImage(event)">导出</button>
+                    <div class="export-menu">
+                        <button class="save-btn" onclick="saveAsImage(event)" aria-haspopup="true">导出</button>
+                        <div class="export-menu-list" role="menu" aria-label="导出选项">
+                            <button class="export-menu-item" type="button" onclick="saveAsImage(event)" role="menuitem">整页截图</button>
+                            <button class="export-menu-item" type="button" onclick="saveAsMultipleImages(event)" role="menuitem">分段截图</button>
+                            <button class="export-menu-item" type="button" onclick="saveAsMarkdown()" role="menuitem">Markdown</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="header-title">热点新闻分析</div>
                 <div class="header-info">"""
@@ -2966,7 +3030,7 @@ def render_html_content(
             // ===== 截图功能 =====
 
             async function saveAsImage(e) {
-                const button = e.target.closest('.save-dropdown-item') || e.target;
+                const button = e.target.closest('button') || e.target;
                 const originalHTML = button.innerHTML;
                 var screenshotState = null;
 
@@ -3043,7 +3107,7 @@ def render_html_content(
             }
 
             async function saveAsMultipleImages(e) {
-                const button = e.target.closest('.save-dropdown-item') || e.target;
+                const button = e.target.closest('button') || e.target;
                 const originalHTML = button.innerHTML;
                 const container = document.querySelector('.container');
                 const scale = 1.5;
