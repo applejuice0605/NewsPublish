@@ -83,11 +83,11 @@ def render_html_content(
             .header {
                 background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
                 color: white;
-                padding: 40px 24px 36px;
+                padding: 52px 24px 48px;
                 text-align: center;
                 position: relative;
                 overflow: visible;
-                min-height: 220px;
+                min-height: 320px;
                 --spotlight-x: 50%;
                 --spotlight-y: 50%;
                 --spotlight-size: 0px;
@@ -103,20 +103,20 @@ def render_html_content(
                 font-size: clamp(34px, 9vw, 76px);
                 font-weight: 900;
                 letter-spacing: 0.05em;
-                color: rgba(255, 255, 255, 0.16);
+                color: rgba(255, 255, 255, 0.34);
                 pointer-events: none;
                 z-index: 1;
                 white-space: nowrap;
                 text-align: center;
-                opacity: 0.92;
-                -webkit-mask-image: radial-gradient(circle var(--spotlight-size) at var(--spotlight-x) var(--spotlight-y), #000 0%, rgba(0,0,0,0.9) 42%, rgba(0,0,0,0.58) 100%);
-                mask-image: radial-gradient(circle var(--spotlight-size) at var(--spotlight-x) var(--spotlight-y), #000 0%, rgba(0,0,0,0.9) 42%, rgba(0,0,0,0.58) 100%);
+                opacity: 0;
+                -webkit-mask-image: radial-gradient(circle var(--spotlight-size) at var(--spotlight-x) var(--spotlight-y), #000 0%, rgba(0,0,0,0.92) 36%, rgba(0,0,0,0.28) 64%, transparent 100%);
+                mask-image: radial-gradient(circle var(--spotlight-size) at var(--spotlight-x) var(--spotlight-y), #000 0%, rgba(0,0,0,0.92) 36%, rgba(0,0,0,0.28) 64%, transparent 100%);
                 transition: color 100ms linear, opacity 100ms linear, -webkit-mask-image 100ms linear, mask-image 100ms linear;
                 user-select: none;
             }
 
             .header:hover .header-watermark {
-                color: rgba(255, 255, 255, 0.24);
+                color: rgba(255, 255, 255, 0.42);
                 opacity: 1;
             }
 
@@ -214,7 +214,7 @@ def render_html_content(
             .header-title {
                 font-size: 22px;
                 font-weight: 700;
-                margin: 12px 0 24px 0;
+                margin: 40px 0 44px 0;
                 position: relative;
                 z-index: 2;
             }
@@ -1418,8 +1418,8 @@ def render_html_content(
                 color: var(--comic-ink);
                 border-bottom: 4px solid var(--comic-ink);
                 text-transform: uppercase;
-                padding: 44px 24px 38px;
-                min-height: 250px;
+                padding: 56px 24px 52px;
+                min-height: 360px;
             }
 
             .header-watermark {
@@ -1438,8 +1438,8 @@ def render_html_content(
                 font-size: 24px;
                 font-weight: 900;
                 letter-spacing: 0;
-                margin-top: 22px;
-                margin-bottom: 28px;
+                margin-top: 44px;
+                margin-bottom: 52px;
                 padding: 8px 16px;
                 transform: rotate(-2deg);
                 text-shadow: 3px 3px 0 var(--comic-red), -3px -3px 0 var(--comic-blue);
@@ -1899,8 +1899,8 @@ def render_html_content(
                 body { padding: 10px; }
                 .container { box-shadow: 6px 6px 0 var(--comic-ink); }
                 .content { padding: 16px; }
-                .header { padding: 34px 14px 30px; min-height: 230px; }
-                .header-watermark { font-size: clamp(28px, 15vw, 54px); }
+                .header { padding: 42px 14px 38px; min-height: 320px; }
+                .header-watermark { font-size: clamp(28px, 10vw, 42px); }
                 .header-title { font-size: 19px; }
                 .word-group,
                 .feed-group,
@@ -3734,11 +3734,20 @@ def render_html_content(
                     var header = document.querySelector('.header');
                     if (!header || !document.querySelector('.header-watermark')) return;
 
-                    header.addEventListener('mousemove', function(event) {
+                    function updateSpotlight(event) {
                         var rect = header.getBoundingClientRect();
                         header.style.setProperty('--spotlight-x', (event.clientX - rect.left) + 'px');
                         header.style.setProperty('--spotlight-y', (event.clientY - rect.top) + 'px');
-                        header.style.setProperty('--spotlight-size', '160px');
+                        header.style.setProperty('--spotlight-size', '240px');
+                    }
+
+                    header.addEventListener('mouseenter', updateSpotlight);
+                    header.addEventListener('mousemove', updateSpotlight);
+
+                    header.addEventListener('touchstart', function(event) {
+                        if (event.touches && event.touches[0]) {
+                            updateSpotlight(event.touches[0]);
+                        }
                     });
 
                     header.addEventListener('mouseleave', function() {
