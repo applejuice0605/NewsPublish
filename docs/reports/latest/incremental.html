@@ -29,10 +29,14 @@
             .header {
                 background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
                 color: white;
-                padding: 32px 24px;
+                padding: 52px 24px 48px;
                 text-align: center;
                 position: relative;
                 overflow: visible;
+                min-height: 320px;
+                --spotlight-x: 50%;
+                --spotlight-y: 50%;
+                --spotlight-size: 0px;
             }
 
             .header-watermark {
@@ -40,26 +44,41 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                font-size: clamp(40px, 8vw, 80px);
+                width: 100%;
+                padding: 0 12px;
+                font-size: clamp(34px, 9vw, 76px);
                 font-weight: 900;
                 letter-spacing: 0.05em;
-                color: rgba(255, 255, 255, 0.15);
+                color: rgba(255, 255, 255, 0.34);
                 pointer-events: none;
                 z-index: 1;
                 white-space: nowrap;
-                -webkit-mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-                mask-image: radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
-                transition: -webkit-mask-image 0.3s ease, mask-image 0.3s ease;
+                text-align: center;
+                opacity: 0;
+                -webkit-mask-image: radial-gradient(circle var(--spotlight-size) at var(--spotlight-x) var(--spotlight-y), #000 0%, rgba(0,0,0,0.92) 36%, rgba(0,0,0,0.28) 64%, transparent 100%);
+                mask-image: radial-gradient(circle var(--spotlight-size) at var(--spotlight-x) var(--spotlight-y), #000 0%, rgba(0,0,0,0.92) 36%, rgba(0,0,0,0.28) 64%, transparent 100%);
+                transition: color 100ms linear, opacity 100ms linear, -webkit-mask-image 100ms linear, mask-image 100ms linear;
                 user-select: none;
             }
 
+            .header:hover .header-watermark {
+                color: rgba(255, 255, 255, 0.42);
+                opacity: 1;
+            }
+
             .save-buttons {
-                position: absolute;
-                top: 16px;
-                right: 16px;
+                position: relative;
                 display: flex;
+                justify-content: flex-end;
+                flex-wrap: wrap;
                 gap: 8px;
+                margin-bottom: 24px;
                 z-index: 10;
+            }
+
+            .export-menu {
+                position: relative;
+                display: inline-flex;
             }
 
             .save-btn {
@@ -90,10 +109,58 @@
                 cursor: not-allowed;
             }
 
+            .export-menu-list {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                margin-top: 6px;
+                min-width: 150px;
+                padding: 6px;
+                background: rgba(255, 255, 255, 0.96);
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                border-radius: 10px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+                backdrop-filter: blur(16px);
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-4px);
+                transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+                z-index: 20;
+            }
+
+            .export-menu:hover .export-menu-list,
+            .export-menu:focus-within .export-menu-list {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .export-menu-item {
+                display: block;
+                width: 100%;
+                padding: 9px 12px;
+                background: none;
+                border: none;
+                border-radius: 6px;
+                color: #374151;
+                cursor: pointer;
+                font-size: 13px;
+                line-height: 1.2;
+                text-align: left;
+                white-space: nowrap;
+            }
+
+            .export-menu-item:hover,
+            .export-menu-item:focus {
+                background: #f3f4f6;
+                color: #4f46e5;
+                outline: none;
+            }
+
             .header-title {
                 font-size: 22px;
                 font-weight: 700;
-                margin: 0 0 20px 0;
+                margin: 40px 0 44px 0;
                 position: relative;
                 z-index: 2;
             }
@@ -491,10 +558,7 @@
                 .new-item { gap: 8px; }
                 .news-number { width: 20px; height: 20px; font-size: 12px; }
                 .save-buttons {
-                    position: static;
                     margin-bottom: 16px;
-                    display: flex;
-                    gap: 8px;
                     justify-content: center;
                     width: 100%;
                 }
@@ -1300,7 +1364,8 @@
                 color: var(--comic-ink);
                 border-bottom: 4px solid var(--comic-ink);
                 text-transform: uppercase;
-                padding: 36px 24px 30px;
+                padding: 56px 24px 52px;
+                min-height: 360px;
             }
 
             .header-watermark {
@@ -1319,6 +1384,8 @@
                 font-size: 24px;
                 font-weight: 900;
                 letter-spacing: 0;
+                margin-top: 44px;
+                margin-bottom: 52px;
                 padding: 8px 16px;
                 transform: rotate(-2deg);
                 text-shadow: 3px 3px 0 var(--comic-red), -3px -3px 0 var(--comic-blue);
@@ -1610,6 +1677,7 @@
             .tab-btn,
             .site-archive-link,
             .save-btn,
+            .export-menu-item,
             .toggle-wide-btn,
             .toggle-dark-btn,
             .fab-btn {
@@ -1626,6 +1694,8 @@
             .tab-btn:hover,
             .site-archive-link:hover,
             .save-btn:hover,
+            .export-menu-item:hover,
+            .export-menu-item:focus,
             .toggle-wide-btn:hover,
             .toggle-dark-btn:hover,
             .fab-btn:hover {
@@ -1638,6 +1708,7 @@
             .tab-btn:active,
             .site-archive-link:active,
             .save-btn:active,
+            .export-menu-item:active,
             .toggle-wide-btn:active,
             .toggle-dark-btn:active,
             .fab-btn:active {
@@ -1683,6 +1754,7 @@
                 outline: 3px solid var(--comic-yellow);
             }
 
+            .export-menu-list,
             .fab-tooltip {
                 background: var(--comic-panel);
                 border: 4px solid var(--comic-ink);
@@ -1735,6 +1807,7 @@
             body.dark-mode .ai-section,
             body.dark-mode .ai-block,
             body.dark-mode .tab-btn,
+            body.dark-mode .export-menu-list,
             body.dark-mode .search-input {
                 background: #fffef0;
                 color: var(--comic-ink);
@@ -1772,6 +1845,8 @@
                 body { padding: 10px; }
                 .container { box-shadow: 6px 6px 0 var(--comic-ink); }
                 .content { padding: 16px; }
+                .header { padding: 42px 14px 38px; min-height: 320px; }
+                .header-watermark { font-size: clamp(28px, 10vw, 42px); }
                 .header-title { font-size: 19px; }
                 .word-group,
                 .feed-group,
@@ -1794,7 +1869,14 @@
                     <a class="site-archive-link" href="/archive.html" title="查看历史报告">历史</a>
                     <button class="toggle-wide-btn" onclick="toggleWideMode()" title="切换宽屏/窄屏">⛶</button>
                     <button class="toggle-dark-btn" onclick="toggleDarkMode()" title="切换暗色/亮色">☽</button>
-                    <button class="save-btn" onclick="saveAsImage(event)">导出</button>
+                    <div class="export-menu">
+                        <button class="save-btn" onclick="saveAsImage(event)" aria-haspopup="true">导出</button>
+                        <div class="export-menu-list" role="menu" aria-label="导出选项">
+                            <button class="export-menu-item" type="button" onclick="saveAsImage(event)" role="menuitem">整页截图</button>
+                            <button class="export-menu-item" type="button" onclick="saveAsMultipleImages(event)" role="menuitem">分段截图</button>
+                            <button class="export-menu-item" type="button" onclick="saveAsMarkdown()" role="menuitem">Markdown</button>
+                        </div>
+                    </div>
                 </div>
                 <div class="header-title">热点新闻分析</div>
                 <div class="header-info">
@@ -1804,11 +1886,11 @@
                     </div>
                     <div class="info-item">
                         <span class="info-label">生成时间</span>
-                        <span class="info-value">10-13 19:40</span>
+                        <span class="info-value">10-14 08:55</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">热榜命中</span>
-                        <span class="info-value">4 / 258</span>
+                        <span class="info-value">0 / 257</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">RSS 命中</span>
@@ -1824,7 +1906,7 @@
                     </div>
                     <div class="info-item">
                         <span class="info-label">新增热点</span>
-                        <span class="info-value">4 + 0</span>
+                        <span class="info-value">0</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">AI 分析</span>
@@ -1836,80 +1918,6 @@
             <div class="content">
                 <div class="search-bar">
                     <input type="text" class="search-input" placeholder="搜索新闻标题..." oninput="handleSearch(this.value)">
-                </div>
-                <div class="hotlist-section"><div class="tab-bar-wrapper"><div class="tab-bar"><button class="tab-btn" data-tab-index="all">全部<span class="tab-count">4</span></button><button class="tab-btn" data-tab-index="0">大模型进展<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="1">推理加速<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="2">AI产业战略<span class="tab-count">1</span></button><button class="tab-btn" data-tab-index="3">AI工程实践<span class="tab-count">1</span></button></div></div>
-                <div class="word-group" data-tab-index="0">
-                    <div class="word-header">
-                        <div class="word-info">
-                            <div class="word-name">大模型进展</div>
-                            <div class="word-count ">1 条</div>
-                        </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>1/4</div>
-                    </div>
-                    <div class="news-item new">
-                        <div class="news-number">1</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">IT之家</span><span class="rank-num ">9</span><span class="time-info">19:39</span>
-                            </div>
-                            <div class="news-title"><a href="https://www.ithome.com/1/012/532.htm" target="_blank" class="news-link">千问 AI 耳夹式耳机开售：Bose 调音，到手价 1099 元</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="word-group" data-tab-index="1">
-                    <div class="word-header">
-                        <div class="word-info">
-                            <div class="word-name">推理加速</div>
-                            <div class="word-count ">1 条</div>
-                        </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>2/4</div>
-                    </div>
-                    <div class="news-item new">
-                        <div class="news-number">1</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">IT之家</span><span class="rank-num ">7</span><span class="time-info">19:39</span>
-                            </div>
-                            <div class="news-title"><a href="https://www.ithome.com/1/012/535.htm" target="_blank" class="news-link">AMD 首次展示 Verano 霄龙处理器：计划 2027 年上市，支持 LPDDR5X</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="word-group" data-tab-index="2">
-                    <div class="word-header">
-                        <div class="word-info">
-                            <div class="word-name">AI产业战略</div>
-                            <div class="word-count ">1 条</div>
-                        </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>3/4</div>
-                    </div>
-                    <div class="news-item new">
-                        <div class="news-number">1</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">V2EX</span><span class="rank-num top">3</span><span class="time-info">19:39</span>
-                            </div>
-                            <div class="news-title"><a href="https://www.v2ex.com/t/1248487" target="_blank" class="news-link">Java 开发的未来在哪里？想聊聊 AI 冲击、行业现状以及 Agent 转型的真实情况</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="word-group" data-tab-index="3">
-                    <div class="word-header">
-                        <div class="word-info">
-                            <div class="word-name">AI工程实践</div>
-                            <div class="word-count ">1 条</div>
-                        </div>
-                        <div class="word-index"><span class="collapse-icon">▼</span>4/4</div>
-                    </div>
-                    <div class="news-item new">
-                        <div class="news-number">1</div>
-                        <div class="news-content">
-                            <div class="news-header"><span class="source-name">掘金</span><span class="rank-num ">30</span><span class="time-info">19:39</span>
-                            </div>
-                            <div class="news-title"><a href="https://juejin.cn/post/7695618100750729257" target="_blank" class="news-link">花了几百万买的 AI 系统，为什么最后全成了花瓶？</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 </div>
             </div>
 
@@ -1941,22 +1949,60 @@
         <script>
             // ===== 浏览器增强功能 =====
 
+            function getViewportAnchor() {
+                var candidates = Array.from(document.querySelectorAll('.news-item, .new-item, .rss-item, .word-group, .ai-section, .content'));
+                var best = null;
+                var bestDistance = Infinity;
+                candidates.forEach(function(el) {
+                    var rect = el.getBoundingClientRect();
+                    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+                    var distance = Math.abs(rect.top - 96);
+                    if (distance < bestDistance) {
+                        best = el;
+                        bestDistance = distance;
+                    }
+                });
+                if (!best) return { element: null, top: window.scrollY };
+                return { element: best, offset: best.getBoundingClientRect().top };
+            }
+
+            function restoreViewportAnchor(anchor) {
+                if (!anchor || !anchor.element) {
+                    if (anchor && typeof anchor.top === 'number') window.scrollTo(0, anchor.top);
+                    return;
+                }
+                var nextTop = anchor.element.getBoundingClientRect().top;
+                window.scrollBy(0, nextTop - anchor.offset);
+            }
+
+            function withStableViewport(callback) {
+                var anchor = getViewportAnchor();
+                callback();
+                requestAnimationFrame(function() {
+                    restoreViewportAnchor(anchor);
+                });
+            }
+
             function toggleWideMode() {
-                document.body.classList.toggle('wide-mode');
-                var isWide = document.body.classList.contains('wide-mode');
-                try { localStorage.setItem('trendradar-wide-mode', isWide ? '1' : '0'); } catch(e) {}
-                var btn = document.querySelector('.toggle-wide-btn');
-                if (btn) btn.textContent = isWide ? '⊡' : '⛶';
-                initTabVisibility();
-                initCollapseVisibility();
-                initStandaloneTabVisibility();
+                withStableViewport(function() {
+                    document.body.classList.toggle('wide-mode');
+                    var isWide = document.body.classList.contains('wide-mode');
+                    try { localStorage.setItem('trendradar-wide-mode', isWide ? '1' : '0'); } catch(e) {}
+                    var btn = document.querySelector('.toggle-wide-btn');
+                    if (btn) btn.textContent = isWide ? '⊡' : '⛶';
+                    initTabVisibility();
+                    initCollapseVisibility();
+                    initStandaloneTabVisibility();
+                });
             }
 
             function toggleDarkMode() {
-                var isDark = document.body.classList.toggle('dark-mode');
-                try { localStorage.setItem('trendradar-dark-mode', isDark ? '1' : '0'); } catch(e) {}
-                var btn = document.querySelector('.toggle-dark-btn');
-                if (btn) btn.textContent = isDark ? '☀' : '☽';
+                withStableViewport(function() {
+                    var isDark = document.body.classList.toggle('dark-mode');
+                    try { localStorage.setItem('trendradar-dark-mode', isDark ? '1' : '0'); } catch(e) {}
+                    var btn = document.querySelector('.toggle-dark-btn');
+                    if (btn) btn.textContent = isDark ? '☀' : '☽';
+                });
             }
 
             function initTabScroll(tabBar) {
@@ -2263,7 +2309,7 @@
             // ===== 截图功能 =====
 
             async function saveAsImage(e) {
-                const button = e.target.closest('.save-dropdown-item') || e.target;
+                const button = e.target.closest('button') || e.target;
                 const originalHTML = button.innerHTML;
                 var screenshotState = null;
 
@@ -2340,7 +2386,7 @@
             }
 
             async function saveAsMultipleImages(e) {
-                const button = e.target.closest('.save-dropdown-item') || e.target;
+                const button = e.target.closest('button') || e.target;
                 const originalHTML = button.innerHTML;
                 const container = document.querySelector('.container');
                 const scale = 1.5;
@@ -2906,28 +2952,31 @@
 
 
 
-                // Header watermark 鼠标跟随揭示
+                // Header watermark spotlight: keep the full word visible, then brighten the area under the cursor.
                 (function() {
                     var header = document.querySelector('.header');
-                    var watermark = document.querySelector('.header-watermark');
-                    if (!header || !watermark) return;
+                    if (!header || !document.querySelector('.header-watermark')) return;
 
-                    var radius = 100;
+                    function updateSpotlight(event) {
+                        var rect = header.getBoundingClientRect();
+                        header.style.setProperty('--spotlight-x', (event.clientX - rect.left) + 'px');
+                        header.style.setProperty('--spotlight-y', (event.clientY - rect.top) + 'px');
+                        header.style.setProperty('--spotlight-size', '240px');
+                    }
 
-                    header.addEventListener('mousemove', function(e) {
-                        var rect = watermark.getBoundingClientRect();
-                        var x = e.clientX - rect.left;
-                        var y = e.clientY - rect.top;
-                        var maskVal = 'radial-gradient(circle ' + radius + 'px at ' + x + 'px ' + y + 'px, rgba(0,0,0,1) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0) 100%)';
-                        watermark.style.webkitMaskImage = maskVal;
-                        watermark.style.maskImage = maskVal;
-                        watermark.style.color = 'rgba(255, 255, 255, 0.25)';
+                    header.addEventListener('mouseenter', updateSpotlight);
+                    header.addEventListener('mousemove', updateSpotlight);
+
+                    header.addEventListener('touchstart', function(event) {
+                        if (event.touches && event.touches[0]) {
+                            updateSpotlight(event.touches[0]);
+                        }
                     });
 
                     header.addEventListener('mouseleave', function() {
-                        watermark.style.webkitMaskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
-                        watermark.style.maskImage = 'radial-gradient(circle 0px at 50% 50%, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%)';
-                        watermark.style.color = 'rgba(255, 255, 255, 0.15)';
+                        header.style.setProperty('--spotlight-x', '50%');
+                        header.style.setProperty('--spotlight-y', '50%');
+                        header.style.setProperty('--spotlight-size', '0px');
                     });
                 })();
             });
