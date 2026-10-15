@@ -58,7 +58,7 @@ def render_html_content(
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>热点新闻分析</title>
+        <title>热点新闻趋势</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <style>
             * { box-sizing: border-box; }
@@ -83,11 +83,11 @@ def render_html_content(
             .header {
                 background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
                 color: white;
-                padding: 52px 24px 48px;
+                padding: 28px 24px 30px;
                 text-align: center;
                 position: relative;
                 overflow: visible;
-                min-height: 320px;
+                min-height: 260px;
                 --spotlight-x: 50%;
                 --spotlight-y: 50%;
                 --spotlight-size: 0px;
@@ -126,7 +126,7 @@ def render_html_content(
                 justify-content: flex-end;
                 flex-wrap: wrap;
                 gap: 8px;
-                margin-bottom: 24px;
+                margin-bottom: 10px;
                 z-index: 10;
             }
 
@@ -214,7 +214,7 @@ def render_html_content(
             .header-title {
                 font-size: 22px;
                 font-weight: 700;
-                margin: 40px 0 44px 0;
+                margin: 24px 0 30px 0;
                 position: relative;
                 z-index: 2;
             }
@@ -223,8 +223,8 @@ def render_html_content(
                 position: relative;
                 z-index: 2;
                 display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 16px;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 12px;
                 font-size: 14px;
                 opacity: 0.95;
             }
@@ -605,14 +605,14 @@ def render_html_content(
                 .header { padding: 24px 20px; }
                 .content { padding: 20px; }
                 .footer { padding: 16px 20px; }
-                .header-info { grid-template-columns: 1fr; gap: 12px; }
+                .header-info { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
                 .news-header { gap: 6px; }
                 .news-content { padding-right: 45px; }
                 .news-item { gap: 8px; }
                 .new-item { gap: 8px; }
                 .news-number { width: 20px; height: 20px; font-size: 12px; }
                 .save-buttons {
-                    margin-bottom: 16px;
+                    margin-bottom: 8px;
                     justify-content: center;
                     width: 100%;
                 }
@@ -874,7 +874,7 @@ def render_html_content(
 
             /* 宽屏模式 - 基础 */
             body.wide-mode .container { max-width: 1200px; }
-            body.wide-mode .header-info { grid-template-columns: repeat(4, 1fr); }
+            body.wide-mode .header-info { grid-template-columns: repeat(8, minmax(0, 1fr)); }
             body.wide-mode .content { padding: 32px 40px; }
 
             /* 宽屏模式 - RSS feed-group 两列 */
@@ -1418,8 +1418,8 @@ def render_html_content(
                 color: var(--comic-ink);
                 border-bottom: 4px solid var(--comic-ink);
                 text-transform: uppercase;
-                padding: 56px 24px 52px;
-                min-height: 360px;
+                padding: 28px 24px 30px;
+                min-height: 260px;
             }
 
             .header-watermark {
@@ -1438,15 +1438,15 @@ def render_html_content(
                 font-size: 24px;
                 font-weight: 900;
                 letter-spacing: 0;
-                margin-top: 44px;
-                margin-bottom: 52px;
+                margin-top: 24px;
+                margin-bottom: 30px;
                 padding: 8px 16px;
                 transform: rotate(-2deg);
                 text-shadow: 3px 3px 0 var(--comic-red), -3px -3px 0 var(--comic-blue);
             }
 
             .header-info {
-                margin-top: 22px;
+                margin-top: 10px;
                 opacity: 1;
             }
 
@@ -1899,9 +1899,13 @@ def render_html_content(
                 body { padding: 10px; }
                 .container { box-shadow: 6px 6px 0 var(--comic-ink); }
                 .content { padding: 16px; }
-                .header { padding: 42px 14px 38px; min-height: 320px; }
+                .header { padding: 24px 14px 26px; min-height: 250px; }
                 .header-watermark { font-size: clamp(28px, 10vw, 42px); }
                 .header-title { font-size: 19px; }
+                .header-info { gap: 8px; }
+                .info-item { padding: 8px 4px; }
+                .info-label { font-size: 10px; }
+                .info-value { font-size: 13px; }
                 .word-group,
                 .feed-group,
                 .new-source-group,
@@ -1932,7 +1936,7 @@ def render_html_content(
                         </div>
                     </div>
                 </div>
-                <div class="header-title">热点新闻分析</div>
+                <div class="header-title">热点新闻趋势</div>
                 <div class="header-info">"""
 
     # 使用提供的时间函数或默认 datetime.now
@@ -3134,7 +3138,7 @@ def render_html_content(
 
                     const link = document.createElement('a');
                     const now = new Date();
-                    const filename = `TrendRadar_热点新闻分析_${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}.png`;
+                    const filename = `TrendRadar_热点新闻趋势_${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}.png`;
 
                     link.download = filename;
                     link.href = canvas.toDataURL('image/png', 1.0);
@@ -3363,7 +3367,7 @@ def render_html_content(
 
                     // 下载所有图片
                     const now = new Date();
-                    const baseFilename = `TrendRadar_热点新闻分析_${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}`;
+                    const baseFilename = `TrendRadar_热点新闻趋势_${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}_${String(now.getHours()).padStart(2, '0')}${String(now.getMinutes()).padStart(2, '0')}`;
 
                     for (let i = 0; i < images.length; i++) {
                         const link = document.createElement('a');

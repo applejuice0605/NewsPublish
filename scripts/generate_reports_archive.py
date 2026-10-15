@@ -91,7 +91,7 @@ def _page_html(grouped: dict[str, list[Path]]) -> str:
                     <ul>{links}</ul>
                 </details>
             </section>
-            """
+            """.strip()
         )
 
     cards_html = "\n".join(cards) or '<p class="empty">暂无历史报告</p>'

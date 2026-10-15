@@ -32,7 +32,7 @@ fi
 
 cd "$REPO_DIR"
 
-git add docs/CNAME docs/.nojekyll docs/index.html docs/reports TrendRadar/index.html
+git add docs/CNAME docs/.nojekyll docs/archive.html docs/index.html docs/reports TrendRadar/index.html
 
 if git diff --cached --quiet; then
   echo "[site] no report changes to publish"
