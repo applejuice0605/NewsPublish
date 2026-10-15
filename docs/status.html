@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TrendRadar 运行状态</title><style>
+    :root { --ink:#171717; --paper:#fffdf0; --red:#ff3b30; --yellow:#ffd60a; --blue:#246bfd; --green:#25c46a; --muted:#eeeadd; --white:#fff; }
+    * { box-sizing:border-box; }
+    html { color-scheme:light; }
+    body { margin:0; min-width:280px; color:var(--ink); background-color:var(--paper); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23171717' fill-opacity='.13'/%3E%3C/svg%3E"); font-family:Arial,Helvetica,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; font-size:16px; line-height:1.5; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:12px; top:-80px; z-index:10; border:3px solid var(--ink); background:var(--yellow); padding:10px 14px; font-weight:900; }
+    .skip-link:focus { top:12px; }
+    .shell { width:min(1180px,calc(100% - 32px)); margin:0 auto; padding:20px 0 48px; }
+    .masthead { border:4px solid var(--ink); box-shadow:10px 10px 0 var(--ink); background:var(--red); padding:18px; margin-bottom:26px; }
+    .masthead-row { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { margin-bottom:4px; font-family:Impact,'Arial Black',sans-serif; font-size:clamp(36px,7vw,72px); line-height:.95; letter-spacing:0; text-transform:uppercase; }
+    .subtitle { margin:8px 0 0; font-weight:800; }
+    nav { display:flex; gap:10px; flex-wrap:wrap; }
+    .button,button,select,input { min-height:44px; border:3px solid var(--ink); border-radius:0; background:var(--white); color:var(--ink); box-shadow:4px 4px 0 var(--ink); font:inherit; font-weight:900; }
+    .button { display:inline-flex; align-items:center; padding:8px 12px; text-decoration:none; }
+    button { padding:8px 14px; cursor:pointer; touch-action:manipulation; }
+    select,input { width:100%; padding:8px 10px; }
+    .button:hover,button:hover { background:var(--yellow); transform:translate(-1px,-1px); box-shadow:5px 5px 0 var(--ink); }
+    :focus-visible { outline:4px solid var(--blue); outline-offset:4px; }
+    .panel { border:4px solid var(--ink); box-shadow:7px 7px 0 var(--ink); background:var(--white); padding:18px; }
+    .eyebrow { margin:0 0 6px; font-size:13px; font-weight:900; text-transform:uppercase; }
+    .badge { display:inline-flex; align-items:center; min-height:34px; border:3px solid var(--ink); padding:3px 9px; font-weight:900; box-shadow:3px 3px 0 var(--ink); }
+    .badge.good { background:var(--green); } .badge.warn { background:var(--yellow); } .badge.bad { background:var(--red); color:var(--white); } .badge.unknown { background:var(--muted); }
+    .meta { color:#454545; font-weight:700; }
+    .empty { border:4px dashed var(--ink); padding:22px; background:var(--paper); font-weight:900; }
+    @media (max-width:640px) { .shell { width:min(100% - 20px,1180px); padding-top:10px; } .masthead { box-shadow:6px 6px 0 var(--ink); } nav { width:100%; } nav .button { flex:1 1 calc(50% - 10px); justify-content:center; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; animation:none!important; } .button:hover,button:hover { transform:none; } }
+    
+    .overview { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:20px; background:var(--yellow); }
+    .overview h2 { margin-bottom:4px; font-size:clamp(24px,4vw,38px); }
+    .overview .badge { min-height:44px; font-size:18px; }
+    .status-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+    .card-head { display:flex; justify-content:space-between; align-items:center; gap:12px; } .card-head h2 { margin:0; font-size:26px; }
+    dl { margin:18px 0 0; } dl div { display:grid; grid-template-columns:minmax(110px,.7fr) minmax(0,1.3fr); gap:12px; padding:10px 0; border-top:3px solid var(--ink); } dt { font-weight:900; } dd { margin:0; overflow-wrap:anywhere; }
+    @media(max-width:760px) { .status-grid { grid-template-columns:1fr; } }
+    </style></head><body><a class="skip-link" href="#main-content">跳到正文</a><main class="shell" id="main-content"><header class="masthead"><div class="masthead-row"><div><h1>System Status</h1><p class="subtitle">TrendRadar 采集、通知与发布状态</p></div><nav aria-label="主导航"><a class="button" href="index.html">首页</a><a class="button" href="archive.html">历史</a><a class="button" href="status.html" aria-current="page">状态</a><a class="button" href="trends.html">趋势</a></nav></div></header>
+    <section class="panel overview"><div><p class="eyebrow">OVERALL</p><h2>系统总览</h2><p class="meta">生成于 2026-10-15T09:36:12.155366+00:00</p></div><span class="badge good">正常</span></section>
+    <div class="status-grid"><section class="panel status-card"><p class="eyebrow">COLLECT</p><div class="card-head"><h2>采集</h2><span class="badge good">成功</span></div><dl><div><dt>最近开始</dt><dd>2026-10-15T17:34:49+08:00</dd></div><div><dt>最近完成</dt><dd>2026-10-15T17:36:11+08:00</dd></div><div><dt>耗时</dt><dd>83.0 秒</dd></div><div><dt>成功来源</dt><dd>12</dd></div><div><dt>失败来源</dt><dd>0</dd></div><div><dt>条目</dt><dd>307</dd></div><div><dt>间隔</dt><dd>0.0 分钟</dd></div><div><dt>补采</dt><dd>否</dd></div></dl></section><section class="panel status-card"><p class="eyebrow">NOTIFY</p><div class="card-head"><h2>通知</h2><span class="badge good">成功</span></div><dl><div><dt>最近尝试</dt><dd>2026-10-15T17:36:11+08:00</dd></div><div><dt>最近成功</dt><dd>2026-10-15T17:36:11+08:00</dd></div><div><dt>原因</dt><dd>delivered</dd></div></dl></section><section class="panel status-card"><p class="eyebrow">PUBLISH</p><div class="card-head"><h2>发布</h2><span class="badge unknown">未知</span></div><dl><div><dt>最近尝试</dt><dd>未知</dd></div><div><dt>最近成功</dt><dd>未知</dd></div><div><dt>提交</dt><dd>未知</dd></div></dl></section><section class="panel status-card"><p class="eyebrow">SCHEDULE</p><div class="card-head"><h2>调度</h2><span class="badge good">每 60 分钟</span></div><dl><div><dt>下次预期</dt><dd>2026-10-15T10:36:11+00:00</dd></div></dl></section></div></main></body></html>
