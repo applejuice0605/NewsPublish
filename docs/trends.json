@@ -1,22 +1,21 @@
 {
-  "generated_at": "2026-10-15T15:44:11.585667+00:00",
-  "as_of": "2026-10-15",
+  "generated_at": "2026-10-15T16:46:42.737329+00:00",
+  "as_of": "2026-10-16",
   "ranges": {
     "1": {
       "days": 1,
       "covered_days": 1,
       "partial": false,
-      "start_date": "2026-10-15",
-      "end_date": "2026-10-15",
+      "start_date": "2026-10-16",
+      "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 1311,
+      "article_count": 307,
       "sources": [
         "IT之家",
         "V2EX",
         "bilibili 热搜",
         "今日头条",
         "掘金",
-        "百度热搜",
         "知乎",
         "腾讯新闻 综合早报"
       ],
@@ -24,464 +23,257 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 48,
-          "source_count": 9,
-          "average_relevance": 0.729,
-          "best_rank": 1,
-          "momentum": -40.6,
+          "article_count": 12,
+          "source_count": 6,
+          "average_relevance": 0.8,
+          "best_rank": 3,
+          "momentum": 0.0,
           "top_articles": [
             {
-              "title": "DeepSeek崩了",
-              "url": "https://www.baidu.com/s?wd=DeepSeek%E5%B4%A9%E4%BA%86",
-              "source": "百度热搜",
-              "date": "2026-10-15",
-              "relevance": 0.95,
-              "best_rank": 2,
-              "momentum": -66.7
-            },
-            {
-              "title": "DeepSeek恢复服务",
-              "url": "https://www.toutiao.com/trending/7696697739286941247/",
-              "source": "今日头条",
-              "date": "2026-10-15",
-              "relevance": 0.95,
-              "best_rank": 2,
-              "momentum": -28.6
-            },
-            {
-              "title": "DeepSeek 服务器暂时不可用",
-              "url": "https://www.v2ex.com/t/1248910",
-              "source": "V2EX",
-              "date": "2026-10-15",
-              "relevance": 0.95,
-              "best_rank": 3,
-              "momentum": -88.5
-            },
-            {
-              "title": "阶跃 Step 5 Preview 大模型权重开放，支持 100 万 token 上下文窗口",
-              "url": "https://www.ithome.com/1/013/268.htm",
+              "title": "英伟达发布 1200 亿参数大模型 Nemotron 3.5 Super VL：单 GPU 智能体任务吞吐量最高提升 5 倍，74B 版本压缩至 24GB",
+              "url": "https://www.ithome.com/1/013/679.htm",
               "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.95,
-              "best_rank": 11,
-              "momentum": -57.7
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 7,
+              "momentum": 0.0
             },
             {
-              "title": "如何评价 2026 年 10 月 15 日上午（8:40）deepseek 服务器不可用？",
-              "url": "https://www.zhihu.com/question/2093985382564099850",
+              "title": "如何评价 DeepSeek 停摆 5 小时后，按最近七日 api 消耗向用户发放补偿赠金？",
+              "url": "https://www.zhihu.com/question/2094116217489450760",
               "source": "知乎",
-              "date": "2026-10-15",
-              "relevance": 0.95,
-              "best_rank": 15,
+              "date": "2026-10-16",
+              "relevance": 0.85,
+              "best_rank": 3,
               "momentum": 0.0
             },
             {
-              "title": "OpenAI称攻克300多道人类未解数学题",
-              "url": "https://www.toutiao.com/trending/7696468369768382483/",
+              "title": "DeepSeek公布补偿方案",
+              "url": "https://www.toutiao.com/trending/7696824974037221402/",
               "source": "今日头条",
-              "date": "2026-10-15",
-              "relevance": 0.9,
-              "best_rank": 4,
-              "momentum": 0.0
-            },
-            {
-              "title": "微软办公 AI 智能体技术突破：不换模型响应提速 400%，词元消耗减 30%",
-              "url": "https://www.ithome.com/1/013/357.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.9,
-              "best_rank": 5,
-              "momentum": -83.3
-            },
-            {
-              "title": "中国科学家首次用中国大模型攻克世界级数学难题，曾困扰学界 30 余年",
-              "url": "https://www.ithome.com/1/013/269.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.9,
-              "best_rank": 10,
-              "momentum": -60.0
-            }
-          ]
-        },
-        {
-          "tag": "大厂AI战略",
-          "basis": "ai_filter",
-          "article_count": 16,
-          "source_count": 5,
-          "average_relevance": 0.725,
-          "best_rank": 1,
-          "momentum": -34.5,
-          "top_articles": [
-            {
-              "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
-              "url": "https://view.inews.qq.com/a/20261015A02IBB00",
-              "source": "腾讯新闻 综合早报",
-              "date": "2026-10-15",
-              "relevance": 0.95,
-              "best_rank": 12,
-              "momentum": 0.0
-            },
-            {
-              "title": "库克：苹果智能 Apple Intelligence 月底在华发布测试版本，但不包括 Siri AI",
-              "url": "https://www.ithome.com/1/013/478.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.9,
-              "best_rank": 7,
-              "momentum": -70.8
-            },
-            {
-              "title": "彭博社：苹果有望 12 月随 iOS 27.3 在国内推出首波 Apple Intelligence 功能",
-              "url": "https://www.ithome.com/1/013/162.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.9,
-              "best_rank": 7,
-              "momentum": -65.0
-            },
-            {
-              "title": "IT早报 1015：苹果收盘市值首超 5 万亿美元；赛力斯起诉男子 AI 造谣索赔百万；iPhone 15 Pro 及后续机型国行大模型备案；豆包助手放开三方应用操作权限...",
-              "url": "https://www.ithome.com/1/013/163.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
+              "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 6,
-              "momentum": -68.4
-            },
-            {
-              "title": "消息称 OpenAI 洽谈收购开源安全厂商 Trail of Bits，为应对 AI 风险铺路",
-              "url": "https://www.ithome.com/1/013/204.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.85,
-              "best_rank": 7,
-              "momentum": -72.0
-            },
-            {
-              "title": "Anthropic 在新加坡设立办事处，与新加坡政府达成合作",
-              "url": "https://www.ithome.com/1/013/479.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.8,
-              "best_rank": 6,
-              "momentum": -73.9
-            },
-            {
-              "title": "Anthropic 抛弃 Git，选择自研版本控制系统 Scion",
-              "url": "https://www.ithome.com/1/013/670.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.75,
-              "best_rank": 9,
               "momentum": 0.0
-            },
-            {
-              "title": "比尔 · 盖茨认为 AI 比核武器更危险、比核能更有用，与 PC、互联网等创新都不同",
-              "url": "https://www.ithome.com/1/013/350.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 1,
-              "momentum": -88.9
-            }
-          ]
-        },
-        {
-          "tag": "推理加速与算力",
-          "basis": "ai_filter",
-          "article_count": 14,
-          "source_count": 4,
-          "average_relevance": 0.725,
-          "best_rank": 1,
-          "momentum": -46.6,
-          "top_articles": [
-            {
-              "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
-              "url": "https://www.ithome.com/1/013/171.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.95,
-              "best_rank": 11,
-              "momentum": 0.0
-            },
-            {
-              "title": "受益于 AI 热潮，分析师预计台积电有望连续第六个季度创下单季盈利新高",
-              "url": "https://www.ithome.com/1/013/167.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.85,
-              "best_rank": 2,
-              "momentum": -86.7
-            },
-            {
-              "title": "算力不够：苹果确认初代 HomePod mini 无缘全新 Siri AI",
-              "url": "https://www.ithome.com/1/013/285.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.85,
-              "best_rank": 2,
-              "momentum": -88.2
-            },
-            {
-              "title": "入职约 1 年：OpenAI 基础设施与 AI 算力负责人卡蒂离职，曾主导“星际之门”计划",
-              "url": "https://www.ithome.com/1/013/158.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.85,
-              "best_rank": 11,
-              "momentum": -54.2
             },
             {
               "title": "DeepSeek宣布故障补偿方案",
               "url": "https://search.bilibili.com/all?keyword=DeepSeek%E5%AE%A3%E5%B8%83%E6%95%85%E9%9A%9C%E8%A1%A5%E5%81%BF%E6%96%B9%E6%A1%88",
               "source": "bilibili 热搜",
-              "date": "2026-10-15",
-              "relevance": 0.8,
-              "best_rank": 1,
-              "momentum": -83.3
-            },
-            {
-              "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
-              "url": "https://www.ithome.com/1/013/164.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.8,
-              "best_rank": 5,
-              "momentum": -72.2
-            },
-            {
-              "title": "AI再现十七勇士强渡大渡河",
-              "url": "https://search.bilibili.com/all?keyword=AI%E5%86%8D%E7%8E%B0%E5%8D%81%E4%B8%83%E5%8B%87%E5%A3%AB%E5%BC%BA%E6%B8%A1%E5%A4%A7%E6%B8%A1%E6%B2%B3",
-              "source": "bilibili 热搜",
-              "date": "2026-10-15",
-              "relevance": 0.75,
-              "best_rank": 3,
-              "momentum": -37.5
-            },
-            {
-              "title": "NVIDIA Broadcast 2.3.0 发布：兼容 RTX Spark，实验性支持视频超分与帧生成",
-              "url": "https://www.ithome.com/1/013/481.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 4,
-              "momentum": -86.7
-            }
-          ]
-        },
-        {
-          "tag": "AI编程工具",
-          "basis": "ai_filter",
-          "article_count": 10,
-          "source_count": 4,
-          "average_relevance": 0.73,
-          "best_rank": 1,
-          "momentum": -58.8,
-          "top_articles": [
-            {
-              "title": "codex 帮我写了个下载电子课本的浏览器插件",
-              "url": "https://www.v2ex.com/t/1248911",
-              "source": "V2EX",
-              "date": "2026-10-15",
-              "relevance": 0.9,
-              "best_rank": 2,
-              "momentum": -92.0
-            },
-            {
-              "title": "借助 Codex 和可视化工作流，从调研到完整实现，3D 大屏竟然可以这么简单",
-              "url": "https://juejin.cn/post/7695939202564997154",
-              "source": "掘金",
-              "date": "2026-10-15",
-              "relevance": 0.9,
-              "best_rank": 22,
-              "momentum": 20.7
-            },
-            {
-              "title": "[开源自荐] silkpulse：远程页面打不开 DevTools，让 AI 替你去看、去点、去验证",
-              "url": "https://www.v2ex.com/t/1248914",
-              "source": "V2EX",
-              "date": "2026-10-15",
+              "date": "2026-10-16",
               "relevance": 0.85,
-              "best_rank": 1,
-              "momentum": -95.8
-            },
-            {
-              "title": "70 美金的 Beyond Compare，我让 Gemini 4 和 DeepSeek 造个开源免费版（Day 2）",
-              "url": "https://www.v2ex.com/t/1249156",
-              "source": "V2EX",
-              "date": "2026-10-15",
-              "relevance": 0.75,
-              "best_rank": 1,
-              "momentum": -88.9
-            },
-            {
-              "title": "国内就没有什么稳定的使用 claude code 的方法么？已被 gpt 折磨疯",
-              "url": "https://www.v2ex.com/t/1249041",
-              "source": "V2EX",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 11,
-              "momentum": -63.3
-            },
-            {
-              "title": "如何看待 opencode go 将 deepseek v4.1 flash 单独提到了 80 美元额度支持？",
-              "url": "https://www.zhihu.com/question/2093027350602593089",
-              "source": "知乎",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 11,
-              "momentum": 45.0
-            },
-            {
-              "title": "麦肯锡面试新花样：先和 AI 客户对线十分钟",
-              "url": "https://www.ithome.com/1/013/155.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 14,
-              "momentum": -48.1
-            },
-            {
-              "title": "给爱车安排一次「毒液出场」：做了个 Venom Car AI，让黑色黏液把车组装出来",
-              "url": "https://www.v2ex.com/t/1248849",
-              "source": "V2EX",
-              "date": "2026-10-15",
-              "relevance": 0.6,
-              "best_rank": 2,
-              "momentum": -90.9
-            }
-          ]
-        },
-        {
-          "tag": "Agent与Claw生态",
-          "basis": "ai_filter",
-          "article_count": 8,
-          "source_count": 3,
-          "average_relevance": 0.738,
-          "best_rank": 1,
-          "momentum": -23.0,
-          "top_articles": [
-            {
-              "title": "做了一个 Durable Agent Harness 支持持久化任务崩溃恢复与断点续跑",
-              "url": "https://www.v2ex.com/t/1249133",
-              "source": "V2EX",
-              "date": "2026-10-15",
-              "relevance": 0.85,
-              "best_rank": 5,
-              "momentum": -70.6
-            },
-            {
-              "title": "聊聊Agent的记忆系统如何设计",
-              "url": "https://juejin.cn/post/7696080841777020966",
-              "source": "掘金",
-              "date": "2026-10-15",
-              "relevance": 0.85,
-              "best_rank": 20,
-              "momentum": 33.3
-            },
-            {
-              "title": "[开源] Agent HUD：把 Claude Code / Codex 等 17 个 agent 的额度和批准请求放在 Mac 刘海或屏幕边上",
-              "url": "https://www.v2ex.com/t/1248801",
-              "source": "V2EX",
-              "date": "2026-10-15",
-              "relevance": 0.8,
-              "best_rank": 22,
-              "momentum": -24.1
-            },
-            {
-              "title": "做了一个开源的多 AI Agent 任务管理工具 StateDock，支持 MCP、Docker 自部署",
-              "url": "https://www.v2ex.com/t/1248798",
-              "source": "V2EX",
-              "date": "2026-10-15",
-              "relevance": 0.8,
-              "best_rank": 23,
-              "momentum": -23.3
-            },
-            {
-              "title": "把「监督下的多 agent 编排」写成了一份可安装的 Orca skill（失败形态对照）",
-              "url": "https://www.v2ex.com/t/1249100",
-              "source": "V2EX",
-              "date": "2026-10-15",
-              "relevance": 0.75,
-              "best_rank": 1,
-              "momentum": -96.2
-            },
-            {
-              "title": "Runner 0.16.0 更新汇总：全新的 UI， mission 支持动态删减 role， 支持 cursor / grok / opencode",
-              "url": "https://www.v2ex.com/t/1248824",
-              "source": "V2EX",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 13,
-              "momentum": -40.9
-            },
-            {
-              "title": "豆包手机助手放开屏幕自动化操作权限，阿里、腾讯系等 App 明确拒绝，如何看待此事？存在哪些争议点？",
-              "url": "https://www.zhihu.com/question/2093648090582599188",
-              "source": "知乎",
-              "date": "2026-10-15",
-              "relevance": 0.65,
-              "best_rank": 5,
+              "best_rank": 6,
               "momentum": 0.0
             },
             {
-              "title": "腾讯又交作业了，开源版 WorkBuddy 太夯了！这回是只粉色小章鱼Octop!",
-              "url": "https://juejin.cn/post/7696461528959090731",
-              "source": "掘金",
-              "date": "2026-10-15",
-              "relevance": 0.5,
-              "best_rank": 18,
-              "momentum": 37.9
-            }
-          ]
-        },
-        {
-          "tag": "AI测试与质量保障",
-          "basis": "ai_filter",
-          "article_count": 2,
-          "source_count": 1,
-          "average_relevance": 0.7,
-          "best_rank": 1,
-          "momentum": -48.1,
-          "top_articles": [
-            {
-              "title": "美国银行聘请 1000 名外包人员，修复 Mythos 等 AI 模型发现的软件漏洞",
-              "url": "https://www.ithome.com/1/013/488.htm",
+              "title": "阶跃星辰开源 Step 5 Preview 权重，华为昇腾、沐曦、壁仞等首发支持",
+              "url": "https://www.ithome.com/1/013/663.htm",
               "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 1,
-              "momentum": -96.3
+              "date": "2026-10-16",
+              "relevance": 0.85,
+              "best_rank": 20,
+              "momentum": 0.0
             },
             {
-              "title": "全球金融监管标准制定机构呼吁：银行、企业要加强对 AI 智能体的人工监管",
-              "url": "https://www.ithome.com/1/013/375.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.7,
+              "title": "OpenCode 宣布 DeepSeek V4.1 Flash 免费提供，但仅支持 200K 上下文",
+              "url": "https://www.v2ex.com/t/1249130",
+              "source": "V2EX",
+              "date": "2026-10-16",
+              "relevance": 0.85,
+              "best_rank": 21,
+              "momentum": 0.0
+            },
+            {
+              "title": "DeepSeek宕机5小时：一上新就崩？影响有多大？",
+              "url": "https://view.inews.qq.com/a/20261015A0CXOE00",
+              "source": "腾讯新闻 综合早报",
+              "date": "2026-10-16",
+              "relevance": 0.8,
+              "best_rank": 10,
+              "momentum": 0.0
+            },
+            {
+              "title": "Deepseek 的赔偿方案出来了， 247 元，快去看看你的有没有到账",
+              "url": "https://www.v2ex.com/t/1249120",
+              "source": "V2EX",
+              "date": "2026-10-16",
+              "relevance": 0.8,
               "best_rank": 24,
               "momentum": 0.0
             }
           ]
         },
         {
-          "tag": "MCP基础设施",
+          "tag": "AI编程工具",
+          "basis": "ai_filter",
+          "article_count": 6,
+          "source_count": 2,
+          "average_relevance": 0.717,
+          "best_rank": 4,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "70 美金的 Beyond Compare，我让 Gemini 4 和 DeepSeek 造个开源免费版（Day 2）",
+              "url": "https://www.v2ex.com/t/1249156",
+              "source": "V2EX",
+              "date": "2026-10-16",
+              "relevance": 0.8,
+              "best_rank": 12,
+              "momentum": 0.0
+            },
+            {
+              "title": "各位大佬，你们 AI Coding 也这样吗？",
+              "url": "https://www.v2ex.com/t/1249151",
+              "source": "V2EX",
+              "date": "2026-10-16",
+              "relevance": 0.8,
+              "best_rank": 14,
+              "momentum": 0.0
+            },
+            {
+              "title": "借助 Codex 和可视化工作流，从调研到完整实现，3D 大屏竟然可以这么简单",
+              "url": "https://juejin.cn/post/7695939202564997154",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.75,
+              "best_rank": 23,
+              "momentum": 0.0
+            },
+            {
+              "title": "怎么感觉最近 codex 的速度那么慢啊",
+              "url": "https://www.v2ex.com/t/1249176",
+              "source": "V2EX",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 4,
+              "momentum": 0.0
+            },
+            {
+              "title": "现在 chatgpt 审美强了很多了",
+              "url": "https://www.v2ex.com/t/1249163",
+              "source": "V2EX",
+              "date": "2026-10-16",
+              "relevance": 0.65,
+              "best_rank": 9,
+              "momentum": 0.0
+            },
+            {
+              "title": "AI 太牛逼了，总想用 ai 来搞点副业，怎么办？",
+              "url": "https://www.v2ex.com/t/1249152",
+              "source": "V2EX",
+              "date": "2026-10-16",
+              "relevance": 0.6,
+              "best_rank": 13,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
+          "tag": "LLMOps与可观测性",
+          "basis": "ai_filter",
+          "article_count": 2,
+          "source_count": 2,
+          "average_relevance": 0.7,
+          "best_rank": 2,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "老干妈靠AI闷赚54亿，你的AI还在写文案？",
+              "url": "https://juejin.cn/post/7696118815167807539",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 2,
+              "momentum": 0.0
+            },
+            {
+              "title": "做了半年无审查 AI 平台，记 4 个反直觉的工程坑（都有数据）",
+              "url": "https://www.v2ex.com/t/1249171",
+              "source": "V2EX",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 8,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
+          "tag": "AI算力与云服务",
           "basis": "ai_filter",
           "article_count": 1,
           "source_count": 1,
           "average_relevance": 0.9,
+          "best_rank": 2,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "英伟达RTX Spark性能分析",
+              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
+              "source": "bilibili 热搜",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 2,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
+          "tag": "MCP协议与基础设施",
+          "basis": "ai_filter",
+          "article_count": 1,
+          "source_count": 1,
+          "average_relevance": 0.8,
           "best_rank": 26,
-          "momentum": 10.3,
+          "momentum": 0.0,
           "top_articles": [
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
               "url": "https://juejin.cn/post/7695768501788737578",
               "source": "掘金",
-              "date": "2026-10-15",
-              "relevance": 0.9,
+              "date": "2026-10-16",
+              "relevance": 0.8,
               "best_rank": 26,
-              "momentum": 10.3
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
+          "tag": "Agent与ComputerUse",
+          "basis": "ai_filter",
+          "article_count": 1,
+          "source_count": 1,
+          "average_relevance": 0.7,
+          "best_rank": 20,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "聊聊Agent的记忆系统如何设计",
+              "url": "https://juejin.cn/post/7696080841777020966",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 20,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
+          "tag": "推理加速与部署",
+          "basis": "ai_filter",
+          "article_count": 1,
+          "source_count": 1,
+          "average_relevance": 0.65,
+          "best_rank": 5,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "开发 AI 应用，如何降低多模型接入和维护成本？",
+              "url": "https://www.v2ex.com/t/1249175",
+              "source": "V2EX",
+              "date": "2026-10-16",
+              "relevance": 0.65,
+              "best_rank": 5,
+              "momentum": 0.0
             }
           ]
         }
@@ -489,12 +281,12 @@
     },
     "7": {
       "days": 7,
-      "covered_days": 4,
+      "covered_days": 5,
       "partial": true,
-      "start_date": "2026-10-09",
-      "end_date": "2026-10-15",
+      "start_date": "2026-10-10",
+      "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4374,
+      "article_count": 4681,
       "sources": [
         "IT之家",
         "V2EX",
@@ -511,11 +303,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 102,
+          "article_count": 114,
           "source_count": 11,
-          "average_relevance": 0.746,
+          "average_relevance": 0.751,
           "best_rank": 1,
-          "momentum": -41.2,
+          "momentum": -36.9,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -594,11 +386,11 @@
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 60,
+          "article_count": 66,
           "source_count": 5,
-          "average_relevance": 0.734,
+          "average_relevance": 0.733,
           "best_rank": 1,
-          "momentum": -40.5,
+          "momentum": -36.9,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -760,11 +552,11 @@
         {
           "tag": "推理加速与部署",
           "basis": "ai_filter",
-          "article_count": 21,
+          "article_count": 22,
           "source_count": 3,
-          "average_relevance": 0.786,
+          "average_relevance": 0.78,
           "best_rank": 1,
-          "momentum": -41.0,
+          "momentum": -39.1,
           "top_articles": [
             {
               "title": "9 年前英伟达 Tesla V100 老将再战：4 GPU 集群 AI 推理跑赢 2 台 DGX Spark",
@@ -1679,6 +1471,55 @@
           ]
         },
         {
+          "tag": "LLMOps与可观测性",
+          "basis": "ai_filter",
+          "article_count": 2,
+          "source_count": 2,
+          "average_relevance": 0.7,
+          "best_rank": 2,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "老干妈靠AI闷赚54亿，你的AI还在写文案？",
+              "url": "https://juejin.cn/post/7696118815167807539",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 2,
+              "momentum": 0.0
+            },
+            {
+              "title": "做了半年无审查 AI 平台，记 4 个反直觉的工程坑（都有数据）",
+              "url": "https://www.v2ex.com/t/1249171",
+              "source": "V2EX",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 8,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
+          "tag": "AI算力与云服务",
+          "basis": "ai_filter",
+          "article_count": 1,
+          "source_count": 1,
+          "average_relevance": 0.9,
+          "best_rank": 2,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "英伟达RTX Spark性能分析",
+              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
+              "source": "bilibili 热搜",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 2,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "LLMOps可观测性",
           "basis": "ai_filter",
           "article_count": 1,
@@ -1719,6 +1560,26 @@
           ]
         },
         {
+          "tag": "MCP协议与基础设施",
+          "basis": "ai_filter",
+          "article_count": 1,
+          "source_count": 1,
+          "average_relevance": 0.8,
+          "best_rank": 26,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
+              "url": "https://juejin.cn/post/7695768501788737578",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.8,
+              "best_rank": 26,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "AI算力与GPU",
           "basis": "ai_filter",
           "article_count": 1,
@@ -1754,6 +1615,26 @@
               "date": "2026-10-12",
               "relevance": 0.75,
               "best_rank": 6,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
+          "tag": "Agent与ComputerUse",
+          "basis": "ai_filter",
+          "article_count": 1,
+          "source_count": 1,
+          "average_relevance": 0.7,
+          "best_rank": 20,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "聊聊Agent的记忆系统如何设计",
+              "url": "https://juejin.cn/post/7696080841777020966",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 20,
               "momentum": 0.0
             }
           ]
@@ -1762,12 +1643,12 @@
     },
     "30": {
       "days": 30,
-      "covered_days": 4,
+      "covered_days": 5,
       "partial": true,
-      "start_date": "2026-09-16",
-      "end_date": "2026-10-15",
+      "start_date": "2026-09-17",
+      "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4374,
+      "article_count": 4681,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1784,11 +1665,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 102,
+          "article_count": 114,
           "source_count": 11,
-          "average_relevance": 0.746,
+          "average_relevance": 0.751,
           "best_rank": 1,
-          "momentum": -41.2,
+          "momentum": -36.9,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -1867,11 +1748,11 @@
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 60,
+          "article_count": 66,
           "source_count": 5,
-          "average_relevance": 0.734,
+          "average_relevance": 0.733,
           "best_rank": 1,
-          "momentum": -40.5,
+          "momentum": -36.9,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -2033,11 +1914,11 @@
         {
           "tag": "推理加速与部署",
           "basis": "ai_filter",
-          "article_count": 21,
+          "article_count": 22,
           "source_count": 3,
-          "average_relevance": 0.786,
+          "average_relevance": 0.78,
           "best_rank": 1,
-          "momentum": -41.0,
+          "momentum": -39.1,
           "top_articles": [
             {
               "title": "9 年前英伟达 Tesla V100 老将再战：4 GPU 集群 AI 推理跑赢 2 台 DGX Spark",
@@ -2952,6 +2833,55 @@
           ]
         },
         {
+          "tag": "LLMOps与可观测性",
+          "basis": "ai_filter",
+          "article_count": 2,
+          "source_count": 2,
+          "average_relevance": 0.7,
+          "best_rank": 2,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "老干妈靠AI闷赚54亿，你的AI还在写文案？",
+              "url": "https://juejin.cn/post/7696118815167807539",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 2,
+              "momentum": 0.0
+            },
+            {
+              "title": "做了半年无审查 AI 平台，记 4 个反直觉的工程坑（都有数据）",
+              "url": "https://www.v2ex.com/t/1249171",
+              "source": "V2EX",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 8,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
+          "tag": "AI算力与云服务",
+          "basis": "ai_filter",
+          "article_count": 1,
+          "source_count": 1,
+          "average_relevance": 0.9,
+          "best_rank": 2,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "英伟达RTX Spark性能分析",
+              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
+              "source": "bilibili 热搜",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 2,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "LLMOps可观测性",
           "basis": "ai_filter",
           "article_count": 1,
@@ -2992,6 +2922,26 @@
           ]
         },
         {
+          "tag": "MCP协议与基础设施",
+          "basis": "ai_filter",
+          "article_count": 1,
+          "source_count": 1,
+          "average_relevance": 0.8,
+          "best_rank": 26,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
+              "url": "https://juejin.cn/post/7695768501788737578",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.8,
+              "best_rank": 26,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "AI算力与GPU",
           "basis": "ai_filter",
           "article_count": 1,
@@ -3027,6 +2977,26 @@
               "date": "2026-10-12",
               "relevance": 0.75,
               "best_rank": 6,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
+          "tag": "Agent与ComputerUse",
+          "basis": "ai_filter",
+          "article_count": 1,
+          "source_count": 1,
+          "average_relevance": 0.7,
+          "best_rank": 20,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "聊聊Agent的记忆系统如何设计",
+              "url": "https://juejin.cn/post/7696080841777020966",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 20,
               "momentum": 0.0
             }
           ]
