@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T19:49:41.034195+00:00",
+  "generated_at": "2026-10-15T20:50:31.231670+00:00",
   "as_of": "2026-10-16",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-16",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 354,
+      "article_count": 358,
       "sources": [
         "IT之家",
         "V2EX",
@@ -27,7 +27,7 @@
           "source_count": 7,
           "average_relevance": 0.812,
           "best_rank": 2,
-          "momentum": 1.1,
+          "momentum": 2.4,
           "top_articles": [
             {
               "title": "Gemini 4 Argon 正式发布！",
@@ -54,7 +54,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 2,
-              "momentum": 16.7
+              "momentum": 50.0
             },
             {
               "title": "如何评价 DeepSeek 停摆 5 小时后，按最近七日 api 消耗向用户发放补偿赠金？",
@@ -72,7 +72,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 5,
-              "momentum": 16.7
+              "momentum": 0.0
             },
             {
               "title": "阶跃星辰开源 Step 5 Preview 权重，华为昇腾、沐曦、壁仞等首发支持",
@@ -204,7 +204,7 @@
           "source_count": 1,
           "average_relevance": 0.9,
           "best_rank": 2,
-          "momentum": -75.0,
+          "momentum": -77.8,
           "top_articles": [
             {
               "title": "英伟达RTX Spark性能分析",
@@ -213,7 +213,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 2,
-              "momentum": -75.0
+              "momentum": -77.8
             }
           ]
         },
@@ -224,7 +224,7 @@
           "source_count": 1,
           "average_relevance": 0.8,
           "best_rank": 26,
-          "momentum": 0.0,
+          "momentum": -3.7,
           "top_articles": [
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
@@ -233,7 +233,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 26,
-              "momentum": 0.0
+              "momentum": -3.7
             }
           ]
         },
@@ -244,7 +244,7 @@
           "source_count": 1,
           "average_relevance": 0.7,
           "best_rank": 20,
-          "momentum": 0.0,
+          "momentum": -4.8,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -253,7 +253,7 @@
               "date": "2026-10-16",
               "relevance": 0.7,
               "best_rank": 20,
-              "momentum": 0.0
+              "momentum": -4.8
             }
           ]
         },
@@ -286,7 +286,7 @@
       "start_date": "2026-10-10",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4728,
+      "article_count": 4732,
       "sources": [
         "IT之家",
         "V2EX",
@@ -307,7 +307,7 @@
           "source_count": 11,
           "average_relevance": 0.753,
           "best_rank": 1,
-          "momentum": -36.4,
+          "momentum": -36.3,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -1506,7 +1506,7 @@
           "source_count": 1,
           "average_relevance": 0.9,
           "best_rank": 2,
-          "momentum": -75.0,
+          "momentum": -77.8,
           "top_articles": [
             {
               "title": "英伟达RTX Spark性能分析",
@@ -1515,7 +1515,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 2,
-              "momentum": -75.0
+              "momentum": -77.8
             }
           ]
         },
@@ -1566,7 +1566,7 @@
           "source_count": 1,
           "average_relevance": 0.8,
           "best_rank": 26,
-          "momentum": 0.0,
+          "momentum": -3.7,
           "top_articles": [
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
@@ -1575,7 +1575,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 26,
-              "momentum": 0.0
+              "momentum": -3.7
             }
           ]
         },
@@ -1626,7 +1626,7 @@
           "source_count": 1,
           "average_relevance": 0.7,
           "best_rank": 20,
-          "momentum": 0.0,
+          "momentum": -4.8,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -1635,7 +1635,7 @@
               "date": "2026-10-16",
               "relevance": 0.7,
               "best_rank": 20,
-              "momentum": 0.0
+              "momentum": -4.8
             }
           ]
         }
@@ -1648,7 +1648,7 @@
       "start_date": "2026-09-17",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4728,
+      "article_count": 4732,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1669,7 +1669,7 @@
           "source_count": 11,
           "average_relevance": 0.753,
           "best_rank": 1,
-          "momentum": -36.4,
+          "momentum": -36.3,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -2868,7 +2868,7 @@
           "source_count": 1,
           "average_relevance": 0.9,
           "best_rank": 2,
-          "momentum": -75.0,
+          "momentum": -77.8,
           "top_articles": [
             {
               "title": "英伟达RTX Spark性能分析",
@@ -2877,7 +2877,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 2,
-              "momentum": -75.0
+              "momentum": -77.8
             }
           ]
         },
@@ -2928,7 +2928,7 @@
           "source_count": 1,
           "average_relevance": 0.8,
           "best_rank": 26,
-          "momentum": 0.0,
+          "momentum": -3.7,
           "top_articles": [
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
@@ -2937,7 +2937,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 26,
-              "momentum": 0.0
+              "momentum": -3.7
             }
           ]
         },
@@ -2988,7 +2988,7 @@
           "source_count": 1,
           "average_relevance": 0.7,
           "best_rank": 20,
-          "momentum": 0.0,
+          "momentum": -4.8,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -2997,7 +2997,7 @@
               "date": "2026-10-16",
               "relevance": 0.7,
               "best_rank": 20,
-              "momentum": 0.0
+              "momentum": -4.8
             }
           ]
         }
