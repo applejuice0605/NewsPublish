@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T13:41:24.957701+00:00",
+  "generated_at": "2026-10-15T14:10:56.233716+00:00",
   "as_of": "2026-10-15",
   "ranges": {
     "1": {
@@ -358,7 +358,7 @@
           "basis": "ai_filter",
           "article_count": 8,
           "source_count": 3,
-          "average_relevance": 0.738,
+          "average_relevance": 0.737,
           "best_rank": 1,
           "momentum": -20.9,
           "top_articles": [
@@ -1260,7 +1260,7 @@
           "basis": "ai_filter",
           "article_count": 8,
           "source_count": 3,
-          "average_relevance": 0.738,
+          "average_relevance": 0.737,
           "best_rank": 1,
           "momentum": -20.9,
           "top_articles": [
@@ -2533,7 +2533,7 @@
           "basis": "ai_filter",
           "article_count": 8,
           "source_count": 3,
-          "average_relevance": 0.738,
+          "average_relevance": 0.737,
           "best_rank": 1,
           "momentum": -20.9,
           "top_articles": [

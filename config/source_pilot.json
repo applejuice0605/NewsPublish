@@ -1,0 +1,60 @@
+{
+  "sources": [
+    "huggingface",
+    "hackernews",
+    "github-trending-today",
+    "producthunt",
+    "36kr-quick"
+  ],
+  "interest_rules": [
+    {
+      "name": "ai-and-models",
+      "keywords": [
+        "ai",
+        "人工智能",
+        "大模型",
+        "模型",
+        "agent",
+        "智能体",
+        "llm",
+        "transformer",
+        "hugging face",
+        "huggingface"
+      ]
+    },
+    {
+      "name": "developer-tools",
+      "keywords": [
+        "github",
+        "open source",
+        "开源",
+        "developer",
+        "开发者",
+        "programming",
+        "编程",
+        "python",
+        "javascript",
+        "rust"
+      ]
+    },
+    {
+      "name": "products-and-startups",
+      "keywords": [
+        "startup",
+        "创业",
+        "product",
+        "产品",
+        "launch",
+        "发布",
+        "融资",
+        "科技"
+      ]
+    }
+  ],
+  "promotion_thresholds": {
+    "minimum_sample_days": 7,
+    "success_rate": 0.95,
+    "interest_hit_rate": 0.10,
+    "maximum_duplicate_rate": 0.60
+  }
+}

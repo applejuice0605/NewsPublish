@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T13:41:24.897131+00:00",
+  "generated_at": "2026-10-15T14:10:56.172881+00:00",
   "overall_status": "healthy",
   "collection": {
     "last_started_at": "2026-10-15T21:40:18+08:00",
@@ -19,13 +19,65 @@
     "reason": "no_incremental_match_or_schedule"
   },
   "publish": {
-    "last_attempt_at": "2026-10-15T20:40:18+08:00",
-    "last_success_at": "2026-10-15T20:40:18+08:00",
+    "last_attempt_at": "2026-10-15T21:41:27+08:00",
+    "last_success_at": "2026-10-15T21:41:27+08:00",
     "status": "success",
-    "commit": "e73ad69a1e8d"
+    "commit": "cf582b7890ba"
   },
   "schedule": {
     "interval_minutes": 60,
     "next_expected_at": "2026-10-15T14:41:24+00:00"
+  },
+  "source_pilot": {
+    "configured": false,
+    "generated_at": "2026-10-15T17:29:47+08:00",
+    "status": "not_configured",
+    "sources": [
+      {
+        "source": "huggingface",
+        "success": false,
+        "item_count": null,
+        "interest_hit_rate": null,
+        "duplicate_rate": null,
+        "sample_days": null,
+        "recommendation": "not_configured"
+      },
+      {
+        "source": "hackernews",
+        "success": false,
+        "item_count": null,
+        "interest_hit_rate": null,
+        "duplicate_rate": null,
+        "sample_days": null,
+        "recommendation": "not_configured"
+      },
+      {
+        "source": "github-trending-today",
+        "success": false,
+        "item_count": null,
+        "interest_hit_rate": null,
+        "duplicate_rate": null,
+        "sample_days": null,
+        "recommendation": "not_configured"
+      },
+      {
+        "source": "producthunt",
+        "success": false,
+        "item_count": null,
+        "interest_hit_rate": null,
+        "duplicate_rate": null,
+        "sample_days": null,
+        "recommendation": "not_configured"
+      },
+      {
+        "source": "36kr-quick",
+        "success": false,
+        "item_count": null,
+        "interest_hit_rate": null,
+        "duplicate_rate": null,
+        "sample_days": null,
+        "recommendation": "not_configured"
+      }
+    ]
   }
 }

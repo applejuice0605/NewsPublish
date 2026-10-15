@@ -22,6 +22,9 @@ rsync -a --exclude='*/notification_test_*.html' "$HTML_DIR/" "$SITE_DIR/reports/
 printf "%s\n" "$DOMAIN" > "$SITE_DIR/CNAME"
 touch "$SITE_DIR/.nojekyll"
 python3 "$REPO_DIR/scripts/generate_reports_archive.py"
+if [ -f "$REPO_DIR/scripts/generate_site_insights.py" ]; then
+  python3 "$REPO_DIR/scripts/generate_site_insights.py"
+fi
 
 echo "[site] reports synced to $SITE_DIR"
 echo "[site] custom domain: $DOMAIN"
@@ -32,7 +35,13 @@ fi
 
 cd "$REPO_DIR"
 
-git add docs/CNAME docs/.nojekyll docs/archive.html docs/index.html docs/reports TrendRadar/index.html
+git add docs/CNAME docs/.nojekyll docs/archive.html docs/index.html docs/assets \
+  docs/reports TrendRadar/index.html
+for insight_file in docs/health.json docs/status.html docs/trends.html docs/trends.json; do
+  if [ -e "$insight_file" ]; then
+    git add "$insight_file"
+  fi
+done
 
 if git diff --cached --quiet; then
   echo "[site] no report changes to publish"
