@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T18:48:44.451091+00:00",
+  "generated_at": "2026-10-15T19:49:41.034195+00:00",
   "as_of": "2026-10-16",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-16",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 341,
+      "article_count": 354,
       "sources": [
         "IT之家",
         "V2EX",
@@ -27,7 +27,7 @@
           "source_count": 7,
           "average_relevance": 0.812,
           "best_rank": 2,
-          "momentum": 2.4,
+          "momentum": 1.1,
           "top_articles": [
             {
               "title": "Gemini 4 Argon 正式发布！",
@@ -54,7 +54,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 2,
-              "momentum": 66.7
+              "momentum": 16.7
             },
             {
               "title": "如何评价 DeepSeek 停摆 5 小时后，按最近七日 api 消耗向用户发放补偿赠金？",
@@ -62,8 +62,8 @@
               "source": "知乎",
               "date": "2026-10-16",
               "relevance": 0.85,
-              "best_rank": 3,
-              "momentum": 0.0
+              "best_rank": 2,
+              "momentum": 33.3
             },
             {
               "title": "DeepSeek公布补偿方案",
@@ -204,7 +204,7 @@
           "source_count": 1,
           "average_relevance": 0.9,
           "best_rank": 2,
-          "momentum": -77.8,
+          "momentum": -75.0,
           "top_articles": [
             {
               "title": "英伟达RTX Spark性能分析",
@@ -213,7 +213,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 2,
-              "momentum": -77.8
+              "momentum": -75.0
             }
           ]
         },
@@ -286,7 +286,7 @@
       "start_date": "2026-10-10",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4715,
+      "article_count": 4728,
       "sources": [
         "IT之家",
         "V2EX",
@@ -307,7 +307,7 @@
           "source_count": 11,
           "average_relevance": 0.753,
           "best_rank": 1,
-          "momentum": -36.3,
+          "momentum": -36.4,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -1506,7 +1506,7 @@
           "source_count": 1,
           "average_relevance": 0.9,
           "best_rank": 2,
-          "momentum": -77.8,
+          "momentum": -75.0,
           "top_articles": [
             {
               "title": "英伟达RTX Spark性能分析",
@@ -1515,7 +1515,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 2,
-              "momentum": -77.8
+              "momentum": -75.0
             }
           ]
         },
@@ -1648,7 +1648,7 @@
       "start_date": "2026-09-17",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4715,
+      "article_count": 4728,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1669,7 +1669,7 @@
           "source_count": 11,
           "average_relevance": 0.753,
           "best_rank": 1,
-          "momentum": -36.3,
+          "momentum": -36.4,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -2868,7 +2868,7 @@
           "source_count": 1,
           "average_relevance": 0.9,
           "best_rank": 2,
-          "momentum": -77.8,
+          "momentum": -75.0,
           "top_articles": [
             {
               "title": "英伟达RTX Spark性能分析",
@@ -2877,7 +2877,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 2,
-              "momentum": -77.8
+              "momentum": -75.0
             }
           ]
         },
