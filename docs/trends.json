@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T22:52:05.227155+00:00",
+  "generated_at": "2026-10-15T23:53:03.302663+00:00",
   "as_of": "2026-10-16",
   "ranges": {
     "1": {
@@ -9,24 +9,26 @@
       "start_date": "2026-10-16",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 385,
+      "article_count": 424,
       "sources": [
         "IT之家",
         "V2EX",
         "bilibili 热搜",
         "今日头条",
+        "华尔街见闻",
         "掘金",
+        "澎湃新闻",
         "知乎"
       ],
       "topics": [
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 14,
-          "source_count": 7,
+          "article_count": 17,
+          "source_count": 8,
           "average_relevance": 0.818,
           "best_rank": 2,
-          "momentum": -10.8,
+          "momentum": -15.3,
           "top_articles": [
             {
               "title": "Gemini 4 Argon 正式发布！",
@@ -34,7 +36,16 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.95,
-              "best_rank": 29,
+              "best_rank": 28,
+              "momentum": 3.4
+            },
+            {
+              "title": "蚂蚁百灵开源 Ling-3.1-flash AI 模型，最高支持 1M 上下文",
+              "url": "https://www.ithome.com/1/013/700.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 6,
               "momentum": 0.0
             },
             {
@@ -44,7 +55,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 7,
-              "momentum": -12.5
+              "momentum": -63.2
             },
             {
               "title": "谷歌Gemini 4 Argon 实测",
@@ -62,7 +73,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 2,
-              "momentum": -72.7
+              "momentum": -68.4
             },
             {
               "title": "如何评价 DeepSeek 停摆 5 小时后，按最近七日 api 消耗向用户发放补偿赠金？",
@@ -71,7 +82,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 2,
-              "momentum": 33.3
+              "momentum": 0.0
             },
             {
               "title": "DeepSeek公布补偿方案",
@@ -80,36 +91,27 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 5,
-              "momentum": -33.3
+              "momentum": -40.0
             },
             {
-              "title": "阶跃星辰开源 Step 5 Preview 权重，华为昇腾、沐曦、壁仞等首发支持",
-              "url": "https://www.ithome.com/1/013/663.htm",
-              "source": "IT之家",
+              "title": "美国八州联手起诉OpenAI，称ChatGPT危害儿童和老年人",
+              "url": "https://www.thepaper.cn/newsDetail_forward_34254005",
+              "source": "澎湃新闻",
               "date": "2026-10-16",
               "relevance": 0.85,
-              "best_rank": 20,
-              "momentum": -4.8
-            },
-            {
-              "title": "OpenCode 宣布 DeepSeek V4.1 Flash 免费提供，但仅支持 200K 上下文",
-              "url": "https://www.v2ex.com/t/1249130",
-              "source": "V2EX",
-              "date": "2026-10-16",
-              "relevance": 0.85,
-              "best_rank": 21,
-              "momentum": -16.0
+              "best_rank": 12,
+              "momentum": 0.0
             }
           ]
         },
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 6,
-          "source_count": 2,
-          "average_relevance": 0.717,
-          "best_rank": 4,
-          "momentum": -25.2,
+          "article_count": 8,
+          "source_count": 3,
+          "average_relevance": 0.681,
+          "best_rank": 3,
+          "momentum": -18.9,
           "top_articles": [
             {
               "title": "70 美金的 Beyond Compare，我让 Gemini 4 和 DeepSeek 造个开源免费版（Day 2）",
@@ -157,6 +159,15 @@
               "momentum": -30.8
             },
             {
+              "title": "亚马逊旗下 Bee 推出两款 AI 录音产品：可穿戴设备 Frontier、手机磁吸配件 Eclipse，74.99 美元起",
+              "url": "https://www.ithome.com/1/013/702.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.6,
+              "best_rank": 3,
+              "momentum": 0.0
+            },
+            {
               "title": "AI 太牛逼了，总想用 ai 来搞点副业，怎么办？",
               "url": "https://www.v2ex.com/t/1249152",
               "source": "V2EX",
@@ -164,6 +175,53 @@
               "relevance": 0.6,
               "best_rank": 13,
               "momentum": -23.5
+            },
+            {
+              "title": "对抗超级细菌新武器：谷歌 Antigravity 用 AI 加速抗菌肽发现",
+              "url": "https://www.ithome.com/1/013/684.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.55,
+              "best_rank": 11,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
+          "tag": "AI算力与云服务",
+          "basis": "ai_filter",
+          "article_count": 3,
+          "source_count": 2,
+          "average_relevance": 0.783,
+          "best_rank": 2,
+          "momentum": -29.6,
+          "top_articles": [
+            {
+              "title": "英伟达RTX Spark性能分析",
+              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
+              "source": "bilibili 热搜",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 2,
+              "momentum": -88.9
+            },
+            {
+              "title": "国内一半AI算力被指在造爽剧，用于研发仅15%",
+              "url": "https://wallstreetcn.com/articles/3783720",
+              "source": "华尔街见闻",
+              "date": "2026-10-16",
+              "relevance": 0.75,
+              "best_rank": 8,
+              "momentum": 0.0
+            },
+            {
+              "title": "贝莱德CEO Larry Fink警告：AI基建已成美国经济支柱，暂停数据中心建设将触发衰退",
+              "url": "https://wallstreetcn.com/articles/3783674",
+              "source": "华尔街见闻",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 10,
+              "momentum": 0.0
             }
           ]
         },
@@ -226,33 +284,13 @@
           ]
         },
         {
-          "tag": "AI算力与云服务",
-          "basis": "ai_filter",
-          "article_count": 1,
-          "source_count": 1,
-          "average_relevance": 0.9,
-          "best_rank": 2,
-          "momentum": 0.0,
-          "top_articles": [
-            {
-              "title": "英伟达RTX Spark性能分析",
-              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
-              "source": "bilibili 热搜",
-              "date": "2026-10-16",
-              "relevance": 0.9,
-              "best_rank": 2,
-              "momentum": 0.0
-            }
-          ]
-        },
-        {
           "tag": "MCP协议与基础设施",
           "basis": "ai_filter",
           "article_count": 1,
           "source_count": 1,
           "average_relevance": 0.8,
           "best_rank": 26,
-          "momentum": -3.7,
+          "momentum": 0.0,
           "top_articles": [
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
@@ -261,7 +299,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 26,
-              "momentum": -3.7
+              "momentum": 0.0
             }
           ]
         },
@@ -294,7 +332,7 @@
       "start_date": "2026-10-10",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4759,
+      "article_count": 4798,
       "sources": [
         "IT之家",
         "V2EX",
@@ -311,9 +349,9 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 116,
+          "article_count": 119,
           "source_count": 11,
-          "average_relevance": 0.754,
+          "average_relevance": 0.756,
           "best_rank": 1,
           "momentum": -37.5,
           "top_articles": [
@@ -394,11 +432,11 @@
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 66,
+          "article_count": 68,
           "source_count": 5,
-          "average_relevance": 0.733,
+          "average_relevance": 0.728,
           "best_rank": 1,
-          "momentum": -39.1,
+          "momentum": -38.0,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -1334,6 +1372,44 @@
           ]
         },
         {
+          "tag": "AI算力与云服务",
+          "basis": "ai_filter",
+          "article_count": 3,
+          "source_count": 2,
+          "average_relevance": 0.783,
+          "best_rank": 2,
+          "momentum": -29.6,
+          "top_articles": [
+            {
+              "title": "英伟达RTX Spark性能分析",
+              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
+              "source": "bilibili 热搜",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 2,
+              "momentum": -88.9
+            },
+            {
+              "title": "国内一半AI算力被指在造爽剧，用于研发仅15%",
+              "url": "https://wallstreetcn.com/articles/3783720",
+              "source": "华尔街见闻",
+              "date": "2026-10-16",
+              "relevance": 0.75,
+              "best_rank": 8,
+              "momentum": 0.0
+            },
+            {
+              "title": "贝莱德CEO Larry Fink警告：AI基建已成美国经济支柱，暂停数据中心建设将触发衰退",
+              "url": "https://wallstreetcn.com/articles/3783674",
+              "source": "华尔街见闻",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 10,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "MCP基础设施",
           "basis": "ai_filter",
           "article_count": 2,
@@ -1508,26 +1584,6 @@
           ]
         },
         {
-          "tag": "AI算力与云服务",
-          "basis": "ai_filter",
-          "article_count": 1,
-          "source_count": 1,
-          "average_relevance": 0.9,
-          "best_rank": 2,
-          "momentum": 0.0,
-          "top_articles": [
-            {
-              "title": "英伟达RTX Spark性能分析",
-              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
-              "source": "bilibili 热搜",
-              "date": "2026-10-16",
-              "relevance": 0.9,
-              "best_rank": 2,
-              "momentum": 0.0
-            }
-          ]
-        },
-        {
           "tag": "LLMOps可观测性",
           "basis": "ai_filter",
           "article_count": 1,
@@ -1574,7 +1630,7 @@
           "source_count": 1,
           "average_relevance": 0.8,
           "best_rank": 26,
-          "momentum": -3.7,
+          "momentum": 0.0,
           "top_articles": [
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
@@ -1583,7 +1639,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 26,
-              "momentum": -3.7
+              "momentum": 0.0
             }
           ]
         },
@@ -1656,7 +1712,7 @@
       "start_date": "2026-09-17",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4759,
+      "article_count": 4798,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1673,9 +1729,9 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 116,
+          "article_count": 119,
           "source_count": 11,
-          "average_relevance": 0.754,
+          "average_relevance": 0.756,
           "best_rank": 1,
           "momentum": -37.5,
           "top_articles": [
@@ -1756,11 +1812,11 @@
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 66,
+          "article_count": 68,
           "source_count": 5,
-          "average_relevance": 0.733,
+          "average_relevance": 0.728,
           "best_rank": 1,
-          "momentum": -39.1,
+          "momentum": -38.0,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -2696,6 +2752,44 @@
           ]
         },
         {
+          "tag": "AI算力与云服务",
+          "basis": "ai_filter",
+          "article_count": 3,
+          "source_count": 2,
+          "average_relevance": 0.783,
+          "best_rank": 2,
+          "momentum": -29.6,
+          "top_articles": [
+            {
+              "title": "英伟达RTX Spark性能分析",
+              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
+              "source": "bilibili 热搜",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 2,
+              "momentum": -88.9
+            },
+            {
+              "title": "国内一半AI算力被指在造爽剧，用于研发仅15%",
+              "url": "https://wallstreetcn.com/articles/3783720",
+              "source": "华尔街见闻",
+              "date": "2026-10-16",
+              "relevance": 0.75,
+              "best_rank": 8,
+              "momentum": 0.0
+            },
+            {
+              "title": "贝莱德CEO Larry Fink警告：AI基建已成美国经济支柱，暂停数据中心建设将触发衰退",
+              "url": "https://wallstreetcn.com/articles/3783674",
+              "source": "华尔街见闻",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 10,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "MCP基础设施",
           "basis": "ai_filter",
           "article_count": 2,
@@ -2870,26 +2964,6 @@
           ]
         },
         {
-          "tag": "AI算力与云服务",
-          "basis": "ai_filter",
-          "article_count": 1,
-          "source_count": 1,
-          "average_relevance": 0.9,
-          "best_rank": 2,
-          "momentum": 0.0,
-          "top_articles": [
-            {
-              "title": "英伟达RTX Spark性能分析",
-              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
-              "source": "bilibili 热搜",
-              "date": "2026-10-16",
-              "relevance": 0.9,
-              "best_rank": 2,
-              "momentum": 0.0
-            }
-          ]
-        },
-        {
           "tag": "LLMOps可观测性",
           "basis": "ai_filter",
           "article_count": 1,
@@ -2936,7 +3010,7 @@
           "source_count": 1,
           "average_relevance": 0.8,
           "best_rank": 26,
-          "momentum": -3.7,
+          "momentum": 0.0,
           "top_articles": [
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
@@ -2945,7 +3019,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 26,
-              "momentum": -3.7
+              "momentum": 0.0
             }
           ]
         },

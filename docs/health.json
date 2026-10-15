@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-10-15T22:52:05.154337+00:00",
+  "generated_at": "2026-10-15T23:53:03.230766+00:00",
   "overall_status": "healthy",
   "collection": {
-    "last_started_at": "2026-10-16T06:51:21+08:00",
-    "last_completed_at": "2026-10-16T06:52:04+08:00",
-    "duration_seconds": 44.0,
+    "last_started_at": "2026-10-16T07:52:08+08:00",
+    "last_completed_at": "2026-10-16T07:53:03+08:00",
+    "duration_seconds": 55.1,
     "success": true,
     "source_success": 12,
     "source_failed": 0,
-    "item_count": 307,
+    "item_count": 308,
     "gap_minutes": 60.1,
     "catch_up": false
   },
@@ -19,14 +19,14 @@
     "reason": "no_incremental_match_or_schedule"
   },
   "publish": {
-    "last_attempt_at": "2026-10-16T05:51:21+08:00",
-    "last_success_at": "2026-10-16T05:51:21+08:00",
+    "last_attempt_at": "2026-10-16T06:52:07+08:00",
+    "last_success_at": "2026-10-16T06:52:07+08:00",
     "status": "success",
-    "commit": "4c0106b1ba8d"
+    "commit": "0400fb396013"
   },
   "schedule": {
     "interval_minutes": 60,
-    "next_expected_at": "2026-10-15T23:52:04+00:00"
+    "next_expected_at": "2026-10-16T00:53:03+00:00"
   },
   "source_pilot": {
     "configured": false,
