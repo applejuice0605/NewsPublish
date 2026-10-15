@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T21:51:18.758711+00:00",
+  "generated_at": "2026-10-15T22:52:05.227155+00:00",
   "as_of": "2026-10-16",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-16",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 374,
+      "article_count": 385,
       "sources": [
         "IT之家",
         "V2EX",
@@ -26,7 +26,7 @@
           "source_count": 7,
           "average_relevance": 0.818,
           "best_rank": 2,
-          "momentum": -6.6,
+          "momentum": -10.8,
           "top_articles": [
             {
               "title": "Gemini 4 Argon 正式发布！",
@@ -62,7 +62,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 2,
-              "momentum": -33.3
+              "momentum": -72.7
             },
             {
               "title": "如何评价 DeepSeek 停摆 5 小时后，按最近七日 api 消耗向用户发放补偿赠金？",
@@ -80,7 +80,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 5,
-              "momentum": -25.0
+              "momentum": -33.3
             },
             {
               "title": "阶跃星辰开源 Step 5 Preview 权重，华为昇腾、沐曦、壁仞等首发支持",
@@ -98,7 +98,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 21,
-              "momentum": -12.5
+              "momentum": -16.0
             }
           ]
         },
@@ -109,7 +109,7 @@
           "source_count": 2,
           "average_relevance": 0.717,
           "best_rank": 4,
-          "momentum": -20.7,
+          "momentum": -25.2,
           "top_articles": [
             {
               "title": "70 美金的 Beyond Compare，我让 Gemini 4 和 DeepSeek 造个开源免费版（Day 2）",
@@ -118,7 +118,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 12,
-              "momentum": -20.0
+              "momentum": -25.0
             },
             {
               "title": "各位大佬，你们 AI Coding 也这样吗？",
@@ -127,7 +127,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 14,
-              "momentum": -17.6
+              "momentum": -22.2
             },
             {
               "title": "借助 Codex 和可视化工作流，从调研到完整实现，3D 大屏竟然可以这么简单",
@@ -145,7 +145,7 @@
               "date": "2026-10-16",
               "relevance": 0.7,
               "best_rank": 4,
-              "momentum": -42.9
+              "momentum": -50.0
             },
             {
               "title": "现在 chatgpt 审美强了很多了",
@@ -154,7 +154,7 @@
               "date": "2026-10-16",
               "relevance": 0.65,
               "best_rank": 9,
-              "momentum": -25.0
+              "momentum": -30.8
             },
             {
               "title": "AI 太牛逼了，总想用 ai 来搞点副业，怎么办？",
@@ -163,7 +163,7 @@
               "date": "2026-10-16",
               "relevance": 0.6,
               "best_rank": 13,
-              "momentum": -18.8
+              "momentum": -23.5
             }
           ]
         },
@@ -174,7 +174,7 @@
           "source_count": 2,
           "average_relevance": 0.7,
           "best_rank": 2,
-          "momentum": -13.7,
+          "momentum": -16.6,
           "top_articles": [
             {
               "title": "老干妈靠AI闷赚54亿，你的AI还在写文案？",
@@ -192,7 +192,7 @@
               "date": "2026-10-16",
               "relevance": 0.7,
               "best_rank": 8,
-              "momentum": -27.3
+              "momentum": -33.3
             }
           ]
         },
@@ -203,7 +203,7 @@
           "source_count": 2,
           "average_relevance": 0.675,
           "best_rank": 5,
-          "momentum": -18.8,
+          "momentum": -22.2,
           "top_articles": [
             {
               "title": "DeepSeek优化27倍token教程",
@@ -221,7 +221,7 @@
               "date": "2026-10-16",
               "relevance": 0.65,
               "best_rank": 5,
-              "momentum": -37.5
+              "momentum": -44.4
             }
           ]
         },
@@ -232,7 +232,7 @@
           "source_count": 1,
           "average_relevance": 0.9,
           "best_rank": 2,
-          "momentum": -50.0,
+          "momentum": 0.0,
           "top_articles": [
             {
               "title": "英伟达RTX Spark性能分析",
@@ -241,7 +241,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 2,
-              "momentum": -50.0
+              "momentum": 0.0
             }
           ]
         },
@@ -294,7 +294,7 @@
       "start_date": "2026-10-10",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4748,
+      "article_count": 4759,
       "sources": [
         "IT之家",
         "V2EX",
@@ -315,7 +315,7 @@
           "source_count": 11,
           "average_relevance": 0.754,
           "best_rank": 1,
-          "momentum": -37.0,
+          "momentum": -37.5,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -398,7 +398,7 @@
           "source_count": 5,
           "average_relevance": 0.733,
           "best_rank": 1,
-          "momentum": -38.7,
+          "momentum": -39.1,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -564,7 +564,7 @@
           "source_count": 4,
           "average_relevance": 0.776,
           "best_rank": 1,
-          "momentum": -39.0,
+          "momentum": -39.3,
           "top_articles": [
             {
               "title": "9 年前英伟达 Tesla V100 老将再战：4 GPU 集群 AI 推理跑赢 2 台 DGX Spark",
@@ -1485,7 +1485,7 @@
           "source_count": 2,
           "average_relevance": 0.7,
           "best_rank": 2,
-          "momentum": -13.7,
+          "momentum": -16.6,
           "top_articles": [
             {
               "title": "老干妈靠AI闷赚54亿，你的AI还在写文案？",
@@ -1503,7 +1503,7 @@
               "date": "2026-10-16",
               "relevance": 0.7,
               "best_rank": 8,
-              "momentum": -27.3
+              "momentum": -33.3
             }
           ]
         },
@@ -1514,7 +1514,7 @@
           "source_count": 1,
           "average_relevance": 0.9,
           "best_rank": 2,
-          "momentum": -50.0,
+          "momentum": 0.0,
           "top_articles": [
             {
               "title": "英伟达RTX Spark性能分析",
@@ -1523,7 +1523,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 2,
-              "momentum": -50.0
+              "momentum": 0.0
             }
           ]
         },
@@ -1656,7 +1656,7 @@
       "start_date": "2026-09-17",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4748,
+      "article_count": 4759,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1677,7 +1677,7 @@
           "source_count": 11,
           "average_relevance": 0.754,
           "best_rank": 1,
-          "momentum": -37.0,
+          "momentum": -37.5,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -1760,7 +1760,7 @@
           "source_count": 5,
           "average_relevance": 0.733,
           "best_rank": 1,
-          "momentum": -38.7,
+          "momentum": -39.1,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -1926,7 +1926,7 @@
           "source_count": 4,
           "average_relevance": 0.776,
           "best_rank": 1,
-          "momentum": -39.0,
+          "momentum": -39.3,
           "top_articles": [
             {
               "title": "9 年前英伟达 Tesla V100 老将再战：4 GPU 集群 AI 推理跑赢 2 台 DGX Spark",
@@ -2847,7 +2847,7 @@
           "source_count": 2,
           "average_relevance": 0.7,
           "best_rank": 2,
-          "momentum": -13.7,
+          "momentum": -16.6,
           "top_articles": [
             {
               "title": "老干妈靠AI闷赚54亿，你的AI还在写文案？",
@@ -2865,7 +2865,7 @@
               "date": "2026-10-16",
               "relevance": 0.7,
               "best_rank": 8,
-              "momentum": -27.3
+              "momentum": -33.3
             }
           ]
         },
@@ -2876,7 +2876,7 @@
           "source_count": 1,
           "average_relevance": 0.9,
           "best_rank": 2,
-          "momentum": -50.0,
+          "momentum": 0.0,
           "top_articles": [
             {
               "title": "英伟达RTX Spark性能分析",
@@ -2885,7 +2885,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 2,
-              "momentum": -50.0
+              "momentum": 0.0
             }
           ]
         },
