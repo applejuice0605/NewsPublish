@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T10:37:22.624708+00:00",
+  "generated_at": "2026-10-15T11:38:23.538590+00:00",
   "as_of": "2026-10-15",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-15",
       "end_date": "2026-10-15",
       "basis": "ai_filter",
-      "article_count": 1059,
+      "article_count": 1103,
       "sources": [
         "IT之家",
         "V2EX",
@@ -28,7 +28,7 @@
           "source_count": 9,
           "average_relevance": 0.732,
           "best_rank": 1,
-          "momentum": -35.9,
+          "momentum": -38.5,
           "top_articles": [
             {
               "title": "DeepSeek崩了",
@@ -111,7 +111,7 @@
           "source_count": 5,
           "average_relevance": 0.723,
           "best_rank": 1,
-          "momentum": -38.1,
+          "momentum": -37.1,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -190,11 +190,11 @@
         {
           "tag": "推理加速与算力",
           "basis": "ai_filter",
-          "article_count": 13,
+          "article_count": 14,
           "source_count": 4,
-          "average_relevance": 0.719,
-          "best_rank": 2,
-          "momentum": -34.9,
+          "average_relevance": 0.725,
+          "best_rank": 1,
+          "momentum": -39.2,
           "top_articles": [
             {
               "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
@@ -233,6 +233,15 @@
               "momentum": -54.2
             },
             {
+              "title": "DeepSeek宣布故障补偿方案",
+              "url": "https://search.bilibili.com/all?keyword=DeepSeek%E5%AE%A3%E5%B8%83%E6%95%85%E9%9A%9C%E8%A1%A5%E5%81%BF%E6%96%B9%E6%A1%88",
+              "source": "bilibili 热搜",
+              "date": "2026-10-15",
+              "relevance": 0.8,
+              "best_rank": 1,
+              "momentum": 0.0
+            },
+            {
               "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
               "url": "https://www.ithome.com/1/013/164.htm",
               "source": "IT之家",
@@ -257,16 +266,7 @@
               "date": "2026-10-15",
               "relevance": 0.7,
               "best_rank": 4,
-              "momentum": -81.0
-            },
-            {
-              "title": "美的加入英伟达 MGX 生态链，探索“液冷”相关合作",
-              "url": "https://www.ithome.com/1/013/523.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 14,
-              "momentum": 0.0
+              "momentum": -86.7
             }
           ]
         },
@@ -277,7 +277,7 @@
           "source_count": 4,
           "average_relevance": 0.728,
           "best_rank": 1,
-          "momentum": -59.9,
+          "momentum": -61.2,
           "top_articles": [
             {
               "title": "codex 帮我写了个下载电子课本的浏览器插件",
@@ -295,7 +295,7 @@
               "date": "2026-10-15",
               "relevance": 0.9,
               "best_rank": 22,
-              "momentum": 24.1
+              "momentum": 13.8
             },
             {
               "title": "[开源自荐] silkpulse：远程页面打不开 DevTools，让 AI 替你去看、去点、去验证",
@@ -349,7 +349,7 @@
               "date": "2026-10-15",
               "relevance": 0.6,
               "best_rank": 3,
-              "momentum": -86.4
+              "momentum": -87.5
             }
           ]
         },
@@ -360,7 +360,7 @@
           "source_count": 3,
           "average_relevance": 0.721,
           "best_rank": 1,
-          "momentum": -17.8,
+          "momentum": -17.0,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -369,7 +369,7 @@
               "date": "2026-10-15",
               "relevance": 0.85,
               "best_rank": 20,
-              "momentum": 33.3
+              "momentum": 30.0
             },
             {
               "title": "[开源] Agent HUD：把 Claude Code / Codex 等 17 个 agent 的额度和批准请求放在 Mac 刘海或屏幕边上",
@@ -396,7 +396,7 @@
               "date": "2026-10-15",
               "relevance": 0.75,
               "best_rank": 1,
-              "momentum": -90.0
+              "momentum": -91.7
             },
             {
               "title": "Runner 0.16.0 更新汇总：全新的 UI， mission 支持动态删减 role， 支持 cursor / grok / opencode",
@@ -422,8 +422,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.5,
-              "best_rank": 23,
-              "momentum": 20.7
+              "best_rank": 20,
+              "momentum": 31.0
             }
           ]
         },
@@ -434,7 +434,7 @@
           "source_count": 1,
           "average_relevance": 0.7,
           "best_rank": 1,
-          "momentum": -47.2,
+          "momentum": -48.1,
           "top_articles": [
             {
               "title": "美国银行聘请 1000 名外包人员，修复 Mythos 等 AI 模型发现的软件漏洞",
@@ -443,7 +443,7 @@
               "date": "2026-10-15",
               "relevance": 0.7,
               "best_rank": 1,
-              "momentum": -94.4
+              "momentum": -96.3
             },
             {
               "title": "全球金融监管标准制定机构呼吁：银行、企业要加强对 AI 智能体的人工监管",
@@ -452,6 +452,26 @@
               "date": "2026-10-15",
               "relevance": 0.7,
               "best_rank": 24,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
+          "tag": "MCP基础设施",
+          "basis": "ai_filter",
+          "article_count": 1,
+          "source_count": 1,
+          "average_relevance": 0.9,
+          "best_rank": 29,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
+              "url": "https://juejin.cn/post/7695768501788737578",
+              "source": "掘金",
+              "date": "2026-10-15",
+              "relevance": 0.9,
+              "best_rank": 29,
               "momentum": 0.0
             }
           ]
@@ -465,7 +485,7 @@
       "start_date": "2026-10-09",
       "end_date": "2026-10-15",
       "basis": "ai_filter",
-      "article_count": 4122,
+      "article_count": 4166,
       "sources": [
         "IT之家",
         "V2EX",
@@ -486,7 +506,7 @@
           "source_count": 11,
           "average_relevance": 0.748,
           "best_rank": 1,
-          "momentum": -39.2,
+          "momentum": -40.4,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -569,7 +589,7 @@
           "source_count": 5,
           "average_relevance": 0.734,
           "best_rank": 1,
-          "momentum": -40.4,
+          "momentum": -40.6,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -605,7 +625,7 @@
               "date": "2026-10-15",
               "relevance": 0.9,
               "best_rank": 22,
-              "momentum": 24.1
+              "momentum": 13.8
             },
             {
               "title": "[开源自荐] silkpulse：远程页面打不开 DevTools，让 AI 替你去看、去点、去验证",
@@ -652,7 +672,7 @@
           "source_count": 6,
           "average_relevance": 0.712,
           "best_rank": 1,
-          "momentum": -37.7,
+          "momentum": -37.4,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -814,11 +834,11 @@
         {
           "tag": "推理加速与算力",
           "basis": "ai_filter",
-          "article_count": 13,
+          "article_count": 14,
           "source_count": 4,
-          "average_relevance": 0.719,
-          "best_rank": 2,
-          "momentum": -34.9,
+          "average_relevance": 0.725,
+          "best_rank": 1,
+          "momentum": -39.2,
           "top_articles": [
             {
               "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
@@ -857,6 +877,15 @@
               "momentum": -54.2
             },
             {
+              "title": "DeepSeek宣布故障补偿方案",
+              "url": "https://search.bilibili.com/all?keyword=DeepSeek%E5%AE%A3%E5%B8%83%E6%95%85%E9%9A%9C%E8%A1%A5%E5%81%BF%E6%96%B9%E6%A1%88",
+              "source": "bilibili 热搜",
+              "date": "2026-10-15",
+              "relevance": 0.8,
+              "best_rank": 1,
+              "momentum": 0.0
+            },
+            {
               "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
               "url": "https://www.ithome.com/1/013/164.htm",
               "source": "IT之家",
@@ -881,16 +910,7 @@
               "date": "2026-10-15",
               "relevance": 0.7,
               "best_rank": 4,
-              "momentum": -81.0
-            },
-            {
-              "title": "美的加入英伟达 MGX 生态链，探索“液冷”相关合作",
-              "url": "https://www.ithome.com/1/013/523.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 14,
-              "momentum": 0.0
+              "momentum": -86.7
             }
           ]
         },
@@ -1307,7 +1327,7 @@
           "source_count": 3,
           "average_relevance": 0.721,
           "best_rank": 1,
-          "momentum": -17.8,
+          "momentum": -17.0,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -1316,7 +1336,7 @@
               "date": "2026-10-15",
               "relevance": 0.85,
               "best_rank": 20,
-              "momentum": 33.3
+              "momentum": 30.0
             },
             {
               "title": "[开源] Agent HUD：把 Claude Code / Codex 等 17 个 agent 的额度和批准请求放在 Mac 刘海或屏幕边上",
@@ -1343,7 +1363,7 @@
               "date": "2026-10-15",
               "relevance": 0.75,
               "best_rank": 1,
-              "momentum": -90.0
+              "momentum": -91.7
             },
             {
               "title": "Runner 0.16.0 更新汇总：全新的 UI， mission 支持动态删减 role， 支持 cursor / grok / opencode",
@@ -1369,8 +1389,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.5,
-              "best_rank": 23,
-              "momentum": 20.7
+              "best_rank": 20,
+              "momentum": 31.0
             }
           ]
         },
@@ -1496,6 +1516,35 @@
           ]
         },
         {
+          "tag": "MCP基础设施",
+          "basis": "ai_filter",
+          "article_count": 2,
+          "source_count": 2,
+          "average_relevance": 0.875,
+          "best_rank": 17,
+          "momentum": -14.6,
+          "top_articles": [
+            {
+              "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
+              "url": "https://juejin.cn/post/7695768501788737578",
+              "source": "掘金",
+              "date": "2026-10-15",
+              "relevance": 0.9,
+              "best_rank": 29,
+              "momentum": 0.0
+            },
+            {
+              "title": "ReadGZH：让 AI 直接读懂微信公众号文章（REST API + MCP，已开源）",
+              "url": "https://www.v2ex.com/t/1248217",
+              "source": "V2EX",
+              "date": "2026-10-13",
+              "relevance": 0.85,
+              "best_rank": 17,
+              "momentum": -29.2
+            }
+          ]
+        },
+        {
           "tag": "MCP生态",
           "basis": "ai_filter",
           "article_count": 2,
@@ -1589,7 +1638,7 @@
           "source_count": 1,
           "average_relevance": 0.7,
           "best_rank": 1,
-          "momentum": -47.2,
+          "momentum": -48.1,
           "top_articles": [
             {
               "title": "美国银行聘请 1000 名外包人员，修复 Mythos 等 AI 模型发现的软件漏洞",
@@ -1598,7 +1647,7 @@
               "date": "2026-10-15",
               "relevance": 0.7,
               "best_rank": 1,
-              "momentum": -94.4
+              "momentum": -96.3
             },
             {
               "title": "全球金融监管标准制定机构呼吁：银行、企业要加强对 AI 智能体的人工监管",
@@ -1608,26 +1657,6 @@
               "relevance": 0.7,
               "best_rank": 24,
               "momentum": 0.0
-            }
-          ]
-        },
-        {
-          "tag": "MCP基础设施",
-          "basis": "ai_filter",
-          "article_count": 1,
-          "source_count": 1,
-          "average_relevance": 0.85,
-          "best_rank": 17,
-          "momentum": -29.2,
-          "top_articles": [
-            {
-              "title": "ReadGZH：让 AI 直接读懂微信公众号文章（REST API + MCP，已开源）",
-              "url": "https://www.v2ex.com/t/1248217",
-              "source": "V2EX",
-              "date": "2026-10-13",
-              "relevance": 0.85,
-              "best_rank": 17,
-              "momentum": -29.2
             }
           ]
         },
@@ -1720,7 +1749,7 @@
       "start_date": "2026-09-16",
       "end_date": "2026-10-15",
       "basis": "ai_filter",
-      "article_count": 4122,
+      "article_count": 4166,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1741,7 +1770,7 @@
           "source_count": 11,
           "average_relevance": 0.748,
           "best_rank": 1,
-          "momentum": -39.2,
+          "momentum": -40.4,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -1824,7 +1853,7 @@
           "source_count": 5,
           "average_relevance": 0.734,
           "best_rank": 1,
-          "momentum": -40.4,
+          "momentum": -40.6,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -1860,7 +1889,7 @@
               "date": "2026-10-15",
               "relevance": 0.9,
               "best_rank": 22,
-              "momentum": 24.1
+              "momentum": 13.8
             },
             {
               "title": "[开源自荐] silkpulse：远程页面打不开 DevTools，让 AI 替你去看、去点、去验证",
@@ -1907,7 +1936,7 @@
           "source_count": 6,
           "average_relevance": 0.712,
           "best_rank": 1,
-          "momentum": -37.7,
+          "momentum": -37.4,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -2069,11 +2098,11 @@
         {
           "tag": "推理加速与算力",
           "basis": "ai_filter",
-          "article_count": 13,
+          "article_count": 14,
           "source_count": 4,
-          "average_relevance": 0.719,
-          "best_rank": 2,
-          "momentum": -34.9,
+          "average_relevance": 0.725,
+          "best_rank": 1,
+          "momentum": -39.2,
           "top_articles": [
             {
               "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
@@ -2112,6 +2141,15 @@
               "momentum": -54.2
             },
             {
+              "title": "DeepSeek宣布故障补偿方案",
+              "url": "https://search.bilibili.com/all?keyword=DeepSeek%E5%AE%A3%E5%B8%83%E6%95%85%E9%9A%9C%E8%A1%A5%E5%81%BF%E6%96%B9%E6%A1%88",
+              "source": "bilibili 热搜",
+              "date": "2026-10-15",
+              "relevance": 0.8,
+              "best_rank": 1,
+              "momentum": 0.0
+            },
+            {
               "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
               "url": "https://www.ithome.com/1/013/164.htm",
               "source": "IT之家",
@@ -2136,16 +2174,7 @@
               "date": "2026-10-15",
               "relevance": 0.7,
               "best_rank": 4,
-              "momentum": -81.0
-            },
-            {
-              "title": "美的加入英伟达 MGX 生态链，探索“液冷”相关合作",
-              "url": "https://www.ithome.com/1/013/523.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 14,
-              "momentum": 0.0
+              "momentum": -86.7
             }
           ]
         },
@@ -2562,7 +2591,7 @@
           "source_count": 3,
           "average_relevance": 0.721,
           "best_rank": 1,
-          "momentum": -17.8,
+          "momentum": -17.0,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -2571,7 +2600,7 @@
               "date": "2026-10-15",
               "relevance": 0.85,
               "best_rank": 20,
-              "momentum": 33.3
+              "momentum": 30.0
             },
             {
               "title": "[开源] Agent HUD：把 Claude Code / Codex 等 17 个 agent 的额度和批准请求放在 Mac 刘海或屏幕边上",
@@ -2598,7 +2627,7 @@
               "date": "2026-10-15",
               "relevance": 0.75,
               "best_rank": 1,
-              "momentum": -90.0
+              "momentum": -91.7
             },
             {
               "title": "Runner 0.16.0 更新汇总：全新的 UI， mission 支持动态删减 role， 支持 cursor / grok / opencode",
@@ -2624,8 +2653,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.5,
-              "best_rank": 23,
-              "momentum": 20.7
+              "best_rank": 20,
+              "momentum": 31.0
             }
           ]
         },
@@ -2751,6 +2780,35 @@
           ]
         },
         {
+          "tag": "MCP基础设施",
+          "basis": "ai_filter",
+          "article_count": 2,
+          "source_count": 2,
+          "average_relevance": 0.875,
+          "best_rank": 17,
+          "momentum": -14.6,
+          "top_articles": [
+            {
+              "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
+              "url": "https://juejin.cn/post/7695768501788737578",
+              "source": "掘金",
+              "date": "2026-10-15",
+              "relevance": 0.9,
+              "best_rank": 29,
+              "momentum": 0.0
+            },
+            {
+              "title": "ReadGZH：让 AI 直接读懂微信公众号文章（REST API + MCP，已开源）",
+              "url": "https://www.v2ex.com/t/1248217",
+              "source": "V2EX",
+              "date": "2026-10-13",
+              "relevance": 0.85,
+              "best_rank": 17,
+              "momentum": -29.2
+            }
+          ]
+        },
+        {
           "tag": "MCP生态",
           "basis": "ai_filter",
           "article_count": 2,
@@ -2844,7 +2902,7 @@
           "source_count": 1,
           "average_relevance": 0.7,
           "best_rank": 1,
-          "momentum": -47.2,
+          "momentum": -48.1,
           "top_articles": [
             {
               "title": "美国银行聘请 1000 名外包人员，修复 Mythos 等 AI 模型发现的软件漏洞",
@@ -2853,7 +2911,7 @@
               "date": "2026-10-15",
               "relevance": 0.7,
               "best_rank": 1,
-              "momentum": -94.4
+              "momentum": -96.3
             },
             {
               "title": "全球金融监管标准制定机构呼吁：银行、企业要加强对 AI 智能体的人工监管",
@@ -2863,26 +2921,6 @@
               "relevance": 0.7,
               "best_rank": 24,
               "momentum": 0.0
-            }
-          ]
-        },
-        {
-          "tag": "MCP基础设施",
-          "basis": "ai_filter",
-          "article_count": 1,
-          "source_count": 1,
-          "average_relevance": 0.85,
-          "best_rank": 17,
-          "momentum": -29.2,
-          "top_articles": [
-            {
-              "title": "ReadGZH：让 AI 直接读懂微信公众号文章（REST API + MCP，已开源）",
-              "url": "https://www.v2ex.com/t/1248217",
-              "source": "V2EX",
-              "date": "2026-10-13",
-              "relevance": 0.85,
-              "best_rank": 17,
-              "momentum": -29.2
             }
           ]
         },
