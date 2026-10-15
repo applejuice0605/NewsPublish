@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T16:46:42.737329+00:00",
+  "generated_at": "2026-10-15T17:47:48.914488+00:00",
   "as_of": "2026-10-16",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-16",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 307,
+      "article_count": 330,
       "sources": [
         "IT之家",
         "V2EX",
@@ -23,12 +23,21 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 12,
-          "source_count": 6,
-          "average_relevance": 0.8,
+          "article_count": 13,
+          "source_count": 7,
+          "average_relevance": 0.812,
           "best_rank": 3,
-          "momentum": 0.0,
+          "momentum": -0.2,
           "top_articles": [
+            {
+              "title": "Gemini 4 Argon 正式发布！",
+              "url": "https://juejin.cn/post/7696085941626912831",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.95,
+              "best_rank": 29,
+              "momentum": 0.0
+            },
             {
               "title": "英伟达发布 1200 亿参数大模型 Nemotron 3.5 Super VL：单 GPU 智能体任务吞吐量最高提升 5 倍，74B 版本压缩至 24GB",
               "url": "https://www.ithome.com/1/013/679.htm",
@@ -36,7 +45,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 7,
-              "momentum": 0.0
+              "momentum": -12.5
             },
             {
               "title": "如何评价 DeepSeek 停摆 5 小时后，按最近七日 api 消耗向用户发放补偿赠金？",
@@ -48,22 +57,22 @@
               "momentum": 0.0
             },
             {
-              "title": "DeepSeek公布补偿方案",
-              "url": "https://www.toutiao.com/trending/7696824974037221402/",
-              "source": "今日头条",
-              "date": "2026-10-16",
-              "relevance": 0.85,
-              "best_rank": 6,
-              "momentum": 0.0
-            },
-            {
               "title": "DeepSeek宣布故障补偿方案",
               "url": "https://search.bilibili.com/all?keyword=DeepSeek%E5%AE%A3%E5%B8%83%E6%95%85%E9%9A%9C%E8%A1%A5%E5%81%BF%E6%96%B9%E6%A1%88",
               "source": "bilibili 热搜",
               "date": "2026-10-16",
               "relevance": 0.85,
-              "best_rank": 6,
-              "momentum": 0.0
+              "best_rank": 4,
+              "momentum": 33.3
+            },
+            {
+              "title": "DeepSeek公布补偿方案",
+              "url": "https://www.toutiao.com/trending/7696824974037221402/",
+              "source": "今日头条",
+              "date": "2026-10-16",
+              "relevance": 0.85,
+              "best_rank": 5,
+              "momentum": 16.7
             },
             {
               "title": "阶跃星辰开源 Step 5 Preview 权重，华为昇腾、沐曦、壁仞等首发支持",
@@ -72,7 +81,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 20,
-              "momentum": 0.0
+              "momentum": -4.8
             },
             {
               "title": "OpenCode 宣布 DeepSeek V4.1 Flash 免费提供，但仅支持 200K 上下文",
@@ -81,7 +90,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 21,
-              "momentum": 0.0
+              "momentum": -8.7
             },
             {
               "title": "DeepSeek宕机5小时：一上新就崩？影响有多大？",
@@ -90,15 +99,6 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 10,
-              "momentum": 0.0
-            },
-            {
-              "title": "Deepseek 的赔偿方案出来了， 247 元，快去看看你的有没有到账",
-              "url": "https://www.v2ex.com/t/1249120",
-              "source": "V2EX",
-              "date": "2026-10-16",
-              "relevance": 0.8,
-              "best_rank": 24,
               "momentum": 0.0
             }
           ]
@@ -110,7 +110,7 @@
           "source_count": 2,
           "average_relevance": 0.717,
           "best_rank": 4,
-          "momentum": 0.0,
+          "momentum": -15.3,
           "top_articles": [
             {
               "title": "70 美金的 Beyond Compare，我让 Gemini 4 和 DeepSeek 造个开源免费版（Day 2）",
@@ -119,7 +119,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 12,
-              "momentum": 0.0
+              "momentum": -14.3
             },
             {
               "title": "各位大佬，你们 AI Coding 也这样吗？",
@@ -128,7 +128,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 14,
-              "momentum": 0.0
+              "momentum": -12.5
             },
             {
               "title": "借助 Codex 和可视化工作流，从调研到完整实现，3D 大屏竟然可以这么简单",
@@ -146,7 +146,7 @@
               "date": "2026-10-16",
               "relevance": 0.7,
               "best_rank": 4,
-              "momentum": 0.0
+              "momentum": -33.3
             },
             {
               "title": "现在 chatgpt 审美强了很多了",
@@ -155,7 +155,7 @@
               "date": "2026-10-16",
               "relevance": 0.65,
               "best_rank": 9,
-              "momentum": 0.0
+              "momentum": -18.2
             },
             {
               "title": "AI 太牛逼了，总想用 ai 来搞点副业，怎么办？",
@@ -164,7 +164,7 @@
               "date": "2026-10-16",
               "relevance": 0.6,
               "best_rank": 13,
-              "momentum": 0.0
+              "momentum": -13.3
             }
           ]
         },
@@ -175,7 +175,7 @@
           "source_count": 2,
           "average_relevance": 0.7,
           "best_rank": 2,
-          "momentum": 0.0,
+          "momentum": -10.0,
           "top_articles": [
             {
               "title": "老干妈靠AI闷赚54亿，你的AI还在写文案？",
@@ -193,7 +193,7 @@
               "date": "2026-10-16",
               "relevance": 0.7,
               "best_rank": 8,
-              "momentum": 0.0
+              "momentum": -20.0
             }
           ]
         },
@@ -264,7 +264,7 @@
           "source_count": 1,
           "average_relevance": 0.65,
           "best_rank": 5,
-          "momentum": 0.0,
+          "momentum": -28.6,
           "top_articles": [
             {
               "title": "开发 AI 应用，如何降低多模型接入和维护成本？",
@@ -273,7 +273,7 @@
               "date": "2026-10-16",
               "relevance": 0.65,
               "best_rank": 5,
-              "momentum": 0.0
+              "momentum": -28.6
             }
           ]
         }
@@ -286,7 +286,7 @@
       "start_date": "2026-10-10",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4681,
+      "article_count": 4704,
       "sources": [
         "IT之家",
         "V2EX",
@@ -303,11 +303,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 114,
+          "article_count": 115,
           "source_count": 11,
-          "average_relevance": 0.751,
+          "average_relevance": 0.753,
           "best_rank": 1,
-          "momentum": -36.9,
+          "momentum": -36.6,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -390,7 +390,7 @@
           "source_count": 5,
           "average_relevance": 0.733,
           "best_rank": 1,
-          "momentum": -36.9,
+          "momentum": -38.2,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -556,7 +556,7 @@
           "source_count": 3,
           "average_relevance": 0.78,
           "best_rank": 1,
-          "momentum": -39.1,
+          "momentum": -40.4,
           "top_articles": [
             {
               "title": "9 年前英伟达 Tesla V100 老将再战：4 GPU 集群 AI 推理跑赢 2 台 DGX Spark",
@@ -1477,7 +1477,7 @@
           "source_count": 2,
           "average_relevance": 0.7,
           "best_rank": 2,
-          "momentum": 0.0,
+          "momentum": -10.0,
           "top_articles": [
             {
               "title": "老干妈靠AI闷赚54亿，你的AI还在写文案？",
@@ -1495,7 +1495,7 @@
               "date": "2026-10-16",
               "relevance": 0.7,
               "best_rank": 8,
-              "momentum": 0.0
+              "momentum": -20.0
             }
           ]
         },
@@ -1648,7 +1648,7 @@
       "start_date": "2026-09-17",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4681,
+      "article_count": 4704,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1665,11 +1665,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 114,
+          "article_count": 115,
           "source_count": 11,
-          "average_relevance": 0.751,
+          "average_relevance": 0.753,
           "best_rank": 1,
-          "momentum": -36.9,
+          "momentum": -36.6,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -1752,7 +1752,7 @@
           "source_count": 5,
           "average_relevance": 0.733,
           "best_rank": 1,
-          "momentum": -36.9,
+          "momentum": -38.2,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -1918,7 +1918,7 @@
           "source_count": 3,
           "average_relevance": 0.78,
           "best_rank": 1,
-          "momentum": -39.1,
+          "momentum": -40.4,
           "top_articles": [
             {
               "title": "9 年前英伟达 Tesla V100 老将再战：4 GPU 集群 AI 推理跑赢 2 台 DGX Spark",
@@ -2839,7 +2839,7 @@
           "source_count": 2,
           "average_relevance": 0.7,
           "best_rank": 2,
-          "momentum": 0.0,
+          "momentum": -10.0,
           "top_articles": [
             {
               "title": "老干妈靠AI闷赚54亿，你的AI还在写文案？",
@@ -2857,7 +2857,7 @@
               "date": "2026-10-16",
               "relevance": 0.7,
               "best_rank": 8,
-              "momentum": 0.0
+              "momentum": -20.0
             }
           ]
         },
