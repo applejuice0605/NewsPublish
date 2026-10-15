@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T14:42:56.927487+00:00",
+  "generated_at": "2026-10-15T15:44:11.585667+00:00",
   "as_of": "2026-10-15",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-15",
       "end_date": "2026-10-15",
       "basis": "ai_filter",
-      "article_count": 1266,
+      "article_count": 1311,
       "sources": [
         "IT之家",
         "V2EX",
@@ -24,11 +24,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 46,
+          "article_count": 48,
           "source_count": 9,
-          "average_relevance": 0.732,
+          "average_relevance": 0.729,
           "best_rank": 1,
-          "momentum": -38.7,
+          "momentum": -40.6,
           "top_articles": [
             {
               "title": "DeepSeek崩了",
@@ -107,11 +107,11 @@
         {
           "tag": "大厂AI战略",
           "basis": "ai_filter",
-          "article_count": 15,
+          "article_count": 16,
           "source_count": 5,
-          "average_relevance": 0.723,
+          "average_relevance": 0.725,
           "best_rank": 1,
-          "momentum": -36.8,
+          "momentum": -34.5,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -168,6 +168,15 @@
               "momentum": -73.9
             },
             {
+              "title": "Anthropic 抛弃 Git，选择自研版本控制系统 Scion",
+              "url": "https://www.ithome.com/1/013/670.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.75,
+              "best_rank": 9,
+              "momentum": 0.0
+            },
+            {
               "title": "比尔 · 盖茨认为 AI 比核武器更危险、比核能更有用，与 PC、互联网等创新都不同",
               "url": "https://www.ithome.com/1/013/350.htm",
               "source": "IT之家",
@@ -175,15 +184,6 @@
               "relevance": 0.7,
               "best_rank": 1,
               "momentum": -88.9
-            },
-            {
-              "title": "中国单月外贸首破5万亿，AI投资热成主要动力",
-              "url": "https://view.inews.qq.com/a/20261014A0DFXQ00",
-              "source": "腾讯新闻 综合早报",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 7,
-              "momentum": 0.0
             }
           ]
         },
@@ -194,7 +194,7 @@
           "source_count": 4,
           "average_relevance": 0.725,
           "best_rank": 1,
-          "momentum": -46.0,
+          "momentum": -46.6,
           "top_articles": [
             {
               "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
@@ -239,7 +239,7 @@
               "date": "2026-10-15",
               "relevance": 0.8,
               "best_rank": 1,
-              "momentum": -75.0
+              "momentum": -83.3
             },
             {
               "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
@@ -277,7 +277,7 @@
           "source_count": 4,
           "average_relevance": 0.73,
           "best_rank": 1,
-          "momentum": -57.0,
+          "momentum": -58.8,
           "top_articles": [
             {
               "title": "codex 帮我写了个下载电子课本的浏览器插件",
@@ -295,7 +295,7 @@
               "date": "2026-10-15",
               "relevance": 0.9,
               "best_rank": 22,
-              "momentum": 24.1
+              "momentum": 20.7
             },
             {
               "title": "[开源自荐] silkpulse：远程页面打不开 DevTools，让 AI 替你去看、去点、去验证",
@@ -313,7 +313,7 @@
               "date": "2026-10-15",
               "relevance": 0.75,
               "best_rank": 1,
-              "momentum": -75.0
+              "momentum": -88.9
             },
             {
               "title": "国内就没有什么稳定的使用 claude code 的方法么？已被 gpt 折磨疯",
@@ -360,7 +360,7 @@
           "source_count": 3,
           "average_relevance": 0.738,
           "best_rank": 1,
-          "momentum": -21.9,
+          "momentum": -23.0,
           "top_articles": [
             {
               "title": "做了一个 Durable Agent Harness 支持持久化任务崩溃恢复与断点续跑",
@@ -369,7 +369,7 @@
               "date": "2026-10-15",
               "relevance": 0.85,
               "best_rank": 5,
-              "momentum": -58.3
+              "momentum": -70.6
             },
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -431,8 +431,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.5,
-              "best_rank": 19,
-              "momentum": 34.5
+              "best_rank": 18,
+              "momentum": 37.9
             }
           ]
         },
@@ -494,7 +494,7 @@
       "start_date": "2026-10-09",
       "end_date": "2026-10-15",
       "basis": "ai_filter",
-      "article_count": 4329,
+      "article_count": 4374,
       "sources": [
         "IT之家",
         "V2EX",
@@ -511,11 +511,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 100,
+          "article_count": 102,
           "source_count": 11,
-          "average_relevance": 0.747,
+          "average_relevance": 0.746,
           "best_rank": 1,
-          "momentum": -40.4,
+          "momentum": -41.2,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -598,7 +598,7 @@
           "source_count": 5,
           "average_relevance": 0.734,
           "best_rank": 1,
-          "momentum": -40.3,
+          "momentum": -40.5,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -634,7 +634,7 @@
               "date": "2026-10-15",
               "relevance": 0.9,
               "best_rank": 22,
-              "momentum": 24.1
+              "momentum": 20.7
             },
             {
               "title": "[开源自荐] silkpulse：远程页面打不开 DevTools，让 AI 替你去看、去点、去验证",
@@ -677,11 +677,11 @@
         {
           "tag": "大厂AI战略",
           "basis": "ai_filter",
-          "article_count": 39,
+          "article_count": 40,
           "source_count": 6,
-          "average_relevance": 0.712,
+          "average_relevance": 0.713,
           "best_rank": 1,
-          "momentum": -37.2,
+          "momentum": -36.3,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -847,7 +847,7 @@
           "source_count": 4,
           "average_relevance": 0.725,
           "best_rank": 1,
-          "momentum": -46.0,
+          "momentum": -46.6,
           "top_articles": [
             {
               "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
@@ -892,7 +892,7 @@
               "date": "2026-10-15",
               "relevance": 0.8,
               "best_rank": 1,
-              "momentum": -75.0
+              "momentum": -83.3
             },
             {
               "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
@@ -1262,7 +1262,7 @@
           "source_count": 3,
           "average_relevance": 0.738,
           "best_rank": 1,
-          "momentum": -21.9,
+          "momentum": -23.0,
           "top_articles": [
             {
               "title": "做了一个 Durable Agent Harness 支持持久化任务崩溃恢复与断点续跑",
@@ -1271,7 +1271,7 @@
               "date": "2026-10-15",
               "relevance": 0.85,
               "best_rank": 5,
-              "momentum": -58.3
+              "momentum": -70.6
             },
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -1333,8 +1333,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.5,
-              "best_rank": 19,
-              "momentum": 34.5
+              "best_rank": 18,
+              "momentum": 37.9
             }
           ]
         },
@@ -1767,7 +1767,7 @@
       "start_date": "2026-09-16",
       "end_date": "2026-10-15",
       "basis": "ai_filter",
-      "article_count": 4329,
+      "article_count": 4374,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1784,11 +1784,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 100,
+          "article_count": 102,
           "source_count": 11,
-          "average_relevance": 0.747,
+          "average_relevance": 0.746,
           "best_rank": 1,
-          "momentum": -40.4,
+          "momentum": -41.2,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -1871,7 +1871,7 @@
           "source_count": 5,
           "average_relevance": 0.734,
           "best_rank": 1,
-          "momentum": -40.3,
+          "momentum": -40.5,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -1907,7 +1907,7 @@
               "date": "2026-10-15",
               "relevance": 0.9,
               "best_rank": 22,
-              "momentum": 24.1
+              "momentum": 20.7
             },
             {
               "title": "[开源自荐] silkpulse：远程页面打不开 DevTools，让 AI 替你去看、去点、去验证",
@@ -1950,11 +1950,11 @@
         {
           "tag": "大厂AI战略",
           "basis": "ai_filter",
-          "article_count": 39,
+          "article_count": 40,
           "source_count": 6,
-          "average_relevance": 0.712,
+          "average_relevance": 0.713,
           "best_rank": 1,
-          "momentum": -37.2,
+          "momentum": -36.3,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -2120,7 +2120,7 @@
           "source_count": 4,
           "average_relevance": 0.725,
           "best_rank": 1,
-          "momentum": -46.0,
+          "momentum": -46.6,
           "top_articles": [
             {
               "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
@@ -2165,7 +2165,7 @@
               "date": "2026-10-15",
               "relevance": 0.8,
               "best_rank": 1,
-              "momentum": -75.0
+              "momentum": -83.3
             },
             {
               "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
@@ -2535,7 +2535,7 @@
           "source_count": 3,
           "average_relevance": 0.738,
           "best_rank": 1,
-          "momentum": -21.9,
+          "momentum": -23.0,
           "top_articles": [
             {
               "title": "做了一个 Durable Agent Harness 支持持久化任务崩溃恢复与断点续跑",
@@ -2544,7 +2544,7 @@
               "date": "2026-10-15",
               "relevance": 0.85,
               "best_rank": 5,
-              "momentum": -58.3
+              "momentum": -70.6
             },
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -2606,8 +2606,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.5,
-              "best_rank": 19,
-              "momentum": 34.5
+              "best_rank": 18,
+              "momentum": 37.9
             }
           ]
         },
