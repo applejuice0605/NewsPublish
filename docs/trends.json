@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T09:36:12.212410+00:00",
+  "generated_at": "2026-10-15T10:37:22.624708+00:00",
   "as_of": "2026-10-15",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-15",
       "end_date": "2026-10-15",
       "basis": "ai_filter",
-      "article_count": 1000,
+      "article_count": 1059,
       "sources": [
         "IT之家",
         "V2EX",
@@ -24,11 +24,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 37,
+          "article_count": 42,
           "source_count": 9,
-          "average_relevance": 0.745,
+          "average_relevance": 0.732,
           "best_rank": 1,
-          "momentum": -36.7,
+          "momentum": -35.9,
           "top_articles": [
             {
               "title": "DeepSeek崩了",
@@ -111,7 +111,7 @@
           "source_count": 5,
           "average_relevance": 0.723,
           "best_rank": 1,
-          "momentum": -28.5,
+          "momentum": -38.1,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -129,7 +129,7 @@
               "date": "2026-10-15",
               "relevance": 0.9,
               "best_rank": 7,
-              "momentum": 0.0
+              "momentum": -70.8
             },
             {
               "title": "彭博社：苹果有望 12 月随 iOS 27.3 在国内推出首波 Apple Intelligence 功能",
@@ -165,7 +165,7 @@
               "date": "2026-10-15",
               "relevance": 0.8,
               "best_rank": 6,
-              "momentum": 0.0
+              "momentum": -73.9
             },
             {
               "title": "比尔 · 盖茨认为 AI 比核武器更危险、比核能更有用，与 PC、互联网等创新都不同",
@@ -190,11 +190,11 @@
         {
           "tag": "推理加速与算力",
           "basis": "ai_filter",
-          "article_count": 11,
+          "article_count": 13,
           "source_count": 4,
-          "average_relevance": 0.732,
+          "average_relevance": 0.719,
           "best_rank": 2,
-          "momentum": -33.9,
+          "momentum": -34.9,
           "top_articles": [
             {
               "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
@@ -257,27 +257,27 @@
               "date": "2026-10-15",
               "relevance": 0.7,
               "best_rank": 4,
-              "momentum": 0.0
+              "momentum": -81.0
             },
             {
-              "title": "性能最高提升 35%：非官方英伟达 DLSS 预设 C 登场，RTX 30 系列显卡也能用",
-              "url": "https://www.ithome.com/1/013/405.htm",
+              "title": "美的加入英伟达 MGX 生态链，探索“液冷”相关合作",
+              "url": "https://www.ithome.com/1/013/523.htm",
               "source": "IT之家",
               "date": "2026-10-15",
               "relevance": 0.7,
-              "best_rank": 16,
-              "momentum": -44.8
+              "best_rank": 14,
+              "momentum": 0.0
             }
           ]
         },
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 8,
-          "source_count": 3,
-          "average_relevance": 0.731,
+          "article_count": 9,
+          "source_count": 4,
+          "average_relevance": 0.728,
           "best_rank": 1,
-          "momentum": -65.6,
+          "momentum": -59.9,
           "top_articles": [
             {
               "title": "codex 帮我写了个下载电子课本的浏览器插件",
@@ -294,8 +294,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.9,
-              "best_rank": 25,
-              "momentum": 13.8
+              "best_rank": 22,
+              "momentum": 24.1
             },
             {
               "title": "[开源自荐] silkpulse：远程页面打不开 DevTools，让 AI 替你去看、去点、去验证",
@@ -313,7 +313,7 @@
               "date": "2026-10-15",
               "relevance": 0.7,
               "best_rank": 11,
-              "momentum": -47.6
+              "momentum": -63.3
             },
             {
               "title": "麦肯锡面试新花样：先和 AI 客户对线十分钟",
@@ -323,6 +323,15 @@
               "relevance": 0.7,
               "best_rank": 14,
               "momentum": -48.1
+            },
+            {
+              "title": "如何看待 opencode go 将 deepseek v4.1 flash 单独提到了 80 美元额度支持？",
+              "url": "https://www.zhihu.com/question/2093027350602593089",
+              "source": "知乎",
+              "date": "2026-10-15",
+              "relevance": 0.7,
+              "best_rank": 20,
+              "momentum": 0.0
             },
             {
               "title": "给爱车安排一次「毒液出场」：做了个 Venom Car AI，让黑色黏液把车组装出来",
@@ -340,16 +349,7 @@
               "date": "2026-10-15",
               "relevance": 0.6,
               "best_rank": 3,
-              "momentum": -76.9
-            },
-            {
-              "title": "牛了，才发现 OpenCode Go 套餐出了个 Go Plus",
-              "url": "https://www.v2ex.com/t/1248847",
-              "source": "V2EX",
-              "date": "2026-10-15",
-              "relevance": 0.6,
-              "best_rank": 3,
-              "momentum": -87.0
+              "momentum": -86.4
             }
           ]
         },
@@ -360,7 +360,7 @@
           "source_count": 3,
           "average_relevance": 0.721,
           "best_rank": 1,
-          "momentum": -6.9,
+          "momentum": -17.8,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -396,7 +396,7 @@
               "date": "2026-10-15",
               "relevance": 0.75,
               "best_rank": 1,
-              "momentum": 0.0
+              "momentum": -90.0
             },
             {
               "title": "Runner 0.16.0 更新汇总：全新的 UI， mission 支持动态删减 role， 支持 cursor / grok / opencode",
@@ -422,8 +422,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.5,
-              "best_rank": 27,
-              "momentum": 6.9
+              "best_rank": 23,
+              "momentum": 20.7
             }
           ]
         },
@@ -434,7 +434,7 @@
           "source_count": 1,
           "average_relevance": 0.7,
           "best_rank": 1,
-          "momentum": 0.0,
+          "momentum": -47.2,
           "top_articles": [
             {
               "title": "美国银行聘请 1000 名外包人员，修复 Mythos 等 AI 模型发现的软件漏洞",
@@ -443,7 +443,7 @@
               "date": "2026-10-15",
               "relevance": 0.7,
               "best_rank": 1,
-              "momentum": 0.0
+              "momentum": -94.4
             },
             {
               "title": "全球金融监管标准制定机构呼吁：银行、企业要加强对 AI 智能体的人工监管",
@@ -465,7 +465,7 @@
       "start_date": "2026-10-09",
       "end_date": "2026-10-15",
       "basis": "ai_filter",
-      "article_count": 4063,
+      "article_count": 4122,
       "sources": [
         "IT之家",
         "V2EX",
@@ -482,11 +482,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 91,
+          "article_count": 96,
           "source_count": 11,
-          "average_relevance": 0.754,
+          "average_relevance": 0.748,
           "best_rank": 1,
-          "momentum": -39.7,
+          "momentum": -39.2,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -565,11 +565,11 @@
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 58,
+          "article_count": 59,
           "source_count": 5,
           "average_relevance": 0.734,
           "best_rank": 1,
-          "momentum": -40.8,
+          "momentum": -40.4,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -604,8 +604,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.9,
-              "best_rank": 25,
-              "momentum": 13.8
+              "best_rank": 22,
+              "momentum": 24.1
             },
             {
               "title": "[开源自荐] silkpulse：远程页面打不开 DevTools，让 AI 替你去看、去点、去验证",
@@ -652,7 +652,7 @@
           "source_count": 6,
           "average_relevance": 0.712,
           "best_rank": 1,
-          "momentum": -34.0,
+          "momentum": -37.7,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -679,7 +679,7 @@
               "date": "2026-10-15",
               "relevance": 0.9,
               "best_rank": 7,
-              "momentum": 0.0
+              "momentum": -70.8
             },
             {
               "title": "彭博社：苹果有望 12 月随 iOS 27.3 在国内推出首波 Apple Intelligence 功能",
@@ -715,7 +715,7 @@
               "date": "2026-10-15",
               "relevance": 0.8,
               "best_rank": 6,
-              "momentum": 0.0
+              "momentum": -73.9
             },
             {
               "title": "问界汽车拟于 2027 年进入欧洲市场，赛力斯曾表示正推进问界车型全系出海，在海外还能复制国内热度吗？",
@@ -812,6 +812,89 @@
           ]
         },
         {
+          "tag": "推理加速与算力",
+          "basis": "ai_filter",
+          "article_count": 13,
+          "source_count": 4,
+          "average_relevance": 0.719,
+          "best_rank": 2,
+          "momentum": -34.9,
+          "top_articles": [
+            {
+              "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
+              "url": "https://www.ithome.com/1/013/171.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.95,
+              "best_rank": 11,
+              "momentum": 0.0
+            },
+            {
+              "title": "受益于 AI 热潮，分析师预计台积电有望连续第六个季度创下单季盈利新高",
+              "url": "https://www.ithome.com/1/013/167.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.85,
+              "best_rank": 2,
+              "momentum": -86.7
+            },
+            {
+              "title": "算力不够：苹果确认初代 HomePod mini 无缘全新 Siri AI",
+              "url": "https://www.ithome.com/1/013/285.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.85,
+              "best_rank": 2,
+              "momentum": -88.2
+            },
+            {
+              "title": "入职约 1 年：OpenAI 基础设施与 AI 算力负责人卡蒂离职，曾主导“星际之门”计划",
+              "url": "https://www.ithome.com/1/013/158.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.85,
+              "best_rank": 11,
+              "momentum": -54.2
+            },
+            {
+              "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
+              "url": "https://www.ithome.com/1/013/164.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.8,
+              "best_rank": 5,
+              "momentum": -72.2
+            },
+            {
+              "title": "AI再现十七勇士强渡大渡河",
+              "url": "https://search.bilibili.com/all?keyword=AI%E5%86%8D%E7%8E%B0%E5%8D%81%E4%B8%83%E5%8B%87%E5%A3%AB%E5%BC%BA%E6%B8%A1%E5%A4%A7%E6%B8%A1%E6%B2%B3",
+              "source": "bilibili 热搜",
+              "date": "2026-10-15",
+              "relevance": 0.75,
+              "best_rank": 3,
+              "momentum": -37.5
+            },
+            {
+              "title": "NVIDIA Broadcast 2.3.0 发布：兼容 RTX Spark，实验性支持视频超分与帧生成",
+              "url": "https://www.ithome.com/1/013/481.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.7,
+              "best_rank": 4,
+              "momentum": -81.0
+            },
+            {
+              "title": "美的加入英伟达 MGX 生态链，探索“液冷”相关合作",
+              "url": "https://www.ithome.com/1/013/523.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.7,
+              "best_rank": 14,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "Agent与自动化",
           "basis": "ai_filter",
           "article_count": 12,
@@ -891,89 +974,6 @@
               "relevance": 0.7,
               "best_rank": 7,
               "momentum": -73.1
-            }
-          ]
-        },
-        {
-          "tag": "推理加速与算力",
-          "basis": "ai_filter",
-          "article_count": 11,
-          "source_count": 4,
-          "average_relevance": 0.732,
-          "best_rank": 2,
-          "momentum": -33.9,
-          "top_articles": [
-            {
-              "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
-              "url": "https://www.ithome.com/1/013/171.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.95,
-              "best_rank": 11,
-              "momentum": 0.0
-            },
-            {
-              "title": "受益于 AI 热潮，分析师预计台积电有望连续第六个季度创下单季盈利新高",
-              "url": "https://www.ithome.com/1/013/167.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.85,
-              "best_rank": 2,
-              "momentum": -86.7
-            },
-            {
-              "title": "算力不够：苹果确认初代 HomePod mini 无缘全新 Siri AI",
-              "url": "https://www.ithome.com/1/013/285.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.85,
-              "best_rank": 2,
-              "momentum": -88.2
-            },
-            {
-              "title": "入职约 1 年：OpenAI 基础设施与 AI 算力负责人卡蒂离职，曾主导“星际之门”计划",
-              "url": "https://www.ithome.com/1/013/158.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.85,
-              "best_rank": 11,
-              "momentum": -54.2
-            },
-            {
-              "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
-              "url": "https://www.ithome.com/1/013/164.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.8,
-              "best_rank": 5,
-              "momentum": -72.2
-            },
-            {
-              "title": "AI再现十七勇士强渡大渡河",
-              "url": "https://search.bilibili.com/all?keyword=AI%E5%86%8D%E7%8E%B0%E5%8D%81%E4%B8%83%E5%8B%87%E5%A3%AB%E5%BC%BA%E6%B8%A1%E5%A4%A7%E6%B8%A1%E6%B2%B3",
-              "source": "bilibili 热搜",
-              "date": "2026-10-15",
-              "relevance": 0.75,
-              "best_rank": 3,
-              "momentum": -37.5
-            },
-            {
-              "title": "NVIDIA Broadcast 2.3.0 发布：兼容 RTX Spark，实验性支持视频超分与帧生成",
-              "url": "https://www.ithome.com/1/013/481.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 4,
-              "momentum": 0.0
-            },
-            {
-              "title": "性能最高提升 35%：非官方英伟达 DLSS 预设 C 登场，RTX 30 系列显卡也能用",
-              "url": "https://www.ithome.com/1/013/405.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 16,
-              "momentum": -44.8
             }
           ]
         },
@@ -1307,7 +1307,7 @@
           "source_count": 3,
           "average_relevance": 0.721,
           "best_rank": 1,
-          "momentum": -6.9,
+          "momentum": -17.8,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -1343,7 +1343,7 @@
               "date": "2026-10-15",
               "relevance": 0.75,
               "best_rank": 1,
-              "momentum": 0.0
+              "momentum": -90.0
             },
             {
               "title": "Runner 0.16.0 更新汇总：全新的 UI， mission 支持动态删减 role， 支持 cursor / grok / opencode",
@@ -1369,8 +1369,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.5,
-              "best_rank": 27,
-              "momentum": 6.9
+              "best_rank": 23,
+              "momentum": 20.7
             }
           ]
         },
@@ -1589,7 +1589,7 @@
           "source_count": 1,
           "average_relevance": 0.7,
           "best_rank": 1,
-          "momentum": 0.0,
+          "momentum": -47.2,
           "top_articles": [
             {
               "title": "美国银行聘请 1000 名外包人员，修复 Mythos 等 AI 模型发现的软件漏洞",
@@ -1598,7 +1598,7 @@
               "date": "2026-10-15",
               "relevance": 0.7,
               "best_rank": 1,
-              "momentum": 0.0
+              "momentum": -94.4
             },
             {
               "title": "全球金融监管标准制定机构呼吁：银行、企业要加强对 AI 智能体的人工监管",
@@ -1720,7 +1720,7 @@
       "start_date": "2026-09-16",
       "end_date": "2026-10-15",
       "basis": "ai_filter",
-      "article_count": 4063,
+      "article_count": 4122,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1737,11 +1737,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 91,
+          "article_count": 96,
           "source_count": 11,
-          "average_relevance": 0.754,
+          "average_relevance": 0.748,
           "best_rank": 1,
-          "momentum": -39.7,
+          "momentum": -39.2,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -1820,11 +1820,11 @@
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 58,
+          "article_count": 59,
           "source_count": 5,
           "average_relevance": 0.734,
           "best_rank": 1,
-          "momentum": -40.8,
+          "momentum": -40.4,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -1859,8 +1859,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.9,
-              "best_rank": 25,
-              "momentum": 13.8
+              "best_rank": 22,
+              "momentum": 24.1
             },
             {
               "title": "[开源自荐] silkpulse：远程页面打不开 DevTools，让 AI 替你去看、去点、去验证",
@@ -1907,7 +1907,7 @@
           "source_count": 6,
           "average_relevance": 0.712,
           "best_rank": 1,
-          "momentum": -34.0,
+          "momentum": -37.7,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -1934,7 +1934,7 @@
               "date": "2026-10-15",
               "relevance": 0.9,
               "best_rank": 7,
-              "momentum": 0.0
+              "momentum": -70.8
             },
             {
               "title": "彭博社：苹果有望 12 月随 iOS 27.3 在国内推出首波 Apple Intelligence 功能",
@@ -1970,7 +1970,7 @@
               "date": "2026-10-15",
               "relevance": 0.8,
               "best_rank": 6,
-              "momentum": 0.0
+              "momentum": -73.9
             },
             {
               "title": "问界汽车拟于 2027 年进入欧洲市场，赛力斯曾表示正推进问界车型全系出海，在海外还能复制国内热度吗？",
@@ -2067,6 +2067,89 @@
           ]
         },
         {
+          "tag": "推理加速与算力",
+          "basis": "ai_filter",
+          "article_count": 13,
+          "source_count": 4,
+          "average_relevance": 0.719,
+          "best_rank": 2,
+          "momentum": -34.9,
+          "top_articles": [
+            {
+              "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
+              "url": "https://www.ithome.com/1/013/171.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.95,
+              "best_rank": 11,
+              "momentum": 0.0
+            },
+            {
+              "title": "受益于 AI 热潮，分析师预计台积电有望连续第六个季度创下单季盈利新高",
+              "url": "https://www.ithome.com/1/013/167.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.85,
+              "best_rank": 2,
+              "momentum": -86.7
+            },
+            {
+              "title": "算力不够：苹果确认初代 HomePod mini 无缘全新 Siri AI",
+              "url": "https://www.ithome.com/1/013/285.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.85,
+              "best_rank": 2,
+              "momentum": -88.2
+            },
+            {
+              "title": "入职约 1 年：OpenAI 基础设施与 AI 算力负责人卡蒂离职，曾主导“星际之门”计划",
+              "url": "https://www.ithome.com/1/013/158.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.85,
+              "best_rank": 11,
+              "momentum": -54.2
+            },
+            {
+              "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
+              "url": "https://www.ithome.com/1/013/164.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.8,
+              "best_rank": 5,
+              "momentum": -72.2
+            },
+            {
+              "title": "AI再现十七勇士强渡大渡河",
+              "url": "https://search.bilibili.com/all?keyword=AI%E5%86%8D%E7%8E%B0%E5%8D%81%E4%B8%83%E5%8B%87%E5%A3%AB%E5%BC%BA%E6%B8%A1%E5%A4%A7%E6%B8%A1%E6%B2%B3",
+              "source": "bilibili 热搜",
+              "date": "2026-10-15",
+              "relevance": 0.75,
+              "best_rank": 3,
+              "momentum": -37.5
+            },
+            {
+              "title": "NVIDIA Broadcast 2.3.0 发布：兼容 RTX Spark，实验性支持视频超分与帧生成",
+              "url": "https://www.ithome.com/1/013/481.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.7,
+              "best_rank": 4,
+              "momentum": -81.0
+            },
+            {
+              "title": "美的加入英伟达 MGX 生态链，探索“液冷”相关合作",
+              "url": "https://www.ithome.com/1/013/523.htm",
+              "source": "IT之家",
+              "date": "2026-10-15",
+              "relevance": 0.7,
+              "best_rank": 14,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "Agent与自动化",
           "basis": "ai_filter",
           "article_count": 12,
@@ -2146,89 +2229,6 @@
               "relevance": 0.7,
               "best_rank": 7,
               "momentum": -73.1
-            }
-          ]
-        },
-        {
-          "tag": "推理加速与算力",
-          "basis": "ai_filter",
-          "article_count": 11,
-          "source_count": 4,
-          "average_relevance": 0.732,
-          "best_rank": 2,
-          "momentum": -33.9,
-          "top_articles": [
-            {
-              "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
-              "url": "https://www.ithome.com/1/013/171.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.95,
-              "best_rank": 11,
-              "momentum": 0.0
-            },
-            {
-              "title": "受益于 AI 热潮，分析师预计台积电有望连续第六个季度创下单季盈利新高",
-              "url": "https://www.ithome.com/1/013/167.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.85,
-              "best_rank": 2,
-              "momentum": -86.7
-            },
-            {
-              "title": "算力不够：苹果确认初代 HomePod mini 无缘全新 Siri AI",
-              "url": "https://www.ithome.com/1/013/285.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.85,
-              "best_rank": 2,
-              "momentum": -88.2
-            },
-            {
-              "title": "入职约 1 年：OpenAI 基础设施与 AI 算力负责人卡蒂离职，曾主导“星际之门”计划",
-              "url": "https://www.ithome.com/1/013/158.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.85,
-              "best_rank": 11,
-              "momentum": -54.2
-            },
-            {
-              "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
-              "url": "https://www.ithome.com/1/013/164.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.8,
-              "best_rank": 5,
-              "momentum": -72.2
-            },
-            {
-              "title": "AI再现十七勇士强渡大渡河",
-              "url": "https://search.bilibili.com/all?keyword=AI%E5%86%8D%E7%8E%B0%E5%8D%81%E4%B8%83%E5%8B%87%E5%A3%AB%E5%BC%BA%E6%B8%A1%E5%A4%A7%E6%B8%A1%E6%B2%B3",
-              "source": "bilibili 热搜",
-              "date": "2026-10-15",
-              "relevance": 0.75,
-              "best_rank": 3,
-              "momentum": -37.5
-            },
-            {
-              "title": "NVIDIA Broadcast 2.3.0 发布：兼容 RTX Spark，实验性支持视频超分与帧生成",
-              "url": "https://www.ithome.com/1/013/481.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 4,
-              "momentum": 0.0
-            },
-            {
-              "title": "性能最高提升 35%：非官方英伟达 DLSS 预设 C 登场，RTX 30 系列显卡也能用",
-              "url": "https://www.ithome.com/1/013/405.htm",
-              "source": "IT之家",
-              "date": "2026-10-15",
-              "relevance": 0.7,
-              "best_rank": 16,
-              "momentum": -44.8
             }
           ]
         },
@@ -2562,7 +2562,7 @@
           "source_count": 3,
           "average_relevance": 0.721,
           "best_rank": 1,
-          "momentum": -6.9,
+          "momentum": -17.8,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -2598,7 +2598,7 @@
               "date": "2026-10-15",
               "relevance": 0.75,
               "best_rank": 1,
-              "momentum": 0.0
+              "momentum": -90.0
             },
             {
               "title": "Runner 0.16.0 更新汇总：全新的 UI， mission 支持动态删减 role， 支持 cursor / grok / opencode",
@@ -2624,8 +2624,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.5,
-              "best_rank": 27,
-              "momentum": 6.9
+              "best_rank": 23,
+              "momentum": 20.7
             }
           ]
         },
@@ -2844,7 +2844,7 @@
           "source_count": 1,
           "average_relevance": 0.7,
           "best_rank": 1,
-          "momentum": 0.0,
+          "momentum": -47.2,
           "top_articles": [
             {
               "title": "美国银行聘请 1000 名外包人员，修复 Mythos 等 AI 模型发现的软件漏洞",
@@ -2853,7 +2853,7 @@
               "date": "2026-10-15",
               "relevance": 0.7,
               "best_rank": 1,
-              "momentum": 0.0
+              "momentum": -94.4
             },
             {
               "title": "全球金融监管标准制定机构呼吁：银行、企业要加强对 AI 智能体的人工监管",
