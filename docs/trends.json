@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T12:40:14.481001+00:00",
+  "generated_at": "2026-10-15T13:41:24.957701+00:00",
   "as_of": "2026-10-15",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-15",
       "end_date": "2026-10-15",
       "basis": "ai_filter",
-      "article_count": 1157,
+      "article_count": 1211,
       "sources": [
         "IT之家",
         "V2EX",
@@ -24,11 +24,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 43,
+          "article_count": 44,
           "source_count": 9,
-          "average_relevance": 0.733,
+          "average_relevance": 0.735,
           "best_rank": 1,
-          "momentum": -40.7,
+          "momentum": -41.2,
           "top_articles": [
             {
               "title": "DeepSeek崩了",
@@ -194,7 +194,7 @@
           "source_count": 4,
           "average_relevance": 0.725,
           "best_rank": 1,
-          "momentum": -45.4,
+          "momentum": -46.4,
           "top_articles": [
             {
               "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
@@ -239,7 +239,7 @@
               "date": "2026-10-15",
               "relevance": 0.8,
               "best_rank": 1,
-              "momentum": -66.7
+              "momentum": -80.0
             },
             {
               "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
@@ -273,11 +273,11 @@
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 9,
+          "article_count": 10,
           "source_count": 4,
-          "average_relevance": 0.728,
+          "average_relevance": 0.73,
           "best_rank": 1,
-          "momentum": -55.4,
+          "momentum": -49.9,
           "top_articles": [
             {
               "title": "codex 帮我写了个下载电子课本的浏览器插件",
@@ -305,6 +305,15 @@
               "relevance": 0.85,
               "best_rank": 1,
               "momentum": -95.8
+            },
+            {
+              "title": "70 美金的 Beyond Compare，我让 Gemini 4 和 DeepSeek 造个开源免费版（Day 2）",
+              "url": "https://www.v2ex.com/t/1249156",
+              "source": "V2EX",
+              "date": "2026-10-15",
+              "relevance": 0.75,
+              "best_rank": 1,
+              "momentum": 0.0
             },
             {
               "title": "国内就没有什么稳定的使用 claude code 的方法么？已被 gpt 折磨疯",
@@ -341,15 +350,6 @@
               "relevance": 0.6,
               "best_rank": 2,
               "momentum": -90.9
-            },
-            {
-              "title": "为什么我的 claude 可以 一直用",
-              "url": "https://www.v2ex.com/t/1249062",
-              "source": "V2EX",
-              "date": "2026-10-15",
-              "relevance": 0.6,
-              "best_rank": 3,
-              "momentum": -87.5
             }
           ]
         },
@@ -360,7 +360,7 @@
           "source_count": 3,
           "average_relevance": 0.738,
           "best_rank": 1,
-          "momentum": -15.2,
+          "momentum": -20.9,
           "top_articles": [
             {
               "title": "做了一个 Durable Agent Harness 支持持久化任务崩溃恢复与断点续跑",
@@ -369,7 +369,7 @@
               "date": "2026-10-15",
               "relevance": 0.85,
               "best_rank": 5,
-              "momentum": 0.0
+              "momentum": -44.4
             },
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -405,7 +405,7 @@
               "date": "2026-10-15",
               "relevance": 0.75,
               "best_rank": 1,
-              "momentum": -94.7
+              "momentum": -95.7
             },
             {
               "title": "Runner 0.16.0 更新汇总：全新的 UI， mission 支持动态删减 role， 支持 cursor / grok / opencode",
@@ -471,8 +471,8 @@
           "article_count": 1,
           "source_count": 1,
           "average_relevance": 0.9,
-          "best_rank": 29,
-          "momentum": 0.0,
+          "best_rank": 27,
+          "momentum": 6.9,
           "top_articles": [
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
@@ -480,8 +480,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.9,
-              "best_rank": 29,
-              "momentum": 0.0
+              "best_rank": 27,
+              "momentum": 6.9
             }
           ]
         }
@@ -494,7 +494,7 @@
       "start_date": "2026-10-09",
       "end_date": "2026-10-15",
       "basis": "ai_filter",
-      "article_count": 4220,
+      "article_count": 4274,
       "sources": [
         "IT之家",
         "V2EX",
@@ -511,11 +511,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 97,
+          "article_count": 98,
           "source_count": 11,
-          "average_relevance": 0.748,
+          "average_relevance": 0.749,
           "best_rank": 1,
-          "momentum": -41.3,
+          "momentum": -41.5,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -594,11 +594,11 @@
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 59,
+          "article_count": 60,
           "source_count": 5,
           "average_relevance": 0.734,
           "best_rank": 1,
-          "momentum": -39.7,
+          "momentum": -39.1,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -847,7 +847,7 @@
           "source_count": 4,
           "average_relevance": 0.725,
           "best_rank": 1,
-          "momentum": -45.4,
+          "momentum": -46.4,
           "top_articles": [
             {
               "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
@@ -892,7 +892,7 @@
               "date": "2026-10-15",
               "relevance": 0.8,
               "best_rank": 1,
-              "momentum": -66.7
+              "momentum": -80.0
             },
             {
               "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
@@ -1262,7 +1262,7 @@
           "source_count": 3,
           "average_relevance": 0.738,
           "best_rank": 1,
-          "momentum": -15.2,
+          "momentum": -20.9,
           "top_articles": [
             {
               "title": "做了一个 Durable Agent Harness 支持持久化任务崩溃恢复与断点续跑",
@@ -1271,7 +1271,7 @@
               "date": "2026-10-15",
               "relevance": 0.85,
               "best_rank": 5,
-              "momentum": 0.0
+              "momentum": -44.4
             },
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -1307,7 +1307,7 @@
               "date": "2026-10-15",
               "relevance": 0.75,
               "best_rank": 1,
-              "momentum": -94.7
+              "momentum": -95.7
             },
             {
               "title": "Runner 0.16.0 更新汇总：全新的 UI， mission 支持动态删减 role， 支持 cursor / grok / opencode",
@@ -1540,7 +1540,7 @@
           "source_count": 2,
           "average_relevance": 0.875,
           "best_rank": 17,
-          "momentum": -14.6,
+          "momentum": -11.1,
           "top_articles": [
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
@@ -1548,8 +1548,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.9,
-              "best_rank": 29,
-              "momentum": 0.0
+              "best_rank": 27,
+              "momentum": 6.9
             },
             {
               "title": "ReadGZH：让 AI 直接读懂微信公众号文章（REST API + MCP，已开源）",
@@ -1767,7 +1767,7 @@
       "start_date": "2026-09-16",
       "end_date": "2026-10-15",
       "basis": "ai_filter",
-      "article_count": 4220,
+      "article_count": 4274,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1784,11 +1784,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 97,
+          "article_count": 98,
           "source_count": 11,
-          "average_relevance": 0.748,
+          "average_relevance": 0.749,
           "best_rank": 1,
-          "momentum": -41.3,
+          "momentum": -41.5,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -1867,11 +1867,11 @@
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 59,
+          "article_count": 60,
           "source_count": 5,
           "average_relevance": 0.734,
           "best_rank": 1,
-          "momentum": -39.7,
+          "momentum": -39.1,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -2120,7 +2120,7 @@
           "source_count": 4,
           "average_relevance": 0.725,
           "best_rank": 1,
-          "momentum": -45.4,
+          "momentum": -46.4,
           "top_articles": [
             {
               "title": "Linux 之父托瓦兹推出首个 AI 辅助开发的补丁：并发文件读取吞吐量提升约 3 倍",
@@ -2165,7 +2165,7 @@
               "date": "2026-10-15",
               "relevance": 0.8,
               "best_rank": 1,
-              "momentum": -66.7
+              "momentum": -80.0
             },
             {
               "title": "英伟达黄仁勋：若客户开发不安全 AI 软件，极端措施可断供芯片",
@@ -2535,7 +2535,7 @@
           "source_count": 3,
           "average_relevance": 0.738,
           "best_rank": 1,
-          "momentum": -15.2,
+          "momentum": -20.9,
           "top_articles": [
             {
               "title": "做了一个 Durable Agent Harness 支持持久化任务崩溃恢复与断点续跑",
@@ -2544,7 +2544,7 @@
               "date": "2026-10-15",
               "relevance": 0.85,
               "best_rank": 5,
-              "momentum": 0.0
+              "momentum": -44.4
             },
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -2580,7 +2580,7 @@
               "date": "2026-10-15",
               "relevance": 0.75,
               "best_rank": 1,
-              "momentum": -94.7
+              "momentum": -95.7
             },
             {
               "title": "Runner 0.16.0 更新汇总：全新的 UI， mission 支持动态删减 role， 支持 cursor / grok / opencode",
@@ -2813,7 +2813,7 @@
           "source_count": 2,
           "average_relevance": 0.875,
           "best_rank": 17,
-          "momentum": -14.6,
+          "momentum": -11.1,
           "top_articles": [
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
@@ -2821,8 +2821,8 @@
               "source": "掘金",
               "date": "2026-10-15",
               "relevance": 0.9,
-              "best_rank": 29,
-              "momentum": 0.0
+              "best_rank": 27,
+              "momentum": 6.9
             },
             {
               "title": "ReadGZH：让 AI 直接读懂微信公众号文章（REST API + MCP，已开源）",
