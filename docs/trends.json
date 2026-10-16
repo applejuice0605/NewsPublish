@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T07:47:55.925791+00:00",
+  "generated_at": "2026-10-16T07:48:49.681575+00:00",
   "as_of": "2026-10-16",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-16",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 817,
+      "article_count": 868,
       "sources": [
         "IT之家",
         "V2EX",
@@ -29,7 +29,7 @@
           "source_count": 8,
           "average_relevance": 0.83,
           "best_rank": 2,
-          "momentum": -27.4,
+          "momentum": -30.0,
           "top_articles": [
             {
               "title": "给大模型装上“一双耳朵”：小米开源空间音频理解大模型 MiDashengLM-Spatial",
@@ -46,8 +46,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.95,
-              "best_rank": 24,
-              "momentum": 17.2
+              "best_rank": 21,
+              "momentum": 27.6
             },
             {
               "title": "DeepSeek宕机5小时：一上新就崩？影响有多大？",
@@ -112,7 +112,7 @@
           "source_count": 4,
           "average_relevance": 0.668,
           "best_rank": 3,
-          "momentum": -34.0,
+          "momentum": -33.0,
           "top_articles": [
             {
               "title": "70 美金的 Beyond Compare，我让 Gemini 4 和 DeepSeek 造个开源免费版（Day 2）",
@@ -138,8 +138,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.75,
-              "best_rank": 19,
-              "momentum": 17.4
+              "best_rank": 18,
+              "momentum": 21.7
             },
             {
               "title": "怎么感觉最近 codex 的速度那么慢啊",
@@ -276,7 +276,7 @@
           "basis": "ai_filter",
           "article_count": 4,
           "source_count": 3,
-          "average_relevance": 0.762,
+          "average_relevance": 0.763,
           "best_rank": 5,
           "momentum": -30.3,
           "top_articles": [
@@ -362,8 +362,8 @@
           "article_count": 2,
           "source_count": 1,
           "average_relevance": 0.9,
-          "best_rank": 23,
-          "momentum": 12.6,
+          "best_rank": 22,
+          "momentum": 17.9,
           "top_articles": [
             {
               "title": "货拉拉业务 Agent 评测平台的工程实践与深度思考",
@@ -371,8 +371,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.95,
-              "best_rank": 26,
-              "momentum": 10.3
+              "best_rank": 24,
+              "momentum": 17.2
             },
             {
               "title": "面试官问你，你会的 AI 都能做了，公司为什么还需要你",
@@ -380,8 +380,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.85,
-              "best_rank": 23,
-              "momentum": 14.8
+              "best_rank": 22,
+              "momentum": 18.5
             }
           ]
         },
@@ -449,8 +449,8 @@
           "article_count": 1,
           "source_count": 1,
           "average_relevance": 0.7,
-          "best_rank": 18,
-          "momentum": 10.0,
+          "best_rank": 17,
+          "momentum": 15.0,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -458,8 +458,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.7,
-              "best_rank": 18,
-              "momentum": 10.0
+              "best_rank": 17,
+              "momentum": 15.0
             }
           ]
         }
@@ -472,7 +472,7 @@
       "start_date": "2026-10-10",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 5191,
+      "article_count": 5242,
       "sources": [
         "IT之家",
         "V2EX",
@@ -493,7 +493,7 @@
           "source_count": 11,
           "average_relevance": 0.764,
           "best_rank": 1,
-          "momentum": -38.2,
+          "momentum": -38.8,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -576,7 +576,7 @@
           "source_count": 5,
           "average_relevance": 0.724,
           "best_rank": 1,
-          "momentum": -39.5,
+          "momentum": -39.4,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -1157,7 +1157,7 @@
           "source_count": 4,
           "average_relevance": 0.817,
           "best_rank": 1,
-          "momentum": -21.1,
+          "momentum": -19.9,
           "top_articles": [
             {
               "title": "货拉拉业务 Agent 评测平台的工程实践与深度思考",
@@ -1165,8 +1165,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.95,
-              "best_rank": 26,
-              "momentum": 10.3
+              "best_rank": 24,
+              "momentum": 17.2
             },
             {
               "title": "LLM 驱动的自动化测试系列（09）：移动端自动化（五）——当通用 Agent 框架下沉到测试场景",
@@ -1192,8 +1192,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.85,
-              "best_rank": 23,
-              "momentum": 14.8
+              "best_rank": 22,
+              "momentum": 18.5
             },
             {
               "title": "2026年APP自动化测试工具大全,12款主流工具一次看懂",
@@ -1404,7 +1404,7 @@
           "basis": "ai_filter",
           "article_count": 8,
           "source_count": 3,
-          "average_relevance": 0.738,
+          "average_relevance": 0.737,
           "best_rank": 1,
           "momentum": -23.0,
           "top_articles": [
@@ -1892,8 +1892,8 @@
           "article_count": 1,
           "source_count": 1,
           "average_relevance": 0.7,
-          "best_rank": 18,
-          "momentum": 10.0,
+          "best_rank": 17,
+          "momentum": 15.0,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -1901,8 +1901,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.7,
-              "best_rank": 18,
-              "momentum": 10.0
+              "best_rank": 17,
+              "momentum": 15.0
             }
           ]
         }
@@ -1915,7 +1915,7 @@
       "start_date": "2026-09-17",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 5191,
+      "article_count": 5242,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1936,7 +1936,7 @@
           "source_count": 11,
           "average_relevance": 0.764,
           "best_rank": 1,
-          "momentum": -38.2,
+          "momentum": -38.8,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -2019,7 +2019,7 @@
           "source_count": 5,
           "average_relevance": 0.724,
           "best_rank": 1,
-          "momentum": -39.5,
+          "momentum": -39.4,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -2600,7 +2600,7 @@
           "source_count": 4,
           "average_relevance": 0.817,
           "best_rank": 1,
-          "momentum": -21.1,
+          "momentum": -19.9,
           "top_articles": [
             {
               "title": "货拉拉业务 Agent 评测平台的工程实践与深度思考",
@@ -2608,8 +2608,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.95,
-              "best_rank": 26,
-              "momentum": 10.3
+              "best_rank": 24,
+              "momentum": 17.2
             },
             {
               "title": "LLM 驱动的自动化测试系列（09）：移动端自动化（五）——当通用 Agent 框架下沉到测试场景",
@@ -2635,8 +2635,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.85,
-              "best_rank": 23,
-              "momentum": 14.8
+              "best_rank": 22,
+              "momentum": 18.5
             },
             {
               "title": "2026年APP自动化测试工具大全,12款主流工具一次看懂",
@@ -2847,7 +2847,7 @@
           "basis": "ai_filter",
           "article_count": 8,
           "source_count": 3,
-          "average_relevance": 0.738,
+          "average_relevance": 0.737,
           "best_rank": 1,
           "momentum": -23.0,
           "top_articles": [
@@ -3335,8 +3335,8 @@
           "article_count": 1,
           "source_count": 1,
           "average_relevance": 0.7,
-          "best_rank": 18,
-          "momentum": 10.0,
+          "best_rank": 17,
+          "momentum": 15.0,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -3344,8 +3344,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.7,
-              "best_rank": 18,
-              "momentum": 10.0
+              "best_rank": 17,
+              "momentum": 15.0
             }
           ]
         }

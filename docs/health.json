@@ -1,32 +1,32 @@
 {
-  "generated_at": "2026-10-16T07:47:55.845360+00:00",
+  "generated_at": "2026-10-16T07:48:49.614787+00:00",
   "overall_status": "healthy",
   "collection": {
-    "last_started_at": "2026-10-16T14:59:46+08:00",
-    "last_completed_at": "2026-10-16T15:01:18+08:00",
-    "duration_seconds": 92.3,
+    "last_started_at": "2026-10-16T15:46:28+08:00",
+    "last_completed_at": "2026-10-16T15:47:47+08:00",
+    "duration_seconds": 79.1,
     "success": true,
     "source_success": 12,
     "source_failed": 0,
     "item_count": 308,
-    "gap_minutes": 60.1,
+    "gap_minutes": 45.2,
     "catch_up": false
   },
   "notification": {
     "last_attempt_at": "2026-10-16T15:01:18+08:00",
     "last_success_at": "2026-10-16T15:01:18+08:00",
-    "status": "success",
-    "reason": "delivered"
+    "status": "skipped",
+    "reason": "no_incremental_match_or_schedule"
   },
   "publish": {
-    "last_attempt_at": "2026-10-16T15:01:24+08:00",
-    "last_success_at": "2026-10-16T15:01:24+08:00",
+    "last_attempt_at": "2026-10-16T15:47:59+08:00",
+    "last_success_at": "2026-10-16T15:47:59+08:00",
     "status": "success",
-    "commit": "e4179c31d475"
+    "commit": "88cb1c72f289"
   },
   "schedule": {
     "interval_minutes": 60,
-    "next_expected_at": "2026-10-16T08:01:18+00:00"
+    "next_expected_at": "2026-10-16T08:47:47+00:00"
   },
   "source_pilot": {
     "configured": true,
