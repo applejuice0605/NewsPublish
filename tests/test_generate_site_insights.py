@@ -5,6 +5,7 @@ import json
 import sqlite3
 import tempfile
 import unittest
+from contextlib import closing
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -17,7 +18,7 @@ SPEC.loader.exec_module(MODULE)
 
 
 def create_news_db(path: Path, title: str, tag: str | None = None) -> None:
-    with sqlite3.connect(path) as connection:
+    with closing(sqlite3.connect(path)) as connection:
         connection.executescript(
             """
             CREATE TABLE platforms (id TEXT PRIMARY KEY, name TEXT);
@@ -48,7 +49,7 @@ class GenerateSiteInsightsTest(unittest.TestCase):
             meta.mkdir(parents=True)
             create_news_db(news / "2026-10-14.db", "前一日文章", "AI")
             create_news_db(news / "2026-10-15.db", "当日文章", "AI")
-            with sqlite3.connect(news / "2026-10-15.db") as connection:
+            with closing(sqlite3.connect(news / "2026-10-15.db")) as connection:
                 connection.execute("UPDATE news_items SET url = 'javascript:alert(1)'")
             (news / "2026-10-13.db").write_bytes(b"not sqlite")
             (meta / "runtime_health.json").write_text(

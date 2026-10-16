@@ -254,6 +254,7 @@ def _page_html(grouped: dict[str, list[Path]]) -> str:
         <a class="button" href="/">返回首页</a>
         <a class="button" href="/trends.html">趋势查询</a>
         <a class="button" href="/status.html">运行状态</a>
+        <a class="button" href="/sources.html">候选源</a>
         <button class="button" type="button" id="showAll">全部日期</button>
         <button class="button" type="button" id="showLatest">最新日期</button>
         <label>

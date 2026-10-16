@@ -190,7 +190,7 @@ ai_analysis:
   include_standalone: false
   include_rank_timeline: true
 podcast:
-  enabled: false
+  enabled: true
   voice: zh-CN-YunyangNeural
   rate: +0%
   volume: +0%

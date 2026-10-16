@@ -31,7 +31,7 @@ class FakeResponse:
 class SourcePilotTest(unittest.TestCase):
     def test_loads_mixed_adapters(self) -> None:
         config = pilot.load_config(Path(__file__).resolve().parents[1] / "config" / "source_pilot.json")
-        self.assertEqual(len(config["sources"]), 5)
+        self.assertEqual(len(config["sources"]), 4)
         self.assertEqual({source["kind"] for source in config["sources"]}, {"newsnow", "feed"})
 
     def test_parses_rss_and_computes_metrics(self) -> None:

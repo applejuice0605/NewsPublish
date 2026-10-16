@@ -20,11 +20,6 @@
       "id": "producthunt",
       "kind": "newsnow",
       "source_id": "producthunt"
-    },
-    {
-      "id": "36kr-quick",
-      "kind": "feed",
-      "url": "https://rsshub.app/36kr/newsflashes"
     }
   ],
   "interest_rules": [

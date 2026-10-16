@@ -12,6 +12,7 @@ import re
 import sqlite3
 import tempfile
 from collections import defaultdict
+from contextlib import closing
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Iterable
@@ -282,6 +283,41 @@ def build_public_pilot(raw: dict[str, Any] | None) -> dict[str, Any]:
     }
 
 
+def build_public_source_feed(raw: dict[str, Any] | None) -> dict[str, Any]:
+    """Expose candidate headlines without leaking adapter endpoints or local paths."""
+    raw = raw if isinstance(raw, dict) else {}
+    groups = []
+    for source in raw.get("sources", []) if isinstance(raw.get("sources"), list) else []:
+        if not isinstance(source, dict) or source.get("success") is not True:
+            continue
+        source_id = source.get("source")
+        if not isinstance(source_id, str) or not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,63}", source_id):
+            continue
+        items = []
+        for item in source.get("items", []) if isinstance(source.get("items"), list) else []:
+            if not isinstance(item, dict):
+                continue
+            title = item.get("title")
+            if not isinstance(title, str) or not title.strip():
+                continue
+            tags = [
+                tag for tag in item.get("interest_rules", [])
+                if isinstance(tag, str) and re.fullmatch(r"[a-z0-9][a-z0-9-]{0,63}", tag)
+            ] if isinstance(item.get("interest_rules"), list) else []
+            items.append({
+                "title": title.strip()[:300],
+                "url": _public_url(item.get("url")),
+                "interest_rules": tags[:5],
+                "duplicate_in_official_news": _boolean(item.get("duplicate_in_official_news")) is True,
+            })
+        groups.append({"source": source_id, "items": items[:50]})
+    return {
+        "generated_at": _iso_time(raw.get("generated_at")),
+        "observation_only": True,
+        "sources": groups,
+    }
+
+
 def _load_json(path: Path) -> dict[str, Any] | None:
     try:
         value = json.loads(path.read_text(encoding="utf-8"))
@@ -345,7 +381,7 @@ def _ai_tags(connection: sqlite3.Connection, source_type: str) -> dict[int, list
 
 
 def _load_news_database(path: Path, day: date) -> list[dict[str, Any]]:
-    with _connect_readonly(path) as connection:
+    with closing(_connect_readonly(path)) as connection:
         tables = _tables(connection)
         required = {"news_items", "rank_history"}
         if not required.issubset(tables):
@@ -387,7 +423,7 @@ def _load_news_database(path: Path, day: date) -> list[dict[str, Any]]:
 
 
 def _load_rss_database(path: Path, day: date) -> list[dict[str, Any]]:
-    with _connect_readonly(path) as connection:
+    with closing(_connect_readonly(path)) as connection:
         tables = _tables(connection)
         if "rss_items" not in tables:
             raise sqlite3.DatabaseError("missing rss_items")
@@ -595,7 +631,7 @@ def _base_css() -> str:
 
 
 def _nav(current: str) -> str:
-    links = (("首页", "index.html", "home"), ("历史", "archive.html", "archive"), ("状态", "status.html", "status"), ("趋势", "trends.html", "trends"))
+    links = (("首页", "index.html", "home"), ("历史", "archive.html", "archive"), ("状态", "status.html", "status"), ("趋势", "trends.html", "trends"), ("候选源", "sources.html", "sources"))
     rendered = []
     for label, href, key in links:
         current_attribute = ' aria-current="page"' if key == current else ""
@@ -702,6 +738,39 @@ def render_trends_html(trends: dict[str, Any]) -> str:
     </script></body></html>"""
 
 
+def render_sources_html(feed: dict[str, Any]) -> str:
+    groups = []
+    for group in feed["sources"]:
+        articles = []
+        for item in group["items"]:
+            href = html.escape(item["url"] or "#", quote=True)
+            target = ' target="_blank" rel="noopener noreferrer"' if item["url"] else ""
+            badges = []
+            if item["interest_rules"]:
+                badges.append('<span class="mini hit">兴趣命中</span>')
+            if item["duplicate_in_official_news"]:
+                badges.append('<span class="mini duplicate">正式库重复</span>')
+            meta_html = "".join(badges) or '<span class="mini">观察样本</span>'
+            articles.append(
+                f'<article class="source-item"><a href="{href}"{target}>{html.escape(item["title"])}</a>'
+                f'<div class="item-meta">{meta_html}</div></article>'
+            )
+        groups.append(
+            f'<section class="panel source-group"><div class="source-head"><div><p class="eyebrow">CANDIDATE SOURCE</p>'
+            f'<h2>{html.escape(group["source"])}</h2></div><span class="badge">{len(group["items"])} 条</span></div>'
+            f'<div class="source-items">{"".join(articles) or "<p>本轮没有可展示条目。</p>"}</div></section>'
+        )
+    return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TrendRadar 候选源观察</title><style>{_base_css().rstrip()}
+    .notice {{ margin-bottom:20px; background:var(--yellow); }} .notice p {{ margin:6px 0 0; font-weight:800; }}
+    .source-group {{ margin-bottom:22px; }} .source-head {{ display:flex; align-items:center; justify-content:space-between; gap:12px; }} .source-head h2 {{ margin:0; font-size:28px; overflow-wrap:anywhere; }}
+    .source-items {{ margin-top:16px; }} .source-item {{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:14px; align-items:center; padding:12px 0; border-top:3px solid var(--ink); }}
+    .source-item a {{ color:var(--ink); font-weight:900; line-height:1.45; }} .source-item a:hover {{ color:var(--blue); }} .item-meta {{ display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }}
+    .mini {{ display:inline-block; padding:3px 6px; border:2px solid var(--ink); background:#fff; font-size:11px; font-weight:900; }} .mini.hit {{ background:var(--green); }} .mini.duplicate {{ background:var(--red); color:#fff; }}
+    @media(max-width:700px) {{ .source-item {{ grid-template-columns:1fr; }} .item-meta {{ justify-content:flex-start; }} }}
+    </style></head><body><a class="skip-link" href="#main-content">跳到正文</a><main class="shell" id="main-content"><header class="masthead"><div class="masthead-row"><div><h1>Source Watch</h1><p class="subtitle">稳定性、兴趣命中与重复率灰度观察</p></div><nav aria-label="主导航">{_nav("sources")}</nav></div></header>
+    <section class="panel notice"><p class="eyebrow">ISOLATED PILOT</p><h2>候选源观察区</h2><p>这里的内容不会进入正式首页或飞书推送。连续观察达到晋级阈值后，再人工确认是否并入正式新闻源。</p><p class="meta">最近探测：{html.escape(_display(feed["generated_at"]))}</p></section>{"".join(groups)}</main></body></html>"""
+
+
 def _atomic_write(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary: str | None = None
@@ -725,6 +794,7 @@ def generate_site_insights(repo_dir: Path, site_dir: Path, now: datetime | None 
     output_dir = repo_dir / "TrendRadar" / "output"
     health = build_public_health(_load_json(output_dir / "meta" / "runtime_health.json"), now=now)
     pilot = build_public_pilot(_load_json(output_dir / "source-pilot" / "latest.json"))
+    source_feed = build_public_source_feed(_load_json(output_dir / "source-pilot" / "latest.json"))
     health["source_pilot"] = pilot
     articles, skipped = load_articles(output_dir)
     trends = build_trends(articles, now=now)
@@ -733,6 +803,8 @@ def generate_site_insights(repo_dir: Path, site_dir: Path, now: datetime | None 
         site_dir / "trends.json": _json_text(trends),
         site_dir / "status.html": render_status_html(health, pilot),
         site_dir / "trends.html": render_trends_html(trends),
+        site_dir / "sources.json": _json_text(source_feed),
+        site_dir / "sources.html": render_sources_html(source_feed),
     }
     for path, content in outputs.items():
         _atomic_write(path, content)

@@ -1,0 +1,765 @@
+{
+  "generated_at": "2026-10-16T14:29:01+08:00",
+  "observation_only": true,
+  "sources": [
+    {
+      "source": "huggingface",
+      "items": [
+        {
+          "title": "Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline",
+          "url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint",
+          "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
+          "url": "https://huggingface.co/blog/meta-muse-spark-open",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Welcome FLUX.3 Image Klein in Diffusers",
+          "url": "https://huggingface.co/blog/flux-3",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost",
+          "url": "https://huggingface.co/blog/allenai/hiro-acev2",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Run fast, private agents on-device with LFM2.5-24B-A2B",
+          "url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "The model that didn't exist, so you made it yourself",
+          "url": "https://huggingface.co/blog/building-with-ml-intern",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Introducing Falcon ASR",
+          "url": "https://huggingface.co/blog/tiiuae/falcon-asr",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "The Agent Said It Was Done. The Database Disagreed.",
+          "url": "https://huggingface.co/blog/microsoft/thinkingbox",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "AutoSynthData: Generating Training Data for Enterprise Agents",
+          "url": "https://huggingface.co/blog/ServiceNow-AI/autosynthdata",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Open TTS Leaderboard: Scalable Evaluation for Multilingual Text-to-Speech and Voice Cloning",
+          "url": "https://huggingface.co/blog/open-tts-leaderboard",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents",
+          "url": "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Holo4: powering generalist computer-use agents",
+          "url": "https://huggingface.co/blog/Hcompany/holo4",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Welcome RL Environments to the hub",
+          "url": "https://huggingface.co/blog/rl-environments",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "How UK AISI and EvalEval Are Making Benchmark Results Reproducible",
+          "url": "https://huggingface.co/blog/evaleval-aisi",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Transformers now runs llama.cpp quants",
+          "url": "https://huggingface.co/blog/transformers-llama-cpp-quants",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Jun Kim, oMLX creator and maintainer, joins Hugging Face to support the MLX community",
+          "url": "https://huggingface.co/blog/omlx",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "tokenizers v1: encode, decode and scaling, measured",
+          "url": "https://huggingface.co/blog/tokenizers-v1",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Your Agent Aced the Task. Will It Do It Again?",
+          "url": "https://huggingface.co/blog/ibm-research/altk-evolve-consistency",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL",
+          "url": "https://huggingface.co/blog/asyncgrpo-lora-hfjobs",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
+          "url": "https://huggingface.co/blog/gradio-workflow-1111",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "NeoMME: an efficient Multimodal-native and Multilingual Encoder",
+          "url": "https://huggingface.co/blog/Hcompany/neomme",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Fine-tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
+          "url": "https://huggingface.co/blog/grpo-with-trl-ifstruct",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Give Your Coding Agents a Memory You Own",
+          "url": "https://huggingface.co/blog/funes",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Training a coding model to paint watercolours with TRL and OpenEnv",
+          "url": "https://huggingface.co/blog/train-to-paint-with-code",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "BenchMIRT: What are LLM benchmarks actually measuring?",
+          "url": "https://huggingface.co/blog/allenai/benchmirt",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Introducing @huggingface/kernels: 200+ WebGPU Kernels for Local AI",
+          "url": "https://huggingface.co/blog/webgpu-kernels",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "The Open ASR Leaderboard Adds Its First Global South Language",
+          "url": "https://huggingface.co/blog/open-asr-leaderboard-global-south",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
+          "url": "https://huggingface.co/blog/train-multi-vector-encoder",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Granite 4.2 LLMs: How They're Built",
+          "url": "https://huggingface.co/blog/ibm-granite/granite-4-2",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Quantization-Aware Healing: a compressed, 4-bit model that outperforms its full-precision original",
+          "url": "https://huggingface.co/blog/MultiverseComputingCAI/quantization-aware-healing",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
+          "url": "https://huggingface.co/blog/gradio-workflow-guide",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "How Hugging Face Inference Endpoints, Jobs, and Buckets Power Search on Papers with Code",
+          "url": "https://huggingface.co/blog/pwc-search",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Measuring benchmark optimization in speech recognition",
+          "url": "https://huggingface.co/blog/asr-benchmark-optimization",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Up to 3.2x Faster Inference with LFM2.5-DSpark",
+          "url": "https://huggingface.co/blog/LiquidAI/lfm25-dspark",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "How Much Memory Does Your Agent Actually Need?",
+          "url": "https://huggingface.co/blog/ibm-research/altk-evolve-hmm",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Multi-Vector (Late Interaction) Embedding Models with Sentence Transformers",
+          "url": "https://huggingface.co/blog/multi-vector-encoder",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Same Cluster, 33 Points More Utilization: What Changed Was the Order",
+          "url": "https://huggingface.co/blog/Dharma-AI/gpu-management-pt2",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "State of Open Models: Summer 2026 Observations",
+          "url": "https://huggingface.co/blog/state-of-open-models-summer-2026",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Record, train, and deploy from one place with Strands Agents, LeRobot, and Hugging Face Storage Buckets",
+          "url": "https://huggingface.co/blog/amazon/strands-lerobot-streaming-data-loop",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "What We Learned by Reproducing 2,200 papers from ICML",
+          "url": "https://huggingface.co/blog/icml-2026-open-reproductions",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Introducing OlmoEarth embeddings: Custom embedding exports from OlmoEarth Studio for downstream analysis",
+          "url": "https://huggingface.co/blog/allenai/olmoearth-embeddings",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Thinking of ACE? We Can Do It with Fewer Tokens",
+          "url": "https://huggingface.co/blog/ibm-research/altk-evolve-sldd",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Build Low-Latency Multilingual Voice Agents: Open Weights & Full Deployment Control with NVIDIA Magpie TTS",
+          "url": "https://huggingface.co/blog/nvidia/magpie-tts-multilingual-voice-agents",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Making Knowledge Distillation Cheap Enough to Run at Scale",
+          "url": "https://huggingface.co/blog/MultiverseComputingCAI/efficient-knowledge-distillation",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Meta is back with Muse Glimmer: local, agentic, multimodal, and open source",
+          "url": "https://huggingface.co/blog/muse-glimmer",
+          "interest_rules": [
+            "ai-and-models",
+            "developer-tools"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Baseten on Hugging Face Inference Providers 🔥",
+          "url": "https://huggingface.co/blog/baseten",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "GPU Management: Why Idle GPUs Are the New Grounded Aircraft",
+          "url": "https://huggingface.co/blog/Dharma-AI/gpu-management",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "NVIDIA Cosmos-H-Dreams: Bringing Real-Time Generative Simulation to Surgical Robotics",
+          "url": "https://huggingface.co/blog/nvidia/cosmos-h-dreams",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident",
+          "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        }
+      ]
+    },
+    {
+      "source": "hackernews",
+      "items": [
+        {
+          "title": "Tesla makes cars that fly? [video]",
+          "url": "https://news.ycombinator.com/item?id=50114077",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Comparing Chromium Development at Google and Igalia",
+          "url": "https://news.ycombinator.com/item?id=50112887",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Any window from your Mac, on your iPhone and iPad",
+          "url": "https://news.ycombinator.com/item?id=50112739",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Thank You, Deno",
+          "url": "https://news.ycombinator.com/item?id=50112331",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "RPKI now protects 70% of internet routes",
+          "url": "https://news.ycombinator.com/item?id=50112330",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Business accounts will consent to Meta scraping their websites Starting Oct. 30",
+          "url": "https://news.ycombinator.com/item?id=50111852",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "BeBox is a Haiku application that emulates Be Inc.'s BeBox",
+          "url": "https://news.ycombinator.com/item?id=50111742",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "What I self-host",
+          "url": "https://news.ycombinator.com/item?id=50109715",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "New Withings Users Must Pay $99/Year for Apple Health Syncing",
+          "url": "https://news.ycombinator.com/item?id=50109375",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Someone on Torrent Sites Kept Fucking with My Sonarr",
+          "url": "https://news.ycombinator.com/item?id=50108872",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "E Ink Kaleido 4",
+          "url": "https://news.ycombinator.com/item?id=50108229",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Muse Spark Open",
+          "url": "https://news.ycombinator.com/item?id=50107379",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Jev meets the Trolley Problem",
+          "url": "https://news.ycombinator.com/item?id=50106023",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "BIPM decides to stop adding leap seconds to UTC",
+          "url": "https://news.ycombinator.com/item?id=50105777",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Krea 3 – An image model built for editing at scale",
+          "url": "https://news.ycombinator.com/item?id=50105648",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Neural networks are clean",
+          "url": "https://news.ycombinator.com/item?id=50105647",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Celebrating 70 Years of Fortran",
+          "url": "https://news.ycombinator.com/item?id=50104726",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Using AI to reverse engineer hardware",
+          "url": "https://news.ycombinator.com/item?id=50104299",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Wayland desktop for Linux with skeuomorphic design",
+          "url": "https://news.ycombinator.com/item?id=50103338",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Libreboot 26.10 \"Ominous Olive\" released with UEFI, Chromebook support",
+          "url": "https://news.ycombinator.com/item?id=50102923",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Show HN: Unfenced – Land for sale that borders public land",
+          "url": "https://news.ycombinator.com/item?id=50102247",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "AdFection: Targeted ads turned into a pipeline for zero-click mercenary spyware",
+          "url": "https://news.ycombinator.com/item?id=50101813",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "The engineering that allows articulated buses to bend",
+          "url": "https://news.ycombinator.com/item?id=50097843",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Why I Wrote PGP (1991, revised 1999)",
+          "url": "https://news.ycombinator.com/item?id=50084674",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Delta’s Biscoff cookies were supposed to be temporary",
+          "url": "https://news.ycombinator.com/item?id=50080155",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "'500-hour' Order of the Sinking Star is as complex and exhausting as it sounds",
+          "url": "https://news.ycombinator.com/item?id=50072119",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "4 Years of Ludicon",
+          "url": "https://news.ycombinator.com/item?id=50071319",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Major ICQ security hole (1998)",
+          "url": "https://news.ycombinator.com/item?id=50069439",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Apple routed a graphite pipe through the iPhone Duo's hinge to dissipate heat",
+          "url": "https://news.ycombinator.com/item?id=50068203",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Woman who rescued injured crow keeps getting 'thank-you gifts' from birds [video]",
+          "url": "https://news.ycombinator.com/item?id=50065859",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        }
+      ]
+    },
+    {
+      "source": "github-trending-today",
+      "items": [
+        {
+          "title": "morluto /      rea",
+          "url": "https://github.com/morluto/rea",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "anthropics /      claude-plugins-official",
+          "url": "https://github.com/anthropics/claude-plugins-official",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "K-Dense-AI /      scientific-agent-skills",
+          "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "JuliusBrussee /      caveman",
+          "url": "https://github.com/JuliusBrussee/caveman",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "debpalash /      VoiceStudio",
+          "url": "https://github.com/debpalash/VoiceStudio",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "obra /      superpowers",
+          "url": "https://github.com/obra/superpowers",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "ruvnet /      ruflo",
+          "url": "https://github.com/ruvnet/ruflo",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "mksglu /      context-mode",
+          "url": "https://github.com/mksglu/context-mode",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "NationalSecurityAgency /      ghidra",
+          "url": "https://github.com/NationalSecurityAgency/ghidra",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "affaan-m /      ECC",
+          "url": "https://github.com/affaan-m/ECC",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "lightseekorg /      tokenspeed",
+          "url": "https://github.com/lightseekorg/tokenspeed",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "xerj-org /      xerj",
+          "url": "https://github.com/xerj-org/xerj",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "LibreSpark /      LibreTV",
+          "url": "https://github.com/LibreSpark/LibreTV",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        }
+      ]
+    },
+    {
+      "source": "producthunt",
+      "items": [
+        {
+          "title": "Talanoa",
+          "url": "https://www.producthunt.com/products/talanoa-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Navige",
+          "url": "https://www.producthunt.com/products/navige?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "GLM-Legal",
+          "url": "https://www.producthunt.com/products/z-ai?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Apple HomeView",
+          "url": "https://www.producthunt.com/products/apple?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "OpenMuse",
+          "url": "https://www.producthunt.com/products/copilotkit?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Daddy Issues",
+          "url": "https://www.producthunt.com/products/daddy-issues?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Polylane Impact Analysis",
+          "url": "https://www.producthunt.com/products/polylane?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "withHuman",
+          "url": "https://www.producthunt.com/products/withhuman?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Chatway MCP",
+          "url": "https://www.producthunt.com/products/chatway?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Ubuntu 26.10 (Stonking Stingray)",
+          "url": "https://www.producthunt.com/products/ubuntu?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "siliXon",
+          "url": "https://www.producthunt.com/products/silixon?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Backdrop",
+          "url": "https://www.producthunt.com/products/backdrop?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Kerno 1.0",
+          "url": "https://www.producthunt.com/products/kerno?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Nostaliga",
+          "url": "https://www.producthunt.com/products/nostaliga?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Reelbird",
+          "url": "https://www.producthunt.com/products/reelbird?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "AI Sandboxes by Buddy",
+          "url": "https://www.producthunt.com/products/buddy?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [
+            "ai-and-models"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Actually Asked",
+          "url": "https://www.producthunt.com/products/actually-asked?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "SuperLocalMemory",
+          "url": "https://www.producthunt.com/products/superlocalmemory-v2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Fwrd",
+          "url": "https://www.producthunt.com/products/fwrd?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Afterparty",
+          "url": "https://www.producthunt.com/products/afterparty?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        }
+      ]
+    }
+  ]
+}

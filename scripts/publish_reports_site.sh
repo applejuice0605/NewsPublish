@@ -45,7 +45,7 @@ git add docs/CNAME docs/.nojekyll docs/archive.html docs/index.html docs/assets 
 if [ -d docs/audio ]; then
   git add docs/audio
 fi
-for insight_file in docs/health.json docs/status.html docs/trends.html docs/trends.json; do
+for insight_file in docs/health.json docs/status.html docs/trends.html docs/trends.json docs/sources.html docs/sources.json; do
   if [ -e "$insight_file" ]; then
     git add "$insight_file"
   fi

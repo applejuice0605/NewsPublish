@@ -65,6 +65,8 @@ class AISectionParser(HTMLParser):
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate the daily TrendRadar podcast")
     parser.add_argument("--force", action="store_true", help="regenerate even when the content hash is unchanged")
+    parser.add_argument("--input", type=Path, default=LATEST_DAILY, help="daily HTML report to narrate")
+    parser.add_argument("--date", help="report date in YYYY-MM-DD (required for a historical input)")
     return parser.parse_args()
 
 
@@ -110,24 +112,33 @@ def main() -> int:
     if not podcast.get("enabled", False):
         print("[podcast] disabled")
         return 0
-    if not LATEST_DAILY.is_file():
+    input_path = args.input.resolve()
+    if not input_path.is_file():
         print("[podcast] latest daily report is unavailable")
         return 0
 
-    report_html = LATEST_DAILY.read_text(encoding="utf-8", errors="replace")
+    report_html = input_path.read_text(encoding="utf-8", errors="replace")
     timezone = ZoneInfo("Asia/Shanghai")
     now = datetime.now(timezone)
+    if args.date:
+        try:
+            report_date = datetime.strptime(args.date, "%Y-%m-%d").date()
+        except ValueError:
+            print("[podcast] --date must use YYYY-MM-DD", file=sys.stderr)
+            return 2
+    else:
+        report_date = now.date()
     report_date_match = re.search(r"生成时间</span>\s*<span class=\"info-value\">(\d{2}-\d{2})", report_html)
-    if not report_date_match or report_date_match.group(1) != now.strftime("%m-%d"):
-        print("[podcast] latest daily report is not from today; skipped")
+    if not report_date_match or report_date_match.group(1) != report_date.strftime("%m-%d"):
+        print("[podcast] report date does not match the selected date; skipped")
         return 0
 
-    content = extract_ai_content(LATEST_DAILY)
+    content = extract_ai_content(input_path)
     if len(content) < 80 or "AI 热点分析" not in content:
         print("[podcast] latest daily report has no completed AI analysis; skipped")
         return 0
 
-    date = now.date().isoformat()
+    date = report_date.isoformat()
     source_limit = int(podcast.get("max_source_chars", 12000))
     script_limit = int(podcast.get("max_script_chars", 4500))
     content = content[:source_limit]
