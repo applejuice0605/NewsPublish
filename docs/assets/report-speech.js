@@ -1,7 +1,10 @@
 (function () {
   'use strict';
 
-  var VOICE_LABELS = { 'zh-CN-YunyangNeural': '云扬 · 中文男声' };
+  var VOICE_LABELS = {
+    'zh-CN-YunyangNeural': '云扬 · 中文男声',
+    'zh-CN-XiaoxiaoNeural': '晓晓 · 中文女声'
+  };
 
   function reportDate() {
     var pathMatch = window.location.pathname.match(/\/reports\/(\d{4}-\d{2}-\d{2})(?:\/|\.html)/);
@@ -21,7 +24,7 @@
     return current.length === 5 ? metadata.date.slice(5) === current : metadata.date === current;
   }
 
-  function panelMarkup(metadata) {
+  function panelMarkup(metadata, available) {
     var section = document.createElement('section');
     section.className = 'speech-panel';
     section.setAttribute('aria-labelledby', 'podcastTitle');
@@ -29,20 +32,31 @@
     heading.className = 'speech-panel-head';
     heading.innerHTML = '<h2 class="speech-panel-title" id="podcastTitle">今日 AI 新闻播报</h2>' +
       '<span class="speech-badge">AI 播客</span>';
-    var player = document.createElement('div');
-    player.className = 'podcast-slot';
-    var audio = document.createElement('audio');
-    audio.className = 'podcast-audio';
-    audio.controls = true;
-    audio.preload = 'metadata';
-    audio.src = metadata.audio_url;
-    audio.setAttribute('aria-label', metadata.date + ' AI 新闻播报');
-    var meta = document.createElement('span');
-    meta.className = 'podcast-meta';
-    meta.textContent = metadata.date + ' · ' +
-      (metadata.voice_label || VOICE_LABELS[metadata.voice] || '自然中文语音');
-    player.append(audio, meta);
-    section.append(heading, player);
+    var body = document.createElement('div');
+    if (available) {
+      body.className = 'podcast-slot';
+      var audio = document.createElement('audio');
+      audio.className = 'podcast-audio';
+      audio.controls = true;
+      audio.preload = 'metadata';
+      audio.src = metadata.audio_url;
+      audio.setAttribute('aria-label', metadata.date + ' AI 新闻播报');
+      var meta = document.createElement('span');
+      meta.className = 'podcast-meta';
+      meta.textContent = metadata.date + ' · ' +
+        (metadata.voice_label || VOICE_LABELS[metadata.voice] || '自然中文语音');
+      body.append(audio, meta);
+    } else {
+      body.className = 'podcast-empty';
+      var message = document.createElement('strong');
+      message.textContent = '今日播客暂未生成';
+      var detail = document.createElement('span');
+      detail.textContent = metadata && metadata.date
+        ? '最近一期为 ' + metadata.date + '，请前往对应历史报告收听。'
+        : '当天 AI 日报完成后会自动生成并显示在这里。';
+      body.append(message, detail);
+    }
+    section.append(heading, body);
     return section;
   }
 
@@ -55,10 +69,12 @@
         return response.json();
       })
       .then(function (metadata) {
-        if (!metadata.audio_url || !matchesReport(metadata)) return;
-        content.insertBefore(panelMarkup(metadata), content.firstChild);
+        var available = Boolean(metadata.audio_url && matchesReport(metadata));
+        content.insertBefore(panelMarkup(metadata, available), content.firstChild);
       })
-      .catch(function () { /* A daily AI podcast is optional. */ });
+      .catch(function () {
+        content.insertBefore(panelMarkup(null, false), content.firstChild);
+      });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

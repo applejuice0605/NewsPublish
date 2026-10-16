@@ -100,6 +100,14 @@ def load_podcast_config() -> tuple[dict[str, Any], dict[str, Any]]:
     return podcast, normalized["AI"]
 
 
+def voice_label(voice: str) -> str:
+    labels = {
+        "zh-CN-YunyangNeural": "云扬 · 中文男声",
+        "zh-CN-XiaoxiaoNeural": "晓晓 · 中文女声",
+    }
+    return labels.get(voice, "自然中文语音")
+
+
 async def synthesize(text: str, output: Path, voice: str, rate: str, volume: str) -> None:
     temporary = output.with_suffix(".tmp.mp3")
     await edge_tts.Communicate(text, voice=voice, rate=rate, volume=volume).save(str(temporary))
@@ -143,6 +151,9 @@ def main() -> int:
     script_limit = int(podcast.get("max_script_chars", 4500))
     content = content[:source_limit]
     content_hash = hashlib.sha256(content.encode("utf-8")).hexdigest()
+    voice = str(podcast.get("voice", "zh-CN-XiaoxiaoNeural"))
+    rate = str(podcast.get("rate", "+0%"))
+    volume = str(podcast.get("volume", "+0%"))
     output_dir = OUTPUT_ROOT / date
     output_dir.mkdir(parents=True, exist_ok=True)
     metadata_path = output_dir / "daily.json"
@@ -150,7 +161,12 @@ def main() -> int:
     transcript_path = output_dir / "daily.txt"
     if not args.force and metadata_path.is_file() and audio_path.is_file():
         existing = json.loads(metadata_path.read_text(encoding="utf-8"))
-        if existing.get("source_hash") == content_hash:
+        if (
+            existing.get("source_hash") == content_hash
+            and existing.get("voice") == voice
+            and existing.get("rate", "+0%") == rate
+            and existing.get("volume", "+0%") == volume
+        ):
             print(f"[podcast] unchanged: {audio_path}")
             return 0
 
@@ -175,9 +191,6 @@ def main() -> int:
         print("[podcast] generated script is unexpectedly short", file=sys.stderr)
         return 1
 
-    voice = str(podcast.get("voice", "zh-CN-YunyangNeural"))
-    rate = str(podcast.get("rate", "+0%"))
-    volume = str(podcast.get("volume", "+0%"))
     print(f"[podcast] synthesizing with {voice}")
     asyncio.run(synthesize(script, audio_path, voice, rate, volume))
     transcript_path.write_text(script + "\n", encoding="utf-8")
@@ -187,7 +200,9 @@ def main() -> int:
         "generated_at": now.isoformat(timespec="seconds"),
         "source_hash": content_hash,
         "voice": voice,
-        "voice_label": "云扬 · 中文男声" if voice == "zh-CN-YunyangNeural" else "自然中文语音",
+        "voice_label": voice_label(voice),
+        "rate": rate,
+        "volume": volume,
         "script_chars": len(script),
         "audio_url": f"/audio/{date}/daily.mp3",
         "transcript_url": f"/audio/{date}/daily.txt",
