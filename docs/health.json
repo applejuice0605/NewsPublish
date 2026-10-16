@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-15T23:53:03.230766+00:00",
+  "generated_at": "2026-10-16T00:54:11.798612+00:00",
   "overall_status": "healthy",
   "collection": {
-    "last_started_at": "2026-10-16T07:52:08+08:00",
-    "last_completed_at": "2026-10-16T07:53:03+08:00",
-    "duration_seconds": 55.1,
+    "last_started_at": "2026-10-16T08:53:06+08:00",
+    "last_completed_at": "2026-10-16T08:54:11+08:00",
+    "duration_seconds": 65.6,
     "success": true,
     "source_success": 12,
     "source_failed": 0,
@@ -13,20 +13,20 @@
     "catch_up": false
   },
   "notification": {
-    "last_attempt_at": "2026-10-15T20:40:14+08:00",
-    "last_success_at": "2026-10-15T20:40:14+08:00",
-    "status": "skipped",
-    "reason": "no_incremental_match_or_schedule"
+    "last_attempt_at": "2026-10-16T08:54:11+08:00",
+    "last_success_at": "2026-10-16T08:54:11+08:00",
+    "status": "success",
+    "reason": "delivered"
   },
   "publish": {
-    "last_attempt_at": "2026-10-16T06:52:07+08:00",
-    "last_success_at": "2026-10-16T06:52:07+08:00",
+    "last_attempt_at": "2026-10-16T07:53:06+08:00",
+    "last_success_at": "2026-10-16T07:53:06+08:00",
     "status": "success",
-    "commit": "0400fb396013"
+    "commit": "db1f94d4c64e"
   },
   "schedule": {
     "interval_minutes": 60,
-    "next_expected_at": "2026-10-16T00:53:03+00:00"
+    "next_expected_at": "2026-10-16T01:54:11+00:00"
   },
   "source_pilot": {
     "configured": false,
