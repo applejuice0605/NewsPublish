@@ -19,6 +19,9 @@ Thumbs.db
 .env.local
 test_ai.py
 
+# Prepared Cloudflare deployment artifacts
+.deploy/
+
 # Python caches
 __pycache__/
 *.py[cod]

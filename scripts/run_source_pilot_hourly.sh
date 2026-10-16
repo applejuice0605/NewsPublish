@@ -1,7 +1,8 @@
 #!/bin/zsh
 set -eu
 
-REPO_DIR="/Users/bruce/Coding/NewsRadar"
+SCRIPT_DIR="${0:A:h}"
+REPO_DIR="${REPO_DIR:-${SCRIPT_DIR:h}}"
 PROJECT_DIR="$REPO_DIR/TrendRadar"
 LOCK_DIR="/tmp/newsradar-source-pilot.lock"
 ENV_FILE="$PROJECT_DIR/.env.local"

@@ -8,20 +8,20 @@
 
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/bruce/Coding/NewsRadar/scripts/run_source_pilot_hourly.sh</string>
+    <string>/Users/bruce/Coding/NewsRadar-production/scripts/run_source_pilot_hourly.sh</string>
   </array>
 
   <key>WorkingDirectory</key>
-  <string>/Users/bruce/Coding/NewsRadar</string>
+  <string>/Users/bruce/Coding/NewsRadar-production</string>
 
   <key>StartInterval</key>
   <integer>3600</integer>
 
   <key>StandardOutPath</key>
-  <string>/Users/bruce/Coding/NewsRadar/TrendRadar/output/logs/source-pilot.out.log</string>
+  <string>/Users/bruce/Coding/NewsRadar-production/TrendRadar/output/logs/source-pilot.out.log</string>
 
   <key>StandardErrorPath</key>
-  <string>/Users/bruce/Coding/NewsRadar/TrendRadar/output/logs/source-pilot.err.log</string>
+  <string>/Users/bruce/Coding/NewsRadar-production/TrendRadar/output/logs/source-pilot.err.log</string>
 
   <key>EnvironmentVariables</key>
   <dict>

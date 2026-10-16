@@ -40,6 +40,12 @@ fi
 
 cd "$REPO_DIR"
 
+CURRENT_BRANCH="$(git branch --show-current)"
+if [ -z "$CURRENT_BRANCH" ]; then
+  echo "[site] refusing to publish from a detached HEAD"
+  exit 1
+fi
+
 git add docs/CNAME docs/.nojekyll docs/archive.html docs/index.html docs/assets \
   docs/reports TrendRadar/index.html
 if [ -d docs/audio ]; then
@@ -57,4 +63,4 @@ if git diff --cached --quiet; then
 fi
 
 git commit -m "docs: publish latest TrendRadar report"
-git push origin main
+git push origin "$CURRENT_BRANCH"

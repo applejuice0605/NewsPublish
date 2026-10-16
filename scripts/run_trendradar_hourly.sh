@@ -1,7 +1,8 @@
 #!/bin/zsh
 set -eu
 
-REPO_DIR="/Users/bruce/Coding/NewsRadar"
+SCRIPT_DIR="${0:A:h}"
+REPO_DIR="${REPO_DIR:-${SCRIPT_DIR:h}}"
 PROJECT_DIR="$REPO_DIR/TrendRadar"
 UV_BIN="/opt/homebrew/bin/uv"
 LOG_DIR="$PROJECT_DIR/output/logs"

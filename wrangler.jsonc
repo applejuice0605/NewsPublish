@@ -10,8 +10,16 @@
   "env": {
     "preview": {
       "name": "newsradar-preview",
+      "workers_dev": true,
+      "preview_urls": false,
+      "routes": [
+        {
+          "pattern": "preview.newsradar.ccwu.cc",
+          "custom_domain": true
+        }
+      ],
       "assets": {
-        "directory": "./docs",
+        "directory": "./.deploy/preview",
         "not_found_handling": "404-page",
         "html_handling": "auto-trailing-slash"
       }

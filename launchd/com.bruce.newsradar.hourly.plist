@@ -8,11 +8,11 @@
 
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/bruce/Coding/NewsRadar/scripts/run_trendradar_hourly.sh</string>
+    <string>/Users/bruce/Coding/NewsRadar-production/scripts/run_trendradar_hourly.sh</string>
   </array>
 
   <key>WorkingDirectory</key>
-  <string>/Users/bruce/Coding/NewsRadar/TrendRadar</string>
+  <string>/Users/bruce/Coding/NewsRadar-production/TrendRadar</string>
 
   <key>StartInterval</key>
   <integer>3600</integer>
@@ -21,10 +21,10 @@
   <true/>
 
   <key>StandardOutPath</key>
-  <string>/Users/bruce/Coding/NewsRadar/TrendRadar/output/logs/launchd.out.log</string>
+  <string>/Users/bruce/Coding/NewsRadar-production/TrendRadar/output/logs/launchd.out.log</string>
 
   <key>StandardErrorPath</key>
-  <string>/Users/bruce/Coding/NewsRadar/TrendRadar/output/logs/launchd.err.log</string>
+  <string>/Users/bruce/Coding/NewsRadar-production/TrendRadar/output/logs/launchd.err.log</string>
 
   <key>EnvironmentVariables</key>
   <dict>
