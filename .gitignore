@@ -21,6 +21,8 @@ test_ai.py
 
 # Prepared Cloudflare deployment artifacts
 .deploy/
+.wrangler/
+.preview-auth.local
 
 # Python caches
 __pycache__/

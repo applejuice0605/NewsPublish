@@ -29,6 +29,7 @@ if ! git merge-base --is-ancestor origin/main HEAD; then
 fi
 
 python3 tests/test_preview_site.py
+node tests/test_preview_auth.mjs
 zsh -n scripts/*.sh
 
 COMMIT="$(git rev-parse HEAD)"

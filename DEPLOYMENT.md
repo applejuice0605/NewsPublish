@@ -38,9 +38,11 @@ the production deploy mechanism.
 
 ## Cloudflare Access
 
-Protect `preview.newsradar.ccwu.cc` with a Cloudflare Access self-hosted
-application and an email allowlist. The preview bundle also publishes
-`X-Robots-Tag: noindex, nofollow, noarchive` and a restrictive `robots.txt`.
+`preview.newsradar.ccwu.cc` is protected by HTTP Basic authentication in the
+preview-only Worker. The password is stored as the `PREVIEW_PASSWORD`
+Cloudflare secret and in the local, mode-600 `.preview-auth.local` file. The
+preview bundle also publishes `X-Robots-Tag: noindex, nofollow, noarchive` and
+a restrictive `robots.txt`.
 
 ## Rollback
 
