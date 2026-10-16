@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T01:55:12.635932+00:00",
+  "generated_at": "2026-10-16T02:56:29.982164+00:00",
   "as_of": "2026-10-16",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-16",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 539,
+      "article_count": 599,
       "sources": [
         "IT之家",
         "V2EX",
@@ -17,17 +17,19 @@
         "今日头条",
         "华尔街见闻",
         "掘金",
-        "澎湃新闻"
+        "澎湃新闻",
+        "百度热搜",
+        "知乎"
       ],
       "topics": [
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 22,
+          "article_count": 23,
           "source_count": 8,
-          "average_relevance": 0.832,
+          "average_relevance": 0.835,
           "best_rank": 2,
-          "momentum": -26.3,
+          "momentum": -31.2,
           "top_articles": [
             {
               "title": "给大模型装上“一双耳朵”：小米开源空间音频理解大模型 MiDashengLM-Spatial",
@@ -36,7 +38,7 @@
               "date": "2026-10-16",
               "relevance": 0.95,
               "best_rank": 3,
-              "momentum": 0.0
+              "momentum": -75.0
             },
             {
               "title": "Gemini 4 Argon 正式发布！",
@@ -54,7 +56,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 5,
-              "momentum": 0.0
+              "momentum": -64.3
             },
             {
               "title": "蚂蚁百灵开源 Ling-3.1-flash AI 模型，最高支持 1M 上下文",
@@ -84,6 +86,15 @@
               "momentum": 0.0
             },
             {
+              "title": "智谱灰度上线高速模型达 490tokens/s，这预示着什么？",
+              "url": "https://www.zhihu.com/question/2092941251754702719",
+              "source": "知乎",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 15,
+              "momentum": 0.0
+            },
+            {
               "title": "DeepSeek宕机5小时：一上新就崩？影响有多大？",
               "url": "https://www.thepaper.cn/newsDetail_forward_34257535",
               "source": "澎湃新闻",
@@ -91,26 +102,17 @@
               "relevance": 0.9,
               "best_rank": 20,
               "momentum": 0.0
-            },
-            {
-              "title": "DeepSeek宣布故障补偿方案",
-              "url": "https://search.bilibili.com/all?keyword=DeepSeek%E5%AE%A3%E5%B8%83%E6%95%85%E9%9A%9C%E8%A1%A5%E5%81%BF%E6%96%B9%E6%A1%88",
-              "source": "bilibili 热搜",
-              "date": "2026-10-16",
-              "relevance": 0.85,
-              "best_rank": 2,
-              "momentum": -57.1
             }
           ]
         },
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 8,
-          "source_count": 3,
-          "average_relevance": 0.681,
+          "article_count": 11,
+          "source_count": 4,
+          "average_relevance": 0.668,
           "best_rank": 3,
-          "momentum": -49.2,
+          "momentum": -35.8,
           "top_articles": [
             {
               "title": "70 美金的 Beyond Compare，我让 Gemini 4 和 DeepSeek 造个开源免费版（Day 2）",
@@ -149,6 +151,15 @@
               "momentum": -77.8
             },
             {
+              "title": "有人用AI复刻出Adobe全家桶",
+              "url": "https://www.baidu.com/s?wd=%E6%9C%89%E4%BA%BA%E7%94%A8AI%E5%A4%8D%E5%88%BB%E5%87%BAAdobe%E5%85%A8%E5%AE%B6%E6%A1%B6",
+              "source": "百度热搜",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 8,
+              "momentum": 0.0
+            },
+            {
               "title": "现在 chatgpt 审美强了很多了",
               "url": "https://www.v2ex.com/t/1249163",
               "source": "V2EX",
@@ -167,22 +178,13 @@
               "momentum": -84.2
             },
             {
-              "title": "AI 太牛逼了，总想用 ai 来搞点副业，怎么办？",
-              "url": "https://www.v2ex.com/t/1249152",
+              "title": "2026 AI 时代，工具类小程序还有机会吗？ [微信虚拟支付来了] 我把 5 年前弃坑的工具箱捡回来了",
+              "url": "https://www.v2ex.com/t/1249241",
               "source": "V2EX",
               "date": "2026-10-16",
               "relevance": 0.6,
               "best_rank": 13,
-              "momentum": -35.0
-            },
-            {
-              "title": "对抗超级细菌新武器：谷歌 Antigravity 用 AI 加速抗菌肽发现",
-              "url": "https://www.ithome.com/1/013/684.htm",
-              "source": "IT之家",
-              "date": "2026-10-16",
-              "relevance": 0.55,
-              "best_rank": 11,
-              "momentum": -59.3
+              "momentum": 0.0
             }
           ]
         },
@@ -193,7 +195,7 @@
           "source_count": 4,
           "average_relevance": 0.817,
           "best_rank": 1,
-          "momentum": -28.7,
+          "momentum": -29.8,
           "top_articles": [
             {
               "title": "英伟达黄仁勋称 AI 芯片需求持续超过供应能力：几乎每天都有新订单涌入",
@@ -202,7 +204,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 1,
-              "momentum": -94.4
+              "momentum": -96.3
             },
             {
               "title": "英伟达RTX Spark性能分析",
@@ -211,7 +213,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 2,
-              "momentum": -86.7
+              "momentum": -91.3
             },
             {
               "title": "黄仁勋：CoreWeave融资成本在下降",
@@ -252,13 +254,51 @@
           ]
         },
         {
+          "tag": "大厂AI战略",
+          "basis": "ai_filter",
+          "article_count": 3,
+          "source_count": 1,
+          "average_relevance": 0.783,
+          "best_rank": 5,
+          "momentum": -25.8,
+          "top_articles": [
+            {
+              "title": "苹果 Meta 破冰合作：两台 512GB 内存 Mac Studio 本地跑“美国最强开源 AI 模型”",
+              "url": "https://www.ithome.com/1/013/716.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.85,
+              "best_rank": 5,
+              "momentum": -77.3
+            },
+            {
+              "title": "苹果库克：AI 应用正迎来爆发式增长，在多个方面对供应链产生深远影响",
+              "url": "https://www.ithome.com/1/013/743.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.8,
+              "best_rank": 8,
+              "momentum": 0.0
+            },
+            {
+              "title": "特斯拉能飞：第二代 Roadster 预订意向金 33.2 万元起，马斯克宣布 2028 年量产",
+              "url": "https://www.ithome.com/1/013/748.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 5,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "推理加速与部署",
           "basis": "ai_filter",
           "article_count": 3,
           "source_count": 3,
           "average_relevance": 0.733,
           "best_rank": 5,
-          "momentum": -24.6,
+          "momentum": -40.4,
           "top_articles": [
             {
               "title": "苹果 Minions 研究：闲置 Mac GPU 组队，几分钟就能完成 10 小时 AI 任务",
@@ -267,7 +307,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 10,
-              "momentum": 0.0
+              "momentum": -47.4
             },
             {
               "title": "DeepSeek优化27倍token教程",
@@ -296,7 +336,7 @@
           "source_count": 2,
           "average_relevance": 0.825,
           "best_rank": 3,
-          "momentum": -36.9,
+          "momentum": -43.5,
           "top_articles": [
             {
               "title": "做了个开源 macOS 应用 Luti：让网页版 Claude / ChatGPT / Grok / Gemini / Muse 等通过 MCP 直接操作本地项目",
@@ -305,7 +345,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 3,
-              "momentum": -70.0
+              "momentum": -87.0
             },
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
@@ -314,7 +354,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 26,
-              "momentum": -3.7
+              "momentum": 0.0
             }
           ]
         },
@@ -348,26 +388,6 @@
           ]
         },
         {
-          "tag": "大厂AI战略",
-          "basis": "ai_filter",
-          "article_count": 1,
-          "source_count": 1,
-          "average_relevance": 0.85,
-          "best_rank": 5,
-          "momentum": -77.3,
-          "top_articles": [
-            {
-              "title": "苹果 Meta 破冰合作：两台 512GB 内存 Mac Studio 本地跑“美国最强开源 AI 模型”",
-              "url": "https://www.ithome.com/1/013/716.htm",
-              "source": "IT之家",
-              "date": "2026-10-16",
-              "relevance": 0.85,
-              "best_rank": 5,
-              "momentum": -77.3
-            }
-          ]
-        },
-        {
           "tag": "Agent与ComputerUse",
           "basis": "ai_filter",
           "article_count": 1,
@@ -396,7 +416,7 @@
       "start_date": "2026-10-10",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4913,
+      "article_count": 4973,
       "sources": [
         "IT之家",
         "V2EX",
@@ -413,11 +433,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 124,
+          "article_count": 125,
           "source_count": 11,
-          "average_relevance": 0.761,
+          "average_relevance": 0.762,
           "best_rank": 1,
-          "momentum": -38.6,
+          "momentum": -39.4,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -453,7 +473,7 @@
               "date": "2026-10-16",
               "relevance": 0.95,
               "best_rank": 3,
-              "momentum": 0.0
+              "momentum": -75.0
             },
             {
               "title": "DeepSeek 服务器暂时不可用",
@@ -496,11 +516,11 @@
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 68,
+          "article_count": 71,
           "source_count": 5,
-          "average_relevance": 0.728,
+          "average_relevance": 0.724,
           "best_rank": 1,
-          "momentum": -41.6,
+          "momentum": -39.8,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -579,11 +599,11 @@
         {
           "tag": "大厂AI战略",
           "basis": "ai_filter",
-          "article_count": 41,
+          "article_count": 43,
           "source_count": 6,
-          "average_relevance": 0.716,
+          "average_relevance": 0.717,
           "best_rank": 1,
-          "momentum": -37.3,
+          "momentum": -35.6,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -666,7 +686,7 @@
           "source_count": 4,
           "average_relevance": 0.779,
           "best_rank": 1,
-          "momentum": -38.9,
+          "momentum": -40.9,
           "top_articles": [
             {
               "title": "9 年前英伟达 Tesla V100 老将再战：4 GPU 集群 AI 推理跑赢 2 台 DGX Spark",
@@ -720,7 +740,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 10,
-              "momentum": 0.0
+              "momentum": -47.4
             },
             {
               "title": "AMD 发布新一代锐龙 AI Halo 开发者平台，升级 Max+ PRO 495 与至高 192GB 内存",
@@ -1321,7 +1341,7 @@
           "source_count": 4,
           "average_relevance": 0.817,
           "best_rank": 1,
-          "momentum": -28.7,
+          "momentum": -29.8,
           "top_articles": [
             {
               "title": "英伟达黄仁勋称 AI 芯片需求持续超过供应能力：几乎每天都有新订单涌入",
@@ -1330,7 +1350,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 1,
-              "momentum": -94.4
+              "momentum": -96.3
             },
             {
               "title": "英伟达RTX Spark性能分析",
@@ -1339,7 +1359,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 2,
-              "momentum": -86.7
+              "momentum": -91.3
             },
             {
               "title": "黄仁勋：CoreWeave融资成本在下降",
@@ -1565,7 +1585,7 @@
           "source_count": 2,
           "average_relevance": 0.825,
           "best_rank": 3,
-          "momentum": -36.9,
+          "momentum": -43.5,
           "top_articles": [
             {
               "title": "做了个开源 macOS 应用 Luti：让网页版 Claude / ChatGPT / Grok / Gemini / Muse 等通过 MCP 直接操作本地项目",
@@ -1574,7 +1594,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 3,
-              "momentum": -70.0
+              "momentum": -87.0
             },
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
@@ -1583,7 +1603,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 26,
-              "momentum": -3.7
+              "momentum": 0.0
             }
           ]
         },
@@ -1812,7 +1832,7 @@
       "start_date": "2026-09-17",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 4913,
+      "article_count": 4973,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1829,11 +1849,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 124,
+          "article_count": 125,
           "source_count": 11,
-          "average_relevance": 0.761,
+          "average_relevance": 0.762,
           "best_rank": 1,
-          "momentum": -38.6,
+          "momentum": -39.4,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -1869,7 +1889,7 @@
               "date": "2026-10-16",
               "relevance": 0.95,
               "best_rank": 3,
-              "momentum": 0.0
+              "momentum": -75.0
             },
             {
               "title": "DeepSeek 服务器暂时不可用",
@@ -1912,11 +1932,11 @@
         {
           "tag": "AI编程工具",
           "basis": "ai_filter",
-          "article_count": 68,
+          "article_count": 71,
           "source_count": 5,
-          "average_relevance": 0.728,
+          "average_relevance": 0.724,
           "best_rank": 1,
-          "momentum": -41.6,
+          "momentum": -39.8,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -1995,11 +2015,11 @@
         {
           "tag": "大厂AI战略",
           "basis": "ai_filter",
-          "article_count": 41,
+          "article_count": 43,
           "source_count": 6,
-          "average_relevance": 0.716,
+          "average_relevance": 0.717,
           "best_rank": 1,
-          "momentum": -37.3,
+          "momentum": -35.6,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -2082,7 +2102,7 @@
           "source_count": 4,
           "average_relevance": 0.779,
           "best_rank": 1,
-          "momentum": -38.9,
+          "momentum": -40.9,
           "top_articles": [
             {
               "title": "9 年前英伟达 Tesla V100 老将再战：4 GPU 集群 AI 推理跑赢 2 台 DGX Spark",
@@ -2136,7 +2156,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 10,
-              "momentum": 0.0
+              "momentum": -47.4
             },
             {
               "title": "AMD 发布新一代锐龙 AI Halo 开发者平台，升级 Max+ PRO 495 与至高 192GB 内存",
@@ -2737,7 +2757,7 @@
           "source_count": 4,
           "average_relevance": 0.817,
           "best_rank": 1,
-          "momentum": -28.7,
+          "momentum": -29.8,
           "top_articles": [
             {
               "title": "英伟达黄仁勋称 AI 芯片需求持续超过供应能力：几乎每天都有新订单涌入",
@@ -2746,7 +2766,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 1,
-              "momentum": -94.4
+              "momentum": -96.3
             },
             {
               "title": "英伟达RTX Spark性能分析",
@@ -2755,7 +2775,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 2,
-              "momentum": -86.7
+              "momentum": -91.3
             },
             {
               "title": "黄仁勋：CoreWeave融资成本在下降",
@@ -2981,7 +3001,7 @@
           "source_count": 2,
           "average_relevance": 0.825,
           "best_rank": 3,
-          "momentum": -36.9,
+          "momentum": -43.5,
           "top_articles": [
             {
               "title": "做了个开源 macOS 应用 Luti：让网页版 Claude / ChatGPT / Grok / Gemini / Muse 等通过 MCP 直接操作本地项目",
@@ -2990,7 +3010,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 3,
-              "momentum": -70.0
+              "momentum": -87.0
             },
             {
               "title": "被问麻了！Function Calling、MCP、Skill 到底啥关系？一张图讲透三层架构，附 Java 生产落地全流程+30个坑",
@@ -2999,7 +3019,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 26,
-              "momentum": -3.7
+              "momentum": 0.0
             }
           ]
         },
