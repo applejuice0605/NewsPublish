@@ -52,7 +52,7 @@ if [ "$PODCAST_STATUS" -ne 0 ]; then
 fi
 
 set +e
-"$REPO_DIR/scripts/publish_reports_site.sh"
+REPO_DIR="$REPO_DIR" "$REPO_DIR/scripts/publish_reports_site.sh"
 PUBLISH_STATUS=$?
 set -e
 python3 "$REPO_DIR/scripts/update_runtime_health.py" publish \
