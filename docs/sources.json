@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T15:29:10+08:00",
+  "generated_at": "2026-10-16T16:46:29+08:00",
   "observation_only": true,
   "sources": [
     {
@@ -364,6 +364,32 @@
       "source": "hackernews",
       "items": [
         {
+          "title": "The insider trading you're allowed to do",
+          "url": "https://news.ycombinator.com/item?id=50115144",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Last rites for Gentoo's Chromium package",
+          "url": "https://news.ycombinator.com/item?id=50114359",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "The Folders Programming Language",
+          "url": "https://news.ycombinator.com/item?id=50114342",
+          "interest_rules": [
+            "developer-tools"
+          ],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "Porsche Mission S",
+          "url": "https://news.ycombinator.com/item?id=50113528",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
           "title": "Comparing Chromium Development at Google and Igalia",
           "url": "https://news.ycombinator.com/item?id=50112887",
           "interest_rules": [],
@@ -420,12 +446,6 @@
           "duplicate_in_official_news": false
         },
         {
-          "title": "E Ink Kaleido 4",
-          "url": "https://news.ycombinator.com/item?id=50108229",
-          "interest_rules": [],
-          "duplicate_in_official_news": false
-        },
-        {
           "title": "Muse Spark Open",
           "url": "https://news.ycombinator.com/item?id=50107379",
           "interest_rules": [],
@@ -462,14 +482,6 @@
           "duplicate_in_official_news": false
         },
         {
-          "title": "Using AI to reverse engineer hardware",
-          "url": "https://news.ycombinator.com/item?id=50104299",
-          "interest_rules": [
-            "ai-and-models"
-          ],
-          "duplicate_in_official_news": false
-        },
-        {
           "title": "Wayland desktop for Linux with skeuomorphic design",
           "url": "https://news.ycombinator.com/item?id=50103338",
           "interest_rules": [],
@@ -482,26 +494,14 @@
           "duplicate_in_official_news": false
         },
         {
-          "title": "Show HN: Unfenced – Land for sale that borders public land",
-          "url": "https://news.ycombinator.com/item?id=50102247",
-          "interest_rules": [],
-          "duplicate_in_official_news": false
-        },
-        {
-          "title": "AdFection: Targeted ads turned into a pipeline for zero-click mercenary spyware",
-          "url": "https://news.ycombinator.com/item?id=50101813",
-          "interest_rules": [],
-          "duplicate_in_official_news": false
-        },
-        {
-          "title": "The engineering that allows articulated buses to bend",
-          "url": "https://news.ycombinator.com/item?id=50097843",
-          "interest_rules": [],
-          "duplicate_in_official_news": false
-        },
-        {
           "title": "Why I Wrote PGP (1991, revised 1999)",
           "url": "https://news.ycombinator.com/item?id=50084674",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "New York City's iconic horse-drawn carriages expected to take their last trot",
+          "url": "https://news.ycombinator.com/item?id=50082113",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
@@ -512,14 +512,14 @@
           "duplicate_in_official_news": false
         },
         {
-          "title": "'500-hour' Order of the Sinking Star is as complex and exhausting as it sounds",
-          "url": "https://news.ycombinator.com/item?id=50072119",
+          "title": "Two-Stack Sliding-Window Aggregation",
+          "url": "https://news.ycombinator.com/item?id=50072485",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "4 Years of Ludicon",
-          "url": "https://news.ycombinator.com/item?id=50071319",
+          "title": "'500-hour' Order of the Sinking Star is as complex and exhausting as it sounds",
+          "url": "https://news.ycombinator.com/item?id=50072119",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
@@ -638,124 +638,124 @@
       "source": "producthunt",
       "items": [
         {
-          "title": "Ask Germany",
-          "url": "https://www.producthunt.com/products/ask-germany?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "Matcha",
+          "url": "https://www.producthunt.com/products/matcha-7?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "Fish Audio Drama 3",
-          "url": "https://www.producthunt.com/products/fish-speech?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "Phyo",
+          "url": "https://www.producthunt.com/products/phyo?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "UGC Campaign ROI Calculator",
-          "url": "https://www.producthunt.com/products/ugc-agent?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "MiniTools",
+          "url": "https://www.producthunt.com/products/minitools-3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "interest_rules": [],
+          "duplicate_in_official_news": false
+        },
+        {
+          "title": "AI Zombie Couple Video",
+          "url": "https://www.producthunt.com/products/ai-zombie-couple-video?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [
             "ai-and-models"
           ],
           "duplicate_in_official_news": false
         },
         {
-          "title": "Firefox Enterprise",
-          "url": "https://www.producthunt.com/products/mozilla?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "Lovable Growth Tools",
+          "url": "https://www.producthunt.com/products/lovable?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "Memory Chess",
-          "url": "https://www.producthunt.com/products/memory-chess?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "Animal Checklist",
+          "url": "https://www.producthunt.com/products/animal-checklist?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "Harness by Autonomous",
-          "url": "https://www.producthunt.com/products/harness-by-autonomous?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "BreachLine Security Toolkit",
+          "url": "https://www.producthunt.com/products/breachline-security-toolkit?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "logstation",
-          "url": "https://www.producthunt.com/products/logstation?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "Redirect Map Lint",
+          "url": "https://www.producthunt.com/products/redirect-map-lint?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "Unmute",
-          "url": "https://www.producthunt.com/products/unmute-3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "GATE A–Z",
+          "url": "https://www.producthunt.com/products/gate-a-z?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "PetFotoz",
-          "url": "https://www.producthunt.com/products/petfotoz?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "Simple Financial Tools",
+          "url": "https://www.producthunt.com/products/simple-financial-tools?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "Hintly for Google Meet™",
-          "url": "https://www.producthunt.com/products/hintly-for-google-meet?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "Kungfupunk",
+          "url": "https://www.producthunt.com/products/kungfupunk?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "ReliaMesh",
-          "url": "https://www.producthunt.com/products/reliamesh?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "OmniHuman 2.0",
+          "url": "https://www.producthunt.com/products/byteplus-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "Jockey by TwelveLabs",
-          "url": "https://www.producthunt.com/products/twelvelabs?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "Beast Brawl",
+          "url": "https://www.producthunt.com/products/beast-brawl?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "Pomerado",
-          "url": "https://www.producthunt.com/products/pomerado?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "ListMint",
+          "url": "https://www.producthunt.com/products/listmint?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "Tesla Roadster",
-          "url": "https://www.producthunt.com/products/tesla-roadster?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "NOVA This Week",
+          "url": "https://www.producthunt.com/products/nova-this-week?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "trycanari",
-          "url": "https://www.producthunt.com/products/trycanari?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "perkpass.",
+          "url": "https://www.producthunt.com/products/perkpass?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "Holm",
-          "url": "https://www.producthunt.com/products/holm?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "Aurio",
+          "url": "https://www.producthunt.com/products/aurio-3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "Parallax",
-          "url": "https://www.producthunt.com/products/parallax-5?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "Humanizely",
+          "url": "https://www.producthunt.com/products/humanizely-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "SignWith",
-          "url": "https://www.producthunt.com/products/signwith?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "Turns your iPhone into a racket",
+          "url": "https://www.producthunt.com/products/turns-your-iphone-into-a-racket?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         },
         {
-          "title": "Cursor Teleporter 2",
-          "url": "https://www.producthunt.com/products/apptorium?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
-          "interest_rules": [],
-          "duplicate_in_official_news": false
-        },
-        {
-          "title": "A Novel Appetite",
-          "url": "https://www.producthunt.com/products/a-novel-appetite?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+          "title": "Paradialer",
+          "url": "https://www.producthunt.com/products/paradialer?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
           "interest_rules": [],
           "duplicate_in_official_news": false
         }

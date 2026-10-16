@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T07:48:49.681575+00:00",
+  "generated_at": "2026-10-16T08:49:17.706930+00:00",
   "as_of": "2026-10-16",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-16",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 868,
+      "article_count": 922,
       "sources": [
         "IT之家",
         "V2EX",
@@ -29,7 +29,7 @@
           "source_count": 8,
           "average_relevance": 0.83,
           "best_rank": 2,
-          "momentum": -30.0,
+          "momentum": -30.5,
           "top_articles": [
             {
               "title": "给大模型装上“一双耳朵”：小米开源空间音频理解大模型 MiDashengLM-Spatial",
@@ -47,7 +47,7 @@
               "date": "2026-10-16",
               "relevance": 0.95,
               "best_rank": 21,
-              "momentum": 27.6
+              "momentum": 17.2
             },
             {
               "title": "DeepSeek宕机5小时：一上新就崩？影响有多大？",
@@ -112,7 +112,7 @@
           "source_count": 4,
           "average_relevance": 0.668,
           "best_rank": 3,
-          "momentum": -33.0,
+          "momentum": -32.9,
           "top_articles": [
             {
               "title": "70 美金的 Beyond Compare，我让 Gemini 4 和 DeepSeek 造个开源免费版（Day 2）",
@@ -138,8 +138,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.75,
-              "best_rank": 18,
-              "momentum": 21.7
+              "best_rank": 17,
+              "momentum": 26.1
             },
             {
               "title": "怎么感觉最近 codex 的速度那么慢啊",
@@ -272,11 +272,58 @@
           ]
         },
         {
+          "tag": "大厂AI战略",
+          "basis": "ai_filter",
+          "article_count": 4,
+          "source_count": 2,
+          "average_relevance": 0.762,
+          "best_rank": 5,
+          "momentum": -39.8,
+          "top_articles": [
+            {
+              "title": "苹果 Meta 破冰合作：两台 512GB 内存 Mac Studio 本地跑“美国最强开源 AI 模型”",
+              "url": "https://www.ithome.com/1/013/716.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.85,
+              "best_rank": 5,
+              "momentum": -77.3
+            },
+            {
+              "title": "苹果库克：AI 应用正迎来爆发式增长，在多个方面对供应链产生深远影响",
+              "url": "https://www.ithome.com/1/013/743.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.8,
+              "best_rank": 8,
+              "momentum": 0.0
+            },
+            {
+              "title": "特斯拉能飞：第二代 Roadster 预订意向金 33.2 万元起，马斯克宣布 2028 年量产",
+              "url": "https://www.ithome.com/1/013/748.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 5,
+              "momentum": -82.1
+            },
+            {
+              "title": "DeepSeek整合成立“产品部”",
+              "url": "https://www.baidu.com/s?wd=DeepSeek%E6%95%B4%E5%90%88%E6%88%90%E7%AB%8B%E2%80%9C%E4%BA%A7%E5%93%81%E9%83%A8%E2%80%9D",
+              "source": "百度热搜",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 25,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "推理加速与部署",
           "basis": "ai_filter",
           "article_count": 4,
           "source_count": 3,
-          "average_relevance": 0.763,
+          "average_relevance": 0.762,
           "best_rank": 5,
           "momentum": -30.3,
           "top_articles": [
@@ -319,51 +366,13 @@
           ]
         },
         {
-          "tag": "大厂AI战略",
-          "basis": "ai_filter",
-          "article_count": 3,
-          "source_count": 1,
-          "average_relevance": 0.783,
-          "best_rank": 5,
-          "momentum": -53.1,
-          "top_articles": [
-            {
-              "title": "苹果 Meta 破冰合作：两台 512GB 内存 Mac Studio 本地跑“美国最强开源 AI 模型”",
-              "url": "https://www.ithome.com/1/013/716.htm",
-              "source": "IT之家",
-              "date": "2026-10-16",
-              "relevance": 0.85,
-              "best_rank": 5,
-              "momentum": -77.3
-            },
-            {
-              "title": "苹果库克：AI 应用正迎来爆发式增长，在多个方面对供应链产生深远影响",
-              "url": "https://www.ithome.com/1/013/743.htm",
-              "source": "IT之家",
-              "date": "2026-10-16",
-              "relevance": 0.8,
-              "best_rank": 8,
-              "momentum": 0.0
-            },
-            {
-              "title": "特斯拉能飞：第二代 Roadster 预订意向金 33.2 万元起，马斯克宣布 2028 年量产",
-              "url": "https://www.ithome.com/1/013/748.htm",
-              "source": "IT之家",
-              "date": "2026-10-16",
-              "relevance": 0.7,
-              "best_rank": 5,
-              "momentum": -82.1
-            }
-          ]
-        },
-        {
           "tag": "AI测试与评估",
           "basis": "ai_filter",
           "article_count": 2,
           "source_count": 1,
           "average_relevance": 0.9,
           "best_rank": 22,
-          "momentum": 17.9,
+          "momentum": 12.6,
           "top_articles": [
             {
               "title": "货拉拉业务 Agent 评测平台的工程实践与深度思考",
@@ -372,7 +381,7 @@
               "date": "2026-10-16",
               "relevance": 0.95,
               "best_rank": 24,
-              "momentum": 17.2
+              "momentum": 10.3
             },
             {
               "title": "面试官问你，你会的 AI 都能做了，公司为什么还需要你",
@@ -381,7 +390,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 22,
-              "momentum": 18.5
+              "momentum": 14.8
             }
           ]
         },
@@ -449,8 +458,8 @@
           "article_count": 1,
           "source_count": 1,
           "average_relevance": 0.7,
-          "best_rank": 17,
-          "momentum": 15.0,
+          "best_rank": 16,
+          "momentum": 20.0,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -458,8 +467,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.7,
-              "best_rank": 17,
-              "momentum": 15.0
+              "best_rank": 16,
+              "momentum": 20.0
             }
           ]
         }
@@ -472,7 +481,7 @@
       "start_date": "2026-10-10",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 5242,
+      "article_count": 5296,
       "sources": [
         "IT之家",
         "V2EX",
@@ -493,7 +502,7 @@
           "source_count": 11,
           "average_relevance": 0.764,
           "best_rank": 1,
-          "momentum": -38.8,
+          "momentum": -38.9,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -655,11 +664,11 @@
         {
           "tag": "大厂AI战略",
           "basis": "ai_filter",
-          "article_count": 43,
+          "article_count": 44,
           "source_count": 6,
           "average_relevance": 0.717,
           "best_rank": 1,
-          "momentum": -37.5,
+          "momentum": -36.6,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -1157,7 +1166,7 @@
           "source_count": 4,
           "average_relevance": 0.817,
           "best_rank": 1,
-          "momentum": -19.9,
+          "momentum": -21.1,
           "top_articles": [
             {
               "title": "货拉拉业务 Agent 评测平台的工程实践与深度思考",
@@ -1166,7 +1175,7 @@
               "date": "2026-10-16",
               "relevance": 0.95,
               "best_rank": 24,
-              "momentum": 17.2
+              "momentum": 10.3
             },
             {
               "title": "LLM 驱动的自动化测试系列（09）：移动端自动化（五）——当通用 Agent 框架下沉到测试场景",
@@ -1193,7 +1202,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 22,
-              "momentum": 18.5
+              "momentum": 14.8
             },
             {
               "title": "2026年APP自动化测试工具大全,12款主流工具一次看懂",
@@ -1404,7 +1413,7 @@
           "basis": "ai_filter",
           "article_count": 8,
           "source_count": 3,
-          "average_relevance": 0.737,
+          "average_relevance": 0.738,
           "best_rank": 1,
           "momentum": -23.0,
           "top_articles": [
@@ -1892,8 +1901,8 @@
           "article_count": 1,
           "source_count": 1,
           "average_relevance": 0.7,
-          "best_rank": 17,
-          "momentum": 15.0,
+          "best_rank": 16,
+          "momentum": 20.0,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -1901,8 +1910,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.7,
-              "best_rank": 17,
-              "momentum": 15.0
+              "best_rank": 16,
+              "momentum": 20.0
             }
           ]
         }
@@ -1915,7 +1924,7 @@
       "start_date": "2026-09-17",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 5242,
+      "article_count": 5296,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1936,7 +1945,7 @@
           "source_count": 11,
           "average_relevance": 0.764,
           "best_rank": 1,
-          "momentum": -38.8,
+          "momentum": -38.9,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -2098,11 +2107,11 @@
         {
           "tag": "大厂AI战略",
           "basis": "ai_filter",
-          "article_count": 43,
+          "article_count": 44,
           "source_count": 6,
           "average_relevance": 0.717,
           "best_rank": 1,
-          "momentum": -37.5,
+          "momentum": -36.6,
           "top_articles": [
             {
               "title": "苹果中国版AI定档12月，将随iOS 27.3更新上线",
@@ -2600,7 +2609,7 @@
           "source_count": 4,
           "average_relevance": 0.817,
           "best_rank": 1,
-          "momentum": -19.9,
+          "momentum": -21.1,
           "top_articles": [
             {
               "title": "货拉拉业务 Agent 评测平台的工程实践与深度思考",
@@ -2609,7 +2618,7 @@
               "date": "2026-10-16",
               "relevance": 0.95,
               "best_rank": 24,
-              "momentum": 17.2
+              "momentum": 10.3
             },
             {
               "title": "LLM 驱动的自动化测试系列（09）：移动端自动化（五）——当通用 Agent 框架下沉到测试场景",
@@ -2636,7 +2645,7 @@
               "date": "2026-10-16",
               "relevance": 0.85,
               "best_rank": 22,
-              "momentum": 18.5
+              "momentum": 14.8
             },
             {
               "title": "2026年APP自动化测试工具大全,12款主流工具一次看懂",
@@ -2847,7 +2856,7 @@
           "basis": "ai_filter",
           "article_count": 8,
           "source_count": 3,
-          "average_relevance": 0.737,
+          "average_relevance": 0.738,
           "best_rank": 1,
           "momentum": -23.0,
           "top_articles": [
@@ -3335,8 +3344,8 @@
           "article_count": 1,
           "source_count": 1,
           "average_relevance": 0.7,
-          "best_rank": 17,
-          "momentum": 15.0,
+          "best_rank": 16,
+          "momentum": 20.0,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -3344,8 +3353,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.7,
-              "best_rank": 17,
-              "momentum": 15.0
+              "best_rank": 16,
+              "momentum": 20.0
             }
           ]
         }
