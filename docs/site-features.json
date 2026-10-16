@@ -1,0 +1,9 @@
+{
+  "environment": "production",
+  "features": {
+    "speech": false,
+    "trends": false,
+    "status": false,
+    "sources": false
+  }
+}
