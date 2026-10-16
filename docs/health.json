@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T07:01:21.084428+00:00",
+  "generated_at": "2026-10-16T07:47:55.845360+00:00",
   "overall_status": "healthy",
   "collection": {
     "last_started_at": "2026-10-16T14:59:46+08:00",
@@ -19,10 +19,10 @@
     "reason": "delivered"
   },
   "publish": {
-    "last_attempt_at": "2026-10-16T13:59:45+08:00",
-    "last_success_at": "2026-10-16T13:59:45+08:00",
+    "last_attempt_at": "2026-10-16T15:01:24+08:00",
+    "last_success_at": "2026-10-16T15:01:24+08:00",
     "status": "success",
-    "commit": "06011c398f3b"
+    "commit": "e4179c31d475"
   },
   "schedule": {
     "interval_minutes": 60,
@@ -30,7 +30,7 @@
   },
   "source_pilot": {
     "configured": true,
-    "generated_at": "2026-10-16T14:29:01+08:00",
+    "generated_at": "2026-10-16T15:29:10+08:00",
     "status": "observing",
     "sources": [
       {
