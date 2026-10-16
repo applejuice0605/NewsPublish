@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T03:57:31.241641+00:00",
+  "generated_at": "2026-10-16T04:58:37.954665+00:00",
   "as_of": "2026-10-16",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-16",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 664,
+      "article_count": 719,
       "sources": [
         "IT之家",
         "V2EX",
@@ -17,6 +17,7 @@
         "今日头条",
         "华尔街见闻",
         "掘金",
+        "澎湃新闻",
         "百度热搜",
         "知乎"
       ],
@@ -28,7 +29,7 @@
           "source_count": 8,
           "average_relevance": 0.838,
           "best_rank": 2,
-          "momentum": -29.4,
+          "momentum": -30.9,
           "top_articles": [
             {
               "title": "给大模型装上“一双耳朵”：小米开源空间音频理解大模型 MiDashengLM-Spatial",
@@ -46,7 +47,16 @@
               "date": "2026-10-16",
               "relevance": 0.95,
               "best_rank": 28,
-              "momentum": -3.3
+              "momentum": 3.4
+            },
+            {
+              "title": "DeepSeek宕机5小时：一上新就崩？影响有多大？",
+              "url": "https://www.thepaper.cn/newsDetail_forward_34257535",
+              "source": "澎湃新闻",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 2,
+              "momentum": 90.0
             },
             {
               "title": "Meta 首席 AI 官汪滔：不会开源最强模型，但会继续发布优秀开源模型",
@@ -91,16 +101,7 @@
               "date": "2026-10-16",
               "relevance": 0.9,
               "best_rank": 15,
-              "momentum": -16.7
-            },
-            {
-              "title": "在 OpenAI 擅长的领域打败 OpenAI：微软称自研模型仅凭对方 1/4 算力就超越同类产品",
-              "url": "https://www.ithome.com/1/013/761.htm",
-              "source": "IT之家",
-              "date": "2026-10-16",
-              "relevance": 0.9,
-              "best_rank": 16,
-              "momentum": 0.0
+              "momentum": -21.1
             }
           ]
         },
@@ -111,7 +112,7 @@
           "source_count": 4,
           "average_relevance": 0.668,
           "best_rank": 3,
-          "momentum": -35.9,
+          "momentum": -34.6,
           "top_articles": [
             {
               "title": "70 美金的 Beyond Compare，我让 Gemini 4 和 DeepSeek 造个开源免费版（Day 2）",
@@ -137,8 +138,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.75,
-              "best_rank": 22,
-              "momentum": 4.3
+              "best_rank": 20,
+              "momentum": 13.0
             },
             {
               "title": "怎么感觉最近 codex 的速度那么慢啊",
@@ -183,7 +184,7 @@
               "date": "2026-10-16",
               "relevance": 0.6,
               "best_rank": 13,
-              "momentum": -38.1
+              "momentum": -43.5
             }
           ]
         },
@@ -194,7 +195,7 @@
           "source_count": 4,
           "average_relevance": 0.814,
           "best_rank": 1,
-          "momentum": -19.3,
+          "momentum": -28.4,
           "top_articles": [
             {
               "title": "英伟达黄仁勋称 AI 芯片需求持续超过供应能力：几乎每天都有新订单涌入",
@@ -239,7 +240,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 8,
-              "momentum": 0.0
+              "momentum": -63.6
             },
             {
               "title": "国内一半AI算力被指在造爽剧，用于研发仅15%",
@@ -347,13 +348,42 @@
           ]
         },
         {
+          "tag": "AI测试与评估",
+          "basis": "ai_filter",
+          "article_count": 2,
+          "source_count": 1,
+          "average_relevance": 0.9,
+          "best_rank": 27,
+          "momentum": 0.0,
+          "top_articles": [
+            {
+              "title": "货拉拉业务 Agent 评测平台的工程实践与深度思考",
+              "url": "https://juejin.cn/post/7696029445103255606",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.95,
+              "best_rank": 29,
+              "momentum": 0.0
+            },
+            {
+              "title": "面试官问你，你会的 AI 都能做了，公司为什么还需要你",
+              "url": "https://juejin.cn/post/7696448963306356746",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.85,
+              "best_rank": 27,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "MCP协议与基础设施",
           "basis": "ai_filter",
           "article_count": 2,
           "source_count": 2,
           "average_relevance": 0.825,
           "best_rank": 3,
-          "momentum": -37.8,
+          "momentum": -33.9,
           "top_articles": [
             {
               "title": "做了个开源 macOS 应用 Luti：让网页版 Claude / ChatGPT / Grok / Gemini / Muse 等通过 MCP 直接操作本地项目",
@@ -370,8 +400,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.8,
-              "best_rank": 23,
-              "momentum": 11.5
+              "best_rank": 21,
+              "momentum": 19.2
             }
           ]
         },
@@ -410,8 +440,8 @@
           "article_count": 1,
           "source_count": 1,
           "average_relevance": 0.7,
-          "best_rank": 20,
-          "momentum": -4.8,
+          "best_rank": 19,
+          "momentum": 5.0,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -419,8 +449,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.7,
-              "best_rank": 20,
-              "momentum": -4.8
+              "best_rank": 19,
+              "momentum": 5.0
             }
           ]
         }
@@ -433,7 +463,7 @@
       "start_date": "2026-10-10",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 5038,
+      "article_count": 5093,
       "sources": [
         "IT之家",
         "V2EX",
@@ -454,7 +484,7 @@
           "source_count": 11,
           "average_relevance": 0.764,
           "best_rank": 1,
-          "momentum": -38.9,
+          "momentum": -39.2,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -537,7 +567,7 @@
           "source_count": 5,
           "average_relevance": 0.724,
           "best_rank": 1,
-          "momentum": -39.8,
+          "momentum": -39.6,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -1112,6 +1142,89 @@
           ]
         },
         {
+          "tag": "AI测试与评估",
+          "basis": "ai_filter",
+          "article_count": 9,
+          "source_count": 4,
+          "average_relevance": 0.817,
+          "best_rank": 1,
+          "momentum": -23.9,
+          "top_articles": [
+            {
+              "title": "货拉拉业务 Agent 评测平台的工程实践与深度思考",
+              "url": "https://juejin.cn/post/7696029445103255606",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.95,
+              "best_rank": 29,
+              "momentum": 0.0
+            },
+            {
+              "title": "LLM 驱动的自动化测试系列（09）：移动端自动化（五）——当通用 Agent 框架下沉到测试场景",
+              "url": "https://juejin.cn/post/7694917909773271074",
+              "source": "掘金",
+              "date": "2026-10-13",
+              "relevance": 0.9,
+              "best_rank": 19,
+              "momentum": 17.2
+            },
+            {
+              "title": "我测试出 Jev 的一个实用方向：给 AI Agent 做事实质检，进一步用在 RAG 核查",
+              "url": "https://www.v2ex.com/t/1248392",
+              "source": "V2EX",
+              "date": "2026-10-13",
+              "relevance": 0.85,
+              "best_rank": 7,
+              "momentum": -73.1
+            },
+            {
+              "title": "面试官问你，你会的 AI 都能做了，公司为什么还需要你",
+              "url": "https://juejin.cn/post/7696448963306356746",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.85,
+              "best_rank": 27,
+              "momentum": 0.0
+            },
+            {
+              "title": "2026年APP自动化测试工具大全,12款主流工具一次看懂",
+              "url": "https://juejin.cn/post/7695250888260878376",
+              "source": "掘金",
+              "date": "2026-10-14",
+              "relevance": 0.85,
+              "best_rank": 28,
+              "momentum": -3.3
+            },
+            {
+              "title": "使用 ai 进行测试的疑问",
+              "url": "https://www.v2ex.com/t/1248370",
+              "source": "V2EX",
+              "date": "2026-10-13",
+              "relevance": 0.8,
+              "best_rank": 3,
+              "momentum": -85.0
+            },
+            {
+              "title": "AI 挖掘的漏洞报告存在误报，华为终端安全奖励计划要求提交前进行人工分析和验证",
+              "url": "https://www.ithome.com/1/013/049.htm",
+              "source": "IT之家",
+              "date": "2026-10-14",
+              "relevance": 0.75,
+              "best_rank": 9,
+              "momentum": -52.6
+            },
+            {
+              "title": "如何评价老干妈引入 AI 用于检验辣椒品质，将 600 人生产线减至 48 人？AI 能给食品制造业带来啥改变？",
+              "url": "https://www.zhihu.com/question/2093427934316814825",
+              "source": "知乎",
+              "date": "2026-10-14",
+              "relevance": 0.7,
+              "best_rank": 1,
+              "momentum": 75.0
+            }
+          ]
+        },
+        {
           "tag": "开发者工具链",
           "basis": "ai_filter",
           "article_count": 8,
@@ -1284,7 +1397,7 @@
           "source_count": 4,
           "average_relevance": 0.814,
           "best_rank": 1,
-          "momentum": -19.3,
+          "momentum": -28.4,
           "top_articles": [
             {
               "title": "英伟达黄仁勋称 AI 芯片需求持续超过供应能力：几乎每天都有新订单涌入",
@@ -1329,7 +1442,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 8,
-              "momentum": 0.0
+              "momentum": -63.6
             },
             {
               "title": "国内一半AI算力被指在造爽剧，用于研发仅15%",
@@ -1348,80 +1461,6 @@
               "relevance": 0.7,
               "best_rank": 10,
               "momentum": 0.0
-            }
-          ]
-        },
-        {
-          "tag": "AI测试与评估",
-          "basis": "ai_filter",
-          "article_count": 7,
-          "source_count": 4,
-          "average_relevance": 0.793,
-          "best_rank": 1,
-          "momentum": -30.7,
-          "top_articles": [
-            {
-              "title": "LLM 驱动的自动化测试系列（09）：移动端自动化（五）——当通用 Agent 框架下沉到测试场景",
-              "url": "https://juejin.cn/post/7694917909773271074",
-              "source": "掘金",
-              "date": "2026-10-13",
-              "relevance": 0.9,
-              "best_rank": 19,
-              "momentum": 17.2
-            },
-            {
-              "title": "我测试出 Jev 的一个实用方向：给 AI Agent 做事实质检，进一步用在 RAG 核查",
-              "url": "https://www.v2ex.com/t/1248392",
-              "source": "V2EX",
-              "date": "2026-10-13",
-              "relevance": 0.85,
-              "best_rank": 7,
-              "momentum": -73.1
-            },
-            {
-              "title": "2026年APP自动化测试工具大全,12款主流工具一次看懂",
-              "url": "https://juejin.cn/post/7695250888260878376",
-              "source": "掘金",
-              "date": "2026-10-14",
-              "relevance": 0.85,
-              "best_rank": 28,
-              "momentum": -3.3
-            },
-            {
-              "title": "使用 ai 进行测试的疑问",
-              "url": "https://www.v2ex.com/t/1248370",
-              "source": "V2EX",
-              "date": "2026-10-13",
-              "relevance": 0.8,
-              "best_rank": 3,
-              "momentum": -85.0
-            },
-            {
-              "title": "AI 挖掘的漏洞报告存在误报，华为终端安全奖励计划要求提交前进行人工分析和验证",
-              "url": "https://www.ithome.com/1/013/049.htm",
-              "source": "IT之家",
-              "date": "2026-10-14",
-              "relevance": 0.75,
-              "best_rank": 9,
-              "momentum": -52.6
-            },
-            {
-              "title": "如何评价老干妈引入 AI 用于检验辣椒品质，将 600 人生产线减至 48 人？AI 能给食品制造业带来啥改变？",
-              "url": "https://www.zhihu.com/question/2093427934316814825",
-              "source": "知乎",
-              "date": "2026-10-14",
-              "relevance": 0.7,
-              "best_rank": 1,
-              "momentum": 75.0
-            },
-            {
-              "title": "天塌了啊, ai 反复测试, 确认可以发布, 结果",
-              "url": "https://www.v2ex.com/t/1248665",
-              "source": "V2EX",
-              "date": "2026-10-14",
-              "relevance": 0.7,
-              "best_rank": 2,
-              "momentum": -93.3
             }
           ]
         },
@@ -1611,7 +1650,7 @@
           "source_count": 2,
           "average_relevance": 0.825,
           "best_rank": 3,
-          "momentum": -37.8,
+          "momentum": -33.9,
           "top_articles": [
             {
               "title": "做了个开源 macOS 应用 Luti：让网页版 Claude / ChatGPT / Grok / Gemini / Muse 等通过 MCP 直接操作本地项目",
@@ -1628,8 +1667,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.8,
-              "best_rank": 23,
-              "momentum": 11.5
+              "best_rank": 21,
+              "momentum": 19.2
             }
           ]
         },
@@ -1835,8 +1874,8 @@
           "article_count": 1,
           "source_count": 1,
           "average_relevance": 0.7,
-          "best_rank": 20,
-          "momentum": -4.8,
+          "best_rank": 19,
+          "momentum": 5.0,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -1844,8 +1883,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.7,
-              "best_rank": 20,
-              "momentum": -4.8
+              "best_rank": 19,
+              "momentum": 5.0
             }
           ]
         }
@@ -1858,7 +1897,7 @@
       "start_date": "2026-09-17",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 5038,
+      "article_count": 5093,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1879,7 +1918,7 @@
           "source_count": 11,
           "average_relevance": 0.764,
           "best_rank": 1,
-          "momentum": -38.9,
+          "momentum": -39.2,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -1962,7 +2001,7 @@
           "source_count": 5,
           "average_relevance": 0.724,
           "best_rank": 1,
-          "momentum": -39.8,
+          "momentum": -39.6,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -2537,6 +2576,89 @@
           ]
         },
         {
+          "tag": "AI测试与评估",
+          "basis": "ai_filter",
+          "article_count": 9,
+          "source_count": 4,
+          "average_relevance": 0.817,
+          "best_rank": 1,
+          "momentum": -23.9,
+          "top_articles": [
+            {
+              "title": "货拉拉业务 Agent 评测平台的工程实践与深度思考",
+              "url": "https://juejin.cn/post/7696029445103255606",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.95,
+              "best_rank": 29,
+              "momentum": 0.0
+            },
+            {
+              "title": "LLM 驱动的自动化测试系列（09）：移动端自动化（五）——当通用 Agent 框架下沉到测试场景",
+              "url": "https://juejin.cn/post/7694917909773271074",
+              "source": "掘金",
+              "date": "2026-10-13",
+              "relevance": 0.9,
+              "best_rank": 19,
+              "momentum": 17.2
+            },
+            {
+              "title": "我测试出 Jev 的一个实用方向：给 AI Agent 做事实质检，进一步用在 RAG 核查",
+              "url": "https://www.v2ex.com/t/1248392",
+              "source": "V2EX",
+              "date": "2026-10-13",
+              "relevance": 0.85,
+              "best_rank": 7,
+              "momentum": -73.1
+            },
+            {
+              "title": "面试官问你，你会的 AI 都能做了，公司为什么还需要你",
+              "url": "https://juejin.cn/post/7696448963306356746",
+              "source": "掘金",
+              "date": "2026-10-16",
+              "relevance": 0.85,
+              "best_rank": 27,
+              "momentum": 0.0
+            },
+            {
+              "title": "2026年APP自动化测试工具大全,12款主流工具一次看懂",
+              "url": "https://juejin.cn/post/7695250888260878376",
+              "source": "掘金",
+              "date": "2026-10-14",
+              "relevance": 0.85,
+              "best_rank": 28,
+              "momentum": -3.3
+            },
+            {
+              "title": "使用 ai 进行测试的疑问",
+              "url": "https://www.v2ex.com/t/1248370",
+              "source": "V2EX",
+              "date": "2026-10-13",
+              "relevance": 0.8,
+              "best_rank": 3,
+              "momentum": -85.0
+            },
+            {
+              "title": "AI 挖掘的漏洞报告存在误报，华为终端安全奖励计划要求提交前进行人工分析和验证",
+              "url": "https://www.ithome.com/1/013/049.htm",
+              "source": "IT之家",
+              "date": "2026-10-14",
+              "relevance": 0.75,
+              "best_rank": 9,
+              "momentum": -52.6
+            },
+            {
+              "title": "如何评价老干妈引入 AI 用于检验辣椒品质，将 600 人生产线减至 48 人？AI 能给食品制造业带来啥改变？",
+              "url": "https://www.zhihu.com/question/2093427934316814825",
+              "source": "知乎",
+              "date": "2026-10-14",
+              "relevance": 0.7,
+              "best_rank": 1,
+              "momentum": 75.0
+            }
+          ]
+        },
+        {
           "tag": "开发者工具链",
           "basis": "ai_filter",
           "article_count": 8,
@@ -2709,7 +2831,7 @@
           "source_count": 4,
           "average_relevance": 0.814,
           "best_rank": 1,
-          "momentum": -19.3,
+          "momentum": -28.4,
           "top_articles": [
             {
               "title": "英伟达黄仁勋称 AI 芯片需求持续超过供应能力：几乎每天都有新订单涌入",
@@ -2754,7 +2876,7 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 8,
-              "momentum": 0.0
+              "momentum": -63.6
             },
             {
               "title": "国内一半AI算力被指在造爽剧，用于研发仅15%",
@@ -2773,80 +2895,6 @@
               "relevance": 0.7,
               "best_rank": 10,
               "momentum": 0.0
-            }
-          ]
-        },
-        {
-          "tag": "AI测试与评估",
-          "basis": "ai_filter",
-          "article_count": 7,
-          "source_count": 4,
-          "average_relevance": 0.793,
-          "best_rank": 1,
-          "momentum": -30.7,
-          "top_articles": [
-            {
-              "title": "LLM 驱动的自动化测试系列（09）：移动端自动化（五）——当通用 Agent 框架下沉到测试场景",
-              "url": "https://juejin.cn/post/7694917909773271074",
-              "source": "掘金",
-              "date": "2026-10-13",
-              "relevance": 0.9,
-              "best_rank": 19,
-              "momentum": 17.2
-            },
-            {
-              "title": "我测试出 Jev 的一个实用方向：给 AI Agent 做事实质检，进一步用在 RAG 核查",
-              "url": "https://www.v2ex.com/t/1248392",
-              "source": "V2EX",
-              "date": "2026-10-13",
-              "relevance": 0.85,
-              "best_rank": 7,
-              "momentum": -73.1
-            },
-            {
-              "title": "2026年APP自动化测试工具大全,12款主流工具一次看懂",
-              "url": "https://juejin.cn/post/7695250888260878376",
-              "source": "掘金",
-              "date": "2026-10-14",
-              "relevance": 0.85,
-              "best_rank": 28,
-              "momentum": -3.3
-            },
-            {
-              "title": "使用 ai 进行测试的疑问",
-              "url": "https://www.v2ex.com/t/1248370",
-              "source": "V2EX",
-              "date": "2026-10-13",
-              "relevance": 0.8,
-              "best_rank": 3,
-              "momentum": -85.0
-            },
-            {
-              "title": "AI 挖掘的漏洞报告存在误报，华为终端安全奖励计划要求提交前进行人工分析和验证",
-              "url": "https://www.ithome.com/1/013/049.htm",
-              "source": "IT之家",
-              "date": "2026-10-14",
-              "relevance": 0.75,
-              "best_rank": 9,
-              "momentum": -52.6
-            },
-            {
-              "title": "如何评价老干妈引入 AI 用于检验辣椒品质，将 600 人生产线减至 48 人？AI 能给食品制造业带来啥改变？",
-              "url": "https://www.zhihu.com/question/2093427934316814825",
-              "source": "知乎",
-              "date": "2026-10-14",
-              "relevance": 0.7,
-              "best_rank": 1,
-              "momentum": 75.0
-            },
-            {
-              "title": "天塌了啊, ai 反复测试, 确认可以发布, 结果",
-              "url": "https://www.v2ex.com/t/1248665",
-              "source": "V2EX",
-              "date": "2026-10-14",
-              "relevance": 0.7,
-              "best_rank": 2,
-              "momentum": -93.3
             }
           ]
         },
@@ -3036,7 +3084,7 @@
           "source_count": 2,
           "average_relevance": 0.825,
           "best_rank": 3,
-          "momentum": -37.8,
+          "momentum": -33.9,
           "top_articles": [
             {
               "title": "做了个开源 macOS 应用 Luti：让网页版 Claude / ChatGPT / Grok / Gemini / Muse 等通过 MCP 直接操作本地项目",
@@ -3053,8 +3101,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.8,
-              "best_rank": 23,
-              "momentum": 11.5
+              "best_rank": 21,
+              "momentum": 19.2
             }
           ]
         },
@@ -3260,8 +3308,8 @@
           "article_count": 1,
           "source_count": 1,
           "average_relevance": 0.7,
-          "best_rank": 20,
-          "momentum": -4.8,
+          "best_rank": 19,
+          "momentum": 5.0,
           "top_articles": [
             {
               "title": "聊聊Agent的记忆系统如何设计",
@@ -3269,8 +3317,8 @@
               "source": "掘金",
               "date": "2026-10-16",
               "relevance": 0.7,
-              "best_rank": 20,
-              "momentum": -4.8
+              "best_rank": 19,
+              "momentum": 5.0
             }
           ]
         }
