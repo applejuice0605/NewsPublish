@@ -22,12 +22,28 @@ ROUTE_FILES = {
 }
 
 FAVICON_HTML = (
-    '<link rel="icon" type="image/png" href="/assets/newsradar.png">'
-    '<link rel="apple-touch-icon" href="/assets/newsradar.png">'
+    '<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">'
+    '<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">'
 )
 POWERED_BY_HTML = (
     'Powered by <a href="https://github.com/applejuice0605/NewsRadar.git" '
     'target="_blank" rel="noopener noreferrer" class="footer-link project-name">NewsRadar</a>'
+)
+WORDMARK_HTML = (
+    '<img class="header-brand" src="/assets/brand/newsradar-wordmark.png" alt="NewsRadar">'
+)
+WORDMARK_STYLE = (
+    '<style id="newsradar-brand-style">'
+    '.header-brand{display:block;width:clamp(180px,28vw,300px);height:auto;margin:0;position:absolute;'
+    'top:72px;left:52px;z-index:2;filter:drop-shadow(5px 5px 0 #1a1a1a)}'
+    '@media(max-width:480px){.header-brand{width:min(190px,62vw);position:relative;top:auto;left:auto;'
+    'margin:54px 0 8px}}'
+    '</style>'
+)
+SOCIAL_IMAGE_HTML = (
+    '<meta property="og:image" content="https://newsradar.ccwu.cc/assets/brand/newsradar-share-1200x630.png">'
+    '<meta property="og:image:width" content="1200">'
+    '<meta property="og:image:height" content="630">'
 )
 
 
@@ -50,8 +66,32 @@ def remove_anchor(content: str, route: str) -> str:
 def apply_features(site_dir: Path, environment: str, switches: dict[str, bool]) -> None:
     for html_path in site_dir.rglob("*.html"):
         content = html_path.read_text(encoding="utf-8")
-        if "/assets/newsradar.png" not in content and "</head>" in content:
+        content = re.sub(
+            r'<link rel="icon"[^>]*href="/assets/newsradar\.png">',
+            '<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">',
+            content,
+            flags=re.IGNORECASE,
+        )
+        content = re.sub(
+            r'<link rel="apple-touch-icon"[^>]*href="/assets/newsradar\.png">',
+            '<link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">',
+            content,
+            flags=re.IGNORECASE,
+        )
+        content = re.sub(
+            r'<meta property="og:image"[^>]*>',
+            '<meta property="og:image" content="https://newsradar.ccwu.cc/assets/brand/newsradar-share-1200x630.png">',
+            content,
+            count=1,
+            flags=re.IGNORECASE,
+        )
+        if "/assets/brand/favicon-32.png" not in content and "</head>" in content:
             content = content.replace("</head>", f"{FAVICON_HTML}</head>", 1)
+        if 'property="og:image"' not in content and "</head>" in content:
+            content = content.replace("</head>", f"{SOCIAL_IMAGE_HTML}</head>", 1)
+        if 'class="header-title"' in content and 'class="header-brand"' not in content:
+            content = content.replace("</head>", f"{WORDMARK_STYLE}</head>", 1)
+            content = content.replace('<div class="header-title">', f'{WORDMARK_HTML}<div class="header-title">', 1)
         content = re.sub(
             r'由\s*<span class="project-name">TrendRadar</span>\s*生成\s*·\s*'
             r'<a href="https://github\.com/sansan0/TrendRadar"[^>]*>\s*GitHub 开源项目\s*</a>',

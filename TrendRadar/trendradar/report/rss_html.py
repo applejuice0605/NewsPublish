@@ -43,8 +43,8 @@ def render_rss_html_content(
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RSS 订阅内容</title>
-        <link rel="icon" type="image/png" href="/assets/newsradar.png">
-        <link rel="apple-touch-icon" href="/assets/newsradar.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <style>
             * { box-sizing: border-box; }

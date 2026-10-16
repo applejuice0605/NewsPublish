@@ -59,9 +59,13 @@ def render_html_content(
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>热点新闻趋势</title>
-        <link rel="icon" type="image/png" href="/assets/newsradar.png">
-        <link rel="apple-touch-icon" href="/assets/newsradar.png">
-        <meta property="og:image" content="/assets/newsradar.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/brand/favicon-16.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">
+        <link rel="icon" type="image/png" sizes="48x48" href="/assets/brand/favicon-48.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png">
+        <meta property="og:image" content="https://newsradar.ccwu.cc/assets/brand/newsradar-share-1200x630.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel="stylesheet" href="/assets/report-speech.css">
         <script src="/assets/report-speech.js" defer></script>
@@ -222,6 +226,18 @@ def render_html_content(
                 margin: 24px 0 30px 0;
                 position: relative;
                 z-index: 2;
+            }
+
+            .header-brand {
+                display: block;
+                width: clamp(180px, 28vw, 300px);
+                height: auto;
+                margin: 0;
+                position: absolute;
+                top: 72px;
+                left: 52px;
+                z-index: 2;
+                filter: drop-shadow(5px 5px 0 var(--comic-ink));
             }
 
             .header-info {
@@ -1907,6 +1923,13 @@ def render_html_content(
                 .header { padding: 24px 14px 26px; min-height: 250px; }
                 .header-watermark { font-size: clamp(28px, 10vw, 42px); }
                 .header-title { font-size: 19px; }
+                .header-brand {
+                    width: min(190px, 62vw);
+                    position: relative;
+                    top: auto;
+                    left: auto;
+                    margin: 54px 0 8px;
+                }
                 .header-info { gap: 8px; }
                 .info-item { padding: 8px 4px; }
                 .info-label { font-size: 10px; }
@@ -1944,6 +1967,7 @@ def render_html_content(
                         </div>
                     </div>
                 </div>
+                <img class="header-brand" src="/assets/brand/newsradar-wordmark.png" alt="NewsRadar">
                 <div class="header-title">热点新闻趋势</div>
                 <div class="header-info">"""
 

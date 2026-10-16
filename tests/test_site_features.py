@@ -17,7 +17,8 @@ SPEC.loader.exec_module(MODULE)
 HTML = """<!doctype html><html><head>
 <link rel="stylesheet" href="/assets/report-speech.css">
 <script src="/assets/report-speech.js" defer></script>
-</head><body><a href="/trends.html">趋势</a><a href="/status.html">状态</a>
+</head><body><div class="header"><div class="header-title">热点新闻趋势</div></div>
+<a href="/trends.html">趋势</a><a href="/status.html">状态</a>
 <a href="/sources.html">候选</a><a href="/archive.html">历史</a>
 <div class="footer">由 <span class="project-name">TrendRadar</span> 生成 ·
 <a href="https://github.com/sansan0/TrendRadar" target="_blank" class="footer-link">GitHub 开源项目</a></div>
@@ -50,7 +51,8 @@ class SiteFeatureTests(unittest.TestCase):
             self.assertNotIn("/status.html", page)
             self.assertNotIn("/sources.html", page)
             self.assertIn("/archive.html", page)
-            self.assertIn("/assets/newsradar.png", page)
+            self.assertIn("/assets/brand/favicon-32.png", page)
+            self.assertIn("newsradar-wordmark.png", page)
             self.assertIn("https://github.com/applejuice0605/NewsRadar.git", page)
             self.assertNotIn("GitHub 开源项目", page)
             self.assertFalse((site / "audio").exists())

@@ -689,7 +689,7 @@ def render_status_html(health: dict[str, Any], pilot: dict[str, Any]) -> str:
         details = "".join(f'<div><dt>{html.escape(str(name))}</dt><dd>{html.escape(_display(value))}</dd></div>' for name, value in rows)
         card_html.append(f'<section class="panel status-card"><p class="eyebrow">{eyebrow}</p><div class="card-head"><h2>{title}</h2><span class="badge {klass}">{html.escape(label)}</span></div><dl>{details}</dl></section>')
     return f"""<!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TrendRadar 运行状态</title><link rel="icon" type="image/png" href="/assets/newsradar.png"><link rel="apple-touch-icon" href="/assets/newsradar.png"><style>{_base_css()}
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TrendRadar 运行状态</title><link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png"><style>{_base_css()}
     .overview {{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:20px; background:var(--yellow); }}
     .overview h2 {{ margin-bottom:4px; font-size:clamp(24px,4vw,38px); }}
     .overview .badge {{ min-height:44px; font-size:18px; }}
@@ -704,7 +704,7 @@ def render_status_html(health: dict[str, Any], pilot: dict[str, Any]) -> str:
 
 def render_trends_html(trends: dict[str, Any]) -> str:
     return f"""<!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TrendRadar 趋势洞察</title><link rel="icon" type="image/png" href="/assets/newsradar.png"><link rel="apple-touch-icon" href="/assets/newsradar.png"><style>{_base_css()}
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TrendRadar 趋势洞察</title><link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png"><style>{_base_css()}
     .controls {{ display:grid; grid-template-columns:auto minmax(180px,1fr) minmax(160px,.55fr); gap:16px; align-items:end; margin-bottom:22px; background:var(--yellow); }}
     .range-switch {{ display:flex; gap:8px; flex-wrap:wrap; }} .range-switch button[aria-pressed="true"] {{ background:var(--blue); color:var(--white); }}
     label {{ display:grid; gap:5px; font-weight:900; }}
@@ -760,7 +760,7 @@ def render_sources_html(feed: dict[str, Any]) -> str:
             f'<h2>{html.escape(group["source"])}</h2></div><span class="badge">{len(group["items"])} 条</span></div>'
             f'<div class="source-items">{"".join(articles) or "<p>本轮没有可展示条目。</p>"}</div></section>'
         )
-    return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TrendRadar 候选源观察</title><link rel="icon" type="image/png" href="/assets/newsradar.png"><link rel="apple-touch-icon" href="/assets/newsradar.png"><style>{_base_css().rstrip()}
+    return f"""<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TrendRadar 候选源观察</title><link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png"><style>{_base_css().rstrip()}
     .notice {{ margin-bottom:20px; background:var(--yellow); }} .notice p {{ margin:6px 0 0; font-weight:800; }}
     .source-group {{ margin-bottom:22px; }} .source-head {{ display:flex; align-items:center; justify-content:space-between; gap:12px; }} .source-head h2 {{ margin:0; font-size:28px; overflow-wrap:anywhere; }}
     .source-items {{ margin-top:16px; }} .source-item {{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:14px; align-items:center; padding:12px 0; border-top:3px solid var(--ink); }}
