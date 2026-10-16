@@ -189,6 +189,14 @@ ai_analysis:
   include_rss: true
   include_standalone: false
   include_rank_timeline: true
+podcast:
+  enabled: false
+  voice: zh-CN-YunyangNeural
+  rate: +0%
+  volume: +0%
+  max_source_chars: 12000
+  max_script_chars: 4500
+  prompt_file: podcast_prompt.txt
 ai_translation:
   enabled: true
   language: 中文

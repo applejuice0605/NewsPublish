@@ -24,5 +24,5 @@ fi
 
 cd "$REPO_DIR"
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] starting isolated source pilot"
-python3 "$REPO_DIR/scripts/run_source_pilot.py"
+python3 "$REPO_DIR/scripts/run_source_pilot.py" >/dev/null
 echo "[$(date '+%Y-%m-%d %H:%M:%S')] finished isolated source pilot"

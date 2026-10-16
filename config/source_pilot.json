@@ -1,10 +1,31 @@
 {
+  "newsnow_api_url": "https://newsnow.busiyi.world/api/s",
   "sources": [
-    "huggingface",
-    "hackernews",
-    "github-trending-today",
-    "producthunt",
-    "36kr-quick"
+    {
+      "id": "huggingface",
+      "kind": "feed",
+      "url": "https://huggingface.co/blog/feed.xml"
+    },
+    {
+      "id": "hackernews",
+      "kind": "newsnow",
+      "source_id": "hackernews"
+    },
+    {
+      "id": "github-trending-today",
+      "kind": "newsnow",
+      "source_id": "github-trending-today"
+    },
+    {
+      "id": "producthunt",
+      "kind": "newsnow",
+      "source_id": "producthunt"
+    },
+    {
+      "id": "36kr-quick",
+      "kind": "feed",
+      "url": "https://rsshub.app/36kr/newsflashes"
+    }
   ],
   "interest_rules": [
     {

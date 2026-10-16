@@ -14,6 +14,7 @@ import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -53,12 +54,28 @@ def load_config(path: Path) -> dict[str, Any]:
     sources = config.get("sources")
     rules = config.get("interest_rules")
     thresholds = config.get("promotion_thresholds")
-    if not isinstance(sources, list) or not sources or not all(
-        isinstance(source, str) and source.strip() for source in sources
-    ):
-        raise ValueError("config sources must be a non-empty string array")
-    if len(set(sources)) != len(sources):
+    if not isinstance(sources, list) or not sources:
+        raise ValueError("config sources must be a non-empty array")
+    source_ids: list[str] = []
+    for source in sources:
+        if not isinstance(source, dict):
+            raise ValueError("each source must be an object")
+        source_id = source.get("id")
+        kind = source.get("kind")
+        if not isinstance(source_id, str) or not source_id.strip():
+            raise ValueError("each source needs a string id")
+        if kind not in {"newsnow", "feed"}:
+            raise ValueError(f"unsupported source kind for {source_id}")
+        if kind == "newsnow" and not isinstance(source.get("source_id"), str):
+            raise ValueError(f"newsnow source {source_id} needs source_id")
+        if kind == "feed" and not isinstance(source.get("url"), str):
+            raise ValueError(f"feed source {source_id} needs url")
+        source_ids.append(source_id)
+    if len(set(source_ids)) != len(source_ids):
         raise ValueError("config sources must not contain duplicates")
+    api_url = config.get("newsnow_api_url")
+    if not isinstance(api_url, str) or not api_url.strip():
+        raise ValueError("config newsnow_api_url must be a URL")
     if not isinstance(rules, list):
         raise ValueError("config interest_rules must be an array")
     for rule in rules:
@@ -167,7 +184,12 @@ def probe_source(
         request_url = build_request_url(endpoint, source)
         request = urllib.request.Request(
             request_url,
-            headers={"Accept": "application/json", "User-Agent": "NewsRadar-source-pilot/1"},
+            headers={
+                "Accept": "application/json, text/plain, */*",
+                "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+                "Cache-Control": "no-cache",
+                "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/130 Safari/537.36",
+            },
             method="GET",
         )
         with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
@@ -236,6 +258,122 @@ def probe_source(
             "items": extracted_items,
         }
     )
+    return result
+
+
+def _feed_text(element: ET.Element, names: tuple[str, ...]) -> str:
+    for child in element.iter():
+        local_name = child.tag.rsplit("}", 1)[-1].lower()
+        if local_name in names and child.text:
+            return child.text.strip()
+    return ""
+
+
+def _feed_link(element: ET.Element) -> str:
+    for child in element.iter():
+        if child.tag.rsplit("}", 1)[-1].lower() != "link":
+            continue
+        href = child.attrib.get("href", "").strip()
+        if href:
+            return href
+        if child.text:
+            return child.text.strip()
+    return ""
+
+
+def probe_feed(
+    source_id: str,
+    url: str,
+    rules: list[dict[str, Any]],
+    official_titles: set[str],
+) -> dict[str, Any]:
+    result: dict[str, Any] = {
+        "source": source_id,
+        "success": False,
+        "api_status": None,
+        "item_count": 0,
+        "interest_hit_count": 0,
+        "interest_hit_rate": 0.0,
+        "duplicate_count": 0,
+        "duplicate_rate": 0.0,
+        "items": [],
+    }
+    request = urllib.request.Request(
+        url,
+        headers={
+            "Accept": "application/rss+xml, application/atom+xml, application/xml, text/xml, */*",
+            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/130 Safari/537.36",
+        },
+        method="GET",
+    )
+    try:
+        with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS) as response:
+            body = response.read()
+        root = ET.fromstring(body)
+    except urllib.error.HTTPError as exc:
+        result.update(error="http_error", http_status=exc.code)
+        return result
+    except (urllib.error.URLError, TimeoutError):
+        result["error"] = "network_error"
+        return result
+    except (ET.ParseError, OSError, ValueError):
+        result["error"] = "invalid_feed"
+        return result
+
+    entries = [
+        element for element in root.iter()
+        if element.tag.rsplit("}", 1)[-1].lower() in {"item", "entry"}
+    ]
+    extracted_items: list[dict[str, Any]] = []
+    duplicate_count = 0
+    interest_hit_count = 0
+    for entry in entries[:50]:
+        title = _feed_text(entry, ("title",))
+        if not title:
+            continue
+        matches = interest_matches(title, rules)
+        duplicate = normalize_title(title) in official_titles
+        duplicate_count += int(duplicate)
+        interest_hit_count += int(bool(matches))
+        extracted_items.append(
+            {
+                "title": title,
+                "url": _feed_link(entry),
+                "interest_rules": matches,
+                "duplicate_in_official_news": duplicate,
+            }
+        )
+    item_count = len(extracted_items)
+    if not item_count:
+        result["error"] = "empty_feed"
+        return result
+    result.update(
+        success=True,
+        api_status="success",
+        item_count=item_count,
+        interest_hit_count=interest_hit_count,
+        interest_hit_rate=ratio(interest_hit_count, item_count),
+        duplicate_count=duplicate_count,
+        duplicate_rate=ratio(duplicate_count, item_count),
+        items=extracted_items,
+    )
+    return result
+
+
+def probe_configured_source(
+    endpoint: str,
+    source: dict[str, Any],
+    rules: list[dict[str, Any]],
+    official_titles: set[str],
+) -> dict[str, Any]:
+    if source["kind"] == "newsnow":
+        result = probe_source(endpoint, source["source_id"], rules, official_titles)
+        result["source"] = source["id"]
+        result["adapter"] = "newsnow"
+        return result
+    result = probe_feed(source["id"], source["url"], rules, official_titles)
+    result["adapter"] = "feed"
     return result
 
 
@@ -358,12 +496,15 @@ def main() -> int:
 
     now = datetime.now().astimezone()
     date = now.date().isoformat()
-    endpoint = os.environ.get("OMNITRENDS_API_URL", "").strip()
+    endpoint = os.environ.get("OMNITRENDS_API_URL", "").strip() or config[
+        "newsnow_api_url"
+    ].strip()
+    source_ids = [source["id"] for source in config["sources"]]
     common: dict[str, Any] = {
-        "schema_version": 1,
+        "schema_version": 2,
         "generated_at": now.isoformat(timespec="seconds"),
         "date": date,
-        "configured": bool(endpoint),
+        "configured": True,
         "dry_run": args.dry_run,
         "request_timeout_seconds": REQUEST_TIMEOUT_SECONDS,
         "interest_method": {
@@ -375,29 +516,15 @@ def main() -> int:
         "promotion_thresholds": config["promotion_thresholds"],
     }
 
-    if not endpoint:
-        payload = {
-            **common,
-            "reason": "OMNITRENDS_API_URL is not configured; no request was made",
-            "sources": [
-                {"source": source, "success": False, "status": "not_configured"}
-                for source in config["sources"]
-            ],
-        }
-        emit(payload)
-        if not args.dry_run:
-            write_json_atomic(OUTPUT_DIR / "latest.json", payload)
-        return 0
-
     try:
-        build_request_url(endpoint, config["sources"][0])
+        build_request_url(endpoint, "health-check")
     except ValueError as exc:
         print(f"source pilot endpoint error: {exc}", file=sys.stderr)
         return 2
 
     official_titles, official_metadata = load_official_titles(date)
     source_results = [
-        probe_source(endpoint, source, config["interest_rules"], official_titles)
+        probe_configured_source(endpoint, source, config["interest_rules"], official_titles)
         for source in config["sources"]
     ]
     current_snapshot = {
@@ -409,7 +536,7 @@ def main() -> int:
     history = load_history(date) + [current_snapshot]
     current_snapshot["recommendations"] = {
         source: recommendation(source, history, config["promotion_thresholds"])
-        for source in config["sources"]
+        for source in source_ids
     }
     emit(current_snapshot)
     if not args.dry_run:

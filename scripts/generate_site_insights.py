@@ -248,6 +248,9 @@ def build_public_pilot(raw: dict[str, Any] | None) -> dict[str, Any]:
             {
                 "source": source_id,
                 "success": _boolean(source.get("success")),
+                "adapter": source.get("adapter") if source.get("adapter") in {"newsnow", "feed"} else "unknown",
+                "error": source.get("error") if source.get("error") in {"http_error", "network_error", "invalid_json", "invalid_payload", "invalid_status", "invalid_items", "request_error", "invalid_feed", "empty_feed"} else None,
+                "http_status": _number(source.get("http_status"), integer=True),
                 "item_count": _number(source.get("item_count"), integer=True),
                 "interest_hit_rate": _number(source.get("interest_hit_rate")),
                 "duplicate_rate": _number(source.get("duplicate_rate")),
@@ -625,13 +628,24 @@ def render_status_html(health: dict[str, Any], pilot: dict[str, Any]) -> str:
         "promote": "可晋级",
     }
     pilot_label, pilot_class = pilot_labels.get(pilot["status"], (pilot["status"], "unknown"))
-    pilot_rows = [("最近探测", pilot["generated_at"]), ("候选源", len(pilot["sources"]))]
+    successful_sources = sum(source["success"] is True for source in pilot["sources"])
+    total_items = sum(source["item_count"] or 0 for source in pilot["sources"])
+    pilot_rows = [
+        ("最近探测", pilot["generated_at"]),
+        ("可用来源", f"{successful_sources} / {len(pilot['sources'])}"),
+        ("候选条目", total_items),
+    ]
     for source in pilot["sources"]:
-        detail = recommendation_labels.get(source["recommendation"], source["recommendation"])
+        state = "成功" if source["success"] is True else "失败" if source["success"] is False else "未知"
+        detail = f"{state} · {recommendation_labels.get(source['recommendation'], source['recommendation'])}"
         if source["sample_days"] is not None:
             detail += f" · {source['sample_days']} 天"
         if source["item_count"] is not None:
             detail += f" · {source['item_count']} 条"
+        if source["error"]:
+            detail += f" · {source['error']}"
+        if source["http_status"]:
+            detail += f" {source['http_status']}"
         pilot_rows.append((source["source"], detail))
     cards.append(("候选源灰度", "SOURCE PILOT", pilot_label, pilot_class, pilot_rows))
     card_html = []

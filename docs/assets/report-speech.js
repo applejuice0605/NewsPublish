@@ -177,7 +177,8 @@
   function panelMarkup() {
     return '<section class="speech-panel" aria-labelledby="speechPanelTitle">' +
       '<div class="speech-panel-head"><h2 class="speech-panel-title" id="speechPanelTitle">网页口播</h2>' +
-      '<span class="speech-badge">浏览器本地语音</span></div>' +
+      '<span class="speech-badge" id="speechBadge">浏览器本地语音</span></div>' +
+      '<div class="podcast-slot" id="podcastSlot" hidden></div>' +
       '<div class="speech-controls">' +
       '<label class="sr-only" for="speechScope">朗读范围</label>' +
       '<select class="speech-select" id="speechScope">' +
@@ -194,6 +195,42 @@
       '<option value="1.2">1.2×</option><option value="1.5">1.5×</option></select></div>' +
       '<p class="speech-status" id="speechStatus" role="status" aria-live="polite">选择范围后开始朗读，不会自动播放</p>' +
       '</section>';
+  }
+
+  function reportDateFromPath() {
+    var match = window.location.pathname.match(/\/reports\/(\d{4}-\d{2}-\d{2})\//);
+    return match ? match[1] : '';
+  }
+
+  function loadDailyPodcast() {
+    var slot = document.getElementById('podcastSlot');
+    if (!slot || !window.fetch) return;
+    fetch('/audio/latest.json', { cache: 'no-store' })
+      .then(function (response) {
+        if (!response.ok) throw new Error('unavailable');
+        return response.json();
+      })
+      .then(function (metadata) {
+        var reportDate = reportDateFromPath();
+        if (!metadata.audio_url || (reportDate && reportDate !== metadata.date)) return;
+        var title = document.createElement('strong');
+        title.className = 'podcast-title';
+        title.textContent = '今日 AI 新闻播客';
+        var audio = document.createElement('audio');
+        audio.className = 'podcast-audio';
+        audio.controls = true;
+        audio.preload = 'metadata';
+        audio.src = metadata.audio_url;
+        audio.setAttribute('aria-label', metadata.date + ' AI 新闻播客');
+        var meta = document.createElement('span');
+        meta.className = 'podcast-meta';
+        meta.textContent = metadata.date + ' · ' + (metadata.voice || '自然中文语音');
+        slot.replaceChildren(title, audio, meta);
+        slot.hidden = false;
+        var badge = document.getElementById('speechBadge');
+        if (badge) badge.textContent = 'AI 播客 + 浏览器朗读';
+      })
+      .catch(function () { /* Daily AI podcast is optional. */ });
   }
 
   function init() {
@@ -221,6 +258,7 @@
     synth.onvoiceschanged = function () { state.voice = preferredVoice(); };
     state.voice = preferredVoice();
     setButtons();
+    loadDailyPodcast();
   }
 
   window.addEventListener('pagehide', function () { synth.cancel(); });

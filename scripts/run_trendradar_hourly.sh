@@ -43,6 +43,14 @@ if [ "$RUN_STATUS" -ne 0 ]; then
 fi
 
 set +e
+(cd "$PROJECT_DIR" && "$UV_BIN" run python "$REPO_DIR/scripts/generate_daily_podcast.py")
+PODCAST_STATUS=$?
+set -e
+if [ "$PODCAST_STATUS" -ne 0 ]; then
+  echo "[$(date '+%Y-%m-%d %H:%M:%S')] daily podcast generation failed; report publishing will continue"
+fi
+
+set +e
 "$REPO_DIR/scripts/publish_reports_site.sh"
 PUBLISH_STATUS=$?
 set -e
