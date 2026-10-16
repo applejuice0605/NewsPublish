@@ -196,6 +196,7 @@ podcast:
   volume: +0%
   max_source_chars: 12000
   max_script_chars: 4500
+  retention_days: 90
   prompt_file: podcast_prompt.txt
 ai_translation:
   enabled: true

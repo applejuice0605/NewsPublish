@@ -8,9 +8,11 @@ import asyncio
 import hashlib
 import json
 import re
+import shutil
 import sys
 import tempfile
-from datetime import datetime
+from datetime import date as Date
+from datetime import datetime, timedelta
 from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
@@ -108,6 +110,34 @@ def voice_label(voice: str) -> str:
     return labels.get(voice, "自然中文语音")
 
 
+def cleanup_audio_history(output_root: Path, today: Date, retention_days: int) -> list[Path]:
+    if retention_days <= 0 or not output_root.exists():
+        return []
+    cutoff = today - timedelta(days=retention_days - 1)
+    removed: list[Path] = []
+    for child in output_root.iterdir():
+        if not child.is_dir():
+            continue
+        try:
+            directory_date = datetime.strptime(child.name, "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        if directory_date < cutoff:
+            shutil.rmtree(child)
+            removed.append(child)
+
+    latest_path = output_root / "latest.json"
+    if latest_path.is_file():
+        try:
+            latest = json.loads(latest_path.read_text(encoding="utf-8"))
+            latest_date = datetime.strptime(str(latest.get("date", "")), "%Y-%m-%d").date()
+            if latest_date < cutoff:
+                latest_path.unlink()
+        except (json.JSONDecodeError, ValueError):
+            pass
+    return removed
+
+
 async def synthesize(text: str, output: Path, voice: str, rate: str, volume: str) -> None:
     temporary = output.with_suffix(".tmp.mp3")
     await edge_tts.Communicate(text, voice=voice, rate=rate, volume=volume).save(str(temporary))
@@ -117,6 +147,12 @@ async def synthesize(text: str, output: Path, voice: str, rate: str, volume: str
 def main() -> int:
     args = parse_args()
     podcast, ai_config = load_podcast_config()
+    timezone = ZoneInfo("Asia/Shanghai")
+    now = datetime.now(timezone)
+    retention_days = int(podcast.get("retention_days", 90))
+    removed = cleanup_audio_history(OUTPUT_ROOT, now.date(), retention_days)
+    if removed:
+        print(f"[podcast] removed {len(removed)} audio directorie(s) older than {retention_days} days")
     if not podcast.get("enabled", False):
         print("[podcast] disabled")
         return 0
@@ -126,8 +162,6 @@ def main() -> int:
         return 0
 
     report_html = input_path.read_text(encoding="utf-8", errors="replace")
-    timezone = ZoneInfo("Asia/Shanghai")
-    now = datetime.now(timezone)
     if args.date:
         try:
             report_date = datetime.strptime(args.date, "%Y-%m-%d").date()
