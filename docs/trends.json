@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-16T04:58:37.954665+00:00",
+  "generated_at": "2026-10-16T05:59:42.988413+00:00",
   "as_of": "2026-10-16",
   "ranges": {
     "1": {
@@ -9,7 +9,7 @@
       "start_date": "2026-10-16",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 719,
+      "article_count": 755,
       "sources": [
         "IT之家",
         "V2EX",
@@ -25,11 +25,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 25,
+          "article_count": 26,
           "source_count": 8,
-          "average_relevance": 0.838,
+          "average_relevance": 0.833,
           "best_rank": 2,
-          "momentum": -30.9,
+          "momentum": -29.9,
           "top_articles": [
             {
               "title": "给大模型装上“一双耳朵”：小米开源空间音频理解大模型 MiDashengLM-Spatial",
@@ -112,7 +112,7 @@
           "source_count": 4,
           "average_relevance": 0.668,
           "best_rank": 3,
-          "momentum": -34.6,
+          "momentum": -35.7,
           "top_articles": [
             {
               "title": "70 美金的 Beyond Compare，我让 Gemini 4 和 DeepSeek 造个开源免费版（Day 2）",
@@ -184,18 +184,18 @@
               "date": "2026-10-16",
               "relevance": 0.6,
               "best_rank": 13,
-              "momentum": -43.5
+              "momentum": -55.2
             }
           ]
         },
         {
           "tag": "AI算力与云服务",
           "basis": "ai_filter",
-          "article_count": 7,
+          "article_count": 8,
           "source_count": 4,
-          "average_relevance": 0.814,
+          "average_relevance": 0.806,
           "best_rank": 1,
-          "momentum": -28.4,
+          "momentum": -25.9,
           "top_articles": [
             {
               "title": "英伟达黄仁勋称 AI 芯片需求持续超过供应能力：几乎每天都有新订单涌入",
@@ -240,7 +240,16 @@
               "date": "2026-10-16",
               "relevance": 0.8,
               "best_rank": 8,
-              "momentum": -63.6
+              "momentum": -72.4
+            },
+            {
+              "title": "Ternary Bonsai 2 系列 AI 模型登场：苹果 iPhone 18 Pro Max 上本地吞吐最高每秒 120 个词元",
+              "url": "https://www.ithome.com/1/013/894.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.75,
+              "best_rank": 1,
+              "momentum": 0.0
             },
             {
               "title": "国内一半AI算力被指在造爽剧，用于研发仅15%",
@@ -463,7 +472,7 @@
       "start_date": "2026-10-10",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 5093,
+      "article_count": 5129,
       "sources": [
         "IT之家",
         "V2EX",
@@ -480,11 +489,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 127,
+          "article_count": 128,
           "source_count": 11,
-          "average_relevance": 0.764,
+          "average_relevance": 0.763,
           "best_rank": 1,
-          "momentum": -39.2,
+          "momentum": -38.9,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -567,7 +576,7 @@
           "source_count": 5,
           "average_relevance": 0.724,
           "best_rank": 1,
-          "momentum": -39.6,
+          "momentum": -39.8,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -1225,6 +1234,89 @@
           ]
         },
         {
+          "tag": "AI算力与云服务",
+          "basis": "ai_filter",
+          "article_count": 8,
+          "source_count": 4,
+          "average_relevance": 0.806,
+          "best_rank": 1,
+          "momentum": -25.9,
+          "top_articles": [
+            {
+              "title": "英伟达黄仁勋称 AI 芯片需求持续超过供应能力：几乎每天都有新订单涌入",
+              "url": "https://www.ithome.com/1/013/721.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 1,
+              "momentum": -96.3
+            },
+            {
+              "title": "英伟达RTX Spark性能分析",
+              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
+              "source": "bilibili 热搜",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 2,
+              "momentum": -91.3
+            },
+            {
+              "title": "黄仁勋：CoreWeave融资成本在下降",
+              "url": "https://www.toutiao.com/trending/7697031576437132841/",
+              "source": "今日头条",
+              "date": "2026-10-16",
+              "relevance": 0.85,
+              "best_rank": 26,
+              "momentum": 0.0
+            },
+            {
+              "title": "CoreWeave违约概率超六成！黄仁勋“灭火”：融资成本在下降，无需英伟达兜底",
+              "url": "https://wallstreetcn.com/articles/3783724",
+              "source": "华尔街见闻",
+              "date": "2026-10-16",
+              "relevance": 0.8,
+              "best_rank": 6,
+              "momentum": 40.0
+            },
+            {
+              "title": "英伟达黄仁勋公开反驳 OpenAI 奥尔特曼观点：对 AI 网络安全必须“零容忍”",
+              "url": "https://www.ithome.com/1/013/808.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.8,
+              "best_rank": 8,
+              "momentum": -72.4
+            },
+            {
+              "title": "Ternary Bonsai 2 系列 AI 模型登场：苹果 iPhone 18 Pro Max 上本地吞吐最高每秒 120 个词元",
+              "url": "https://www.ithome.com/1/013/894.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.75,
+              "best_rank": 1,
+              "momentum": 0.0
+            },
+            {
+              "title": "国内一半AI算力被指在造爽剧，用于研发仅15%",
+              "url": "https://wallstreetcn.com/articles/3783720",
+              "source": "华尔街见闻",
+              "date": "2026-10-16",
+              "relevance": 0.75,
+              "best_rank": 7,
+              "momentum": 12.5
+            },
+            {
+              "title": "贝莱德CEO Larry Fink警告：AI基建已成美国经济支柱，暂停数据中心建设将触发衰退",
+              "url": "https://wallstreetcn.com/articles/3783674",
+              "source": "华尔街见闻",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 10,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "开发者工具链",
           "basis": "ai_filter",
           "article_count": 8,
@@ -1387,80 +1479,6 @@
               "relevance": 0.5,
               "best_rank": 18,
               "momentum": 37.9
-            }
-          ]
-        },
-        {
-          "tag": "AI算力与云服务",
-          "basis": "ai_filter",
-          "article_count": 7,
-          "source_count": 4,
-          "average_relevance": 0.814,
-          "best_rank": 1,
-          "momentum": -28.4,
-          "top_articles": [
-            {
-              "title": "英伟达黄仁勋称 AI 芯片需求持续超过供应能力：几乎每天都有新订单涌入",
-              "url": "https://www.ithome.com/1/013/721.htm",
-              "source": "IT之家",
-              "date": "2026-10-16",
-              "relevance": 0.9,
-              "best_rank": 1,
-              "momentum": -96.3
-            },
-            {
-              "title": "英伟达RTX Spark性能分析",
-              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
-              "source": "bilibili 热搜",
-              "date": "2026-10-16",
-              "relevance": 0.9,
-              "best_rank": 2,
-              "momentum": -91.3
-            },
-            {
-              "title": "黄仁勋：CoreWeave融资成本在下降",
-              "url": "https://www.toutiao.com/trending/7697031576437132841/",
-              "source": "今日头条",
-              "date": "2026-10-16",
-              "relevance": 0.85,
-              "best_rank": 26,
-              "momentum": 0.0
-            },
-            {
-              "title": "CoreWeave违约概率超六成！黄仁勋“灭火”：融资成本在下降，无需英伟达兜底",
-              "url": "https://wallstreetcn.com/articles/3783724",
-              "source": "华尔街见闻",
-              "date": "2026-10-16",
-              "relevance": 0.8,
-              "best_rank": 6,
-              "momentum": 40.0
-            },
-            {
-              "title": "英伟达黄仁勋公开反驳 OpenAI 奥尔特曼观点：对 AI 网络安全必须“零容忍”",
-              "url": "https://www.ithome.com/1/013/808.htm",
-              "source": "IT之家",
-              "date": "2026-10-16",
-              "relevance": 0.8,
-              "best_rank": 8,
-              "momentum": -63.6
-            },
-            {
-              "title": "国内一半AI算力被指在造爽剧，用于研发仅15%",
-              "url": "https://wallstreetcn.com/articles/3783720",
-              "source": "华尔街见闻",
-              "date": "2026-10-16",
-              "relevance": 0.75,
-              "best_rank": 7,
-              "momentum": 12.5
-            },
-            {
-              "title": "贝莱德CEO Larry Fink警告：AI基建已成美国经济支柱，暂停数据中心建设将触发衰退",
-              "url": "https://wallstreetcn.com/articles/3783674",
-              "source": "华尔街见闻",
-              "date": "2026-10-16",
-              "relevance": 0.7,
-              "best_rank": 10,
-              "momentum": 0.0
             }
           ]
         },
@@ -1897,7 +1915,7 @@
       "start_date": "2026-09-17",
       "end_date": "2026-10-16",
       "basis": "ai_filter",
-      "article_count": 5093,
+      "article_count": 5129,
       "sources": [
         "IT之家",
         "V2EX",
@@ -1914,11 +1932,11 @@
         {
           "tag": "大模型进展",
           "basis": "ai_filter",
-          "article_count": 127,
+          "article_count": 128,
           "source_count": 11,
-          "average_relevance": 0.764,
+          "average_relevance": 0.763,
           "best_rank": 1,
-          "momentum": -39.2,
+          "momentum": -38.9,
           "top_articles": [
             {
               "title": "谷歌最强 AI 模型：Gemini 4 Argon 上线，输出词元上限 100 万个、专攻最棘手难题",
@@ -2001,7 +2019,7 @@
           "source_count": 5,
           "average_relevance": 0.724,
           "best_rank": 1,
-          "momentum": -39.6,
+          "momentum": -39.8,
           "top_articles": [
             {
               "title": "如何看待  Linus 开始使用 Claude Code 开发 Linux 内核？",
@@ -2659,6 +2677,89 @@
           ]
         },
         {
+          "tag": "AI算力与云服务",
+          "basis": "ai_filter",
+          "article_count": 8,
+          "source_count": 4,
+          "average_relevance": 0.806,
+          "best_rank": 1,
+          "momentum": -25.9,
+          "top_articles": [
+            {
+              "title": "英伟达黄仁勋称 AI 芯片需求持续超过供应能力：几乎每天都有新订单涌入",
+              "url": "https://www.ithome.com/1/013/721.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 1,
+              "momentum": -96.3
+            },
+            {
+              "title": "英伟达RTX Spark性能分析",
+              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
+              "source": "bilibili 热搜",
+              "date": "2026-10-16",
+              "relevance": 0.9,
+              "best_rank": 2,
+              "momentum": -91.3
+            },
+            {
+              "title": "黄仁勋：CoreWeave融资成本在下降",
+              "url": "https://www.toutiao.com/trending/7697031576437132841/",
+              "source": "今日头条",
+              "date": "2026-10-16",
+              "relevance": 0.85,
+              "best_rank": 26,
+              "momentum": 0.0
+            },
+            {
+              "title": "CoreWeave违约概率超六成！黄仁勋“灭火”：融资成本在下降，无需英伟达兜底",
+              "url": "https://wallstreetcn.com/articles/3783724",
+              "source": "华尔街见闻",
+              "date": "2026-10-16",
+              "relevance": 0.8,
+              "best_rank": 6,
+              "momentum": 40.0
+            },
+            {
+              "title": "英伟达黄仁勋公开反驳 OpenAI 奥尔特曼观点：对 AI 网络安全必须“零容忍”",
+              "url": "https://www.ithome.com/1/013/808.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.8,
+              "best_rank": 8,
+              "momentum": -72.4
+            },
+            {
+              "title": "Ternary Bonsai 2 系列 AI 模型登场：苹果 iPhone 18 Pro Max 上本地吞吐最高每秒 120 个词元",
+              "url": "https://www.ithome.com/1/013/894.htm",
+              "source": "IT之家",
+              "date": "2026-10-16",
+              "relevance": 0.75,
+              "best_rank": 1,
+              "momentum": 0.0
+            },
+            {
+              "title": "国内一半AI算力被指在造爽剧，用于研发仅15%",
+              "url": "https://wallstreetcn.com/articles/3783720",
+              "source": "华尔街见闻",
+              "date": "2026-10-16",
+              "relevance": 0.75,
+              "best_rank": 7,
+              "momentum": 12.5
+            },
+            {
+              "title": "贝莱德CEO Larry Fink警告：AI基建已成美国经济支柱，暂停数据中心建设将触发衰退",
+              "url": "https://wallstreetcn.com/articles/3783674",
+              "source": "华尔街见闻",
+              "date": "2026-10-16",
+              "relevance": 0.7,
+              "best_rank": 10,
+              "momentum": 0.0
+            }
+          ]
+        },
+        {
           "tag": "开发者工具链",
           "basis": "ai_filter",
           "article_count": 8,
@@ -2821,80 +2922,6 @@
               "relevance": 0.5,
               "best_rank": 18,
               "momentum": 37.9
-            }
-          ]
-        },
-        {
-          "tag": "AI算力与云服务",
-          "basis": "ai_filter",
-          "article_count": 7,
-          "source_count": 4,
-          "average_relevance": 0.814,
-          "best_rank": 1,
-          "momentum": -28.4,
-          "top_articles": [
-            {
-              "title": "英伟达黄仁勋称 AI 芯片需求持续超过供应能力：几乎每天都有新订单涌入",
-              "url": "https://www.ithome.com/1/013/721.htm",
-              "source": "IT之家",
-              "date": "2026-10-16",
-              "relevance": 0.9,
-              "best_rank": 1,
-              "momentum": -96.3
-            },
-            {
-              "title": "英伟达RTX Spark性能分析",
-              "url": "https://search.bilibili.com/all?keyword=%E8%8B%B1%E4%BC%9F%E8%BE%BERTX+Spark%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90",
-              "source": "bilibili 热搜",
-              "date": "2026-10-16",
-              "relevance": 0.9,
-              "best_rank": 2,
-              "momentum": -91.3
-            },
-            {
-              "title": "黄仁勋：CoreWeave融资成本在下降",
-              "url": "https://www.toutiao.com/trending/7697031576437132841/",
-              "source": "今日头条",
-              "date": "2026-10-16",
-              "relevance": 0.85,
-              "best_rank": 26,
-              "momentum": 0.0
-            },
-            {
-              "title": "CoreWeave违约概率超六成！黄仁勋“灭火”：融资成本在下降，无需英伟达兜底",
-              "url": "https://wallstreetcn.com/articles/3783724",
-              "source": "华尔街见闻",
-              "date": "2026-10-16",
-              "relevance": 0.8,
-              "best_rank": 6,
-              "momentum": 40.0
-            },
-            {
-              "title": "英伟达黄仁勋公开反驳 OpenAI 奥尔特曼观点：对 AI 网络安全必须“零容忍”",
-              "url": "https://www.ithome.com/1/013/808.htm",
-              "source": "IT之家",
-              "date": "2026-10-16",
-              "relevance": 0.8,
-              "best_rank": 8,
-              "momentum": -63.6
-            },
-            {
-              "title": "国内一半AI算力被指在造爽剧，用于研发仅15%",
-              "url": "https://wallstreetcn.com/articles/3783720",
-              "source": "华尔街见闻",
-              "date": "2026-10-16",
-              "relevance": 0.75,
-              "best_rank": 7,
-              "momentum": 12.5
-            },
-            {
-              "title": "贝莱德CEO Larry Fink警告：AI基建已成美国经济支柱，暂停数据中心建设将触发衰退",
-              "url": "https://wallstreetcn.com/articles/3783674",
-              "source": "华尔街见闻",
-              "date": "2026-10-16",
-              "relevance": 0.7,
-              "best_rank": 10,
-              "momentum": 0.0
             }
           ]
         },
