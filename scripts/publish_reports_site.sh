@@ -1,7 +1,8 @@
 #!/bin/zsh
 set -eu
 
-REPO_DIR="${REPO_DIR:-/Users/bruce/Coding/NewsRadar}"
+SCRIPT_DIR="${0:A:h}"
+REPO_DIR="${REPO_DIR:-${SCRIPT_DIR:h}}"
 PROJECT_DIR="$REPO_DIR/TrendRadar"
 SITE_DIR="$REPO_DIR/docs"
 DOMAIN="${NEWSRADAR_SITE_DOMAIN:-newsradar.ccwu.cc}"
