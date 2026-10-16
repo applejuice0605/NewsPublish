@@ -59,6 +59,9 @@ def render_html_content(
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>热点新闻趋势</title>
+        <link rel="icon" type="image/png" href="/assets/newsradar.png">
+        <link rel="apple-touch-icon" href="/assets/newsradar.png">
+        <meta property="og:image" content="/assets/newsradar.png">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <link rel="stylesheet" href="/assets/report-speech.css">
         <script src="/assets/report-speech.js" defer></script>
@@ -2700,10 +2703,8 @@ def render_html_content(
 
             <div class="footer">
                 <div class="footer-content">
-                    由 <span class="project-name">TrendRadar</span> 生成 ·
-                    <a href="https://github.com/sansan0/TrendRadar" target="_blank" class="footer-link">
-                        GitHub 开源项目
-                    </a>"""
+                    Powered by
+                    <a href="https://github.com/applejuice0605/NewsRadar.git" target="_blank" rel="noopener noreferrer" class="footer-link project-name">NewsRadar</a>"""
 
     if update_info:
         html += f"""

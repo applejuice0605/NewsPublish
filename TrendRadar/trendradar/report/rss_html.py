@@ -43,6 +43,8 @@ def render_rss_html_content(
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>RSS 订阅内容</title>
+        <link rel="icon" type="image/png" href="/assets/newsradar.png">
+        <link rel="apple-touch-icon" href="/assets/newsradar.png">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <style>
             * { box-sizing: border-box; }
@@ -395,10 +397,8 @@ def render_rss_html_content(
 
             <div class="footer">
                 <div class="footer-content">
-                    由 <span class="project-name">TrendRadar</span> 生成 ·
-                    <a href="https://github.com/sansan0/TrendRadar" target="_blank" class="footer-link">
-                        GitHub 开源项目
-                    </a>
+                    Powered by
+                    <a href="https://github.com/applejuice0605/NewsRadar.git" target="_blank" rel="noopener noreferrer" class="footer-link project-name">NewsRadar</a>
                 </div>
             </div>
         </div>

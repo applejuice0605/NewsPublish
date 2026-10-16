@@ -18,7 +18,10 @@ HTML = """<!doctype html><html><head>
 <link rel="stylesheet" href="/assets/report-speech.css">
 <script src="/assets/report-speech.js" defer></script>
 </head><body><a href="/trends.html">趋势</a><a href="/status.html">状态</a>
-<a href="/sources.html">候选</a><a href="/archive.html">历史</a></body></html>"""
+<a href="/sources.html">候选</a><a href="/archive.html">历史</a>
+<div class="footer">由 <span class="project-name">TrendRadar</span> 生成 ·
+<a href="https://github.com/sansan0/TrendRadar" target="_blank" class="footer-link">GitHub 开源项目</a></div>
+</body></html>"""
 
 
 class SiteFeatureTests(unittest.TestCase):
@@ -47,6 +50,9 @@ class SiteFeatureTests(unittest.TestCase):
             self.assertNotIn("/status.html", page)
             self.assertNotIn("/sources.html", page)
             self.assertIn("/archive.html", page)
+            self.assertIn("/assets/newsradar.png", page)
+            self.assertIn("https://github.com/applejuice0605/NewsRadar.git", page)
+            self.assertNotIn("GitHub 开源项目", page)
             self.assertFalse((site / "audio").exists())
             self.assertFalse((site / "trends.html").exists())
             manifest = json.loads((site / "site-features.json").read_text(encoding="utf-8"))

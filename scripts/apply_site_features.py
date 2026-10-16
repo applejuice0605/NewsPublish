@@ -21,6 +21,15 @@ ROUTE_FILES = {
     "sources": ("sources.html", "sources.json"),
 }
 
+FAVICON_HTML = (
+    '<link rel="icon" type="image/png" href="/assets/newsradar.png">'
+    '<link rel="apple-touch-icon" href="/assets/newsradar.png">'
+)
+POWERED_BY_HTML = (
+    'Powered by <a href="https://github.com/applejuice0605/NewsRadar.git" '
+    'target="_blank" rel="noopener noreferrer" class="footer-link project-name">NewsRadar</a>'
+)
+
 
 def parse_switch(value: str | None, default: bool) -> bool:
     if value is None or not value.strip():
@@ -41,6 +50,15 @@ def remove_anchor(content: str, route: str) -> str:
 def apply_features(site_dir: Path, environment: str, switches: dict[str, bool]) -> None:
     for html_path in site_dir.rglob("*.html"):
         content = html_path.read_text(encoding="utf-8")
+        if "/assets/newsradar.png" not in content and "</head>" in content:
+            content = content.replace("</head>", f"{FAVICON_HTML}</head>", 1)
+        content = re.sub(
+            r'由\s*<span class="project-name">TrendRadar</span>\s*生成\s*·\s*'
+            r'<a href="https://github\.com/sansan0/TrendRadar"[^>]*>\s*GitHub 开源项目\s*</a>',
+            POWERED_BY_HTML,
+            content,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
         if not switches["speech"]:
             content = re.sub(
                 r'\s*<link\b[^>]*href=["\']/assets/report-speech\.css["\'][^>]*>',

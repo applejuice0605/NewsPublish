@@ -187,6 +187,7 @@ def main() -> int:
         "generated_at": now.isoformat(timespec="seconds"),
         "source_hash": content_hash,
         "voice": voice,
+        "voice_label": "云扬 · 中文男声" if voice == "zh-CN-YunyangNeural" else "自然中文语音",
         "script_chars": len(script),
         "audio_url": f"/audio/{date}/daily.mp3",
         "transcript_url": f"/audio/{date}/daily.txt",
