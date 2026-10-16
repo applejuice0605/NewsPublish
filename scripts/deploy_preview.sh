@@ -12,11 +12,18 @@ if [ "$BRANCH" != "staging" ] && [ "${NEWSRADAR_ALLOW_NON_STAGING_PREVIEW:-0}" !
   exit 1
 fi
 
-NEWSRADAR_SITE_GIT_PUSH=0 "$REPO_DIR/scripts/publish_reports_site.sh"
+NEWSRADAR_SITE_APPLY_FEATURES=0 NEWSRADAR_SITE_GIT_PUSH=0 "$REPO_DIR/scripts/publish_reports_site.sh"
 python3 "$REPO_DIR/scripts/prepare_preview_site.py" \
   --repo "$REPO_DIR" \
   --source "$REPO_DIR/docs" \
   --destination "$PREVIEW_DIR"
+python3 "$REPO_DIR/scripts/apply_site_features.py" \
+  --site-dir "$PREVIEW_DIR" \
+  --environment preview \
+  --speech "${NEWSRADAR_FEATURE_SPEECH:-}" \
+  --trends "${NEWSRADAR_FEATURE_TRENDS:-}" \
+  --status "${NEWSRADAR_FEATURE_STATUS:-}" \
+  --sources "${NEWSRADAR_FEATURE_SOURCES:-}"
 
 echo "[preview] deploying newsradar-preview"
 npx wrangler deploy --env preview

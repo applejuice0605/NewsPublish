@@ -6,6 +6,8 @@ PROJECT_DIR="$REPO_DIR/TrendRadar"
 SITE_DIR="$REPO_DIR/docs"
 DOMAIN="${NEWSRADAR_SITE_DOMAIN:-newsradar.ccwu.cc}"
 GIT_PUSH="${NEWSRADAR_SITE_GIT_PUSH:-1}"
+SITE_ENV="${NEWSRADAR_SITE_ENV:-production}"
+APPLY_FEATURES="${NEWSRADAR_SITE_APPLY_FEATURES:-1}"
 
 INDEX_FILE="$PROJECT_DIR/output/index.html"
 HTML_DIR="$PROJECT_DIR/output/html"
@@ -30,6 +32,15 @@ python3 "$REPO_DIR/scripts/generate_reports_archive.py"
 if [ -f "$REPO_DIR/scripts/generate_site_insights.py" ]; then
   python3 "$REPO_DIR/scripts/generate_site_insights.py"
 fi
+if [ "$APPLY_FEATURES" = "1" ]; then
+  python3 "$REPO_DIR/scripts/apply_site_features.py" \
+    --site-dir "$SITE_DIR" \
+    --environment "$SITE_ENV" \
+    --speech "${NEWSRADAR_FEATURE_SPEECH:-}" \
+    --trends "${NEWSRADAR_FEATURE_TRENDS:-}" \
+    --status "${NEWSRADAR_FEATURE_STATUS:-}" \
+    --sources "${NEWSRADAR_FEATURE_SOURCES:-}"
+fi
 
 echo "[site] reports synced to $SITE_DIR"
 echo "[site] custom domain: $DOMAIN"
@@ -46,16 +57,7 @@ if [ -z "$CURRENT_BRANCH" ]; then
   exit 1
 fi
 
-git add docs/CNAME docs/.nojekyll docs/archive.html docs/index.html docs/assets \
-  docs/reports TrendRadar/index.html
-if [ -d docs/audio ]; then
-  git add docs/audio
-fi
-for insight_file in docs/health.json docs/status.html docs/trends.html docs/trends.json docs/sources.html docs/sources.json; do
-  if [ -e "$insight_file" ]; then
-    git add "$insight_file"
-  fi
-done
+git add -A docs TrendRadar/index.html
 
 if git diff --cached --quiet; then
   echo "[site] no report changes to publish"

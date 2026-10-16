@@ -1,0 +1,98 @@
+#!/usr/bin/env python3
+"""Apply environment-specific feature visibility to a generated static site."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import shutil
+from pathlib import Path
+
+
+FEATURE_DEFAULTS = {
+    "production": {"speech": False, "trends": False, "status": False, "sources": False},
+    "preview": {"speech": True, "trends": True, "status": True, "sources": True},
+}
+
+ROUTE_FILES = {
+    "trends": ("trends.html", "trends.json"),
+    "status": ("status.html", "health.json"),
+    "sources": ("sources.html", "sources.json"),
+}
+
+
+def parse_switch(value: str | None, default: bool) -> bool:
+    if value is None or not value.strip():
+        return default
+    normalized = value.strip().lower()
+    if normalized in {"1", "true", "yes", "on", "enabled"}:
+        return True
+    if normalized in {"0", "false", "no", "off", "disabled"}:
+        return False
+    raise ValueError(f"unsupported feature switch value: {value!r}")
+
+
+def remove_anchor(content: str, route: str) -> str:
+    pattern = rf'<a\b[^>]*\bhref=["\']/({re.escape(route)})(?:\.html)?["\'][^>]*>.*?</a>'
+    return re.sub(pattern, "", content, flags=re.IGNORECASE | re.DOTALL)
+
+
+def apply_features(site_dir: Path, environment: str, switches: dict[str, bool]) -> None:
+    for html_path in site_dir.rglob("*.html"):
+        content = html_path.read_text(encoding="utf-8")
+        if not switches["speech"]:
+            content = re.sub(
+                r'\s*<link\b[^>]*href=["\']/assets/report-speech\.css["\'][^>]*>',
+                "",
+                content,
+                flags=re.IGNORECASE,
+            )
+            content = re.sub(
+                r'\s*<script\b[^>]*src=["\']/assets/report-speech\.js["\'][^>]*>\s*</script>',
+                "",
+                content,
+                flags=re.IGNORECASE,
+            )
+        for feature in ROUTE_FILES:
+            if not switches[feature]:
+                content = remove_anchor(content, feature)
+        html_path.write_text(content, encoding="utf-8")
+
+    for feature, filenames in ROUTE_FILES.items():
+        if switches[feature]:
+            continue
+        for filename in filenames:
+            site_dir.joinpath(filename).unlink(missing_ok=True)
+
+    if not switches["speech"]:
+        shutil.rmtree(site_dir / "audio", ignore_errors=True)
+
+    manifest = {"environment": environment, "features": switches}
+    site_dir.joinpath("site-features.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--site-dir", type=Path, required=True)
+    parser.add_argument("--environment", choices=tuple(FEATURE_DEFAULTS), default="production")
+    for feature in FEATURE_DEFAULTS["production"]:
+        parser.add_argument(f"--{feature}")
+    args = parser.parse_args()
+
+    defaults = FEATURE_DEFAULTS[args.environment]
+    switches = {
+        feature: parse_switch(getattr(args, feature), defaults[feature])
+        for feature in defaults
+    }
+    apply_features(args.site_dir.resolve(), args.environment, switches)
+    enabled = ", ".join(name for name, enabled in switches.items() if enabled) or "none"
+    print(f"[site] environment={args.environment}; enabled features: {enabled}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
