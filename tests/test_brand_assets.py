@@ -26,6 +26,9 @@ class BrandAssetTests(unittest.TestCase):
     def test_report_template_uses_wordmark_and_social_image(self) -> None:
         template = (REPO / "TrendRadar" / "trendradar" / "report" / "html.py").read_text(encoding="utf-8")
         self.assertIn("newsradar-wordmark.png", template)
+        self.assertIn("width: clamp(150px, 24vw, 220px)", template)
+        self.assertIn("top: 14px", template)
+        self.assertNotIn("drop-shadow(5px 5px", template)
         self.assertIn("newsradar-share-1200x630.png", template)
         self.assertIn('alt="NewsRadar"', template)
 

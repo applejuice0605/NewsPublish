@@ -223,21 +223,22 @@ def render_html_content(
             .header-title {
                 font-size: 22px;
                 font-weight: 700;
-                margin: 24px 0 30px 0;
+                margin: 72px 0 30px 0;
                 position: relative;
                 z-index: 2;
             }
 
             .header-brand {
                 display: block;
-                width: clamp(180px, 28vw, 300px);
+                width: clamp(150px, 24vw, 220px);
                 height: auto;
                 margin: 0;
                 position: absolute;
-                top: 72px;
-                left: 52px;
+                top: 14px;
+                left: 16px;
                 z-index: 2;
-                filter: drop-shadow(5px 5px 0 var(--comic-ink));
+                object-fit: contain;
+                object-position: left top;
             }
 
             .header-info {
@@ -1922,15 +1923,21 @@ def render_html_content(
                 .content { padding: 16px; }
                 .header { padding: 24px 14px 26px; min-height: 250px; }
                 .header-watermark { font-size: clamp(28px, 10vw, 42px); }
-                .header-title { font-size: 19px; }
+                .save-buttons { margin-top: 68px; }
+                .header-title { font-size: 19px; margin-top: 24px; }
                 .header-brand {
-                    width: min(190px, 62vw);
-                    position: relative;
-                    top: auto;
-                    left: auto;
-                    margin: 54px 0 8px;
+                    width: min(148px, 42vw);
+                    top: 12px;
+                    left: 12px;
                 }
-                .header-info { gap: 8px; }
+                .header-info,
+                body.wide-mode .header-info { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+                body.wide-mode .container { max-width: 100%; }
+                body.wide-mode .content { padding: 16px; }
+                body.wide-mode .rss-feeds-grid,
+                body.wide-mode .ai-section .ai-blocks-grid,
+                body.wide-mode .new-section .new-sources-grid,
+                body.wide-mode .standalone-section .standalone-groups-grid { grid-template-columns: 1fr; }
                 .info-item { padding: 8px 4px; }
                 .info-label { font-size: 10px; }
                 .info-value { font-size: 13px; }

@@ -34,10 +34,16 @@ WORDMARK_HTML = (
 )
 WORDMARK_STYLE = (
     '<style id="newsradar-brand-style">'
-    '.header-brand{display:block;width:clamp(180px,28vw,300px);height:auto;margin:0;position:absolute;'
-    'top:72px;left:52px;z-index:2;filter:drop-shadow(5px 5px 0 #1a1a1a)}'
-    '@media(max-width:480px){.header-brand{width:min(190px,62vw);position:relative;top:auto;left:auto;'
-    'margin:54px 0 8px}}'
+    '.header-brand{display:block;width:clamp(150px,24vw,220px);height:auto;margin:0;position:absolute;'
+    'top:14px;left:16px;z-index:2;object-fit:contain;object-position:left top}'
+    '.header-title{margin-top:72px}'
+    '@media(max-width:480px){.header-brand{width:min(148px,42vw);top:12px;left:12px}'
+    '.save-buttons{margin-top:68px}.header-title{margin-top:24px}'
+    '.header-info,body.wide-mode .header-info{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}'
+    'body.wide-mode .container{max-width:100%}body.wide-mode .content{padding:16px}'
+    'body.wide-mode .rss-feeds-grid,body.wide-mode .ai-section .ai-blocks-grid,'
+    'body.wide-mode .new-section .new-sources-grid,'
+    'body.wide-mode .standalone-section .standalone-groups-grid{grid-template-columns:1fr}}'
     '</style>'
 )
 SOCIAL_IMAGE_HTML = (
@@ -66,6 +72,13 @@ def remove_anchor(content: str, route: str) -> str:
 def apply_features(site_dir: Path, environment: str, switches: dict[str, bool]) -> None:
     for html_path in site_dir.rglob("*.html"):
         content = html_path.read_text(encoding="utf-8")
+        content = re.sub(
+            r'<style id="newsradar-brand-style">.*?</style>',
+            WORDMARK_STYLE,
+            content,
+            count=1,
+            flags=re.IGNORECASE | re.DOTALL,
+        )
         content = re.sub(
             r'<link rel="icon"[^>]*href="/assets/newsradar\.png">',
             '<link rel="icon" type="image/png" sizes="32x32" href="/assets/brand/favicon-32.png">',

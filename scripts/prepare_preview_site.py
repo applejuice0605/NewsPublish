@@ -38,11 +38,13 @@ def inject_banner(path: Path) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repo", type=Path, required=True)
+    parser.add_argument("--data-repo", type=Path)
     parser.add_argument("--source", type=Path, required=True)
     parser.add_argument("--destination", type=Path, required=True)
     args = parser.parse_args()
 
     repo = args.repo.resolve()
+    data_repo = args.data_repo.resolve() if args.data_repo else repo
     source = args.source.resolve()
     destination = args.destination.resolve()
     if not source.joinpath("index.html").is_file():
@@ -62,6 +64,9 @@ def main() -> int:
         "git_branch": git(repo, "branch", "--show-current"),
         "git_commit": git(repo, "rev-parse", "HEAD"),
         "git_commit_short": git(repo, "rev-parse", "--short=12", "HEAD"),
+        "data_branch": git(data_repo, "branch", "--show-current"),
+        "data_commit": git(data_repo, "rev-parse", "HEAD"),
+        "data_commit_short": git(data_repo, "rev-parse", "--short=12", "HEAD"),
     }
     destination.joinpath("build-info.json").write_text(
         json.dumps(info, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"

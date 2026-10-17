@@ -41,6 +41,7 @@ class PreviewSiteTests(unittest.TestCase):
             self.assertNotIn("newsradar-preview-badge", original)
             self.assertIn("内测环境", preview)
             self.assertEqual(metadata["environment"], "preview")
+            self.assertEqual(metadata["data_commit"], metadata["git_commit"])
             self.assertIn("noindex", destination.joinpath("_headers").read_text())
 
 
